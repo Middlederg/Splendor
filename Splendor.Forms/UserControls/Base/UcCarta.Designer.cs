@@ -60,11 +60,11 @@
             this.PbxHelp.Font = new System.Drawing.Font("Verdana", 14F);
             this.PbxHelp.IconChar = FontAwesome.Sharp.IconChar.Exclamation;
             this.PbxHelp.IconColor = System.Drawing.Color.White;
-            this.PbxHelp.IconSize = 21;
-            this.PbxHelp.Location = new System.Drawing.Point(70, 126);
+            this.PbxHelp.IconSize = 24;
+            this.PbxHelp.Location = new System.Drawing.Point(69, 124);
             this.PbxHelp.Margin = new System.Windows.Forms.Padding(0);
             this.PbxHelp.Name = "PbxHelp";
-            this.PbxHelp.Size = new System.Drawing.Size(20, 20);
+            this.PbxHelp.Size = new System.Drawing.Size(24, 24);
             this.PbxHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbxHelp.TabIndex = 1;
             this.PbxHelp.TabStop = false;

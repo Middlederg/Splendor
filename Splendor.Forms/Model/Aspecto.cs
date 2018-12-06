@@ -6,8 +6,8 @@ namespace Splendor.Forms.Model
 {
     public static class Aspecto
     {
-        public static Color Primary = Color.Sienna;
-        public static Color Secondary = Color.BlanchedAlmond;
+        public static Color Primary = Color.SlateBlue;
+        public static Color Secondary = Color.DeepSkyBlue;
         public static Color Terciary = Color.BurlyWood;
         public static int IdSiluetaJugador = 1;
     }

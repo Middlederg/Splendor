@@ -40,7 +40,7 @@ namespace Splendor.Forms.UserControls
             {
                 if (Activable)
                 {
-                    BackColor = value ? Aspecto.Secondary : Color.Transparent;
+                    //BackColor = value ? Aspecto.Secondary : Color.Transparent;
                     BorderStyle = value ? BorderStyle.FixedSingle : BorderStyle.None;
                     seleccionada = value;
                 }

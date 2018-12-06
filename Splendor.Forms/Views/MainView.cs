@@ -24,7 +24,7 @@ namespace Splendor.Forms.Views
         public MainView()
         {
             InitializeComponent();
-            j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo }, 15) { Turno = 0 };
+            j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra, SiluetaFactory.Denver }, 15) { Turno = 0 };
             j.Jugadores[0].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Oro, Gema.Zafiro, Gema.Rubi });
             j.Jugadores[0].Desarrollos.AddRange(DesarrollosFactory.GetDesarrollos());
             j.Jugadores[1].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Onix });

@@ -31,10 +31,14 @@
             this.TlpGeneral = new System.Windows.Forms.TableLayoutPanel();
             this.BtnDesarrollos = new MagicStaircase.Forms.CustomControls.CustomButton();
             this.pGeneral = new System.Windows.Forms.Panel();
+            this.pInterior = new System.Windows.Forms.Panel();
             this.pEscudo = new System.Windows.Forms.Panel();
             this.LblPrestigio = new System.Windows.Forms.Label();
             this.BtnNobles = new MagicStaircase.Forms.CustomControls.CustomButton();
+            this.LblNombre = new System.Windows.Forms.Label();
             this.TlpGeneral.SuspendLayout();
+            this.pGeneral.SuspendLayout();
+            this.pInterior.SuspendLayout();
             this.pEscudo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,10 +49,10 @@
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpGeneral.Controls.Add(this.BtnDesarrollos, 0, 0);
-            this.TlpGeneral.Controls.Add(this.pGeneral, 0, 1);
             this.TlpGeneral.Controls.Add(this.pEscudo, 1, 0);
+            this.TlpGeneral.Controls.Add(this.pGeneral, 0, 1);
             this.TlpGeneral.Controls.Add(this.BtnNobles, 2, 0);
+            this.TlpGeneral.Controls.Add(this.BtnDesarrollos, 0, 0);
             this.TlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpGeneral.Location = new System.Drawing.Point(0, 0);
             this.TlpGeneral.Name = "TlpGeneral";
@@ -56,7 +60,7 @@
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TlpGeneral.Size = new System.Drawing.Size(195, 250);
+            this.TlpGeneral.Size = new System.Drawing.Size(156, 195);
             this.TlpGeneral.TabIndex = 0;
             this.TlpGeneral.MouseEnter += new System.EventHandler(this.OnMouseLeave);
             // 
@@ -73,7 +77,7 @@
             this.BtnDesarrollos.IconColor = System.Drawing.Color.Black;
             this.BtnDesarrollos.IconSize = 15;
             this.BtnDesarrollos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDesarrollos.Location = new System.Drawing.Point(32, 75);
+            this.BtnDesarrollos.Location = new System.Drawing.Point(13, 20);
             this.BtnDesarrollos.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.BtnDesarrollos.Name = "BtnDesarrollos";
             this.BtnDesarrollos.Rotation = 0D;
@@ -86,14 +90,30 @@
             // 
             // pGeneral
             // 
+            this.pGeneral.BackColor = System.Drawing.Color.SlateBlue;
             this.TlpGeneral.SetColumnSpan(this.pGeneral, 3);
+            this.pGeneral.Controls.Add(this.pInterior);
             this.pGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pGeneral.Location = new System.Drawing.Point(15, 105);
-            this.pGeneral.Margin = new System.Windows.Forms.Padding(15, 5, 15, 10);
+            this.pGeneral.Location = new System.Drawing.Point(0, 45);
+            this.pGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.pGeneral.Name = "pGeneral";
-            this.pGeneral.Size = new System.Drawing.Size(165, 135);
+            this.pGeneral.Padding = new System.Windows.Forms.Padding(8);
+            this.pGeneral.Size = new System.Drawing.Size(156, 150);
             this.pGeneral.TabIndex = 0;
-            this.pGeneral.MouseHover += new System.EventHandler(this.OnMouseOver);
+            this.pGeneral.MouseEnter += new System.EventHandler(this.OnMouseLeave);
+            // 
+            // pInterior
+            // 
+            this.pInterior.BackColor = System.Drawing.Color.White;
+            this.pInterior.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pInterior.Controls.Add(this.LblNombre);
+            this.pInterior.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pInterior.Location = new System.Drawing.Point(8, 8);
+            this.pInterior.Margin = new System.Windows.Forms.Padding(0);
+            this.pInterior.Name = "pInterior";
+            this.pInterior.Size = new System.Drawing.Size(140, 134);
+            this.pInterior.TabIndex = 0;
+            this.pInterior.MouseEnter += new System.EventHandler(this.OnMouseOver);
             // 
             // pEscudo
             // 
@@ -101,21 +121,22 @@
             this.pEscudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pEscudo.Controls.Add(this.LblPrestigio);
             this.pEscudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pEscudo.Location = new System.Drawing.Point(72, 25);
-            this.pEscudo.Margin = new System.Windows.Forms.Padding(0, 25, 0, 0);
+            this.pEscudo.Location = new System.Drawing.Point(53, 10);
+            this.pEscudo.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pEscudo.Name = "pEscudo";
-            this.pEscudo.Size = new System.Drawing.Size(50, 75);
+            this.pEscudo.Size = new System.Drawing.Size(50, 35);
             this.pEscudo.TabIndex = 1;
             // 
             // LblPrestigio
             // 
+            this.LblPrestigio.BackColor = System.Drawing.Color.Transparent;
             this.LblPrestigio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblPrestigio.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold);
+            this.LblPrestigio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.LblPrestigio.ForeColor = System.Drawing.Color.White;
             this.LblPrestigio.Location = new System.Drawing.Point(0, 0);
             this.LblPrestigio.Margin = new System.Windows.Forms.Padding(0);
             this.LblPrestigio.Name = "LblPrestigio";
-            this.LblPrestigio.Size = new System.Drawing.Size(50, 75);
+            this.LblPrestigio.Size = new System.Drawing.Size(50, 35);
             this.LblPrestigio.TabIndex = 1;
             this.LblPrestigio.Text = "15";
             this.LblPrestigio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,7 +154,7 @@
             this.BtnNobles.IconColor = System.Drawing.Color.Black;
             this.BtnNobles.IconSize = 15;
             this.BtnNobles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNobles.Location = new System.Drawing.Point(122, 75);
+            this.BtnNobles.Location = new System.Drawing.Point(103, 20);
             this.BtnNobles.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.BtnNobles.Name = "BtnNobles";
             this.BtnNobles.Rotation = 0D;
@@ -144,16 +165,31 @@
             this.BtnNobles.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnNobles.UseVisualStyleBackColor = false;
             // 
+            // LblNombre
+            // 
+            this.LblNombre.BackColor = System.Drawing.Color.Transparent;
+            this.LblNombre.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LblNombre.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.LblNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblNombre.Location = new System.Drawing.Point(0, 110);
+            this.LblNombre.Margin = new System.Windows.Forms.Padding(0);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(138, 22);
+            this.LblNombre.TabIndex = 0;
+            this.LblNombre.Text = "Nombre";
+            this.LblNombre.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // UcCuadroJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.BackgroundImage = global::Splendor.Forms.Properties.Resources.cuadro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.TlpGeneral);
             this.DoubleBuffered = true;
             this.Name = "UcCuadroJugador";
-            this.Size = new System.Drawing.Size(195, 250);
+            this.Size = new System.Drawing.Size(156, 195);
             this.TlpGeneral.ResumeLayout(false);
+            this.pGeneral.ResumeLayout(false);
+            this.pInterior.ResumeLayout(false);
             this.pEscudo.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -167,5 +203,7 @@
         private System.Windows.Forms.Panel pEscudo;
         private MagicStaircase.Forms.CustomControls.CustomButton BtnDesarrollos;
         private MagicStaircase.Forms.CustomControls.CustomButton BtnNobles;
+        private System.Windows.Forms.Panel pInterior;
+        private System.Windows.Forms.Label LblNombre;
     }
 }

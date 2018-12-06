@@ -12,6 +12,6 @@ namespace Splendor.Forms
         public static int CardWidth = 119;
         public static int CardHeight = 166;
 
-        public static Color ColorSeleccion = Color.BurlyWood;
+        public static Color ColorSeleccion = Color.SlateBlue; //burlywood
     }
 }

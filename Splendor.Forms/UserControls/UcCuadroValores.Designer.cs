@@ -61,7 +61,7 @@
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.TlpGeneral.Size = new System.Drawing.Size(165, 135);
+            this.TlpGeneral.Size = new System.Drawing.Size(140, 135);
             this.TlpGeneral.TabIndex = 0;
             // 
             // panel2
@@ -72,7 +72,7 @@
             this.panel2.Location = new System.Drawing.Point(2, 47);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(161, 41);
+            this.panel2.Size = new System.Drawing.Size(136, 41);
             this.panel2.TabIndex = 3;
             // 
             // ucRecurso4
@@ -80,7 +80,7 @@
             this.ucRecurso4.Dock = System.Windows.Forms.DockStyle.Right;
             this.ucRecurso4.FuenteDesarrollo = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.ucRecurso4.FuenteGemas = new System.Drawing.Font("Verdana", 13F);
-            this.ucRecurso4.Location = new System.Drawing.Point(93, 0);
+            this.ucRecurso4.Location = new System.Drawing.Point(68, 0);
             this.ucRecurso4.Margin = new System.Windows.Forms.Padding(0);
             this.ucRecurso4.Name = "ucRecurso4";
             this.ucRecurso4.NumeroDesarrollos = 1;
@@ -113,7 +113,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 41);
+            this.panel1.Size = new System.Drawing.Size(136, 41);
             this.panel1.TabIndex = 2;
             // 
             // ucRecurso1
@@ -136,7 +136,7 @@
             this.ucRecurso2.Dock = System.Windows.Forms.DockStyle.Right;
             this.ucRecurso2.FuenteDesarrollo = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.ucRecurso2.FuenteGemas = new System.Drawing.Font("Verdana", 13F);
-            this.ucRecurso2.Location = new System.Drawing.Point(93, 0);
+            this.ucRecurso2.Location = new System.Drawing.Point(68, 0);
             this.ucRecurso2.Margin = new System.Windows.Forms.Padding(0);
             this.ucRecurso2.Name = "ucRecurso2";
             this.ucRecurso2.NumeroDesarrollos = 1;
@@ -150,17 +150,18 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.LblNumGemas, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.ucRecurso5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Oro, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 93);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 92);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 39);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(140, 41);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // LblNumGemas
@@ -168,10 +169,10 @@
             this.LblNumGemas.BackColor = System.Drawing.Color.Gainsboro;
             this.LblNumGemas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblNumGemas.Font = new System.Drawing.Font("Verdana", 7F);
-            this.LblNumGemas.Location = new System.Drawing.Point(113, 15);
-            this.LblNumGemas.Margin = new System.Windows.Forms.Padding(5, 15, 0, 0);
+            this.LblNumGemas.Location = new System.Drawing.Point(104, 15);
+            this.LblNumGemas.Margin = new System.Windows.Forms.Padding(0, 15, 4, 2);
             this.LblNumGemas.Name = "LblNumGemas";
-            this.LblNumGemas.Size = new System.Drawing.Size(31, 24);
+            this.LblNumGemas.Size = new System.Drawing.Size(32, 24);
             this.LblNumGemas.TabIndex = 6;
             this.LblNumGemas.Text = "8/10";
             this.LblNumGemas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,19 +187,21 @@
             this.ucRecurso5.Name = "ucRecurso5";
             this.ucRecurso5.NumeroDesarrollos = 1;
             this.ucRecurso5.NumeroGemas = 1;
-            this.ucRecurso5.Size = new System.Drawing.Size(72, 39);
+            this.ucRecurso5.Padding = new System.Windows.Forms.Padding(2);
+            this.ucRecurso5.Size = new System.Drawing.Size(68, 41);
             this.ucRecurso5.TabIndex = 1;
             this.ucRecurso5.TipoGema = Splendor.Core.Model.Gema.Esmeralda;
             // 
             // Oro
             // 
+            this.Oro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Oro.Fuente = new System.Drawing.Font("Verdana", 14F);
-            this.Oro.Location = new System.Drawing.Point(0, 0);
+            this.Oro.Location = new System.Drawing.Point(2, 2);
             this.Oro.Margin = new System.Windows.Forms.Padding(0);
             this.Oro.Name = "Oro";
             this.Oro.Numero = 1;
             this.Oro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.Oro.Size = new System.Drawing.Size(35, 39);
+            this.Oro.Size = new System.Drawing.Size(34, 39);
             this.Oro.TabIndex = 2;
             this.Oro.TipoGema = Splendor.Core.Model.Gema.Oro;
             // 
@@ -208,7 +211,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.TlpGeneral);
             this.Name = "UcCuadroValores";
-            this.Size = new System.Drawing.Size(165, 135);
+            this.Size = new System.Drawing.Size(140, 135);
             this.TlpGeneral.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

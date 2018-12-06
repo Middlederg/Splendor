@@ -25,13 +25,13 @@ namespace Splendor.Forms.UserControls
             j = juego;
             IdJugador = idJugador;
             j.UpdateJugadores += Actualizar;
-            pGeneral.BackgroundImage = Comun.ObtenerRecurso("");
-            pGeneral.BackgroundImageLayout = ImageLayout.Center;
-
+            pInterior.BackgroundImage = Comun.ObtenerRecurso($"Silueta{GetJugador.Silueta.Id}");
+            pInterior.BackgroundImageLayout = ImageLayout.Center;
+            LblNombre.Text = GetJugador.Nombre;
             if (IdJugador != 0)
             {
                 valores = new UcCuadroValores(j, IdJugador) { Dock = DockStyle.Fill, Visible = false };
-                pGeneral.Controls.Add(valores);
+                pInterior.Controls.Add(valores);
             }
             Actualizar();
         }
@@ -49,8 +49,9 @@ namespace Splendor.Forms.UserControls
         {
             if (IdJugador != 0)
             {
-                pGeneral.BackgroundImage = Comun.ObtenerRecurso("");
+                pInterior.BackgroundImage = Comun.ObtenerRecurso("");
                 valores.Visible = true;
+                LblNombre.Visible = false;
             }
         }
 
@@ -58,8 +59,9 @@ namespace Splendor.Forms.UserControls
         {
            if (IdJugador != 0)
             {
-                pGeneral.BackgroundImage = Comun.ObtenerRecurso($"Silueta{GetJugador.Silueta.Id}");
+                pInterior.BackgroundImage = Comun.ObtenerRecurso($"Silueta{GetJugador.Silueta.Id}");
                 valores.Visible = false;
+                LblNombre.Visible = true;
             }
         }
     }

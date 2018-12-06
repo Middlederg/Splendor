@@ -13,6 +13,7 @@ namespace Splendor.Forms.UserControls
     {
         private IEnumerable<UcRecurso> GetRecursos => new List<UcRecurso>() { ucRecurso1, ucRecurso2, ucRecurso3, ucRecurso4, ucRecurso5 };
 
+        public UcCuadroValores() { InitializeComponent(); }
         public UcCuadroValores(Juego juego, int idJugador)
         {
             InitializeComponent();

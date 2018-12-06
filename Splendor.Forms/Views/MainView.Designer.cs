@@ -44,17 +44,18 @@
             this.pGeneral.Location = new System.Drawing.Point(0, 0);
             this.pGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.pGeneral.Name = "pGeneral";
-            this.pGeneral.Size = new System.Drawing.Size(1234, 993);
+            this.pGeneral.Size = new System.Drawing.Size(1367, 993);
             this.pGeneral.TabIndex = 1;
             // 
             // TlpGeneral
             // 
             this.TlpGeneral.BackColor = System.Drawing.Color.White;
-            this.TlpGeneral.ColumnCount = 4;
+            this.TlpGeneral.ColumnCount = 5;
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
-            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpGeneral.Controls.Add(this.pOpciones, 2, 2);
             this.TlpGeneral.Controls.Add(this.FlpJugadores, 0, 0);
             this.TlpGeneral.Controls.Add(this.pJugador1, 0, 2);
@@ -67,7 +68,7 @@
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 570F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpGeneral.Size = new System.Drawing.Size(1234, 993);
+            this.TlpGeneral.Size = new System.Drawing.Size(1367, 993);
             this.TlpGeneral.TabIndex = 1;
             // 
             // pOpciones
@@ -86,6 +87,7 @@
             this.FlpJugadores.Location = new System.Drawing.Point(0, 0);
             this.FlpJugadores.Margin = new System.Windows.Forms.Padding(0);
             this.FlpJugadores.Name = "FlpJugadores";
+            this.FlpJugadores.Padding = new System.Windows.Forms.Padding(10);
             this.TlpGeneral.SetRowSpan(this.FlpJugadores, 2);
             this.FlpJugadores.Size = new System.Drawing.Size(195, 715);
             this.FlpJugadores.TabIndex = 1;
@@ -93,18 +95,18 @@
             // pJugador1
             // 
             this.pJugador1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pJugador1.Location = new System.Drawing.Point(0, 715);
-            this.pJugador1.Margin = new System.Windows.Forms.Padding(0);
+            this.pJugador1.Location = new System.Drawing.Point(10, 725);
+            this.pJugador1.Margin = new System.Windows.Forms.Padding(10);
             this.pJugador1.Name = "pJugador1";
             this.TlpGeneral.SetRowSpan(this.pJugador1, 2);
-            this.pJugador1.Size = new System.Drawing.Size(195, 278);
+            this.pJugador1.Size = new System.Drawing.Size(175, 258);
             this.pJugador1.TabIndex = 2;
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 993);
+            this.ClientSize = new System.Drawing.Size(1367, 993);
             this.Controls.Add(this.pGeneral);
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
