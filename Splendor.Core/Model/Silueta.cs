@@ -1,4 +1,6 @@
-﻿namespace Splendor.Core.Model
+﻿using System.Collections.Generic;
+
+namespace Splendor.Core.Model
 {
     public class Silueta
     {

@@ -1,4 +1,4 @@
-﻿namespace MagicStaircase.Forms.CustomControls
+﻿namespace Splendor.Forms.CustomControls
 {
     partial class CustomButton
     {

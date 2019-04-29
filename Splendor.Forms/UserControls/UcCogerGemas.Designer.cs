@@ -30,7 +30,7 @@
         {
             this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.GemaPrimera = new Splendor.Forms.UserControls.UcGemaIndividual();
-            this.BtnOk = new MagicStaircase.Forms.CustomControls.CustomButtonOk();
+            this.BtnOk = new Splendor.Forms.CustomControls.CustomButtonOk();
             this.GemaSegunda = new Splendor.Forms.UserControls.UcGemaIndividual();
             this.GemaTercera = new Splendor.Forms.UserControls.UcGemaIndividual();
             this.TlpPrincipal.SuspendLayout();
@@ -129,7 +129,7 @@
 
         private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
         private UcGemaIndividual GemaPrimera;
-        private MagicStaircase.Forms.CustomControls.CustomButtonOk BtnOk;
+        private Splendor.Forms.CustomControls.CustomButtonOk BtnOk;
         private UcGemaIndividual GemaSegunda;
         private UcGemaIndividual GemaTercera;
     }

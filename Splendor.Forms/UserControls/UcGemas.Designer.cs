@@ -51,7 +51,7 @@
             this.Flp.Location = new System.Drawing.Point(0, 0);
             this.Flp.Margin = new System.Windows.Forms.Padding(0);
             this.Flp.Name = "Flp";
-            this.Flp.Size = new System.Drawing.Size(109, 654);
+            this.Flp.Size = new System.Drawing.Size(109, 662);
             this.Flp.TabIndex = 0;
             // 
             // ucGema1
@@ -131,7 +131,7 @@
             this.Controls.Add(this.Flp);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UcGemas";
-            this.Size = new System.Drawing.Size(109, 654);
+            this.Size = new System.Drawing.Size(109, 662);
             this.Flp.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Pbx = new System.Windows.Forms.PictureBox();
-            this.BtnDelete = new MagicStaircase.Forms.CustomControls.CustomButton();
+            this.BtnDelete = new Splendor.Forms.CustomControls.CustomButton();
             this.GemaControl = new Splendor.Forms.UserControls.UcGema();
             ((System.ComponentModel.ISupportInitialize)(this.Pbx)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +96,7 @@
         #endregion
 
         private UcGema GemaControl;
-        private MagicStaircase.Forms.CustomControls.CustomButton BtnDelete;
+        private Splendor.Forms.CustomControls.CustomButton BtnDelete;
         private System.Windows.Forms.PictureBox Pbx;
     }
 }

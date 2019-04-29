@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MagicStaircase.Forms.CustomControls
+namespace Splendor.Forms.CustomControls
 {
     public partial class CustomButton : FontAwesome.Sharp.IconButton
     {

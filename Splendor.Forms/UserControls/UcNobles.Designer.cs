@@ -45,10 +45,11 @@
             this.Flp.Controls.Add(this.Noble4);
             this.Flp.Controls.Add(this.Noble5);
             this.Flp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Flp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Flp.Location = new System.Drawing.Point(0, 0);
             this.Flp.Margin = new System.Windows.Forms.Padding(0);
             this.Flp.Name = "Flp";
-            this.Flp.Size = new System.Drawing.Size(725, 145);
+            this.Flp.Size = new System.Drawing.Size(145, 725);
             this.Flp.TabIndex = 0;
             // 
             // Noble1
@@ -63,7 +64,7 @@
             // 
             // Noble2
             // 
-            this.Noble2.Location = new System.Drawing.Point(155, 10);
+            this.Noble2.Location = new System.Drawing.Point(10, 155);
             this.Noble2.Margin = new System.Windows.Forms.Padding(10);
             this.Noble2.Name = "Noble2";
             this.Noble2.Noble = null;
@@ -73,7 +74,7 @@
             // 
             // Noble3
             // 
-            this.Noble3.Location = new System.Drawing.Point(300, 10);
+            this.Noble3.Location = new System.Drawing.Point(10, 300);
             this.Noble3.Margin = new System.Windows.Forms.Padding(10);
             this.Noble3.Name = "Noble3";
             this.Noble3.Noble = null;
@@ -83,7 +84,7 @@
             // 
             // Noble4
             // 
-            this.Noble4.Location = new System.Drawing.Point(445, 10);
+            this.Noble4.Location = new System.Drawing.Point(10, 445);
             this.Noble4.Margin = new System.Windows.Forms.Padding(10);
             this.Noble4.Name = "Noble4";
             this.Noble4.Noble = null;
@@ -93,7 +94,7 @@
             // 
             // Noble5
             // 
-            this.Noble5.Location = new System.Drawing.Point(590, 10);
+            this.Noble5.Location = new System.Drawing.Point(10, 590);
             this.Noble5.Margin = new System.Windows.Forms.Padding(10);
             this.Noble5.Name = "Noble5";
             this.Noble5.Noble = null;
@@ -108,7 +109,7 @@
             this.Controls.Add(this.Flp);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UcNobles";
-            this.Size = new System.Drawing.Size(725, 145);
+            this.Size = new System.Drawing.Size(145, 725);
             this.Flp.ResumeLayout(false);
             this.ResumeLayout(false);
 

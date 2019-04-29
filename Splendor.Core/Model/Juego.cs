@@ -297,7 +297,7 @@ namespace Splendor.Core.Model
 
         #region InteligenciaArtificial
 
-        public void Mover(Jugador jugadorActivo = null)
+        public IAccion Mover(Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null) jugadorActivo = ElTurno();
 
@@ -308,99 +308,55 @@ namespace Splendor.Core.Model
                 CompraDesarrollo(d);
 
                 //Busca si es visitado por un noble.
-                Log.Add(jugadorActivo.Nombre + " recibe la visita de " + RecibirNoble()?.ToString());
+                var n = RecibirNoble();
+                if (n != null)
+                    Log.Add($"{jugadorActivo.Nombre} recibe la visita de {n.ToString()}");
+                
+                return new ComprarDesarrollo(d, n);
             }
-            else
-            {
-          //      //Coger gemas
-          //      jugadorActivo.PuedeCogerUnaGema().
 
-		        ////select Disctint de gemas disponibles
-		        //List<Gema> l = GemasMesa.GroupBy(v => v.Id)
-          //                 .Select(v2 => v2.First()).OrderBy(loc => loc.Id)
-          //                 .ToList();
-          //      l.RemoveAll(v3=>v3.Id == 0);
-		
-		        ////Si hay más de tres distintas
-		        //int i = 0;
-		        //string frase = "";
-		        //if(l.Count >= 3 && Jugadores[IndTurno].Gemas.Count <= 7)
-		        //{
-			       // //Coge la lista de gemas ordenada segun lo que le viene bien
-			       // foreach(Gema g in listagemasConvienenAleatoria())
-			       // {
-				      //  if(l.Contains(g))
-				      //  {
-					     //   Jugadores[IndTurno].Gemas.Add(g);
-					     //   GemasMesa.Remove(g);
-					     //   frase += g.ToString() + ", ";
-					     //   i++;
-				      //  }
-				      //  if(i>=3)
-					     //   break;
-			       // }
-			       // frase = Jugadores[IndTurno].Nombre + " obtiene " + frase; 					
-          //          Log.Add(frase.Substring(0, frase.Length - 2));
-		        //}
-          //      else //Coge 2 gemas
-          //      {
-			       // //opciones de coger 2 gemas
-			       // List<Gema> l2 = new List<Gema>();
-			       // for(int j=1; j<=5; j++)
-			       // {
-				      //  if(numGemasMesa(j)>=4)
-					     //   l2.Add(new Gema(j));
-			       // }
-			       // if(l2.Count > 0 && Jugadores[IndTurno].Gemas.Count <= 8)
-			       // {
-			       //     foreach(Gema g in listagemasConvienenAleatoria())
-			       //     {
-				      //      if(g.Id == l2[0].Id)
-				      //      {
-					     //       Jugadores[IndTurno].Gemas.Add(g);
-					     //       GemasMesa.Remove(g);
-					     //       Log.Add(Jugadores[IndTurno].Nombre + "obtiene dos "+ g.ToString());
-			    	  //      }
-			       //     }
-			       // }
-          //          else
-          //          {	
-          //              if (Jugadores[IndTurno].Reservadas.Count < 3)
-		        //        //reservar desarrollo si no ha reservado 3 o mas
-          //              {
-          //                  //Consigue una moneda de oro
-          //                  frase = ", sin recoger moneda de oro";
-          //                  if (numGemasMesa(0) > 0)
-          //                  {
-          //                      cogerMoneda(0);
-          //                      frase = ", y consigue una moneda de oro";
-          //                  }
-			       //         //Se reserva un desarrollo
-			       //         d = reservaDesarrollo();
-			       //         Jugadores[IndTurno].Reservadas.Add(d);
-          //                  Log.Add(Jugadores[IndTurno].Nombre + " se reserva " + d.ToString() + frase);
-          //              }
-          //              else
-          //              {
-          //                  if (l.Count > 0)
-          //                  {
-				      //          frase = "";
-          //                      foreach (Gema g in l)
-          //                      {
-          //                          cogerMoneda(g.Id);
-          //                          frase += g.ToString() + ", ";
-          //                      }
-				      //          frase = Jugadores[IndTurno].Nombre + " obtiene " + frase; 				
-          //                      Log.Add(frase.Substring(0, frase.Length - 2));
-          //                  }
-          //                  else
-          //                  {
-          //                      Log.Add(Jugadores[IndTurno].Nombre + " no sabe qué hacer. Pasa turno");
-          //                  }
-          //              }
-          //          }
-            //    }
+            //Coge 3 gemas al azar
+            if (jugadorActivo.TotalGemas() < 6)
+            {
+                var gemas3 = PuedeCogerUnaGema().ElementosAleatorios(3);
+                CogerGemas(gemas3);
+                return new CogerGemas(gemas3);
             }
+
+            //Reservar desarrollo con moneda de oro
+            if (jugadorActivo.PuedeReservar() && NumGemasMesa(Gema.Oro) > 0)
+            {
+                var res = ReservaDesarrollo();
+                if (res != null)
+                {
+                    ReservaDesarrollo(res);
+                    return new ReservarDesarrollo(res, conPiezaOro : true);
+                }
+            }
+
+            //Coge 2 gemas al azar
+            if (jugadorActivo.TotalGemas() < 9 && PuedeCogerDosGemas().Any())
+            {
+                var gema = PuedeCogerDosGemas().ElementoAleatorio();
+                var gemas2 = new List<Gema> { gema, gema };
+                CogerGemas(gemas2);
+                return new CogerGemas(gemas2);
+            }
+
+            //Reservar desarrollo sin moneda de oro
+            if (jugadorActivo.PuedeReservar())
+            {
+                var res = ReservaDesarrollo();
+                if (res != null)
+                {
+                    ReservaDesarrollo(res);
+                    return new ReservarDesarrollo(res, conPiezaOro : false);
+                }
+            }
+
+            var gemas = PuedeCogerUnaGema().ElementosAleatorios(3);
+            CogerGemas(gemas);
+            return new CogerGemas(gemas);
         }
 
         /// <summary>

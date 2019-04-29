@@ -25,6 +25,8 @@ namespace Splendor.Forms.Views
         {
             InitializeComponent();
             j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra, SiluetaFactory.Denver }, 15) { Turno = 0 };
+            //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra }, 15) { Turno = 0 };
+            //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo }, 15) { Turno = 0 };
             j.Jugadores[0].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Oro, Gema.Zafiro, Gema.Rubi });
             j.Jugadores[0].Desarrollos.AddRange(DesarrollosFactory.GetDesarrollos());
             j.Jugadores[1].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Onix });
@@ -36,8 +38,6 @@ namespace Splendor.Forms.Views
             AgregarCuadrosJugadores();
         }
 
-      
-
         private void AgregarTablero()
         {
             ucTablero = new UcTablero(j){ Dock = DockStyle.Fill };
@@ -47,16 +47,17 @@ namespace Splendor.Forms.Views
 
         private void AgregarGemas()
         {
-            ucGemas = new UcGemas(j) { Dock = DockStyle.Fill  };
+            ucGemas = new UcGemas(j) { Anchor = AnchorStyles.None };
             ucGemas.OnSelectedGemaChanged += GemaSeleccionada;
             TlpGeneral.Controls.Add(ucGemas, 3, 0);
-            TlpGeneral.SetRowSpan(ucGemas, 2);
+            TlpGeneral.SetRowSpan(ucGemas, 3);
         }
 
         public void AgregarNobles()
         {
-            UcNobles u = new UcNobles(j) { Dock = DockStyle.Fill };
-            TlpGeneral.Controls.Add(u, 2, 0);
+            UcNobles u = new UcNobles(j) { Anchor = AnchorStyles.None };
+            TlpGeneral.Controls.Add(u, 4, 0);
+            TlpGeneral.SetRowSpan(u, 3);
         }
 
         private void AgregarJugadorPrincipal()
@@ -101,11 +102,25 @@ namespace Splendor.Forms.Views
 
         private void OnPlay()
         {
-            if (!j.TurnoDelJugador)
+            FlpAccionesJugadores.Controls.Clear();
+            foreach (var jugador in j.RestoJugadores(j.Jugadores[0]))
             {
-                j.Mover();
-                j.AvanzaTurno();
+                if (j.Turno == j.Jugadores.IndexOf(jugador))
+                {
+                    IAccion accion = j.Mover();
+                    FlpAccionesJugadores.Controls.Add(new UcAccion(accion, BtnAceptarMovimientoClick));
+                }
+                else
+                {
+                    FlpAccionesJugadores.Controls.Add(new UcAccion());
+                }
             }
+        }
+
+        private void BtnAceptarMovimientoClick(object sender, EventArgs e)
+        {
+            j.AvanzaTurno();
+            OnPlay();
         }
     }
 }

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Enumeraciones\Fase.cs" />
     <Compile Include="Model\Gema.cs" />
+    <Compile Include="Model\IAccion.cs" />
     <Compile Include="Model\NivelDesarrollo.cs" />
     <Compile Include="Comun.cs" />
     <Compile Include="Model\Silueta.cs" />
@@ -498,6 +499,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preparacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reglas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reglas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reglas3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resumen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resumen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\titulo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splendor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -102,6 +102,12 @@
     <Compile Include="UserControls\Base\UcGema.Designer.cs">
       <DependentUpon>UcGema.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcAccion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcAccion.Designer.cs">
+      <DependentUpon>UcAccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcComprarDesarrollos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Base\UcGema.resx">
       <DependentUpon>UcGema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcAccion.resx">
+      <DependentUpon>UcAccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcComprarDesarrollos.resx">
       <DependentUpon>UcComprarDesarrollos.cs</DependentUpon>

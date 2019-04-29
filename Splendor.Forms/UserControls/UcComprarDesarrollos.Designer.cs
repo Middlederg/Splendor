@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnReservar = new MagicStaircase.Forms.CustomControls.CustomButton();
-            this.BtnComprar = new MagicStaircase.Forms.CustomControls.CustomButton();
+            this.BtnReservar = new Splendor.Forms.CustomControls.CustomButton();
+            this.BtnComprar = new Splendor.Forms.CustomControls.CustomButton();
             this.TlpPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +112,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
-        private MagicStaircase.Forms.CustomControls.CustomButton BtnReservar;
-        private MagicStaircase.Forms.CustomControls.CustomButton BtnComprar;
+        private Splendor.Forms.CustomControls.CustomButton BtnReservar;
+        private Splendor.Forms.CustomControls.CustomButton BtnComprar;
     }
 }

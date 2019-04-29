@@ -34,6 +34,12 @@ namespace Splendor.Forms.UserControls
                 var noble = j.Nobles[i];
                 (Flp.Controls[i] as UcNoble).Noble = j.Nobles[i];
             }
+            AnchoNobles();
         }
+
+        private void AnchoNobles() => Height = j.Nobles.Count * 155;
+        
+
+
     }
 }

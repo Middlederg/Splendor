@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.TlpGeneral = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnDesarrollos = new MagicStaircase.Forms.CustomControls.CustomButton();
+            this.BtnDesarrollos = new Splendor.Forms.CustomControls.CustomButton();
             this.pGeneral = new System.Windows.Forms.Panel();
             this.pInterior = new System.Windows.Forms.Panel();
             this.pEscudo = new System.Windows.Forms.Panel();
             this.LblPrestigio = new System.Windows.Forms.Label();
-            this.BtnNobles = new MagicStaircase.Forms.CustomControls.CustomButton();
+            this.BtnNobles = new Splendor.Forms.CustomControls.CustomButton();
             this.LblNombre = new System.Windows.Forms.Label();
             this.TlpGeneral.SuspendLayout();
             this.pGeneral.SuspendLayout();
@@ -201,8 +201,8 @@
         private System.Windows.Forms.Panel pGeneral;
         private System.Windows.Forms.Label LblPrestigio;
         private System.Windows.Forms.Panel pEscudo;
-        private MagicStaircase.Forms.CustomControls.CustomButton BtnDesarrollos;
-        private MagicStaircase.Forms.CustomControls.CustomButton BtnNobles;
+        private Splendor.Forms.CustomControls.CustomButton BtnDesarrollos;
+        private Splendor.Forms.CustomControls.CustomButton BtnNobles;
         private System.Windows.Forms.Panel pInterior;
         private System.Windows.Forms.Label LblNombre;
     }

@@ -1,13 +1,13 @@
-﻿namespace Splendor.Forms.CustomControls
+﻿namespace Splendor.Forms.UserControls
 {
-    partial class CustomButtonOk
+    partial class UcAccion
     {
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Limpiar los recursos que se estén usando.
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de componentes
+        #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
         /// Método necesario para admitir el Diseñador. No se puede modificar
@@ -28,27 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Flp = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // CustomButtonOk
+            // Flp
             // 
-            this.BackColor = System.Drawing.Color.SlateBlue;
-            this.FlatAppearance.BorderSize = 0;
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Font = new System.Drawing.Font("Verdana", 14F);
-            this.ForeColor = System.Drawing.Color.White;
-            this.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.IconColor = System.Drawing.Color.White;
-            this.IconSize = 40;
+            this.Flp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Flp.Location = new System.Drawing.Point(0, 0);
+            this.Flp.Margin = new System.Windows.Forms.Padding(0);
+            this.Flp.Name = "Flp";
+            this.Flp.Size = new System.Drawing.Size(60, 195);
+            this.Flp.TabIndex = 0;
+            // 
+            // UcAccion
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Controls.Add(this.Flp);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(70, 50);
-            this.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UseVisualStyleBackColor = false;
+            this.Name = "UcAccion";
+            this.Size = new System.Drawing.Size(60, 195);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel Flp;
     }
 }

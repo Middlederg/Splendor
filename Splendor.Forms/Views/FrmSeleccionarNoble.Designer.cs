@@ -35,7 +35,7 @@
             this.Noble3 = new Splendor.Forms.UserControls.UcNoble();
             this.Noble4 = new Splendor.Forms.UserControls.UcNoble();
             this.Noble5 = new Splendor.Forms.UserControls.UcNoble();
-            this.BtnOk = new MagicStaircase.Forms.CustomControls.CustomButtonOk();
+            this.BtnOk = new Splendor.Forms.CustomControls.CustomButtonOk();
             this.Flp.SuspendLayout();
             this.TlpPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +173,7 @@
         private UserControls.UcNoble Noble3;
         private UserControls.UcNoble Noble4;
         private UserControls.UcNoble Noble5;
-        private MagicStaircase.Forms.CustomControls.CustomButtonOk BtnOk;
+        private Splendor.Forms.CustomControls.CustomButtonOk BtnOk;
         private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
     }
 }

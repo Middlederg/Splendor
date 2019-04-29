@@ -563,6 +563,16 @@ namespace Splendor.Core.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Machiavello {
             get {
                 object obj = ResourceManager.GetObject("Machiavello", resourceCulture);
@@ -576,6 +586,16 @@ namespace Splendor.Core.Properties {
         internal static System.Drawing.Bitmap MariaEstuardo {
             get {
                 object obj = ResourceManager.GetObject("MariaEstuardo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap material {
+            get {
+                object obj = ResourceManager.GetObject("material", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -823,6 +843,16 @@ namespace Splendor.Core.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap preparacion {
+            get {
+                object obj = ResourceManager.GetObject("preparacion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap r1 {
             get {
                 object obj = ResourceManager.GetObject("r1", resourceCulture);
@@ -1006,6 +1036,56 @@ namespace Splendor.Core.Properties {
         internal static System.Drawing.Bitmap rectangulo {
             get {
                 object obj = ResourceManager.GetObject("rectangulo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reglas1 {
+            get {
+                object obj = ResourceManager.GetObject("reglas1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reglas2 {
+            get {
+                object obj = ResourceManager.GetObject("reglas2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reglas3 {
+            get {
+                object obj = ResourceManager.GetObject("reglas3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resumen {
+            get {
+                object obj = ResourceManager.GetObject("resumen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resumen2 {
+            get {
+                object obj = ResourceManager.GetObject("resumen2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1216,6 +1296,26 @@ namespace Splendor.Core.Properties {
         internal static System.Drawing.Bitmap SolimanElMagnifico {
             get {
                 object obj = ResourceManager.GetObject("SolimanElMagnifico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon splendor {
+            get {
+                object obj = ResourceManager.GetObject("splendor", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap titulo {
+            get {
+                object obj = ResourceManager.GetObject("titulo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
