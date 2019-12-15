@@ -13,24 +13,24 @@ namespace Splendor.Core.Model
         public int Prestigio { get; private set; }
         public string Ruta { get; private set; }
 
-        private readonly int[] _desarrollosRequeridos;
+        private readonly int[] desarrollosRequeridos;
 
         public Noble(string nombre, int[] desarrollosRequeridos, int prestigio, string ruta)
         {
             Nombre = nombre;
             Prestigio = prestigio;
             Ruta = ruta;
-            _desarrollosRequeridos = desarrollosRequeridos;
+            this.desarrollosRequeridos = desarrollosRequeridos;
         }
 
         /// <summary>
         /// Devuelve cantidad de bonificación requerida
         /// </summary>
         /// <returns></returns>
-        public int Requiere(Gema gema) => _desarrollosRequeridos[(int)gema - 1];
+        public int Requiere(Gema gema) => desarrollosRequeridos[(int)gema - 1];
 
         /// <summary>
-        /// Determina si un jugador podría ser visitado porese noble
+        /// Determina si un jugador podría ser visitado por ese noble
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
