@@ -14,7 +14,7 @@ The repository contains:
 ## Releases
 **Steps for my future me, just not to forget how changes are deployed**
 
-The releases folow this pattern: {MajorVersion}.{MinorVersion}.{Build.Number} 
+The releases folow this pattern: {MajorVersion}.{MinorVersion}.{BuildNumber} 
 
 In order to release a **new version**:
 
