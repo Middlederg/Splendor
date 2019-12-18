@@ -293,12 +293,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Splendor.Core\Splendor.Core.csproj">
-      <Project>{dcfdea7e-0d43-41af-b8c8-7d7a82fd5fa2}</Project>
-      <Name>Splendor.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\RubiSmall.png" />
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +309,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shield1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Splendor.Domain\Splendor.Domain.csproj">
+      <Project>{78699946-d78d-43ef-8487-ca6089a757ef}</Project>
+      <Name>Splendor.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
