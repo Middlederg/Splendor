@@ -27,12 +27,12 @@ namespace Splendor.Forms.UserControls
                 Visible = gema.HasValue;
                 if (gema.HasValue)
                 {
-                    Pbx.Image = Comun.ObtenerRecurso(gema.Value.ToString());
+                    Pbx.Image = Comun.GetImage(gema.Value.ToString().ToLower());
                     ToolTipAyuda.SetToolTip(Pbx, gema.Value.DisplayName().ToString());
                 }
                 else
                 {
-                    Pbx.Image = Comun.ObtenerRecurso("");
+                    Pbx.Image = Comun.GetImage("");
                     ToolTipAyuda.SetToolTip(Pbx, "");
                 }
             }

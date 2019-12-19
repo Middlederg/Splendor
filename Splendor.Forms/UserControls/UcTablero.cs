@@ -15,14 +15,14 @@ namespace Splendor.Forms.UserControls
 {
     public partial class UcTablero : UserControl
     {
-        private Juego j;
+        private readonly Juego j;
         public bool DesarrollosActivables { get; set; }
         public Action OnSelectedDesarrolloChanged { get; set; }
 
         public IEnumerable<UcCarta> GetCartas(NivelDesarrollo nivel) => PanelNivel(nivel).Controls.OfType<UcCarta>();
         public IEnumerable<UcCarta> GetCartas()
         {
-            foreach (NivelDesarrollo nivel in EnumExtensions.GetEnumList<NivelDesarrollo>())
+            foreach (NivelDesarrollo nivel in Enum.GetValues(typeof(NivelDesarrollo)))
                 foreach (var uc in PanelNivel(nivel).Controls.OfType<UcCarta>())
                     yield return uc;
         }

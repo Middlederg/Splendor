@@ -85,7 +85,7 @@ namespace Splendor.Forms.UserControls
             if (desarrollo == null)
                 throw new ArgumentNullException(nameof(desarrollo));
 
-            Pbx.Image = Comun.ObtenerRecurso(desarrollo.Ruta);
+            Pbx.Image = Comun.GetImage(desarrollo.Ruta);
             Desarrollo = desarrollo;
             Activable = activable;
             Estado = EstadoCarta.Desarrollo;
@@ -98,7 +98,7 @@ namespace Splendor.Forms.UserControls
         /// </summary>
         public void Mazo(NivelDesarrollo nivel, bool activable)
         {
-            Pbx.Image = Comun.ObtenerRecurso($"trasera{(int)nivel}");
+            Pbx.Image = Comun.GetImage($"trasera{(int)nivel}");
             Activable = activable;
             Estado = EstadoCarta.Trasera;
             Tag = nivel.ToString();

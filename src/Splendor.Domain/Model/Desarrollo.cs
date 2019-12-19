@@ -124,7 +124,7 @@ namespace Splendor.Core.Model
 
             var gastos = ListaGastosText(jug).ToList();
             if (gastos.Any())
-                return new string[] { "Comprar el desarrollo gastando" }.Concat(gastos).ListaConFilas();
+                return string.Join("/n", new string[] { "Comprar el desarrollo gastando" }.Concat(gastos));
 
             return "No puedes comprar el desarrollo";
         }
@@ -133,7 +133,7 @@ namespace Splendor.Core.Model
         {
             var faltan = ListaFaltanText(jug).ToList();
             if (faltan.Any())
-                return new string[] { "No puedes comprar el desarrollo, faltan:" }.Concat(faltan).ListaConFilas();
+                return string.Join("/n", new string[] { "No puedes comprar el desarrollo, faltan:" }.Concat(faltan));
 
             return "";
         }

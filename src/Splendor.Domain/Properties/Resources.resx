@@ -424,14 +424,14 @@
   <data name="resumen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\resumen2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="rubi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rubi.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="RubiBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RubiBack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RubiSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RubiSmall.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="rubí" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rubí.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shield.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -35,7 +35,7 @@ namespace Splendor.Forms.UserControls
             set
             {
                 tipoGema = value;
-                pContenedor.BackgroundImage = Comun.ObtenerRecurso(value.ToString() + "Back");
+                pContenedor.BackgroundImage = Comun.GetImage(value.ToString() + "Back");
             }
         }
 

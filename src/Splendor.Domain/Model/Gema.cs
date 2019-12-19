@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Linq;
 
 namespace Splendor.Core.Model
 {
@@ -48,4 +50,6 @@ namespace Splendor.Core.Model
             return $"{numero} {gema.DisplayName().ToLower()}s";
         }
     }
+
+    
 }

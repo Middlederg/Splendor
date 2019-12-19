@@ -12,6 +12,6 @@ namespace Splendor.Core.Negocio
         /// </summary>
         /// <param name="numjugadores"></param>
         /// <returns></returns>
-        public static int PrepararJugadorInicial(int numJugadores) => R.Instance.NumAleatorio(0, numJugadores - 1);
+        public static int PrepararJugadorInicial(int numJugadores) =>  Randomizer.GetRandomNumber(0, numJugadores - 1);
     }
 }

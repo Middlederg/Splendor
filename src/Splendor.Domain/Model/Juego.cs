@@ -267,9 +267,9 @@ namespace Splendor.Core.Model
             jugadorActivo.Gemas.AddRange(gemas);
             gemas.ToList().ForEach(x => GemasMesa.Remove(x));
             if(gemas.Distinct().Count() > 1)
-                Log.Add(jugadorActivo.Nombre + " coge " + string.Join(", ", gemas.Select(x=> x.Descripcion())));
+                Log.Add(jugadorActivo.Nombre + " coge " + string.Join(", ", gemas.Select(x=> x.DisplayName())));
             else
-                Log.Add(jugadorActivo.Nombre + " coge " + gemas.Distinct().Count() + " " + gemas.First().Descripcion());
+                Log.Add(jugadorActivo.Nombre + " coge " + gemas.Distinct().Count() + " " + gemas.First().DisplayName());
             UpdateGemas();
             UpdateJugadores();
         }
@@ -318,7 +318,7 @@ namespace Splendor.Core.Model
             //Coge 3 gemas al azar
             if (jugadorActivo.TotalGemas() < 6)
             {
-                var gemas3 = PuedeCogerUnaGema().ElementosAleatorios(3);
+                var gemas3 = PuedeCogerUnaGema().GetRandomItems(3);
                 CogerGemas(gemas3);
                 return new CogerGemas(gemas3);
             }
@@ -337,7 +337,7 @@ namespace Splendor.Core.Model
             //Coge 2 gemas al azar
             if (jugadorActivo.TotalGemas() < 9 && PuedeCogerDosGemas().Any())
             {
-                var gema = PuedeCogerDosGemas().ElementoAleatorio();
+                var gema = PuedeCogerDosGemas().GetRandomItem();
                 var gemas2 = new List<Gema> { gema, gema };
                 CogerGemas(gemas2);
                 return new CogerGemas(gemas2);
@@ -354,7 +354,7 @@ namespace Splendor.Core.Model
                 }
             }
 
-            var gemas = PuedeCogerUnaGema().ElementosAleatorios(3);
+            var gemas = PuedeCogerUnaGema().GetRandomItems(3);
             CogerGemas(gemas);
             return new CogerGemas(gemas);
         }

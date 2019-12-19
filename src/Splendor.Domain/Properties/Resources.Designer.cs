@@ -1083,9 +1083,9 @@ namespace Splendor.Domain.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static byte[] rubí {
+        internal static byte[] rubi {
             get {
-                object obj = ResourceManager.GetObject("rubí", resourceCulture);
+                object obj = ResourceManager.GetObject("rubi", resourceCulture);
                 return ((byte[])(obj));
             }
         }

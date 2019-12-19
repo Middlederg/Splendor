@@ -12,10 +12,10 @@ namespace Splendor.Forms.UserControls
 {
     public partial class UcCuadroJugador : UcBase
     {
-        private Juego j;
+        private readonly Juego j;
         private Jugador GetJugador => j.Jugadores[IdJugador];
-        private int IdJugador;
-        private UcCuadroValores valores;
+        private readonly int IdJugador;
+        private readonly UcCuadroValores valores;
 
         public UcCuadroJugador() { InitializeComponent(); }
 
@@ -25,7 +25,7 @@ namespace Splendor.Forms.UserControls
             j = juego;
             IdJugador = idJugador;
             j.UpdateJugadores += Actualizar;
-            pInterior.BackgroundImage = Comun.ObtenerRecurso($"Silueta{GetJugador.Silueta.Id}");
+            pInterior.BackgroundImage = Comun.GetImage($"Silueta{GetJugador.Silueta.Id}");
             pInterior.BackgroundImageLayout = ImageLayout.Center;
             LblNombre.Text = GetJugador.Nombre;
             if (IdJugador != 0)
@@ -49,7 +49,7 @@ namespace Splendor.Forms.UserControls
         {
             if (IdJugador != 0)
             {
-                pInterior.BackgroundImage = Comun.ObtenerRecurso("");
+                pInterior.BackgroundImage = Comun.GetImage("");
                 valores.Visible = true;
                 LblNombre.Visible = false;
             }
@@ -59,7 +59,7 @@ namespace Splendor.Forms.UserControls
         {
            if (IdJugador != 0)
             {
-                pInterior.BackgroundImage = Comun.ObtenerRecurso($"Silueta{GetJugador.Silueta.Id}");
+                pInterior.BackgroundImage = Comun.GetImage($"Silueta{GetJugador.Silueta.Id}");
                 valores.Visible = false;
                 LblNombre.Visible = true;
             }

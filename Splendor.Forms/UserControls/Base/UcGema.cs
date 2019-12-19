@@ -24,7 +24,7 @@ namespace Splendor.Forms.UserControls
                 gema = value;
                 if (gema.HasValue)
                 {
-                    Pbx.Image = Comun.ObtenerRecurso(gema.Value.ToString());
+                    Pbx.Image = Comun.GetImage(gema.Value.ToString().ToLower());
                     ToolTipAyuda.SetToolTip(Pbx, gema.Value.DisplayName().ToString());
                 }
                 else
@@ -79,7 +79,7 @@ namespace Splendor.Forms.UserControls
         public UcGema()
         {
             InitializeComponent();
-            Pbx.Image = Comun.ObtenerRecurso("Diamante");
+            Pbx.Image = Comun.GetImage("diamante");
             //if (Gema.HasValue && SubIndice > 0)
             //    Gema(Gema.Value, SubIndice, false);
         }

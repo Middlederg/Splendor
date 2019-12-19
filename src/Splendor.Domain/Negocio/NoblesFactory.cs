@@ -29,6 +29,6 @@ namespace Splendor.Core.Negocio
             };
         }
 
-        public static IEnumerable<Noble> GetNobles(int numero) => GetNobles().ElementosAleatorios(numero);
+        public static IEnumerable<Noble> GetNobles(int numero) => GetNobles().GetRandomItems(numero);
     }
 }

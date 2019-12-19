@@ -21,7 +21,7 @@ namespace Splendor.Forms.UserControls
             set
             {
                 noble = value;
-                Pbx.Image = Comun.ObtenerRecurso(value?.Ruta ?? "");
+                Pbx.Image = Comun.GetImage(value?.Ruta ?? "");
                 ToolTipAyuda.SetToolTip(Pbx, value?.ToString() ?? "");
             }
         }

@@ -8,7 +8,7 @@ namespace Splendor.Core.Negocio
 {
     public static class DesarrollosFactory
     {
-        public static List<Desarrollo> GetDesarrollos() => ListaDesarrollos().ToList().Desordenar();
+        public static IEnumerable<Desarrollo> GetDesarrollos() => ListaDesarrollos().ToList().RandomizeList();
         /// <summary>
         /// Devuelve todos los Desarrollos disponibles barajados
         /// </summary>
