@@ -38,7 +38,7 @@ namespace Splendor.Domain
         /// Puntuación del jugador
         /// </summary>
         /// <returns></returns>
-        public int Prestigio() => NoblesVisitados.Sum(x => x.Prestigio) + Desarrollos.Sum(x => x.Prestigio);
+        public int Prestigio() => NoblesVisitados.Sum(x => x.Prestige) + Desarrollos.Sum(x => x.Prestigio);
 
         /// <summary>
         /// Cantidad total de gemas que tiene el jugador
@@ -98,7 +98,7 @@ namespace Splendor.Domain
             }
 
             //Quitamos las gemas y las añadimos a la lista
-            Gems.GetAllGems(includeGold:false)
+            Gems.GetAllGems()
             .ToList()
             .ForEach(gema => 
             {

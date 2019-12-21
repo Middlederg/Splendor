@@ -15,21 +15,21 @@ namespace Splendor.Forms.UserControls
         public bool DesarrollosActivables { get; set; }
         public Action OnSelectedDesarrolloChanged { get; set; }
 
-        public IEnumerable<UcCarta> GetCartas(NivelDesarrollo nivel) => PanelNivel(nivel).Controls.OfType<UcCarta>();
+        public IEnumerable<UcCarta> GetCartas(Level nivel) => PanelNivel(nivel).Controls.OfType<UcCarta>();
         public IEnumerable<UcCarta> GetCartas()
         {
-            foreach (NivelDesarrollo nivel in Enum.GetValues(typeof(NivelDesarrollo)))
+            foreach (Level nivel in Enum.GetValues(typeof(Level)))
                 foreach (var uc in PanelNivel(nivel).Controls.OfType<UcCarta>())
                     yield return uc;
         }
 
-        private FlowLayoutPanel PanelNivel(NivelDesarrollo nivel)
+        private FlowLayoutPanel PanelNivel(Level nivel)
         {
             switch (nivel)
             {
-                case NivelDesarrollo.Nivel1: return Flp1;
-                case NivelDesarrollo.Nivel2: return Flp2;
-                case NivelDesarrollo.Nivel3: return Flp3;
+                case Level.Nivel1: return Flp1;
+                case Level.Nivel2: return Flp2;
+                case Level.Nivel3: return Flp3;
             }
             throw new NotImplementedException();
         }
@@ -39,9 +39,9 @@ namespace Splendor.Forms.UserControls
             InitializeComponent();
             j = juego;
             DesarrollosActivables = desarrollosActivables;
-            Trasera1.Mazo(NivelDesarrollo.Nivel1, desarrollosActivables);
-            Trasera2.Mazo(NivelDesarrollo.Nivel2, desarrollosActivables);
-            Trasera3.Mazo(NivelDesarrollo.Nivel3, desarrollosActivables);
+            Trasera1.Mazo(Level.Nivel1, desarrollosActivables);
+            Trasera2.Mazo(Level.Nivel2, desarrollosActivables);
+            Trasera3.Mazo(Level.Nivel3, desarrollosActivables);
             Refrescar();
             j.UpdateDesarrollos += Refrescar;
             j.UpdateGemas += Refrescar;
@@ -54,9 +54,9 @@ namespace Splendor.Forms.UserControls
                 uc.Inicializar();
 
             //Carga desarrollos visibles
-            CargarCartas(NivelDesarrollo.Nivel1, Flp1);
-            CargarCartas(NivelDesarrollo.Nivel2, Flp2);
-            CargarCartas(NivelDesarrollo.Nivel3, Flp3);
+            CargarCartas(Level.Nivel1, Flp1);
+            CargarCartas(Level.Nivel2, Flp2);
+            CargarCartas(Level.Nivel3, Flp3);
 
             //Carga las traseras
             foreach (var trasera in new List<UcCarta>() { Trasera1, Trasera2, Trasera3 }.Where(x=> x.Estado == EstadoCarta.Trasera))
@@ -68,7 +68,7 @@ namespace Splendor.Forms.UserControls
             }
         }
 
-        private void CargarCartas(NivelDesarrollo nivel, FlowLayoutPanel flp)
+        private void CargarCartas(Level nivel, FlowLayoutPanel flp)
         {
             int i = 0;
             foreach (var d in j.DesarrollosVisibles(nivel))

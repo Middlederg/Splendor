@@ -74,7 +74,7 @@ namespace Splendor.Domain
             Log.Add($"{Jugadores[Turno].ToString()} comienza la partida");
 
             //Preparo los nobles 
-            Nobles = NoblesFactory.GetNobles(Jugadores.Count + 1).ToList();
+            Nobles = Splendor.Domain.Nobles.GetNobles(Jugadores.Count + 1).ToList();
 
             //Preparo el mazo de desarrollos
             Mazo = DesarrollosFactory.GetDesarrollos().ToList();
@@ -85,7 +85,7 @@ namespace Splendor.Domain
                 GemasMesa.Add(Gems.Gold);
 
             //Reparto gemas dependiendo del número de jugadores
-            foreach (var gema in Gems.GetAllGems(includeGold:false))
+            foreach (var gema in Gems.GetAllGems())
                 foreach (int i in Enumerable.Range(0, Gems.GetNumGemasInicio(Jugadores.Count).gemas))
                     GemasMesa.Add(gema);
         }
@@ -153,7 +153,7 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public IEnumerable<Noble> PosiblesNoblesVisitados(Jugador jug) => Nobles.Where(x => x.Visitable(jug));
+        //public IEnumerable<Noble> PosiblesNoblesVisitados(Jugador jug) => Nobles.Where(x => x.Visitable(jug));
 
         #endregion
 
@@ -203,7 +203,7 @@ namespace Splendor.Domain
         public IEnumerable<Development> DesarrollosVisibles()
         {
             foreach (int nivel in Enumerable.Range(1, 3))
-                foreach (var d in DesarrollosVisibles((NivelDesarrollo)nivel))
+                foreach (var d in DesarrollosVisibles(Levels.FromInt(nivel)))
                     yield return d;
         }
 
@@ -212,9 +212,9 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="nivel"></param>
         /// <returns></returns>
-        public IEnumerable<Development> DesarrollosVisibles(NivelDesarrollo nivel) => Mazo.Where(x => x.Nivel == nivel).Take(4);
+        public IEnumerable<Development> DesarrollosVisibles(Level nivel) => Mazo.Where(x => x.Nivel == nivel).Take(4);
 
-        public int CartasMazo(NivelDesarrollo nivel) => Math.Max(0, Mazo.Count(x => x.Nivel == nivel) - 4);
+        public int CartasMazo(Level nivel) => Math.Max(0, Mazo.Count(x => x.Nivel == nivel) - 4);
 
         #endregion
 
@@ -239,7 +239,7 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public IEnumerable<Gem> PuedeCogerUnaGema() => Gems.GetAllGems(includeGold: false).Where(gema => GemasMesa.Contains(gema));
+        public IEnumerable<Gem> PuedeCogerUnaGema() => Gems.GetAllGems().Where(gema => GemasMesa.Contains(gema));
 
         /// <summary>
         /// Devuelve si un jugador puede coger dos gema de ese tipo
@@ -253,7 +253,7 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public IEnumerable<Gem> PuedeCogerDosGemas() => Gems.GetAllGems(includeGold: false).Where(gema => PuedeCogerDosGemas(gema));
+        public IEnumerable<Gem> PuedeCogerDosGemas() => Gems.GetAllGems().Where(gema => PuedeCogerDosGemas(gema));
 
         /// <summary>
         /// El jugador activo coge una lista de gemas
@@ -306,11 +306,11 @@ namespace Splendor.Domain
                 CompraDesarrollo(d);
 
                 //Busca si es visitado por un noble.
-                var n = RecibirNoble();
-                if (n != null)
-                    Log.Add($"{jugadorActivo.Nombre} recibe la visita de {n.ToString()}");
+                //var n = RecibirNoble();
+                //if (n != null)
+                //    Log.Add($"{jugadorActivo.Nombre} recibe la visita de {n.ToString()}");
                 
-                return new ComprarDesarrollo(d, n);
+                //return new ComprarDesarrollo(d, n);
             }
 
             //Coge 3 gemas al azar
@@ -440,82 +440,31 @@ namespace Splendor.Domain
             return null;
         }
 
-        //public List<Gema> listagemasConvienenAleatoria()
-        //{
-        //    List<Gema> l = new List<Gema>();
-        //    for (int i = 1; i <= 5; i++)
-        //        l.Add(new Gema(i));
-        //    return Utilx.barajar<Gema>(l);
-        //}
-
-        //public List<Gema> GemasConvienen(Jugador jugadorActivo = null)
-        //{
-        //    //if (jugadorActivo == null) jugadorActivo = ElTurno();
-
-        //    //foreach(Desarrollo d in jugadorActivo.MejoresDesarrollo(DesarrollosVisibles()))
-        //    //{
-
-        //    //}
-
-        //    //GameHelper.ObtenerListaGemas()
-        //    //List<Gema> l = new List<Gema>();
-        //    //int[] porcentajes = new int[5];
-        //    //foreach (Desarrollo d in desarrollosMostrados())
-        //    //{
-        //    //    int sum = 0;
-        //    //    int i = 0;
-        //    //    foreach (int precio in d.Precio)
-        //    //    {
-        //    //        sum += (precio - Jugadores[IndTurno].poder(i+1));
-        //    //        i++;
-        //    //    }
-        //    //    for (int j = 0; j < 5; j++)
-        //    //    {
-        //    //        porcentajes[j] += (sum == 0) ? 0 : (d.Precio[j] - Jugadores[IndTurno].poder(j)) * 100 / sum;
-        //    //    }
-        //    //}
-
-        //    //for (int i = 0; i < porcentajes.Length; i++)
-        //    //{
-        //    //    porcentajes[i] = porcentajes[i] / desarrollosMostrados().Count;
-        //    //    if (porcentajes[i] == 0) //para no dejar ninguna gema con porcentaje 0
-        //    //        porcentajes[i] = 1;
-        //    //}
-
-        //    ////ordenar gemas en funcion de los porcentajes
-        //    //int[] intArray = {1,2,3,4,5};
-        //    //Array.Sort(porcentajes, intArray);
-        //    //Array.Reverse(intArray);
-
-        //    //for (int i = 0; i < porcentajes.Length; i++)
-        //    //    l.Add(new Gema(intArray[i]));
-
-        //    //return l;
-        //}
+       
 
         /// <summary>
         /// Jugador activo recibe un noble y devuelve la elección
         /// </summary>
-        public Noble RecibirNoble()
-        {
-            //Busca si es visitado por un noble.
-            var misNobles = PosiblesNoblesVisitados(ElTurno());
+        //public Noble RecibirNoble()
+        //{
+        //    //Busca si es visitado por un noble.
+        //    var misNobles = PosiblesNoblesVisitados(ElTurno());
 
-            if (misNobles.Any())
-            {
-                foreach (Jugador rival in RestoJugadores(ElTurno()).OrderBy(x => x.TurnosJugados))
-                {
-                    Noble nob = misNobles.FirstOrDefault(x => x.Visitable(rival));
-                    if (nob != null)
-                    {
-                        RecibirNoble(nob);
-                        return nob;
-                    }
-                }
-                return misNobles.First();
-            }
-            return null;
-        }
+        //    if (misNobles.Any())
+        //    {
+        //        foreach (Jugador rival in RestoJugadores(ElTurno()).OrderBy(x => x.TurnosJugados))
+        //        {
+        //            Noble nob = misNobles.FirstOrDefault(x => x.Visitable(rival));
+        //            if (nob != null)
+        //            {
+        //                RecibirNoble(nob);
+        //                return nob;
+        //            }
+        //        }
+        //        return misNobles.First();
+        //    }
+        //    return null;
+        //}
 
         #endregion
     }

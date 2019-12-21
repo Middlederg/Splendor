@@ -11,16 +11,21 @@ namespace Splendor.Domain
         public static Gem Emerald => new Emerald();
         public static Gem Gold => new Gold();
 
-        public static IEnumerable<Gem> GetAllGems(bool includeGold = true)
+        public static IEnumerable<Gem> GetAllGems()
         {
             yield return Diamond;
             yield return Ruby;
             yield return Onyx;
             yield return Sapphire;
             yield return Emerald;
+        }
 
-            if (includeGold)
-                yield return Gold;
+        public static IEnumerable<Gem> GetAllGemsWithGold()
+        {
+            foreach (var gem in GetAllGems())
+                yield return gem;
+
+            yield return Gold;
         }
 
         public static (int oro, int gemas) GetNumGemasInicio(int numJugadores)

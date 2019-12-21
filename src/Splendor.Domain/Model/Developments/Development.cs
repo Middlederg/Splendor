@@ -27,7 +27,7 @@ namespace Splendor.Domain
     public class Development : IPath
     {
 	    public int Id { get; private set; }
-	    public NivelDesarrollo Nivel { get; private set; }
+	    public Level Nivel { get; private set; }
 	    public int[] Precio { get; private set; }
 	    public Gem Bonificacion { get; private set; }
 	    public int Prestigio { get; private set; }
@@ -36,7 +36,7 @@ namespace Splendor.Domain
         public Development(int id, int nivel, int[] precio, int prestigio, Gem bonificacion, string ruta)
 	    {
 		    Id = id;
-		    Nivel = (NivelDesarrollo)nivel;
+		    Nivel = Levels.FromInt(nivel);
 		    Precio = precio;
 		    Prestigio = prestigio;
             Bonificacion = bonificacion;
@@ -96,7 +96,7 @@ namespace Splendor.Domain
         public int Gasto(Jugador jug)
         {
             int coste = 0;
-            foreach (var gema in Gems.GetAllGems(includeGold: false))
+            foreach (var gema in Gems.GetAllGems())
                 coste += Gasto(jug, gema);
             return coste;
         }
@@ -106,14 +106,14 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public bool ComprableSinoro(Jugador jug) => Gems.GetAllGems(includeGold:false).All(gema => jug.TotalGemas(gema) >= Gasto(jug, gema));
+        public bool ComprableSinoro(Jugador jug) => Gems.GetAllGems().All(gema => jug.TotalGemas(gema) >= Gasto(jug, gema));
 
         /// <summary>
         /// Devuelve el oro que se gastaría al comprar el desarrollo
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public int OroNecesario(Jugador jug) => Gems.GetAllGems(includeGold: false).Sum(gema => Math.Max(Gasto(jug, gema) - jug.TotalGemas(gema), 0));
+        public int OroNecesario(Jugador jug) => Gems.GetAllGems().Sum(gema => Math.Max(Gasto(jug, gema) - jug.TotalGemas(gema), 0));
 
         ///// <summary>
         ///// Devuelve el oro que se gastaría al comprar el desarrollo
@@ -140,7 +140,7 @@ namespace Splendor.Domain
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public bool Gratuito(Jugador jug) => Gems.GetAllGems(includeGold: false).All(gema => jug.Bonificacion(gema) >= TotalGemas(gema));
+        public bool Gratuito(Jugador jug) => Gems.GetAllGems().All(gema => jug.Bonificacion(gema) >= TotalGemas(gema));
 
         public string GastoText(Jugador jug)
         {
@@ -165,7 +165,7 @@ namespace Splendor.Domain
 
         private IEnumerable<string> ListaGastosText(Jugador jug)
         {
-            foreach (var gema in Gems.GetAllGems(includeGold: false))
+            foreach (var gema in Gems.GetAllGems())
             {
                 int gasto = Math.Min(Gasto(jug, gema), jug.TotalGemas(gema));
                 if (gasto > 0)
@@ -177,7 +177,7 @@ namespace Splendor.Domain
 
         private IEnumerable<string> ListaFaltanText(Jugador jug)
         {
-            foreach (var gema in Gems.GetAllGems(includeGold:false))
+            foreach (var gema in Gems.GetAllGems())
             {
                 int faltan = Faltan(jug, gema);
                 if (faltan > 0)
@@ -185,7 +185,7 @@ namespace Splendor.Domain
             }
         }
 
-        public override string ToString() => $"Desarrollo de nivel {(int)Nivel} ({Prestigio} punto{(Prestigio == 1 ? "" : "s")})";
+        public override string ToString() => $"Desarrollo de nivel {Nivel.LevelNumber} ({Prestigio} punto{(Prestigio == 1 ? "" : "s")})";
 
         public override bool Equals(object obj)
         {

@@ -95,7 +95,7 @@ namespace Splendor.Forms.UserControls
         /// <summary>
         /// Marca como contenedor de un mazo de cartas 
         /// </summary>
-        public void Mazo(NivelDesarrollo nivel, bool activable)
+        public void Mazo(Level nivel, bool activable)
         {
             Pbx.Image = new DevelopmentBack(nivel).GetImage();
             Activable = activable;
@@ -109,11 +109,11 @@ namespace Splendor.Forms.UserControls
         /// Obtiene el nivel de desarrollo de una carta trasera
         /// </summary>
         /// <returns></returns>
-        public NivelDesarrollo Nivel()
+        public Level Nivel()
         {
             if (!Estado.Equals(EstadoCarta.Trasera))
                 throw new Exception($"No se puede obtener el nivel en el estado {Estado.ToString()}");
-            return (NivelDesarrollo)Enum.Parse(typeof(NivelDesarrollo), Tag.ToString());
+            return (Level)Enum.Parse(typeof(Level), Tag.ToString());
         }
         
         private void Pbx_Click(object sender, EventArgs e) => OnClick(e);

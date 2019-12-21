@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Splendor.Tests
 {
-    public class GemasTests
+    public class GemTests
     {
         [Fact]
         public void Gems_should_be_instantiated()
