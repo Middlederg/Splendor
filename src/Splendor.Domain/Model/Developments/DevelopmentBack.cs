@@ -4,7 +4,7 @@
     {
         public Level Nivel { get; }
 
-        public string Path => $"trasera{Nivel.LevelNumber}";
+        public string Path => $"trasera{(int)Nivel}";
 
         public DevelopmentBack(Level nivel)
         {

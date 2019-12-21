@@ -5,17 +5,27 @@ namespace Splendor.Domain
 {
     public class Level
     {
-        public int LevelNumber { get; }
+        public static Level FromScalar(int levelNumber) => new Level(levelNumber);
+        public static Level Level1 => FromScalar(1);
+        public static Level Level2 => FromScalar(2);
+        public static Level Level3 => FromScalar(3);
 
-        internal Level(int number)
+        private readonly int value;
+
+        private Level(int value)
         {
-            LevelNumber = number;
+            if (value < 1 || value > 3)
+                throw new ArgumentOutOfRangeException(nameof(Level), "Level should be a value between 1 and 3");
+            this.value = value;
         }
 
-        public override string ToString() => $"Level {LevelNumber}";
+        public static implicit operator int(Level prestige) => prestige.value;
+        public static explicit operator Level(int value) => new Level(value);
 
-        public static bool operator ==(Level gem1, Level gem2) => gem1.Equals(gem2);
-        public static bool operator !=(Level gem1, Level gem2) => !gem1.Equals(gem2);
+        public override string ToString() => $"Level {value}";
+
+        public static bool operator ==(Level obj1, Level obj2) => obj1.Equals(obj2);
+        public static bool operator !=(Level obj1, Level obj2) => !obj1.Equals(obj2);
 
         public override bool Equals(object obj)
         {
@@ -23,10 +33,10 @@ namespace Splendor.Domain
                 return false;
 
             var level = (Level)obj;
-            return level.LevelNumber == LevelNumber;
+            return level.value == value;
         }
 
-        public override int GetHashCode() => LevelNumber.GetHashCode();
+        public override int GetHashCode() => value.GetHashCode();
 
     }
 }

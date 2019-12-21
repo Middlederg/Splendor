@@ -6,146 +6,48 @@ using System.Threading.Tasks;
 
 namespace Splendor.Domain
 {
-    public class Cost
+    public class PurchaseService
     {
-        private readonly IEnumerable<Gem> gems;
-        public int Total => gems.Count();
+        private readonly Development development;
+        private readonly Player player;
 
-        public Cost(params Gem[] gems)
+        public PurchaseService(Development development, Player player)
         {
-            this.gems = gems.ToList();
+            this.development = development;
+            this.player = player;
         }
 
-        public Cost(params IEnumerable<Gem>[] gems)
-        {
-            this.gems = gems.SelectMany(x => x).ToList();
-        }
+        private int WouldSpend(Gem gem) => Math.Max(0, development.TotalGemsOfType(gem) - player.Bonus(gem));
+        private int Missing(Gem gem) => Math.Max(0, WouldSpend(gem) - player.TotalGems(gem));
 
-        public int OfType(Gem gem) => gems.Count(x => x == gem);
-    }
+        public int Cost() => Gems.GetAllGems().Sum(x => WouldSpend(x));
 
-    public class Development : IPath
-    {
-	    public int Id { get; private set; }
-	    public Level Nivel { get; private set; }
-	    public int[] Precio { get; private set; }
-	    public Gem Bonificacion { get; private set; }
-	    public int Prestigio { get; private set; }
-        public string Path { get; }
+        public bool IsFree() => Gems.GetAllGems().All(gema => player.Bonus(gema) >= WouldSpend(gema));
 
-        public Development(int id, int nivel, int[] precio, int prestigio, Gem bonificacion, string ruta)
-	    {
-		    Id = id;
-		    Nivel = Levels.FromInt(nivel);
-		    Precio = precio;
-		    Prestigio = prestigio;
-            Bonificacion = bonificacion;
-            Path = ruta;
-	    }
-
-        public Development(Development d)
-        {
-            Id = d.Id;
-            Nivel = d.Nivel;
-            Precio = d.Precio;
-            Prestigio = d.Prestigio;
-            Bonificacion = d.Bonificacion;
-            Path = d.Path;
-        }
-
-        /// <summary>
-        /// Cantidad total de gemas que cuesta el desarrollo
-        /// </summary>
-        /// <returns></returns>
- 	    public int TotalGemas() => Precio.Sum();
-
-        /// <summary>
-        /// Cantidad total de gemas de ese tipo que cuesta el desarrollo
-        /// </summary>
-        /// <returns></returns>
-        public int TotalGemas(Gem gema)
-        {
-            if (gema == Gems.Diamond) return Precio[0];
-            if (gema == Gems.Ruby) return Precio[1];
-            if (gema == Gems.Onyx) return Precio[2];
-            if (gema == Gems.Sapphire) return Precio[3];
-            if (gema == Gems.Emerald) return Precio[4];
-            return 0;
-        }
-
-
-        /// <summary>
-        /// Número de gemas de ese tipo que gastaría el jugador al comprar el desarrollo
-        /// </summary>
-        /// <param name="jug"></param>
-        /// <returns></returns>
-        public int Gasto(Jugador jug, Gem gema) => Math.Max(TotalGemas(gema) - jug.Bonificacion(gema), 0);
-
-        /// <summary>
-        /// Número de gemas de ese tipo que le faltan al jugador para pagar el desarrollo
-        /// </summary>
-        /// <param name="jug"></param>
-        /// <returns></returns>
-        public int Faltan(Jugador jug, Gem gema) => Math.Max(0, Gasto(jug, gema) - jug.TotalGemas(gema)); 
-
-        /// <summary>
-        /// Número de gemas totales que gastaría el jugador para comprar el desarrollo
-        /// </summary>
-        /// <param name="jug"></param>
-        /// <returns></returns>
-        public int Gasto(Jugador jug)
-        {
-            int coste = 0;
-            foreach (var gema in Gems.GetAllGems())
-                coste += Gasto(jug, gema);
-            return coste;
-        }
-
-        /// <summary>
-        /// Determina si el jugador puede comprar el desarrollo sin gastar comodines de oro
-        /// </summary>
-        /// <param name="jug"></param>
-        /// <returns></returns>
-        public bool ComprableSinoro(Jugador jug) => Gems.GetAllGems().All(gema => jug.TotalGemas(gema) >= Gasto(jug, gema));
+        public bool CanAfford() => Gems.GetAllGems().All(gema => player.TotalGems(gema) >= WouldSpend(gema));
 
         /// <summary>
         /// Devuelve el oro que se gastaría al comprar el desarrollo
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public int OroNecesario(Jugador jug) => Gems.GetAllGems().Sum(gema => Math.Max(Gasto(jug, gema) - jug.TotalGemas(gema), 0));
+        public int OroNecesario(Player jug) => Gems.GetAllGems().Sum(gema => Math.Max(TotalCost(jug, gema) - jug.TotalGems(gema), 0));
 
-        ///// <summary>
-        ///// Devuelve el oro que se gastaría al comprar el desarrollo
-        ///// Sustituido por el metodo anterior, parece mas bonito
-        ///// </summary>
-        ///// <param name="jug"></param>
-        ///// <returns></returns>
-        //public int OroNecesario(Jugador jug) 
-        //{
-        //    int coste = 0;
-        //    //Negocio.GameHelper.ObtenerListaGemas().ToList().ForEach(gema => coste += Math.Max(Gasto(jug, gema) - jug.TotalGemas(gema),0));
-        //    return coste;
-        //}
+
 
         /// <summary>
         /// Determina si el jugador puede comprar el desarrollo
         /// </summary>
         /// <param name="jug"></param>
         /// <returns></returns>
-        public bool ComprableConOro(Jugador jug) => OroNecesario(jug) <= jug.TotalGemas(Gems.Gold);
+        public bool ComprableConOro(Player jug) => OroNecesario(jug) <= jug.TotalGems(Gems.Gold);
 
-        /// <summary>
-        /// Determina si el jugador es capaz de comprar el desarrollo sin gastar gemas
-        /// </summary>
-        /// <param name="jug"></param>
-        /// <returns></returns>
-        public bool Gratuito(Jugador jug) => Gems.GetAllGems().All(gema => jug.Bonificacion(gema) >= TotalGemas(gema));
+        
 
-        public string GastoText(Jugador jug)
+        public override string ToString()
         {
-            if (Gratuito(jug))
-                return "Comprar el desarrollo sin gastar gemas";
+            if (IsFree())
+                return "You can buy it for free";
 
             var gastos = ListaGastosText(jug).ToList();
             if (gastos.Any())
@@ -154,7 +56,7 @@ namespace Splendor.Domain
             return "No puedes comprar el desarrollo";
         }
 
-        public string FaltanText(Jugador jug)
+        public string FaltanText(Player jug)
         {
             var faltan = ListaFaltanText(jug).ToList();
             if (faltan.Any())
@@ -163,11 +65,11 @@ namespace Splendor.Domain
             return "";
         }
 
-        private IEnumerable<string> ListaGastosText(Jugador jug)
+        private IEnumerable<string> ListaGastosText(Player jug)
         {
             foreach (var gema in Gems.GetAllGems())
             {
-                int gasto = Math.Min(Gasto(jug, gema), jug.TotalGemas(gema));
+                int gasto = Math.Min(TotalCost(jug, gema), jug.TotalGems(gema));
                 if (gasto > 0)
                     yield return $"{gema.Plural(gasto)}";
             }
@@ -175,7 +77,7 @@ namespace Splendor.Domain
             if (oro > 0) yield return $"{Gems.Gold.Plural(oro)}";
         }
 
-        private IEnumerable<string> ListaFaltanText(Jugador jug)
+        private IEnumerable<string> ListaFaltanText(Player jug)
         {
             foreach (var gema in Gems.GetAllGems())
             {
@@ -184,18 +86,50 @@ namespace Splendor.Domain
                     yield return $"{gema.Plural(faltan)}";
             }
         }
+    }
 
-        public override string ToString() => $"Desarrollo de nivel {Nivel.LevelNumber} ({Prestigio} punto{(Prestigio == 1 ? "" : "s")})";
+    public class Development : IPath
+    {
+	    public int Id { get; }
+	    public Level Level { get; }
+        public Gem Bonus { get; }
+
+        public Prestige Prestige { get; }
+        public string Path { get; }
+
+        private readonly Cost price;
+        public int TotalGems() => price.Total;
+        public int TotalGemsOfType(Gem gem) => price.OfType(gem);
+
+        public Development(int id, Level level, int prestige, Gem bonificacion, string ruta, params IEnumerable<Gem>[] prices)
+	    {
+            if (prestige < 0)
+                throw new ArgumentOutOfRangeException(nameof(prestige), "Prestige should be a value grater than 0");
+
+		    Id = id;
+		    Level = level;
+		    Prestige = (Prestige)prestige;
+            Bonus = bonificacion ?? throw new ArgumentNullException(nameof(bonificacion));
+            Path = ruta;
+
+            price = new Cost(prices);
+
+        }
+
+        public override string ToString() => $"{Level.ToString()}, Bonus: {Bonus.ToString()}. {Prestige.ToString()})";
+
+        public static bool operator ==(Development obj1, Development obj2) => obj1.Equals(obj2);
+        public static bool operator !=(Development obj1, Development obj2) => !obj1.Equals(obj2);
 
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
-                throw new ArgumentException("Para comparar dos instancias de " + GetType() + " deben ser del mismo tipo");
-            return ((Development)obj).Id == Id;
+                return false;
+
+            var development = (Development)obj;
+            return development.Id == Id;
         }
 
         public override int GetHashCode() => Id.GetHashCode();
-
-        public Development Copiar() => new Development(this);
     }
 }
