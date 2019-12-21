@@ -1,4 +1,4 @@
-﻿using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using System.Drawing;
 using System;
 
@@ -14,17 +14,14 @@ namespace Splendor.Forms.Model
 
     public static class AspectoGemas
     {
-        public static Color ColorFondo(this Gema gema)
+        public static Color ColorFondo(this Gem gema)
         {
-            switch (gema)
-            {
-                case Gema.Oro: return Color.FromArgb(255, 236, 139);
-                case Gema.Diamante:  return Color.FromArgb(210, 215, 211);
-                case Gema.Rubi: return Color.FromArgb(241, 169, 160);
-                case Gema.Onix: return Color.FromArgb(171, 183, 183);
-                case Gema.Zafiro: return Color.FromArgb(137, 196, 244);
-                case Gema.Esmeralda: return Color.FromArgb(123, 239, 178);
-            }
+            if (gema == Gems.Gold) return Color.FromArgb(255, 236, 139);
+            if (gema == Gems.Diamond) return Color.FromArgb(210, 215, 211);
+            if (gema == Gems.Ruby) return Color.FromArgb(241, 169, 160);
+            if (gema == Gems.Onyx) return Color.FromArgb(171, 183, 183);
+            if (gema == Gems.Sapphire) return Color.FromArgb(137, 196, 244);
+            if (gema == Gems.Emerald) return Color.FromArgb(123, 239, 178);
             return Color.White;
         }
     }

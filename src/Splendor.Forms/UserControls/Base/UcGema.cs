@@ -6,26 +6,25 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Splendor.Core.Model;
+using Splendor.Domain;
 using Splendor.Forms.Model;
-using Splendor.Core;
 
 namespace Splendor.Forms.UserControls
 {
     public partial class UcGema : UcBase
     {
-        private Gema? gema;
+        private Gem gema;
         [Description("Gema asociada")]
-        public Gema? Gema
+        public Gem Gema
         {
             get => gema;
             set
             {
                 gema = value;
-                if (gema.HasValue)
+                if (value != null)
                 {
-                    Pbx.Image = Comun.GetImage(gema.Value.ToString().ToLower());
-                    ToolTipAyuda.SetToolTip(Pbx, gema.Value.DisplayName().ToString());
+                    Pbx.Image = gema.GetImage();
+                    ToolTipAyuda.SetToolTip(Pbx, gema.ToString());
                 }
                 else
                 {
@@ -79,7 +78,7 @@ namespace Splendor.Forms.UserControls
         public UcGema()
         {
             InitializeComponent();
-            Pbx.Image = Comun.GetImage("diamante");
+            Pbx.Image = Gems.Diamond.GetImage();
             //if (Gema.HasValue && SubIndice > 0)
             //    Gema(Gema.Value, SubIndice, false);
         }
@@ -96,7 +95,7 @@ namespace Splendor.Forms.UserControls
         /// <summary>
         /// La gema se coge y se procesa la información
         /// </summary>
-        public Gema Coger()
+        public Gem Coger()
         {
             var gema = Gema;
             SubIndice--;

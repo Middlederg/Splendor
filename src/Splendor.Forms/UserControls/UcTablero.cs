@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Splendor.Core.Model;
-using Splendor.Core.Enumeraciones;
 using Splendor.Forms.Model;
 using FontAwesome.Sharp;
+using Splendor.Domain;
 
 namespace Splendor.Forms.UserControls
 {
@@ -100,7 +96,7 @@ namespace Splendor.Forms.UserControls
         /// Devuelve el desarrollo seleccionado en el tablero
         /// </summary>
         /// <returns></returns>
-        public (EstadoCarta carta, Desarrollo d) CartaSeleccionada()
+        public (EstadoCarta carta, Development d) CartaSeleccionada()
         {
             var selected = GetCartas().FirstOrDefault(x => x.Seleccionado);
             if (selected == null)
@@ -108,7 +104,7 @@ namespace Splendor.Forms.UserControls
             return (selected.Estado, selected.Desarrollo);
         }
 
-        public (IconChar icon, string textGasto, string textAyuda) IconoDesarrollo(Desarrollo d)
+        public (IconChar icon, string textGasto, string textAyuda) IconoDesarrollo(Development d)
         {
             string textoAyuda = d.GastoText(j.Jugadores[0]);
             if (d.Gratuito(j.Jugadores[0])) return (IconChar.Heart, textoAyuda, "Puedes comprar el desarrollo sin gastar gemas");

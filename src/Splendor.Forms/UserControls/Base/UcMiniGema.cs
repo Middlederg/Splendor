@@ -5,9 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-using Splendor.Core.Model;
-using Splendor.Core;
+using Splendor.Domain;
 
 namespace Splendor.Forms.UserControls
 {
@@ -23,19 +21,20 @@ namespace Splendor.Forms.UserControls
                 pContenedor.Visible = value > 0;
                 Lbl.Text = value.ToString();
                 if (value > 0)
-                    ToolTipAyuda.SetToolTip(Lbl, $"{TipoGema.Plural(value)}");
+                    ToolTipAyuda.SetToolTip(Lbl, $"{gem?.Plural(value) ?? ""}");
             }
         }
 
-        private Gema tipoGema;
+        private Gem gem;
         [Description("Gema asociada")]
-        public Gema TipoGema
+        public Gem Gem
         {
-            get => tipoGema;
+            get => gem;
             set
             {
-                tipoGema = value;
-                pContenedor.BackgroundImage = Comun.GetImage(value.ToString() + "Back");
+                gem = value;
+                string path = value.Path;
+                pContenedor.BackgroundImage = new NamedPath($"{path.First()}{path.Substring(1)}Back").GetImage();
             }
         }
 

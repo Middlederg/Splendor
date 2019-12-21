@@ -4,17 +4,15 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Splendor.Core.Enumeraciones;
-using Splendor.Core.Negocio;
 
-namespace Splendor.Core.Model
+namespace Splendor.Domain
 {
     public class Juego
     {
         /// <summary>
         /// Lista de desarrollos
         /// </summary>
-        private List<Desarrollo> Mazo;
+        private List<Development> Mazo;
 
         public int Id { get; private set; }
 
@@ -31,7 +29,7 @@ namespace Splendor.Core.Model
         /// <summary>
         /// Gemas que se pueden coger de la mesa
         /// </summary>
-        public List<Gema> GemasMesa { get; set; }
+        public List<Gem> GemasMesa { get; set; }
 
         /// <summary>
         /// Indica qué jugador tiene el turno
@@ -80,15 +78,15 @@ namespace Splendor.Core.Model
 
             //Preparo el mazo de desarrollos
             Mazo = DesarrollosFactory.GetDesarrollos().ToList();
-            GemasMesa = new List<Gema>();
+            GemasMesa = new List<Gem>();
 
             //Reparto oro dependiendo del número de jugadores
-            foreach (int i in Enumerable.Range(0, GemasFactory.GetNumGemasInicio(Jugadores.Count).oro))
-                GemasMesa.Add(Gema.Oro);
+            foreach (int i in Enumerable.Range(0, Gems.GetNumGemasInicio(Jugadores.Count).oro))
+                GemasMesa.Add(Gems.Gold);
 
             //Reparto gemas dependiendo del número de jugadores
-            foreach (var gema in GemasFactory.GetListaGemas())
-                foreach (int i in Enumerable.Range(0, GemasFactory.GetNumGemasInicio(Jugadores.Count).gemas))
+            foreach (var gema in Gems.GetAllGems(includeGold:false))
+                foreach (int i in Enumerable.Range(0, Gems.GetNumGemasInicio(Jugadores.Count).gemas))
                     GemasMesa.Add(gema);
         }
 
@@ -167,7 +165,7 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="desarrollo"></param>
         /// <param name="jugadorActivo"></param>
-        public void CompraDesarrollo(Desarrollo desarrollo, Jugador jugadorActivo = null)
+        public void CompraDesarrollo(Development desarrollo, Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null) jugadorActivo = ElTurno();
             GemasMesa.AddRange(jugadorActivo.Comprar(desarrollo));
@@ -184,17 +182,17 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="desarrollo"></param>
         /// <param name="jugadorActivo"></param>
-        public void ReservaDesarrollo(Desarrollo desarrollo, Jugador jugadorActivo = null)
+        public void ReservaDesarrollo(Development desarrollo, Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null) jugadorActivo = ElTurno();
             jugadorActivo.Reservadas.Add(desarrollo);
             Mazo.Remove(desarrollo);
             string textoOro = ", pero no quedan monedas de oro.";
-            if (NumGemasMesa(Gema.Oro) > 0)
+            if (NumGemasMesa(Gems.Gold) > 0)
             {
                 textoOro = ", y consigue una moneda de oro";
-                jugadorActivo.Gemas.Add(Gema.Oro);
-                GemasMesa.Remove(Gema.Oro);
+                jugadorActivo.Gemas.Add(Gems.Gold);
+                GemasMesa.Remove(Gems.Gold);
             }
             Log.Add(jugadorActivo.Nombre + " reserva " + desarrollo.ToString() + textoOro);
             UpdateDesarrollos();
@@ -202,7 +200,7 @@ namespace Splendor.Core.Model
             UpdateGemas();
         }
 
-        public IEnumerable<Desarrollo> DesarrollosVisibles()
+        public IEnumerable<Development> DesarrollosVisibles()
         {
             foreach (int nivel in Enumerable.Range(1, 3))
                 foreach (var d in DesarrollosVisibles((NivelDesarrollo)nivel))
@@ -214,7 +212,7 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="nivel"></param>
         /// <returns></returns>
-        public IEnumerable<Desarrollo> DesarrollosVisibles(NivelDesarrollo nivel) => Mazo.Where(x => x.Nivel == nivel).Take(4);
+        public IEnumerable<Development> DesarrollosVisibles(NivelDesarrollo nivel) => Mazo.Where(x => x.Nivel == nivel).Take(4);
 
         public int CartasMazo(NivelDesarrollo nivel) => Math.Max(0, Mazo.Count(x => x.Nivel == nivel) - 4);
 
@@ -227,49 +225,49 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public int NumGemasMesa(Gema gema) => GemasMesa.Count(x => x.Equals(gema));
+        public int NumGemasMesa(Gem gema) => GemasMesa.Count(x => x.Equals(gema));
 
         /// <summary>
         /// Devuelve si un jugador puede coger una gema de ese tipo
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public bool PuedeCogerUnaGema(Gema gema) => GemasMesa.Contains(gema);
+        public bool PuedeCogerUnaGema(Gem gema) => GemasMesa.Contains(gema);
 
         /// <summary>
         /// Devuelve lista de monedas que puede coger el jugador si coge 3 gemas
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public IEnumerable<Gema> PuedeCogerUnaGema() => GemasFactory.GetListaGemas().Where(gema => GemasMesa.Contains(gema));
+        public IEnumerable<Gem> PuedeCogerUnaGema() => Gems.GetAllGems(includeGold: false).Where(gema => GemasMesa.Contains(gema));
 
         /// <summary>
         /// Devuelve si un jugador puede coger dos gema de ese tipo
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public bool PuedeCogerDosGemas(Gema gema) => NumGemasMesa(gema) >= 4;
+        public bool PuedeCogerDosGemas(Gem gema) => NumGemasMesa(gema) >= 4;
 
         /// <summary>
         /// Devuelve lista de monedas que puede coger el jugador si coge 2 gemas iguales
         /// </summary>
         /// <param name="gema"></param>
         /// <returns></returns>
-        public IEnumerable<Gema> PuedeCogerDosGemas() => GemasFactory.GetListaGemas().Where(gema => PuedeCogerDosGemas(gema));
+        public IEnumerable<Gem> PuedeCogerDosGemas() => Gems.GetAllGems(includeGold: false).Where(gema => PuedeCogerDosGemas(gema));
 
         /// <summary>
         /// El jugador activo coge una lista de gemas
         /// </summary>
         /// <param name="gemas"></param>
-        public void CogerGemas(IEnumerable<Gema> gemas, Jugador jugadorActivo = null)
+        public void CogerGemas(IEnumerable<Gem> gemas, Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null) jugadorActivo = ElTurno();
             jugadorActivo.Gemas.AddRange(gemas);
             gemas.ToList().ForEach(x => GemasMesa.Remove(x));
             if(gemas.Distinct().Count() > 1)
-                Log.Add(jugadorActivo.Nombre + " coge " + string.Join(", ", gemas.Select(x=> x.DisplayName())));
+                Log.Add(jugadorActivo.Nombre + " coge " + string.Join(", ", gemas.Select(x=> x.ToString())));
             else
-                Log.Add(jugadorActivo.Nombre + " coge " + gemas.Distinct().Count() + " " + gemas.First().DisplayName());
+                Log.Add(jugadorActivo.Nombre + " coge " + gemas.Distinct().Count() + " " + gemas.First().ToString());
             UpdateGemas();
             UpdateJugadores();
         }
@@ -302,7 +300,7 @@ namespace Splendor.Core.Model
             if (jugadorActivo == null) jugadorActivo = ElTurno();
 
             //Opción 1: comprar desarrollo
-            Desarrollo d = BuscaDesarrollo();
+            Development d = BuscaDesarrollo();
             if (d != null)
             {
                 CompraDesarrollo(d);
@@ -324,7 +322,7 @@ namespace Splendor.Core.Model
             }
 
             //Reservar desarrollo con moneda de oro
-            if (jugadorActivo.PuedeReservar() && NumGemasMesa(Gema.Oro) > 0)
+            if (jugadorActivo.PuedeReservar() && NumGemasMesa(Gems.Gold) > 0)
             {
                 var res = ReservaDesarrollo();
                 if (res != null)
@@ -338,7 +336,7 @@ namespace Splendor.Core.Model
             if (jugadorActivo.TotalGemas() < 9 && PuedeCogerDosGemas().Any())
             {
                 var gema = PuedeCogerDosGemas().GetRandomItem();
-                var gemas2 = new List<Gema> { gema, gema };
+                var gemas2 = new List<Gem> { gema, gema };
                 CogerGemas(gemas2);
                 return new CogerGemas(gemas2);
             }
@@ -365,7 +363,7 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="jugadorActivo"></param>
         /// <returns></returns>
-        public Desarrollo BuscaDesarrollo(Jugador jugadorActivo = null)
+        public Development BuscaDesarrollo(Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null)
                 jugadorActivo = ElTurno();
@@ -382,7 +380,7 @@ namespace Splendor.Core.Model
             //2 Busca si alguno le hace ganar la partida a un rival
             foreach(Jugador rival in Jugadores.Where(x=> !x.Equals(jugadorActivo)).OrderBy(x => x.TurnosJugados))
             {
-                Desarrollo d = rival.VictoriaSegura(desarrollos, PuntuacionObjetivo);
+                Development d = rival.VictoriaSegura(desarrollos, PuntuacionObjetivo);
                 if (d != null) return d;
             }
 
@@ -393,12 +391,12 @@ namespace Splendor.Core.Model
             //4 busca cual podría adelantarse para comprarlo antes que un rival
             foreach (Jugador rival in Jugadores.Where(x => !x.Equals(jugadorActivo)).OrderBy(x => x.TurnosJugados))
             {
-                Desarrollo d = rival.MejorDesarrollo(desarrollos);
+                Development d = rival.MejorDesarrollo(desarrollos);
                 if (d != null) return d;
             }
 
             //5 busca el que menos oro o gemas le haga gastar
-            Desarrollo des = jugadorActivo.MejorDesarrollo(desarrollos.Concat(jugadorActivo.Reservadas));
+            Development des = jugadorActivo.MejorDesarrollo(desarrollos.Concat(jugadorActivo.Reservadas));
             return des;
         }
 
@@ -407,7 +405,7 @@ namespace Splendor.Core.Model
         /// </summary>
         /// <param name="jugadorActivo"></param>
         /// <returns></returns>
-        public Desarrollo ReservaDesarrollo(Jugador jugadorActivo = null)
+        public Development ReservaDesarrollo(Jugador jugadorActivo = null)
         {
             if (jugadorActivo == null) jugadorActivo = ElTurno();
 
@@ -417,26 +415,26 @@ namespace Splendor.Core.Model
             //1 Busca si alguno le hace ganar la partida a un rival
             foreach (Jugador rival in Jugadores.Where(x => !x.Equals(jugadorActivo)).OrderBy(x => x.TurnosJugados))
             {
-                Desarrollo d = rival.VictoriaSegura(desarrollos, PuntuacionObjetivo);
+                Development d = rival.VictoriaSegura(desarrollos, PuntuacionObjetivo);
                 if (d != null) return d;
             }
 
             //2 Busca si alguno le sale gratis a un rival
             foreach (Jugador rival in Jugadores.Where(x => !x.Equals(jugadorActivo)).OrderBy(x => x.TurnosJugados))
             {
-                Desarrollo d = desarrollos.FirstOrDefault(x => x.Gratuito(rival));
+                Development d = desarrollos.FirstOrDefault(x => x.Gratuito(rival));
                 if (d != null) return d;
             }
 
             //3 Busca cual podría adelantarse para reservarlo antes que un rival
             foreach (Jugador rival in Jugadores.Where(x => !x.Equals(jugadorActivo)).OrderBy(x => x.TurnosJugados))
             {
-                Desarrollo d = rival.MejorDesarrollo(desarrollos);
+                Development d = rival.MejorDesarrollo(desarrollos);
                 if (d != null) return d;
             }
 
             //4 Busca el que menos oro o gemas le haga gastar
-            Desarrollo des = jugadorActivo.MejorDesarrollo(desarrollos);
+            Development des = jugadorActivo.MejorDesarrollo(desarrollos);
             if (des != null) return des;
 
             return null;

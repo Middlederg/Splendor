@@ -1,15 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace System
 {
-    public class DisplayAttribute : Attribute
-    {
-        public string Name { get; set; }
-    }
-
-    public static class DisplayAttributeHelper
+    public static class DisplayAttributeExtensions
     {
         public static string DisplayName<TEnum>(this TEnum source) where TEnum : Enum
         {

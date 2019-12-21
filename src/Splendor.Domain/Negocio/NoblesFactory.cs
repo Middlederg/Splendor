@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Splendor.Core.Model;
 using System.Collections;
 using System;
 
-namespace Splendor.Core.Negocio
+namespace Splendor.Domain
 {
     public static class NoblesFactory
     {

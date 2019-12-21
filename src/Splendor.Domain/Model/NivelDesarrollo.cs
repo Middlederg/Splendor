@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Splendor.Core.Model
+namespace Splendor.Domain
 {
     public enum NivelDesarrollo
     {

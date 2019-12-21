@@ -1,4 +1,4 @@
-﻿using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using Splendor.Forms.Model;
 using Splendor.Forms.Views;
 using System;
@@ -15,7 +15,7 @@ namespace Splendor.Forms.UserControls
     public partial class UcComprarDesarrollos : UcBase
     {
         private Juego j;
-        private Desarrollo desarrolloSeleccionado;
+        private Development desarrolloSeleccionado;
 
         public UcComprarDesarrollos(Juego juego)
         {
@@ -24,14 +24,14 @@ namespace Splendor.Forms.UserControls
             Visible = false;
         }
 
-        public void Actualizar((EstadoCarta estado, Desarrollo desarrollo) selected)
+        public void Actualizar((EstadoCarta estado, Development desarrollo) selected)
         {
             Visible = j.TurnoDelJugador;
             BtnComprar.Enabled = PuedeComprar(selected.estado, selected.desarrollo);
             BtnReservar.Enabled = PuedeReservar();
         }
 
-        private bool PuedeComprar(EstadoCarta estado, Desarrollo d)
+        private bool PuedeComprar(EstadoCarta estado, Development d)
         {
             if (EstadoCarta.Desarrollo == estado)
             {

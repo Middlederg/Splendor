@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Splendor.Core.Negocio
+namespace Splendor.Domain
 {
     public static class Randomizer
     {

@@ -1,4 +1,4 @@
-﻿using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ namespace Splendor.Forms.UserControls
                 recurso.NumeroGemas = jugador.TotalGemas(recurso.TipoGema);
                 recurso.NumeroDesarrollos = jugador.Bonificacion(recurso.TipoGema);
             }
-            Oro.Numero = jugador.TotalGemas(Gema.Oro);
+            Oro.Numero = jugador.TotalGemas(Gems.Gold);
             LblNumGemas.Text = $"{jugador.TotalGemas()}/10";
         }
     }

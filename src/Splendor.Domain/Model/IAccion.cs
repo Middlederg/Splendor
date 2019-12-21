@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Splendor.Core.Model
+namespace Splendor.Domain
 {
     public interface IAccion
     {
@@ -10,9 +10,9 @@ namespace Splendor.Core.Model
 
     public class CogerGemas : IAccion
     {
-        private readonly IEnumerable<Gema> gemas;
+        private readonly IEnumerable<Gem> gemas;
 
-        public CogerGemas(IEnumerable<Gema> gemas)
+        public CogerGemas(IEnumerable<Gem> gemas)
         {
             this.gemas = gemas;
         }
@@ -22,10 +22,10 @@ namespace Splendor.Core.Model
 
     public class ComprarDesarrollo : IAccion
     {
-        private readonly Desarrollo desarrollo;
+        private readonly Development desarrollo;
         private readonly Noble noble;
 
-        public ComprarDesarrollo(Desarrollo desarrollo, Noble noble)
+        public ComprarDesarrollo(Development desarrollo, Noble noble)
         {
             this.desarrollo = desarrollo;
             this.noble = noble;
@@ -33,18 +33,18 @@ namespace Splendor.Core.Model
 
         public IEnumerable<string> RecursosCogidos()
         {
-            yield return desarrollo.Ruta;
+            yield return desarrollo.Path;
             if (noble != null)
-                yield return noble.Ruta;
+                yield return noble.Path;
         }
     }
 
     public class ReservarDesarrollo : IAccion
     {
-        private readonly Desarrollo desarrollo;
+        private readonly Development desarrollo;
         private readonly bool conPiezaOro;
 
-        public ReservarDesarrollo(Desarrollo desarrollo, bool conPiezaOro)
+        public ReservarDesarrollo(Development desarrollo, bool conPiezaOro)
         {
             this.desarrollo = desarrollo;
             this.conPiezaOro = conPiezaOro;
@@ -52,9 +52,9 @@ namespace Splendor.Core.Model
 
         public IEnumerable<string> RecursosCogidos()
         {
-            yield return desarrollo.Ruta;
+            yield return desarrollo.Path;
             if (conPiezaOro)
-                yield return Gema.Oro.ToString();
+                yield return Gems.Gold.ToString();
         }
     }
 

@@ -1,7 +1,6 @@
-﻿using Splendor.Core.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Splendor.Core.Negocio
+namespace Splendor.Domain
 {
     public static class SiluetaFactory
     {

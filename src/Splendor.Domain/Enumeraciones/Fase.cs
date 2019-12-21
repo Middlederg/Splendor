@@ -1,4 +1,4 @@
-﻿namespace Splendor.Core.Enumeraciones
+﻿namespace Splendor.Domain
 {
     public enum Fase
     {

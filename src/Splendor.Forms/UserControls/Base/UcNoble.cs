@@ -1,5 +1,4 @@
-﻿using Splendor.Core;
-using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using Splendor.Forms.Model;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace Splendor.Forms.UserControls
             set
             {
                 noble = value;
-                Pbx.Image = Comun.GetImage(value?.Ruta ?? "");
+                Pbx.Image = value.GetImage();
                 ToolTipAyuda.SetToolTip(Pbx, value?.ToString() ?? "");
             }
         }

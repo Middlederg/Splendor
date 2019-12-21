@@ -6,8 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Splendor.Core.Model;
-using Splendor.Core.Negocio;
+using Splendor.Domain;
 
 namespace Splendor.Forms.UserControls
 {
@@ -27,14 +26,14 @@ namespace Splendor.Forms.UserControls
 
         public void Refrescar()
         {
-            foreach (var gema in GemasFactory.GetListaGemasOro())
+            foreach (var gema in Gems.GetAllGems())
             {
                 var uc = Find(gema);
                 uc.SubIndice = j.NumGemasMesa(gema);
             }
         }
 
-        public UcGema Find(Gema gema) => Flp.Controls.OfType<UcGema>().FirstOrDefault(x => x.Gema == gema);
+        public UcGema Find(Gem gema) => Flp.Controls.OfType<UcGema>().FirstOrDefault(x => x.Gema == gema);
 
         private void GemaClick(object sender, EventArgs e)
         {
@@ -53,7 +52,7 @@ namespace Splendor.Forms.UserControls
         /// Devuelve la última gema que se seleccionó
         /// </summary>
         /// <returns></returns>
-        public Gema? GemaSelecionada()
+        public Gem GemaSelecionada()
         {
             var selected = Flp.Controls.OfType<UcGema>().FirstOrDefault(x => x.Seleccionada);
             return selected.Gema;

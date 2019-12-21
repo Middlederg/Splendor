@@ -1,5 +1,4 @@
-﻿using Splendor.Core;
-using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +24,7 @@ namespace Splendor.Forms.UserControls
             j = juego;
             IdJugador = idJugador;
             j.UpdateJugadores += Actualizar;
-            pInterior.BackgroundImage = Comun.GetImage($"Silueta{GetJugador.Silueta.Id}");
+            pInterior.BackgroundImage = new NamedPath($"Silueta{GetJugador.Silueta.Id}").GetImage();
             pInterior.BackgroundImageLayout = ImageLayout.Center;
             LblNombre.Text = GetJugador.Nombre;
             if (IdJugador != 0)
@@ -49,7 +48,7 @@ namespace Splendor.Forms.UserControls
         {
             if (IdJugador != 0)
             {
-                pInterior.BackgroundImage = Comun.GetImage("");
+                pInterior.BackgroundImage = new NamedPath("").GetImage();
                 valores.Visible = true;
                 LblNombre.Visible = false;
             }
@@ -59,7 +58,7 @@ namespace Splendor.Forms.UserControls
         {
            if (IdJugador != 0)
             {
-                pInterior.BackgroundImage = Comun.GetImage($"Silueta{GetJugador.Silueta.Id}");
+                pInterior.BackgroundImage = new NamedPath($"Silueta{GetJugador.Silueta.Id}").GetImage();
                 valores.Visible = false;
                 LblNombre.Visible = true;
             }

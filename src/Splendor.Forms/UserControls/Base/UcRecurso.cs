@@ -1,4 +1,4 @@
-﻿using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using Splendor.Forms.CustomControls;
 using Splendor.Forms.Model;
 using System;
@@ -36,12 +36,12 @@ namespace Splendor.Forms.UserControls
         }
 
         [Description("Gema asociada")]
-        public Gema TipoGema
+        public Gem TipoGema
         {
-            get => Gemas.TipoGema;
+            get => Gemas.Gem;
             set
             {
-                Gemas.TipoGema = value;
+                Gemas.Gem = value;
                 pGeneral.BackColor = value.ColorFondo();
             }
         }

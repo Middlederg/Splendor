@@ -1,4 +1,4 @@
-﻿using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +29,7 @@ namespace Splendor.Forms.UserControls
                 item.NumeroGemas = j.Jugadores[0].TotalGemas(item.TipoGema);
                 item.NumeroDesarrollos = j.Jugadores[0].Bonificacion(item.TipoGema);
             }
-            Oro.Numero = j.Jugadores[0].TotalGemas(Gema.Oro);
+            Oro.Numero = j.Jugadores[0].TotalGemas(Gems.Gold);
             LblNumGemas.Text = $"{j.Jugadores[0].TotalGemas()} / 10";
             ToolTipAyuda.SetToolTip(LblNumGemas, $"Tienes {j.Jugadores[0].TotalGemas()}.\n Puedes llegar a tener, como máximo, 10 gemas");
             LblNumeroNobles.Text = $"Nobles ({j.Jugadores[0].NoblesVisitados.Count})";

@@ -1,5 +1,4 @@
-﻿using Splendor.Core;
-using Splendor.Core.Model;
+﻿using Splendor.Domain;
 using Splendor.Forms.CustomControls;
 using System;
 using System.Collections.Generic;
@@ -27,7 +26,7 @@ namespace Splendor.Forms.UserControls
             {
                 Flp.Controls.Add(new PictureBox()
                 {
-                    Image = Comun.GetImage(r),
+                    Image = new NamedPath(r).GetImage(),
                     SizeMode = PictureBoxSizeMode.Zoom,
                     Dock = DockStyle.Fill,
                     Margin = new Padding(10)

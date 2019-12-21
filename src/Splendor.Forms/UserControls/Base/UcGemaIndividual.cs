@@ -6,33 +6,32 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Splendor.Core.Model;
+using Splendor.Domain;
 using Splendor.Forms.Model;
-using Splendor.Core;
 
 namespace Splendor.Forms.UserControls
 {
     public partial class UcGemaIndividual : UcBase
     {
-        public Action<Gema> OnGemaDeleted { get; set; }
+        public Action<Gem> OnGemaDeleted { get; set; }
 
-        private Gema? gema;
+        private Gem gema;
         [Description("Gema asociada")]
-        public Gema? Gema
+        public Gem Gema
         {
             get => gema;
             set
             {
                 gema = value;
-                Visible = gema.HasValue;
-                if (gema.HasValue)
+                Visible = gema != null;
+                if (gema != null)
                 {
-                    Pbx.Image = Comun.GetImage(gema.Value.ToString().ToLower());
-                    ToolTipAyuda.SetToolTip(Pbx, gema.Value.DisplayName().ToString());
+                    Pbx.Image = gema.GetImage();
+                    ToolTipAyuda.SetToolTip(Pbx, gema.ToString());
                 }
                 else
                 {
-                    Pbx.Image = Comun.GetImage("");
+                    Pbx.Image = null;
                     ToolTipAyuda.SetToolTip(Pbx, "");
                 }
             }
@@ -55,8 +54,8 @@ namespace Splendor.Forms.UserControls
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (gema.HasValue)
-                OnGemaDeleted(gema.Value);
+            if (gema != null)
+                OnGemaDeleted(gema);
             Gema = null;
         }
     }

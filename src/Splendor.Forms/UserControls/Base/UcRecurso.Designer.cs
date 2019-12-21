@@ -66,7 +66,7 @@
             this.Gemas.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.Gemas.Size = new System.Drawing.Size(35, 47);
             this.Gemas.TabIndex = 1;
-            this.Gemas.TipoGema = Splendor.Core.Model.Gema.Diamante;
+            this.Gemas.Gem = Splendor.Domain.Gems.Diamond;
             // 
             // UcRecurso
             // 

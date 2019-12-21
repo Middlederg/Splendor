@@ -2,9 +2,8 @@
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Splendor.Core.Negocio
+namespace Splendor.Domain
 {
-
     public static class GameFactory
     {
         /// <summary>

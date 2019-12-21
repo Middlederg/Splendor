@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Splendor.Core.Model
+namespace Splendor.Domain
 {
     public class Silueta
     {

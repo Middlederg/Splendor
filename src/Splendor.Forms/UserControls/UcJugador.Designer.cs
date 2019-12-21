@@ -95,7 +95,7 @@
             this.Esmeraldas.Padding = new System.Windows.Forms.Padding(2);
             this.Esmeraldas.Size = new System.Drawing.Size(72, 47);
             this.Esmeraldas.TabIndex = 4;
-            this.Esmeraldas.TipoGema = Splendor.Core.Model.Gema.Esmeralda;
+            this.Esmeraldas.TipoGema = Splendor.Domain.Gems.Emerald;
             // 
             // Zafiros
             // 
@@ -108,7 +108,7 @@
             this.Zafiros.Padding = new System.Windows.Forms.Padding(2);
             this.Zafiros.Size = new System.Drawing.Size(72, 47);
             this.Zafiros.TabIndex = 3;
-            this.Zafiros.TipoGema = Splendor.Core.Model.Gema.Zafiro;
+            this.Zafiros.TipoGema = Splendor.Domain.Gems.Sapphire;
             // 
             // Onix
             // 
@@ -121,7 +121,7 @@
             this.Onix.Padding = new System.Windows.Forms.Padding(2);
             this.Onix.Size = new System.Drawing.Size(72, 47);
             this.Onix.TabIndex = 2;
-            this.Onix.TipoGema = Splendor.Core.Model.Gema.Onix;
+            this.Onix.TipoGema = Splendor.Domain.Gems.Onyx;
             // 
             // Rubies
             // 
@@ -134,7 +134,7 @@
             this.Rubies.Padding = new System.Windows.Forms.Padding(2);
             this.Rubies.Size = new System.Drawing.Size(72, 47);
             this.Rubies.TabIndex = 1;
-            this.Rubies.TipoGema = Splendor.Core.Model.Gema.Rubi;
+            this.Rubies.TipoGema = Splendor.Domain.Gems.Ruby;
             // 
             // Diamantes
             // 
@@ -147,7 +147,7 @@
             this.Diamantes.Padding = new System.Windows.Forms.Padding(2);
             this.Diamantes.Size = new System.Drawing.Size(72, 47);
             this.Diamantes.TabIndex = 0;
-            this.Diamantes.TipoGema = Splendor.Core.Model.Gema.Diamante;
+            this.Diamantes.TipoGema = Splendor.Domain.Gems.Diamond;
             // 
             // LblNumGemas
             // 
@@ -172,7 +172,7 @@
             this.Oro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.Oro.Size = new System.Drawing.Size(35, 44);
             this.Oro.TabIndex = 6;
-            this.Oro.TipoGema = Splendor.Core.Model.Gema.Oro;
+            this.Oro.Gem = Splendor.Domain.Gems.Gold;
             // 
             // UcJugador
             // 

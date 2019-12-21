@@ -6,9 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Splendor.Core.Model;
+using Splendor.Domain;
 using Splendor.Forms.Model;
-using Splendor.Core;
 using FontAwesome.Sharp;
 
 namespace Splendor.Forms.UserControls
@@ -16,7 +15,7 @@ namespace Splendor.Forms.UserControls
     public partial class UcCarta : UcBase
     {
         [Description("Desarrollo asociado")]
-        public Desarrollo Desarrollo { get; private set; }
+        public Development Desarrollo { get; private set; }
 
         [Description("Si la carta es seleccionable")]
         [DefaultValue(false)]
@@ -70,7 +69,7 @@ namespace Splendor.Forms.UserControls
         /// <summary>
         /// La carta se coge y queda en estado vacío
         /// </summary>
-        public Desarrollo Coger()
+        public Development Coger()
         {
             var d = Desarrollo.Copiar();
             Inicializar();
@@ -80,12 +79,12 @@ namespace Splendor.Forms.UserControls
         /// <summary>
         /// Coloca un nuevo desarrollo sobre una loseta vacía
         /// </summary>
-        public void NuevoDesarrollo(Desarrollo desarrollo, bool activable, IconChar icon, string textoCarta, string textoAyuda)
+        public void NuevoDesarrollo(Development desarrollo, bool activable, IconChar icon, string textoCarta, string textoAyuda)
         {
             if (desarrollo == null)
                 throw new ArgumentNullException(nameof(desarrollo));
 
-            Pbx.Image = Comun.GetImage(desarrollo.Ruta);
+            Pbx.Image = desarrollo.GetImage();
             Desarrollo = desarrollo;
             Activable = activable;
             Estado = EstadoCarta.Desarrollo;
@@ -98,7 +97,7 @@ namespace Splendor.Forms.UserControls
         /// </summary>
         public void Mazo(NivelDesarrollo nivel, bool activable)
         {
-            Pbx.Image = Comun.GetImage($"trasera{(int)nivel}");
+            Pbx.Image = new DevelopmentBack(nivel).GetImage();
             Activable = activable;
             Estado = EstadoCarta.Trasera;
             Tag = nivel.ToString();

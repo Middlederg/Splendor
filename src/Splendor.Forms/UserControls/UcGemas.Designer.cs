@@ -56,7 +56,7 @@
             // 
             // ucGema1
             // 
-            this.ucGema1.Gema = Splendor.Core.Model.Gema.Oro;
+            this.ucGema1.Gema = Splendor.Domain.Gems.Gold;
             this.ucGema1.Location = new System.Drawing.Point(10, 10);
             this.ucGema1.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema1.Name = "ucGema1";
@@ -67,7 +67,7 @@
             // ucGema2
             // 
             this.ucGema2.Activable = true;
-            this.ucGema2.Gema = Splendor.Core.Model.Gema.Diamante;
+            this.ucGema2.Gema = Splendor.Domain.Gems.Diamond;
             this.ucGema2.Location = new System.Drawing.Point(10, 119);
             this.ucGema2.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema2.Name = "ucGema2";
@@ -79,7 +79,7 @@
             // ucGema3
             // 
             this.ucGema3.Activable = true;
-            this.ucGema3.Gema = Splendor.Core.Model.Gema.Rubi;
+            this.ucGema3.Gema = Splendor.Domain.Gems.Ruby;
             this.ucGema3.Location = new System.Drawing.Point(10, 228);
             this.ucGema3.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema3.Name = "ucGema3";
@@ -91,7 +91,7 @@
             // ucGema4
             // 
             this.ucGema4.Activable = true;
-            this.ucGema4.Gema = Splendor.Core.Model.Gema.Onix;
+            this.ucGema4.Gema = Splendor.Domain.Gems.Onyx;
             this.ucGema4.Location = new System.Drawing.Point(10, 337);
             this.ucGema4.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema4.Name = "ucGema4";
@@ -103,7 +103,7 @@
             // ucGema5
             // 
             this.ucGema5.Activable = true;
-            this.ucGema5.Gema = Splendor.Core.Model.Gema.Zafiro;
+            this.ucGema5.Gema = Splendor.Domain.Gems.Sapphire;
             this.ucGema5.Location = new System.Drawing.Point(10, 446);
             this.ucGema5.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema5.Name = "ucGema5";
@@ -115,7 +115,7 @@
             // ucGema6
             // 
             this.ucGema6.Activable = true;
-            this.ucGema6.Gema = Splendor.Core.Model.Gema.Esmeralda;
+            this.ucGema6.Gema = Splendor.Domain.Gems.Emerald;
             this.ucGema6.Location = new System.Drawing.Point(10, 555);
             this.ucGema6.Margin = new System.Windows.Forms.Padding(10);
             this.ucGema6.Name = "ucGema6";

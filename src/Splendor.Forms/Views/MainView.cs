@@ -1,5 +1,4 @@
-﻿using Splendor.Core.Model;
-using Splendor.Core.Negocio;
+﻿using Splendor.Domain;
 using Splendor.Forms.UserControls;
 using System;
 using System.Collections.Generic;
@@ -27,9 +26,9 @@ namespace Splendor.Forms.Views
             j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra, SiluetaFactory.Denver }, 15) { Turno = 0 };
             //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra }, 15) { Turno = 0 };
             //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo }, 15) { Turno = 0 };
-            j.Jugadores[0].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Oro, Gema.Zafiro, Gema.Rubi });
+            j.Jugadores[0].Gemas.AddRange(new List<Gem> { Gems.Diamond, Gems.Diamond, Gems.Gold, Gems.Sapphire, Gems.Ruby });
             j.Jugadores[0].Desarrollos.AddRange(DesarrollosFactory.GetDesarrollos());
-            j.Jugadores[1].Gemas.AddRange(new List<Gema> { Gema.Diamante, Gema.Diamante, Gema.Onix });
+            j.Jugadores[1].Gemas.AddRange(new List<Gem> { Gems.Diamond, Gems.Diamond, Gems.Onyx });
             AgregarTablero();
             AgregarGemas();
             AgregarNobles();
@@ -93,9 +92,9 @@ namespace Splendor.Forms.Views
         private void GemaSeleccionada()
         {
             var gema = ucGemas.GemaSelecionada();
-            if (gema.HasValue)
+            if (gema != null)
             {
-                ucCogerGemas.Actualizar(gema.Value);
+                ucCogerGemas.Actualizar(gema);
                 ucComprarDesarrollos.Visible = false;
             }
         }
