@@ -2,9 +2,8 @@
 {
     public class Sapphire : Gem
     {
-        public override bool IsGold => false;
+        public override int Id => 4;
         public override string Path => "zafiro";
         internal Sapphire() { }
-        public override string ToString() => "Sapphire";
     }
 }

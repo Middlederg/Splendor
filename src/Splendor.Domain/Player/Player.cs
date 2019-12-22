@@ -10,12 +10,21 @@ namespace Splendor.Domain
     {
 	    public int Id { get; }
 	    public Profile Profile { get; }
+
 	    public List<Gem> Gems { get; }
         public int TotalGems() => Gems.Count();
         public int TotalGems(Gem gem) => Gems.Count(x => x == gem);
+        public void TakeGem(Gem gem)
+        {
+            var taken = Gems.Remove(gem);
+            if (!taken)
+                throw new NotFoundException(nameof(Gem));
+        }
 
         public List<Noble> VisitedNobles { get; }
 	    public List<Development> Developments { get; }
+        public void AddCard(Development development) => Developments.Add(development);
+
 	    public List<Development> ReservedDevelopments { get; }
 
         private readonly List<Move> moves;

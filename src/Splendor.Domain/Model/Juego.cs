@@ -7,12 +7,55 @@ using System.Threading.Tasks;
 
 namespace Splendor.Domain
 {
+    public class Market
+    {
+        private readonly List<Gem> gems;
+        public void AddGem(Gem gem) => gems.Add(gem);
+
+        public Market()
+        {
+            gems = new List<Gem>();
+        }
+    }
+
+    public class Deck
+    {
+        private List<Development> deck;
+
+        public Deck()
+        {
+            deck = DevelopmentsFactory.GetDeck().ToList();
+        }
+
+        public int DeckCardsRemainig(Level nivel) => Math.Max(0, deck.Count(x => x.Level == nivel) - 4);
+
+        public void TakeCard(Development development)
+        {
+            if (!IsVisible(development))
+                throw new DomainException($"Can not take {development.ToString()} because it is not visible");
+
+            var taken = deck.Remove(development);
+            if (!taken)
+                throw new NotFoundException(nameof(Development));
+        }
+
+        public bool IsVisible(Development development) => VisibleDevelopments().Contains(development);
+
+        public IEnumerable<Development> VisibleDevelopments()
+        {
+            foreach (Level level in Level.AllLevels)
+                foreach (var development in VisibleDevelopments(level))
+                    yield return development;
+        }
+
+        public IEnumerable<Development> VisibleDevelopments(Level level) => deck.Where(x => x.Level == level).Take(4);
+    }
+
     public class Juego
     {
-        /// <summary>
-        /// Lista de desarrollos
-        /// </summary>
-        private List<Development> Mazo;
+        private readonly Market market;
+        private readonly Deck deck;
+
 
         public int Id { get; private set; }
 
@@ -26,10 +69,7 @@ namespace Splendor.Domain
         /// </summary>
         public List<Noble> Nobles { get; set; }        
 
-        /// <summary>
-        /// Gemas que se pueden coger de la mesa
-        /// </summary>
-        public List<Gem> GemasMesa { get; set; }
+
 
         /// <summary>
         /// Indica qué jugador tiene el turno
@@ -74,10 +114,10 @@ namespace Splendor.Domain
             Log.Add($"{Jugadores[Turno].ToString()} comienza la partida");
 
             //Preparo los nobles 
-            Nobles = Splendor.Domain.Nobles.GetNobles(Jugadores.Count + 1).ToList();
+            Nobles = Domain.Nobles.GetNobles(Jugadores.Count + 1).ToList();
 
             //Preparo el mazo de desarrollos
-            Mazo = DevelopmentsFactory.GetDeck().ToList();
+            
             GemasMesa = new List<Gem>();
 
             //Reparto oro dependiendo del número de jugadores
@@ -192,21 +232,7 @@ namespace Splendor.Domain
         //    UpdateGemas();
         //}
 
-        //public IEnumerable<Development> DesarrollosVisibles()
-        //{
-        //    foreach (int nivel in Enumerable.Range(1, 3))
-        //        foreach (var d in DesarrollosVisibles(Levels.FromScalar(nivel)))
-        //            yield return d;
-        //}
 
-        ///// <summary>
-        ///// Muestra desarrollos visibles para ese nivel de desarrollos
-        ///// </summary>
-        ///// <param name="nivel"></param>
-        ///// <returns></returns>
-        //public IEnumerable<Development> DesarrollosVisibles(Level nivel) => Mazo.Where(x => x.Level == nivel).Take(4);
-
-        //public int CartasMazo(Level nivel) => Math.Max(0, Mazo.Count(x => x.Level == nivel) - 4);
 
 
 

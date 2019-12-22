@@ -1,4 +1,6 @@
-﻿namespace Splendor.Domain
+﻿using System;
+
+namespace Splendor.Domain
 {
     public class Move
     {

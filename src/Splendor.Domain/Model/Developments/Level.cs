@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Splendor.Domain
 {
     public class Level
     {
+        public static IEnumerable<Level> AllLevels => new List<Level>() { Level.Level1, Level.Level2, Level.Level3 };
         public static Level FromScalar(int levelNumber) => new Level(levelNumber);
         public static Level Level1 => FromScalar(1);
         public static Level Level2 => FromScalar(2);

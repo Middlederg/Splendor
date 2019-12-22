@@ -10,8 +10,15 @@ namespace Splendor.Tests
     public class GemTests
     {
         [Fact]
+        public void Gems_gold_should_be_gold()
+        {
+            Gems.Gold.IsGold.Should().BeTrue();
+        }
+
+        [Fact]
         public void Gems_should_be_instantiated()
         {
+            Constants.CurrentLenguage = Lenguage.English;
             var gems = Gems.GetAllGems().ToList();
             foreach (var gem in gems)
             {
@@ -19,6 +26,32 @@ namespace Splendor.Tests
                 gem.GetImage().Should().NotBeNull();
                 gem.IsGold.Should().Be(gem.ToString().Equals("Gold"));
             }
+        }
+
+        [Fact]
+        public void Check_spanish_names()
+        {
+            Constants.CurrentLenguage = Lenguage.Spanish;
+
+            Gems.Diamond.ToString().Should().Be("Diamante");
+            Gems.Ruby.ToString().Should().Be("Rubí");
+            Gems.Onyx.ToString().Should().Be("Ónix");
+            Gems.Sapphire.ToString().Should().Be("Zafiro");
+            Gems.Emerald.ToString().Should().Be("Esmeralda");
+            Gems.Gold.ToString().Should().Be("Oro");
+        }
+
+        [Fact]
+        public void Check_plural_names()
+        {
+            Constants.CurrentLenguage = Lenguage.English;
+
+            Gems.Diamond.ToString(3).Should().Be("3 diamond tokens");
+            Gems.Ruby.ToString(1).Should().Be("1 ruby token");
+            Gems.Onyx.ToString(4).Should().Be("4 onyx tokens");
+            Gems.Sapphire.ToString().Should().Be("Sapphire");
+            Gems.Emerald.ToString().Should().Be("Emerald");
+            Gems.Gold.ToString().Should().Be("Gold");
         }
 
         [Fact]
