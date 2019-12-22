@@ -1,6 +1,6 @@
 ﻿namespace Splendor.Domain
 {
-    public enum Lenguage
+    public enum Language
     {
         English = 0,
         Spanish = 1

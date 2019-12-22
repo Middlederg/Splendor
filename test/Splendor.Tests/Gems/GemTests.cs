@@ -18,7 +18,7 @@ namespace Splendor.Tests
         [Fact]
         public void Gems_should_be_instantiated()
         {
-            Constants.CurrentLenguage = Lenguage.English;
+            Constants.CurrentLanguage = Language.English;
             var gems = Gems.GetAllGems().ToList();
             foreach (var gem in gems)
             {
@@ -31,7 +31,7 @@ namespace Splendor.Tests
         [Fact]
         public void Check_spanish_names()
         {
-            Constants.CurrentLenguage = Lenguage.Spanish;
+            Constants.CurrentLanguage = Language.Spanish;
 
             Gems.Diamond.ToString().Should().Be("Diamante");
             Gems.Ruby.ToString().Should().Be("Rubí");
@@ -44,7 +44,7 @@ namespace Splendor.Tests
         [Fact]
         public void Check_plural_names()
         {
-            Constants.CurrentLenguage = Lenguage.English;
+            Constants.CurrentLanguage = Language.English;
 
             Gems.Diamond.ToString(3).Should().Be("3 diamond tokens");
             Gems.Ruby.ToString(1).Should().Be("1 ruby token");

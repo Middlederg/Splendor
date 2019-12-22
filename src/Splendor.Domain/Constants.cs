@@ -2,6 +2,6 @@
 {
     public static class Constants
     {
-        public static Lenguage CurrentLenguage = Lenguage.English;
+        public static Language CurrentLanguage = Language.English;
     }
 }

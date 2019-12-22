@@ -12,22 +12,29 @@ namespace Splendor.Domain
 	    public Profile Profile { get; }
 
 	    public List<Gem> Gems { get; }
+        public void AddGem(Gem gem) => Gems.Add(gem);
         public int TotalGems() => Gems.Count();
         public int TotalGems(Gem gem) => Gems.Count(x => x == gem);
-        public void TakeGem(Gem gem)
+        public void TakeGems(params Gem[] gems)
         {
-            var taken = Gems.Remove(gem);
-            if (!taken)
-                throw new NotFoundException(nameof(Gem));
+            foreach (var gem in gems)
+            {
+                var taken = Gems.Remove(gem);
+                if (!taken)
+                    throw new NotFoundException(nameof(Gem));
+            }
         }
 
         public List<Noble> VisitedNobles { get; }
-	    public List<Development> Developments { get; }
-        public void AddCard(Development development) => Developments.Add(development);
+        public void AddNoble(Noble noble) => VisitedNobles.Add(noble);
+
+        public List<Development> Developments { get; }
+        public void BuyCard(Development development) => Developments.Add(development);
 
 	    public List<Development> ReservedDevelopments { get; }
+        public void ReserveCard(Development development) => ReservedDevelopments.Add(development);
 
-        private readonly List<Move> moves;
+        public List<Move> Moves { get; }
 
         public string Nombre => Profile.ToString();
 
@@ -42,7 +49,7 @@ namespace Splendor.Domain
             Developments = new List<Development>();
             ReservedDevelopments = new List<Development>();
 
-            moves = new List<Move>();
+            Moves = new List<Move>();
         }
 
         public Player Reset() => new Player(Id, Profile);

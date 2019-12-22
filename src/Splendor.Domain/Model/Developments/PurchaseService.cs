@@ -22,9 +22,9 @@ namespace Splendor.Domain
 
         public int Cost() => Gems.GetAllGems().Sum(x => WouldSpend(x));
 
-        public bool IsFree() => Gems.GetAllGems().All(gema => player.Bonus(gema) >= WouldSpend(gema));
+        public bool IsFree() => Gems.GetAllGems().All(gem => player.Bonus(gem) >= WouldSpend(gem));
 
-        public bool CanAfford() => Gems.GetAllGems().All(gema => player.TotalGems(gema) >= WouldSpend(gema));
+        public bool CanAfford() => Gems.GetAllGems().All(gem => player.TotalGems(gem) >= WouldSpend(gem));
         public bool CanAffordPayingGold() => RequiredGold() <= gold;
         private int RequiredGold() => Gems.GetAllGems().Sum(gem => Missing(gem));
         private string RequiredGoldText() => $"{Gems.Gold.ToString(RequiredGold())}";
@@ -68,17 +68,22 @@ namespace Splendor.Domain
             if (!CanAfford())
                 throw new DomainException($"{player.ToString()} can not afford {development.ToString()}");
 
+            var goldSpended = Enumerable.Range(0, RequiredGold()).Select(x => Gems.Gold).ToArray();
+            player.TakeGems(goldSpended);
+            market.AddGems(goldSpended);
+
+            var expenses = new List<Gem>();
             foreach (var gem in Gems.GetAllGems())
             {
                 foreach (int i in Enumerable.Range(0, WouldSpend(gem)))
                 {
-                    player.TakeGem(gem);
-                    market.AddGem(gem);
+                    expenses.Add(gem);
+                    market.AddGems(gem);
                 }
             }
-
-            deck.TakeCard(development);
-            player.AddCard(development);
+            player.TakeGems(expenses.ToArray());
+            deck.BuyCard(development);
+            player.BuyCard(development);
         }
     }
 }

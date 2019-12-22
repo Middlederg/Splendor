@@ -21,6 +21,6 @@ namespace Splendor.Domain
             new string[] { "Gold", "Oro" },
         };
 
-        public override string ToString() => list[gem.Id - 1][(int)Constants.CurrentLenguage];
+        public override string ToString() => list[gem.Id - 1][(int)Constants.CurrentLanguage];
     }
 }

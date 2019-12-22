@@ -7,157 +7,45 @@ using System.Threading.Tasks;
 
 namespace Splendor.Domain
 {
-    public class Market
+
+    public class Game
     {
-        private readonly List<Gem> gems;
-        public void AddGem(Gem gem) => gems.Add(gem);
-
-        public Market()
-        {
-            gems = new List<Gem>();
-        }
-    }
-
-    public class Deck
-    {
-        private List<Development> deck;
-
-        public Deck()
-        {
-            deck = DevelopmentsFactory.GetDeck().ToList();
-        }
-
-        public int DeckCardsRemainig(Level nivel) => Math.Max(0, deck.Count(x => x.Level == nivel) - 4);
-
-        public void TakeCard(Development development)
-        {
-            if (!IsVisible(development))
-                throw new DomainException($"Can not take {development.ToString()} because it is not visible");
-
-            var taken = deck.Remove(development);
-            if (!taken)
-                throw new NotFoundException(nameof(Development));
-        }
-
-        public bool IsVisible(Development development) => VisibleDevelopments().Contains(development);
-
-        public IEnumerable<Development> VisibleDevelopments()
-        {
-            foreach (Level level in Level.AllLevels)
-                foreach (var development in VisibleDevelopments(level))
-                    yield return development;
-        }
-
-        public IEnumerable<Development> VisibleDevelopments(Level level) => deck.Where(x => x.Level == level).Take(4);
-    }
-
-    public class Juego
-    {
+        private int turn;
         private readonly Market market;
         private readonly Deck deck;
+        private NobilityBox nobilityBox;
 
+        public List<Player> Players { get; }
+        public Prestige Objetive { get; }
 
-        public int Id { get; private set; }
+        public IEnumerable<Move> GetAllmoves() => Players.SelectMany(x => x.Moves);
 
-        /// <summary>
-        /// Lista de jugadores. Jugador siempre en posición 0
-        /// </summary>
-        public List<Player> Jugadores { get; set; }
-
-        /// <summary>
-        /// Lista de nobles (Número de jugadores + 1)
-        /// </summary>
-        public List<Noble> Nobles { get; set; }        
-
-
-
-        /// <summary>
-        /// Indica qué jugador tiene el turno
-        /// </summary>
-        public int Turno { get; set; }
-
-        /// <summary>
-        /// Puntuación que determina el final de la partida. Por defecto 15
-        /// </summary>
-        public int PuntuacionObjetivo { get; set; }
-
-        /// <summary>
-        /// Detalle de jugadas realizadas hasta ahora
-        /// </summary>
-        public List<string> Log { get; set; }
-
-        public Action UpdateDesarrollos { get; set; }
-        public Action UpdateNobles { get; set; }
-        public Action UpdateGemas { get; set; }
-        public Action UpdateJugadores { get; set; }
-
-        public Juego(Profile[] siluetas, int puntuacionObjetivo)
+        public Game(Prestige objetive, params Profile[] profiles)
         {
-            Jugadores = new List<Player>();
-            for (int i = 0; i < siluetas.Length; i++)
-                Jugadores.Add(new Player(i, siluetas[i]));
+            int i = 0;
+            profiles.Select(profile => {
+                i++;
+                return new Player(i, profile);
+            });
 
-            Log = new List<string> { $"Comienza el juego. Partida a {Jugadores.Count} jugadores" };
-            PuntuacionObjetivo = puntuacionObjetivo;
-            ResetGame();
+            turn = Randomizer.GetRandomNumber(0, profiles.Count() - 1);
+
+            Objetive = objetive;
+
+            nobilityBox = new NobilityBox(profiles.Count());
+            deck = new Deck();
+
+            var (gold, gems) = Gems.GetNumGemasInicio(profiles.Count());
+            market = new Market(gems, gold);
         }
 
-        /// <summary>
-        /// Reinicia el juego
-        /// </summary>
-        public void ResetGame()
-        {
-            Id++;
-            if (Id > 1) Log.Add("Partida reiniciada"); 
-            Jugadores.ForEach(x=> x.Reset());
-            Turno = GameFactory.PrepararJugadorInicial(Jugadores.Count);
-            Log.Add($"{Jugadores[Turno].ToString()} comienza la partida");
+        public Game ResetGame() => new Game(Objetive, Players.Select(x => x.Profile).ToArray());
 
-            //Preparo los nobles 
-            Nobles = Domain.Nobles.GetNobles(Jugadores.Count + 1).ToList();
 
-            //Preparo el mazo de desarrollos
-            
-            GemasMesa = new List<Gem>();
+        public Player CurrentPlayer => Players[turn];
+        public IEnumerable<Player> OtherPlayers(Player player) => Players.Where(x => x != player);
 
-            //Reparto oro dependiendo del número de jugadores
-            foreach (int i in Enumerable.Range(0, Gems.GetNumGemasInicio(Jugadores.Count).oro))
-                GemasMesa.Add(Gems.Gold);
-
-            //Reparto gemas dependiendo del número de jugadores
-            foreach (var gema in Gems.GetAllGems())
-                foreach (int i in Enumerable.Range(0, Gems.GetNumGemasInicio(Jugadores.Count).gemas))
-                    GemasMesa.Add(gema);
-        }
-
-        ///// <summary>
-        ///// Devuelve si es el turno del jugador 1
-        ///// </summary>
-        ///// <returns></returns>
-        //public bool TurnoDelJugador => Turno == 0;
-
-        ///// <summary>
-        ///// Devuelve el jugador que tiene el turno
-        ///// </summary>
-        ///// <returns></returns>
-        //public Jugador ElTurno() => Jugadores[Turno];
-
-        ///// <summary>
-        ///// Devuelve lista de jugadores excepto uno
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<Jugador> RestoJugadores(Jugador jug) => Jugadores.Where(x => !x.Equals(jug));
-
-        ///// <summary>
-        ///// El turno pasa al siguiente jugador
-        ///// </summary>
-        //public void AvanzaTurno() => Turno = (Turno == Jugadores.Count - 1) ? 0 : Turno + 1;
-
-        ///// <summary>
-        ///// Todos los jugadores han hecho su jugada ese turno
-        ///// </summary>
-        ///// <returns></returns>
-        //public bool TurnoCompletado() => Jugadores.Select(x => x.TurnosJugados).Distinct().Count() == 1;
+        public void NextTurn() => turn = (turn == Players.Count - 1) ? 0 : turn + 1;
 
         ///// <summary>
         ///// Comprueba si ha terminado la partida, y si lo ha hecho devuelve al ganador
@@ -208,29 +96,6 @@ namespace Splendor.Domain
         //    UpdateJugadores();
         //}
 
-        ///// <summary>
-        ///// El jugador reserva el desarrollo indicado
-        ///// Por defecto, el desarrollo lo reserva el jugador con el turno
-        ///// </summary>
-        ///// <param name="desarrollo"></param>
-        ///// <param name="jugadorActivo"></param>
-        //public void ReservaDesarrollo(Development desarrollo, Jugador jugadorActivo = null)
-        //{
-        //    if (jugadorActivo == null) jugadorActivo = ElTurno();
-        //    jugadorActivo.Reservadas.Add(desarrollo);
-        //    Mazo.Remove(desarrollo);
-        //    string textoOro = ", pero no quedan monedas de oro.";
-        //    if (NumGemasMesa(Gems.Gold) > 0)
-        //    {
-        //        textoOro = ", y consigue una moneda de oro";
-        //        jugadorActivo.Gemas.Add(Gems.Gold);
-        //        GemasMesa.Remove(Gems.Gold);
-        //    }
-        //    Log.Add(jugadorActivo.Nombre + " reserva " + desarrollo.ToString() + textoOro);
-        //    UpdateDesarrollos();
-        //    UpdateJugadores();
-        //    UpdateGemas();
-        //}
 
 
 

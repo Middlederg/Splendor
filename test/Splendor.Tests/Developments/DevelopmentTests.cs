@@ -6,17 +6,17 @@ using FluentAssertions;
 
 namespace Splendor.Tests
 {
-    public class DevelopmentTest
+    public class DevelopmentTests
     {
         private readonly List<Development> deck;
 
-        public DevelopmentTest()
+        public DevelopmentTests()
         {
             deck = DevelopmentsFactory.GetDeck().ToList();
         }
 
         [Fact]
-        public void Development_should_have_correct_requirements()
+        public void Development_should_have_correct_properties()
         {
             var item = deck.First(x => x.Id == 1);
             item.TotalGemsOfType(Gems.Diamond).Should().Be(0);
@@ -27,6 +27,9 @@ namespace Splendor.Tests
             item.TotalGemsOfType(Gems.Gold).Should().Be(0);
 
             item.TotalGems().Should().Be(4);
+            item.Bonus.Should().Be(Gems.Diamond);
+            item.Level.Should().Be(Level.Level1);
+            item.Prestige.Should().Be(0);
         }
 
         [Fact]

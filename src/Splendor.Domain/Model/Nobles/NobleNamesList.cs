@@ -8,7 +8,7 @@ namespace Splendor.Domain
         {
             get
             {
-                return list[i][(int)Constants.CurrentLenguage];
+                return list[i][(int)Constants.CurrentLanguage];
             }
         }
 

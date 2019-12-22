@@ -28,7 +28,7 @@ namespace Splendor.Domain
             yield return Gold;
         }
 
-        public static (int oro, int gemas) GetNumGemasInicio(int numJugadores)
+        public static (int gold, int gems) GetNumGemasInicio(int numJugadores)
         {
             switch (numJugadores)
             {
@@ -36,8 +36,9 @@ namespace Splendor.Domain
                     return (5, 7);
                 case 3:
                     return (5, 5);
+                default:
+                    return (5, 4);
             }
-            return (5, 4);
         }
     }
 }
