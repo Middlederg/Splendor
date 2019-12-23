@@ -25,10 +25,6 @@ namespace Splendor.Tests
         {
             var henry = Nobles.HenriVIII;
             henry.ToString().Should().Be("Henri VIII");
-
-            Constants.CurrentLanguage = Language.Spanish;
-            henry = Nobles.HenriVIII;
-            henry.ToString().Should().Be("Enrique VIII");
         }
 
         [Fact]

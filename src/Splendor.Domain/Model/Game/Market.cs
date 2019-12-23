@@ -8,8 +8,11 @@ namespace Splendor.Domain
     {
         public const int MinimunForTwoOfTheSame = 4;
 
+        private Action updateMarket;
+        public void Subscribe(Action action) => updateMarket += action;
+
         private readonly List<Gem> gems;
-        public void AddGems(params Gem[] gemsToAdd)
+        public void Add(params Gem[] gemsToAdd)
         {
             foreach (var gem in gemsToAdd)
             {
@@ -17,18 +20,28 @@ namespace Splendor.Domain
             }
             updateMarket?.Invoke();
         }
-
-        public void TakeGem(Gem gem)
+        public void TakeGems(params Gem[] gemsToTake)
         {
-            var taken = gems.Remove(gem);
-            if (!taken)
-                throw new NotFoundException(nameof(Development));
+            if (!CanBeTaken(gemsToTake))
+                throw new DomainException($"Can not take {gemsToTake.Select(x => x.ToString()).JoinList()}");
 
+            foreach (var gem in gemsToTake)
+            {
+                gems.Remove(gem);
+            }
             updateMarket?.Invoke();
         }
+        public int AvaliableOfType(Gem gem) => gems.Count(x => x == gem);
 
-        private Action updateMarket;
-        public void Subscribe(Action action) => updateMarket += action;
+        public int AvaliableGold() => gems.Count(x => x == Gems.Gold);
+        public void TakeGold()
+        {
+            if (AvaliableGold() <= 0)
+                throw new DomainException("There is no gold to take");
+
+            gems.Remove(Gems.Gold);
+            updateMarket?.Invoke();
+        }
 
         public Market(int gemCount, int goldCount)
         {
@@ -47,8 +60,32 @@ namespace Splendor.Domain
             }
         }
 
-        public int AvaliableOfType(Gem gem) => gems.Count(x => x == gem);
-        public int AvaliableGold() => gems.Count(x => x == Gems.Gold);
-        public bool CanBeTakenTwoOfType(Gem gem) => gems.Count(x => x == gem) >= MinimunForTwoOfTheSame;
+        public bool CanBeTakenTwoOfType(Gem gem)
+        {
+            if (gem == Gems.Gold)
+                return false;
+
+            return AvaliableOfType(gem) >= MinimunForTwoOfTheSame;
+        }
+
+        public bool CanBeTaken(params Gem[] gems)
+        {
+            if (gems.Contains(Gems.Gold))
+                return false;
+
+            foreach (var gem in gems)
+            {
+                if (AvaliableOfType(gem) == 0)
+                    return false;
+            }
+
+            if (gems.AllSame() && gems.Count() == 2 && CanBeTakenTwoOfType(gems.First()))
+                return true;
+
+            if (gems.AllDifferent() && gems.Count() == 3)
+                return true;
+
+            return false;
+        }
     }
 }

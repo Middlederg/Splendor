@@ -15,6 +15,23 @@ namespace Splendor.Domain
 
             return Enumerable.Range(0, x).Select(i => gem).ToList();
         }
+
+        public static bool AllSame(this IEnumerable<Gem> gems)
+        {
+            if (!gems.Any())
+                return false;
+
+            return gems.Distinct().Count() == 1;
+        }
+
+
+        public static bool AllDifferent(this IEnumerable<Gem> gems)
+        {
+            if (!gems.Any())
+                return false;
+
+            return gems.Distinct().Count() == gems.Count();
+        }
     }
 
 

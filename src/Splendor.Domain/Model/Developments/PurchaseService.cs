@@ -70,7 +70,7 @@ namespace Splendor.Domain
 
             var goldSpended = Enumerable.Range(0, RequiredGold()).Select(x => Gems.Gold).ToArray();
             player.TakeGems(goldSpended);
-            market.AddGems(goldSpended);
+            market.Add(goldSpended);
 
             var expenses = new List<Gem>();
             foreach (var gem in Gems.GetAllGems())
@@ -78,7 +78,7 @@ namespace Splendor.Domain
                 foreach (int i in Enumerable.Range(0, WouldSpend(gem)))
                 {
                     expenses.Add(gem);
-                    market.AddGems(gem);
+                    market.Add(gem);
                 }
             }
             player.TakeGems(expenses.ToArray());

@@ -32,7 +32,7 @@ namespace Splendor.Tests
             deck.BuyCard(item);
 
             Action action = () => deck.BuyCard(item);
-            action.Should().Throw<NotFoundException>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact]
