@@ -1,6 +1,6 @@
-﻿namespace Splendor.Forms.UserControls
+﻿namespace Splendor.Forms
 {
-    partial class UcCarta
+    partial class Card
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,12 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Pbx = new System.Windows.Forms.PictureBox();
             this.TtAyuda = new System.Windows.Forms.ToolTip(this.components);
-            this.PbxHelp = new FontAwesome.Sharp.IconPictureBox();
+            this.HelpIcon = new FontAwesome.Sharp.IconPictureBox();
+            this.Pbx = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.HelpIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pbx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxHelp)).BeginInit();
             this.SuspendLayout();
+            // 
+            // TtAyuda
+            // 
+            this.TtAyuda.AutoPopDelay = 50000;
+            this.TtAyuda.InitialDelay = 500;
+            this.TtAyuda.ReshowDelay = 100;
+            // 
+            // HelpIcon
+            // 
+            this.HelpIcon.BackColor = System.Drawing.Color.SlateBlue;
+            this.HelpIcon.Font = new System.Drawing.Font("Verdana", 14F);
+            this.HelpIcon.IconChar = FontAwesome.Sharp.IconChar.Exclamation;
+            this.HelpIcon.IconColor = System.Drawing.Color.White;
+            this.HelpIcon.IconSize = 24;
+            this.HelpIcon.Location = new System.Drawing.Point(69, 124);
+            this.HelpIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.HelpIcon.Name = "HelpIcon";
+            this.HelpIcon.Size = new System.Drawing.Size(24, 24);
+            this.HelpIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.HelpIcon.TabIndex = 1;
+            this.HelpIcon.TabStop = false;
             // 
             // Pbx
             // 
@@ -48,47 +69,26 @@
             this.Pbx.TabStop = false;
             this.Pbx.Click += new System.EventHandler(this.Pbx_Click);
             // 
-            // TtAyuda
-            // 
-            this.TtAyuda.AutoPopDelay = 50000;
-            this.TtAyuda.InitialDelay = 500;
-            this.TtAyuda.ReshowDelay = 100;
-            // 
-            // PbxHelp
-            // 
-            this.PbxHelp.BackColor = System.Drawing.Color.SlateBlue;
-            this.PbxHelp.Font = new System.Drawing.Font("Verdana", 14F);
-            this.PbxHelp.IconChar = FontAwesome.Sharp.IconChar.Exclamation;
-            this.PbxHelp.IconColor = System.Drawing.Color.White;
-            this.PbxHelp.IconSize = 24;
-            this.PbxHelp.Location = new System.Drawing.Point(69, 124);
-            this.PbxHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.PbxHelp.Name = "PbxHelp";
-            this.PbxHelp.Size = new System.Drawing.Size(24, 24);
-            this.PbxHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbxHelp.TabIndex = 1;
-            this.PbxHelp.TabStop = false;
-            // 
             // UcCarta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.PbxHelp);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.HelpIcon);
             this.Controls.Add(this.Pbx);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UcCarta";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(129, 176);
+            ((System.ComponentModel.ISupportInitialize)(this.HelpIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pbx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxHelp)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox Pbx;
         private System.Windows.Forms.ToolTip TtAyuda;
-        private FontAwesome.Sharp.IconPictureBox PbxHelp;
+        private FontAwesome.Sharp.IconPictureBox HelpIcon;
+        private System.Windows.Forms.PictureBox Pbx;
     }
 }

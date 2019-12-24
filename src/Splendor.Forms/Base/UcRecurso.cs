@@ -42,7 +42,7 @@ namespace Splendor.Forms.UserControls
             set
             {
                 Gemas.Gem = value;
-                pGeneral.BackColor = value.ColorFondo();
+                pGeneral.BackColor = value.BackColor();
             }
         }
 

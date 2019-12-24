@@ -2,6 +2,8 @@
 {
     public class NamedPath : IPath
     {
+        public static NamedPath DevelopmentBack(Level level) => new NamedPath($"trasera{(int)level}");
+
         public string Path { get; }
 
         public NamedPath(string name)

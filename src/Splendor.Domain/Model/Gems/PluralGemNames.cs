@@ -13,11 +13,11 @@ namespace Splendor.Domain
 
         private readonly List<string[]> list = new List<string[]>()
         {
-            new string[] { "diamond tokens", "diamantes" },
-            new string[] { "ruby tokens", "rubíes" },
-            new string[] { "onyx tokens", "ónix" },
-            new string[] { "sapphire tokens", "zafiros" },
-            new string[] { "emerald tokens", "esmeraldas" },
+            new string[] { "diamonds", "diamantes" },
+            new string[] { "rubys", "rubíes" },
+            new string[] { "onyx", "ónix" },
+            new string[] { "sapphires", "zafiros" },
+            new string[] { "emeralds", "esmeraldas" },
             new string[] { "gold joker tokens", "piezas de oro" },
         };
 

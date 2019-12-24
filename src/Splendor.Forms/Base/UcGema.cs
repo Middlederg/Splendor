@@ -7,67 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Splendor.Domain;
-using Splendor.Forms.Model;
 
 namespace Splendor.Forms.UserControls
 {
     public partial class UcGema : UcBase
     {
-        private Gem gema;
-        [Description("Gema asociada")]
-        public Gem Gema
+        private Gem gem;
+        public Gem Gem
         {
-            get => gema;
+            get => gem;
             set
             {
-                gema = value;
+                gem = value;
                 if (value != null)
                 {
-                    Pbx.Image = gema.GetImage();
-                    ToolTipAyuda.SetToolTip(Pbx, gema.ToString());
+                    Pbx.Image = gem.GetImage();
+                    ToolTipAyuda.SetToolTip(Pbx, gem.ToString());
                 }
                 else
                 {
                     Pbx.Image = null;
                     ToolTipAyuda.SetToolTip(Pbx, "");
-                    SubIndice = 0;
+                    SubIndex = 0;
                 }
             }
         }
 
-        private int subIndice;
-        [Description("Subindice que indica el número de gemas")]
-        public int SubIndice {
-            get => subIndice;
+        private int subIndex;
+        public int SubIndex 
+        {
+            get => subIndex;
             set
             {
-                subIndice = value;
+                subIndex = value;
                 Refresh();
             }
         }
 
-        [Description("Si la gema es seleccionable")]
-        [DefaultValue(false)]
         public bool Activable { get; set; }
 
-        private bool seleccionada;
-        [Description("Si la gema está seleccionada")]
-        [DefaultValue(false)]
-        public bool Seleccionada
-        {
-            get => seleccionada;
-            set
-            {
-                if (Activable)
-                {
-                    //BackColor = value ? Aspecto.Secondary : Color.Transparent;
-                    //BorderStyle = value ? BorderStyle.FixedSingle : BorderStyle.None;
-                    seleccionada = value;
-                }
-            }
-        }
-
-        [Description("Borde interior de la gema")]
         [DefaultValue(BorderStyle.None)]
         public BorderStyle BordeInterior
         {
@@ -78,16 +56,12 @@ namespace Splendor.Forms.UserControls
         public UcGema()
         {
             InitializeComponent();
-            Pbx.Image = Gems.Diamond.GetImage();
-            //if (Gema.HasValue && SubIndice > 0)
-            //    Gema(Gema.Value, SubIndice, false);
         }
 
         public void Inicializar()
         {
-            Gema = null;
+            Gem = null;
             Pbx.Image = null;
-            Seleccionada = false;
             Activable = false;
             ToolTipAyuda.SetToolTip(Pbx, "");
         }
@@ -97,8 +71,8 @@ namespace Splendor.Forms.UserControls
         /// </summary>
         public Gem Coger()
         {
-            var gema = Gema;
-            SubIndice--;
+            var gema = Gem;
+            SubIndex--;
             return gema ?? throw new ArgumentNullException("Ninguna gema seleccionada");
         }
 
@@ -106,11 +80,11 @@ namespace Splendor.Forms.UserControls
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            if (SubIndice > 0)
+            if (SubIndex > 0)
             {
                 int lado = 20;
                 var rectangulo = new RectangleF(0, Height - lado, lado, lado);
-                e.Graphics.DrawString(SubIndice.ToString(), new Font("Verdana", 13, FontStyle.Bold), Brushes.Black, rectangulo);
+                e.Graphics.DrawString(SubIndex.ToString(), new Font("Verdana", 13, FontStyle.Bold), Brushes.Black, rectangulo);
             }
         }
     }

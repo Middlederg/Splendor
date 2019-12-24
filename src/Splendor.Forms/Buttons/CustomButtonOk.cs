@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Splendor.Forms.CustomControls
+namespace Splendor.Forms
 {
     public partial class CustomButtonOk : IconButton
     {

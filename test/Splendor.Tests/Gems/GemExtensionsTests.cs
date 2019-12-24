@@ -50,5 +50,17 @@ namespace Splendor.Tests
             GemCollectionFactory.OneSapphireAndOneDiamond.AllDifferent().Should().BeTrue();
             GemCollectionFactory.OneOnyxOneRubyAndOneDiamond.AllDifferent().Should().BeTrue();
         }
+
+        [Fact]
+        public void Should_get_string_of_a_lis_of_gems()
+        {
+            GemCollectionFactory.FourEmeralds.JoinList().Should().Be("4 emeralds");
+            GemCollectionFactory.TwoDiamondsOneSapphireAndThreeRubys.JoinList().Should().Be("2 diamonds, 1 sapphire, 3 rubys");
+            GemCollectionFactory.OneOnyx.JoinList().Should().Be("1 onyx");
+            GemCollectionFactory.TwoSaphires.JoinList().Should().Be("2 sapphires");
+            GemCollectionFactory.NoGems.JoinList().Should().Be("");
+            GemCollectionFactory.OneSapphireAndOneDiamond.JoinList().Should().Be("1 sapphire, 1 diamond");
+            GemCollectionFactory.OneOnyxOneRubyAndOneDiamond.JoinList().Should().Be("1 onyx, 1 ruby, 1 diamond");
+        }
     }
 }

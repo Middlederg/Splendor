@@ -17,8 +17,13 @@ namespace Splendor.Forms.Views
         {
             InitializeComponent();
 
-            //Juego j = new Juego(new string[] { "Jorge", "Maider" }, 15);
-            //UcTablero u = new UcTablero(j) { BorderStyle = BorderStyle.FixedSingle };
+        
+            Game game = new Game((Prestige)15, Profiles.Amanda, Profiles.Danilo);
+
+
+            ucTablero1.Deck = game.Deck;
+            ucTablero1.CurrentPlayer = game.CurrentPlayer;
+            ucTablero1.Draw();
             //u.Dock = DockStyle.Fill;
             //Controls.Add(u);
             //Tlp.Controls.Add(u, 1, 1);

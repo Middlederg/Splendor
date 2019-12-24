@@ -33,7 +33,8 @@ namespace Splendor.Domain
 
         }
 
-        public override string ToString() => $"{Level.ToString()}, Bonus: {Bonus.ToString()}, {Prestige.ToString()})";
+        public override string ToString() => $"{Level.ToString()}, Bonus: {Bonus.ToString()} ({Prestige.ToString()})";
+        public string ToStringDetailed() => $"{ToString()} ({price.ToString()})";
 
         public static bool operator ==(Development obj1, Development obj2) => obj1.Equals(obj2);
         public static bool operator !=(Development obj1, Development obj2) => !obj1.Equals(obj2);

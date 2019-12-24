@@ -76,7 +76,7 @@ namespace Splendor.Domain
             yield return new Development(43, level, 1, Gems.Diamond, "d11", Gems.Ruby.Get(2), Gems.Onyx.Get(2), Gems.Emerald.Get(3));
             yield return new Development(44, level, 2, Gems.Diamond, "d12", Gems.Ruby.Get(4), Gems.Onyx.Get(2), Gems.Emerald.Get(1));
             yield return new Development(45, level, 1, Gems.Diamond, "d13", Gems.Diamond.Get(2), Gems.Ruby.Get(3), Gems.Sapphire.Get(3));
-            yield return new Development(46, level, 2, Gems.Diamond, "d14", Gems.Diamond.Get(5), Gems.Onyx.Get(3));
+            yield return new Development(46, level, 2, Gems.Diamond, "d14", Gems.Ruby.Get(5), Gems.Onyx.Get(3));
 
             //Rubí
             yield return new Development(47, level, 1, Gems.Ruby, "r9", Gems.Ruby.Get(2), Gems.Onyx.Get(2), Gems.Sapphire.Get(3));
@@ -135,7 +135,7 @@ namespace Splendor.Domain
             yield return new Development(83, level, 4, Gems.Sapphire, "z18", Gems.Diamond.Get(7));
             yield return new Development(84, level, 5, Gems.Sapphire, "z17", Gems.Diamond.Get(7), Gems.Sapphire.Get(3));
             yield return new Development(85, level, 3, Gems.Sapphire, "z15", Gems.Diamond.Get(3), Gems.Ruby.Get(3), Gems.Sapphire.Get(5), Gems.Emerald.Get(3));
-            yield return new Development(86, level, 4, Gems.Sapphire, "z16", Gems.Diamond.Get(6), Gems.Sapphire.Get(6), Gems.Emerald.Get(3));
+            yield return new Development(86, level, 4, Gems.Sapphire, "z16", Gems.Diamond.Get(6), Gems.Sapphire.Get(3), Gems.Onyx.Get(3));
 
             //Emerald
             yield return new Development(87, level, 4, Gems.Emerald, "e18", Gems.Sapphire.Get(7));

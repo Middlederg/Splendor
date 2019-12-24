@@ -40,6 +40,12 @@ namespace Splendor.Domain
         }
 
         public bool IsVisible(Development development) => VisibleDevelopments().Contains(development);
+        public Development HiddenDevelopment(Level level)
+        {
+            if (RemainigDeckCards(level) > 0)
+                return deck.Where(x => x.Level == level).ElementAt(4);
+            return null;
+        }
 
         public IEnumerable<Development> VisibleDevelopments()
         {

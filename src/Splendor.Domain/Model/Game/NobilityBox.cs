@@ -28,6 +28,6 @@ namespace Splendor.Domain
             updateNobles?.Invoke();
         }
 
-        public override string ToString() => NobleList.Select(x => x.ToStringDetailed()).JoinList();
+        public override string ToString() => string.Join(", ", NobleList.Select(x => x.ToStringDetailed()));
     }
 }

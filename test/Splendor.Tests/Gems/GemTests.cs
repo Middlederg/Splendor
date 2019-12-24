@@ -30,9 +30,9 @@ namespace Splendor.Tests
         [Fact]
         public void Check_plural_names()
         {
-            Gems.Diamond.ToString(3).Should().Be("3 diamond tokens");
-            Gems.Ruby.ToString(1).Should().Be("1 ruby token");
-            Gems.Onyx.ToString(4).Should().Be("4 onyx tokens");
+            Gems.Diamond.ToString(3).Should().Be("3 diamonds");
+            Gems.Ruby.ToString(1).Should().Be("1 ruby");
+            Gems.Onyx.ToString(4).Should().Be("4 onyx");
             Gems.Sapphire.ToString().Should().Be("Sapphire");
             Gems.Emerald.ToString().Should().Be("Emerald");
             Gems.Gold.ToString().Should().Be("Gold");

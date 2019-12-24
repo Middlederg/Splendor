@@ -13,6 +13,6 @@ namespace Splendor.Domain
             this.gems = gems;
         }
 
-        protected override string Description => $"Takes {gems.Select(x => x.ToString()).JoinList()}";
+        protected override string Description => $"Takes { gems.JoinList()}";
     }
 }

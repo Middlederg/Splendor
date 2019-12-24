@@ -1,20 +1,11 @@
 ﻿using Splendor.Domain;
 using System.Drawing;
-using System;
 
-namespace Splendor.Forms.Model
+namespace Splendor.Forms
 {
-    public static class Aspecto
+    public static class GemExtensions
     {
-        public static Color Primary = Color.SlateBlue;
-        public static Color Secondary = Color.DeepSkyBlue;
-        public static Color Terciary = Color.BurlyWood;
-        public static int IdSiluetaJugador = 1;
-    }
-
-    public static class AspectoGemas
-    {
-        public static Color ColorFondo(this Gem gema)
+        public static Color BackColor(this Gem gema)
         {
             if (gema == Gems.Gold) return Color.FromArgb(255, 236, 139);
             if (gema == Gems.Diamond) return Color.FromArgb(210, 215, 211);

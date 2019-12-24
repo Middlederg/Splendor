@@ -30,6 +30,8 @@ namespace Splendor.Tests
             item.Bonus.Should().Be(Gems.Diamond);
             item.Level.Should().Be(Level.Level1);
             ((int)item.Prestige).Should().Be(0);
+            item.ToStringDetailed().Should().Contain("2 onyx");
+            item.ToStringDetailed().Should().Contain("2 sapphires");
         }
 
         [Fact(Skip = "This should be corrected")]

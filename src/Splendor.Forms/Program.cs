@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Splendor.Forms.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace Splendor.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.MainView());
+            Application.Run(new TestView());
             //Application.Run(new Views.TestView());
         }
     }

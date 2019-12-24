@@ -1,8 +1,8 @@
-﻿namespace Splendor.Forms.CustomControls
+﻿namespace Splendor.Forms
 {
-    partial class CustomButtonOk
+    partial class UcBase
     {
-        /// <summary>
+        /// <summary> 
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -22,33 +22,28 @@
 
         #region Código generado por el Diseñador de componentes
 
-        /// <summary>
+        /// <summary> 
         /// Método necesario para admitir el Diseñador. No se puede modificar
         /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.ToolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // CustomButtonOk
+            // UcBase
             // 
-            this.BackColor = System.Drawing.Color.SlateBlue;
-            this.FlatAppearance.BorderSize = 0;
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Font = new System.Drawing.Font("Verdana", 14F);
-            this.ForeColor = System.Drawing.Color.White;
-            this.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.IconColor = System.Drawing.Color.White;
-            this.IconSize = 40;
-            this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(70, 50);
-            this.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UseVisualStyleBackColor = false;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Name = "UcBase";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        protected System.Windows.Forms.ToolTip ToolTipAyuda;
     }
 }
