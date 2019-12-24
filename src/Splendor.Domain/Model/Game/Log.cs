@@ -24,7 +24,7 @@ namespace Splendor.Domain
 
         public void ReserveDevelopment(int currentTurn, Player player, Noble noble, Development development, bool takeGold)
         {
-            entries.Add(new LogEntry(currentTurn, new ReserveDevelopment(development, takeGold:, noble), player));
+            entries.Add(new LogEntry(currentTurn, new ReserveDevelopment(development, takeGold, noble), player));
         }
 
         public IEnumerable<string> GetLog() => entries.Select(x => x.ToString());     

@@ -1,4 +1,6 @@
-﻿namespace Splendor.Domain
+﻿using System.Linq;
+
+namespace Splendor.Domain
 {
     public class ReturnGemsService
     {

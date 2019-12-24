@@ -7,18 +7,10 @@ namespace Splendor.Tests
 {
     public class PrestigeTests
     {
-        private readonly Prestige four;
-        private readonly Prestige five;
-        private readonly Prestige zero;
-        private readonly Prestige one;
-
-        public PrestigeTests()
-        {
-            four = Prestige.FromScalar(4);
-            five = Prestige.FromScalar(5);
-            zero = Prestige.FromScalar(0);
-            one = Prestige.FromScalar(1);
-        }
+        private readonly Prestige four = Prestige.FromScalar(4);
+        private readonly Prestige five = Prestige.FromScalar(5);
+        private readonly Prestige zero = Prestige.FromScalar(0);
+        private readonly Prestige one = Prestige.FromScalar(1);
 
         [Fact]
         public void Should_check_prestige_values()

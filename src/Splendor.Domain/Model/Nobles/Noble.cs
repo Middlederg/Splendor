@@ -9,7 +9,7 @@ namespace Splendor.Domain
     public class Noble : IPath
     {
         private readonly string name;
-        public int Prestige { get; }
+        public Prestige Prestige { get; }
         public string Path { get; }
 
         private readonly Cost requierements;
@@ -17,7 +17,7 @@ namespace Splendor.Domain
         public Noble(string name, int prestige, string path, params IEnumerable<Gem>[] requirements)
         {
             this.name = name;
-            Prestige = prestige;
+            Prestige = (Prestige)prestige;
             Path = path;
             requierements = new Cost(requirements);
         }

@@ -1,6 +1,6 @@
 ﻿namespace Splendor.Domain
 {
-    public class BuyDevelopment : Move
+    public class BuyDevelopment : GameAction
     {
         private readonly Development development;
         public override MoveType Type => MoveType.BuyDevelopment;

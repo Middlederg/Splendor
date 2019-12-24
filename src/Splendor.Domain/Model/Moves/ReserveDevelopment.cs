@@ -1,6 +1,6 @@
 ﻿namespace Splendor.Domain
 {
-    public class ReserveDevelopment : Move
+    public class ReserveDevelopment : GameAction
     {
         private readonly Development development;
         private readonly bool takeGold;

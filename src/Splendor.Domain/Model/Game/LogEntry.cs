@@ -3,10 +3,10 @@
     public class LogEntry
     {
         public int Turn { get; }
-        public Move Move { get; }
+        public GameAction Move { get; }
         public Player Player { get; }
 
-        public LogEntry(int turn, Move move, Player player)
+        public LogEntry(int turn, GameAction move, Player player)
         {
             Turn = turn;
             Move = move;

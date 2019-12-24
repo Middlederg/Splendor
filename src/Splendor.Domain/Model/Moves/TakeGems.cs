@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Splendor.Domain
 {
-    public class TakeGems : Move
+    public class TakeGems : GameAction
     {
         private readonly IEnumerable<Gem> gems;
         public override MoveType Type => MoveType.TakeGems;

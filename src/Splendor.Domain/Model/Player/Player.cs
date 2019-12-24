@@ -15,7 +15,7 @@ namespace Splendor.Domain
 
         public int Id { get; }
 	    public Profile Profile { get; }
-        public List<Move> Moves { get; }
+        public List<GameAction> Moves { get; }
 
         public List<Gem> Gems { get; }
         public void AddGems(params Gem[] gems) => Gems.AddRange(gems);
@@ -41,6 +41,7 @@ namespace Splendor.Domain
         }
 
         public List<Development> Developments { get; }
+        public int TotalDevelopments => Developments.Count();
         public void BuyCard(Development development)
         {
             Developments.Add(development);
@@ -54,7 +55,9 @@ namespace Splendor.Domain
             updatePlayer?.Invoke();
         }
 
-        public int Prestige => VisitedNobles.Sum(x => x.Prestige) + Developments.Sum(x => x.Prestige);
+        public Prestige Prestige => (Prestige) (PrestigeForNobles + PrestigeForDevelopments);
+        private int PrestigeForNobles => VisitedNobles.Sum(x => x.Prestige);
+        private int PrestigeForDevelopments => Developments.Sum(x => x.Prestige);
 
         public Player(int id, Profile profile)
 	    {
@@ -65,7 +68,7 @@ namespace Splendor.Domain
             Developments = new List<Development>();
             ReservedDevelopments = new List<Development>();
 
-            Moves = new List<Move>();
+            Moves = new List<GameAction>();
         }
 
         public Player Reset() => new Player(Id, Profile);
