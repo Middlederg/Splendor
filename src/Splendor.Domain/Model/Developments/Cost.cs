@@ -19,5 +19,9 @@ namespace Splendor.Domain
         }
 
         public int OfType(Gem gem) => gems.Count(x => x == gem);
+
+        public override string ToString() => Gems.GetAllGems()
+            .Where(x => OfType(x) > 0)
+            .JoinList();
     }
 }

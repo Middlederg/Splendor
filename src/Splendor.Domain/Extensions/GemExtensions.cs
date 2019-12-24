@@ -32,7 +32,19 @@ namespace Splendor.Domain
 
             return gems.Distinct().Count() == gems.Count();
         }
+
+        public static string JoinList(this IEnumerable<Gem> gems)
+        {
+            return string.Join(", ", gems.ListOfStrings());
+        }
+
+        private static IEnumerable<string> ListOfStrings(this IEnumerable<Gem> gems)
+        {
+            foreach (var gem in gems.Distinct())
+            {
+                int number = gems.Count(x => x == gem);
+                yield return $"{gem.ToString(number)}";
+            }
+        }
     }
-
-
 }

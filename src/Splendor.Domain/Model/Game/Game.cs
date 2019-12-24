@@ -7,173 +7,63 @@ using System.Threading.Tasks;
 
 namespace Splendor.Domain
 {
-
     public class Game
     {
-        private int turn;
-        private readonly Market market;
+        private readonly Turn turn;
+        private readonly NobilityBox nobilityBox;
         private readonly Deck deck;
-        private NobilityBox nobilityBox;
+        private readonly Market market;
+        private readonly Log log;
 
         public List<Player> Players { get; }
         public Prestige Objetive { get; }
 
-        public IEnumerable<Move> GetAllmoves() => Players.SelectMany(x => x.Moves);
-
         public Game(Prestige objetive, params Profile[] profiles)
         {
-            int i = 0;
-            profiles.Select(profile => {
-                i++;
-                return new Player(i, profile);
-            });
-
-            turn = Randomizer.GetRandomNumber(0, profiles.Count() - 1);
-
+            Players = profiles.CreatePlayers().ToList();
             Objetive = objetive;
 
+            turn = new Turn(profiles.Count());
             nobilityBox = new NobilityBox(profiles.Count());
             deck = new Deck();
 
             var (gold, gems) = Gems.GetNumGemasInicio(profiles.Count());
             market = new Market(gems, gold);
+
+            log = new Log();
         }
 
         public Game ResetGame() => new Game(Objetive, Players.Select(x => x.Profile).ToArray());
 
-
-        public Player CurrentPlayer => Players[turn];
+        public Player CurrentPlayer => Players[turn.CurrentPlayer];
         public IEnumerable<Player> OtherPlayers(Player player) => Players.Where(x => x != player);
 
-        public void NextTurn() => turn = (turn == Players.Count - 1) ? 0 : turn + 1;
 
-        ///// <summary>
-        ///// Comprueba si ha terminado la partida, y si lo ha hecho devuelve al ganador
-        ///// </summary>
-        ///// <returns></returns>
-        //public Jugador FinalPartida() => (Jugadores.Any(x => x.Prestigio() >= PuntuacionObjetivo) && TurnoCompletado()) ? Clasificacion().First() : null;
-            
-        ///// <summary>
-        ///// Devuelve el orden de jugadores en la partida
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<Jugador> Clasificacion() => Jugadores.OrderByDescending(x => x.Prestigio()).ThenBy(y => y.Desarrollos.Count);
-
-  
-
-        ///// <summary>
-        ///// El jugador recibe el noble indicado
-        ///// Por defecto, el noble lo recibe el jugador con el turno
-        ///// </summary>
-        ///// <param name="noble"></param>
-        ///// <param name="jugadorActivo"></param>
-        //public void RecibirNoble(Noble noble, Jugador jugadorActivo = null)
-        //{
-        //    if (jugadorActivo == null) jugadorActivo = ElTurno();
-        //    jugadorActivo.NoblesVisitados.Add(noble);
-        //    Nobles.Remove(noble);
-        //    Log.Add((jugadorActivo == null ? jugadorActivo : ElTurno()).Nombre + " recibe la visita de " + noble.ToString());
-        //    UpdateNobles.Invoke();
-        //}
+        public bool IsGameEnd() => Players
+            .Any(x => x.Prestige >= Objetive
+            && turn.SameTurnsForAllPlayers);
 
 
+        public IEnumerable<Player> Ranking() => Players
+            .OrderByDescending(x => x.Prestige)
+            .ThenBy(y => y.Developments.Count());
 
+        public void Simulate()
+        {
+            while (!IsGameEnd())
+            {
+                var player = CurrentPlayer;
 
-        ///// <summary>
-        ///// El jugador compra el desarrollo indicado
-        ///// Por defecto, el desarrollo lo compra el jugador con el turno
-        ///// </summary>
-        ///// <param name="desarrollo"></param>
-        ///// <param name="jugadorActivo"></param>
-        //public void CompraDesarrollo(Development desarrollo, Jugador jugadorActivo = null)
-        //{
-        //    if (jugadorActivo == null) jugadorActivo = ElTurno();
-        //    GemasMesa.AddRange(jugadorActivo.Comprar(desarrollo));
-        //    Mazo.Remove(desarrollo);
-        //    Log.Add($"{jugadorActivo.Nombre} compra {desarrollo.ToString()}");
-        //    UpdateDesarrollos();
-        //    UpdateGemas();
-        //    UpdateJugadores();
-        //}
-
-
-
-
-
-
-
-        ///// <summary>
-        ///// Devuelve la cantidad de gemas que hay sobre la mesa de ese tipo de gema
-        ///// </summary>
-        ///// <param name="gema"></param>
-        ///// <returns></returns>
-        //public int NumGemasMesa(Gem gema) => GemasMesa.Count(x => x.Equals(gema));
-
-        ///// <summary>
-        ///// Devuelve si un jugador puede coger una gema de ese tipo
-        ///// </summary>
-        ///// <param name="gema"></param>
-        ///// <returns></returns>
-        //public bool PuedeCogerUnaGema(Gem gema) => GemasMesa.Contains(gema);
-
-        ///// <summary>
-        ///// Devuelve lista de monedas que puede coger el jugador si coge 3 gemas
-        ///// </summary>
-        ///// <param name="gema"></param>
-        ///// <returns></returns>
-        //public IEnumerable<Gem> PuedeCogerUnaGema() => Gems.GetAllGems().Where(gema => GemasMesa.Contains(gema));
-
-        ///// <summary>
-        ///// Devuelve si un jugador puede coger dos gema de ese tipo
-        ///// </summary>
-        ///// <param name="gema"></param>
-        ///// <returns></returns>
-        //public bool PuedeCogerDosGemas(Gem gema) => NumGemasMesa(gema) >= 4;
-
-        ///// <summary>
-        ///// Devuelve lista de monedas que puede coger el jugador si coge 2 gemas iguales
-        ///// </summary>
-        ///// <param name="gema"></param>
-        ///// <returns></returns>
-        //public IEnumerable<Gem> PuedeCogerDosGemas() => Gems.GetAllGems().Where(gema => PuedeCogerDosGemas(gema));
-
-        ///// <summary>
-        ///// El jugador activo coge una lista de gemas
-        ///// </summary>
-        ///// <param name="gemas"></param>
-        //public void CogerGemas(IEnumerable<Gem> gemas, Jugador jugadorActivo = null)
-        //{
-        //    if (jugadorActivo == null) jugadorActivo = ElTurno();
-        //    jugadorActivo.Gemas.AddRange(gemas);
-        //    gemas.ToList().ForEach(x => GemasMesa.Remove(x));
-        //    if(gemas.Distinct().Count() > 1)
-        //        Log.Add(jugadorActivo.Nombre + " coge " + string.Join(", ", gemas.Select(x=> x.ToString())));
-        //    else
-        //        Log.Add(jugadorActivo.Nombre + " coge " + gemas.Distinct().Count() + " " + gemas.First().ToString());
-        //    UpdateGemas();
-        //    UpdateJugadores();
-        //}
-
-
-
-
-        ///// <summary>
-        ///// Simula una partida completa
-        ///// </summary>
-        //public void Simulacion()
-        //{
-        //    while (FinalPartida() == null)
-        //    {
-        //        foreach (Jugador jug in Jugadores)
-        //        {
-        //            Mover();
-        //            AvanzaTurno();
-        //        }
-        //    }
-        //    Log.Add("GANADOR: " + FinalPartida().Nombre);
-        //    foreach (var jug in Clasificacion())
-        //        Log.Add((Clasificacion().ToList().IndexOf(jug) + 1) + ". " + jug.ToString());
-        //}
+                foreach (Jugador jug in Jugadores)
+                {
+                    Mover();
+                    AvanzaTurno();
+                }
+            }
+            Log.Add("GANADOR: " + FinalPartida().Nombre);
+            foreach (var jug in Clasificacion())
+                Log.Add((Clasificacion().ToList().IndexOf(jug) + 1) + ". " + jug.ToString());
+        }
 
 
 
@@ -191,7 +81,7 @@ namespace Splendor.Domain
         //        //var n = RecibirNoble();
         //        //if (n != null)
         //        //    Log.Add($"{jugadorActivo.Nombre} recibe la visita de {n.ToString()}");
-                
+
         //        //return new ComprarDesarrollo(d, n);
         //    }
 
@@ -322,7 +212,7 @@ namespace Splendor.Domain
         //    return null;
         //}
 
-       
+
 
         /// <summary>
         /// Jugador activo recibe un noble y devuelve la elección

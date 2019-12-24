@@ -23,7 +23,7 @@ namespace Splendor.Domain
         public void TakeGems(params Gem[] gemsToTake)
         {
             if (!CanBeTaken(gemsToTake))
-                throw new DomainException($"Can not take {gemsToTake.Select(x => x.ToString()).JoinList()}");
+                throw new DomainException($"Can not take {gemsToTake.JoinList()}");
 
             foreach (var gem in gemsToTake)
             {

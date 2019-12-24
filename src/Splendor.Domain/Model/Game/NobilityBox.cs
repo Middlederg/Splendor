@@ -27,5 +27,7 @@ namespace Splendor.Domain
 
             updateNobles?.Invoke();
         }
+
+        public override string ToString() => NobleList.Select(x => x.ToStringDetailed()).JoinList();
     }
 }

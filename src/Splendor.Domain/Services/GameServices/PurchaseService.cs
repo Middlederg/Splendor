@@ -32,35 +32,29 @@ namespace Splendor.Domain
         public override string ToString()
         {
             if (CanAffordPayingGold())
-                return $"You can afford the development paying {RequiredGoldText()} gold and {WouldSpendTexts().JoinList()}";
+                return $"You can afford the development paying {RequiredGoldText()} gold and {WouldSpendText()}";
 
             if (!CanAfford())
-                return $"You can not afford the development. You need {AreMissingTexts().JoinList()}";
+                return $"You can not afford the development. You need {AreMissingText()}";
             
             if (IsFree())
                 return "You can buy it for free";
 
-            return $"You can afford the development paying {WouldSpendTexts().JoinList()}";
+            return $"You can afford the development paying {WouldSpendText()}";
         }
 
-        private IEnumerable<string> WouldSpendTexts()
+        private string WouldSpendText()
         {
-            foreach (var gem in Gems.GetAllGems())
-            {
-                int count = WouldSpend(gem);
-                if (count > 0)
-                   yield return $"{gem.ToString(count)}";
-            }
+            return Gems.GetAllGems()
+                .SelectMany(gem => gem.Get(WouldSpend(gem)))
+                .JoinList();
         }
 
-        private IEnumerable<string> AreMissingTexts()
+        private string AreMissingText()
         {
-            foreach (var gem in Gems.GetAllGems())
-            {
-                int count = Missing(gem);
-                if (count > 0)
-                    yield return $"{gem.ToString(count)}";
-            }
+            return Gems.GetAllGems()
+                 .SelectMany(gem => gem.Get(Missing(gem)))
+                 .JoinList();
         }
 
         public void Purchase(Deck deck, Market market)
@@ -85,5 +79,7 @@ namespace Splendor.Domain
             deck.BuyCard(development);
             player.BuyCard(development);
         }
+
+      
     }
 }

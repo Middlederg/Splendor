@@ -25,7 +25,7 @@ namespace Splendor.Domain
         public int RequiredQuantity(Gem gema) => requierements.OfType(gema);
 
 	    public override string ToString() => name;
-        public string ToStringDetailed() => $"{name} ({Prestige})";
+        public string ToStringDetailed() => $"{name} ({requierements.ToString()})";
 
         public static bool operator ==(Noble noble1, Noble noble2) => noble1.Equals(noble2);
         public static bool operator !=(Noble noble1, Noble noble2) => !noble1.Equals(noble2);

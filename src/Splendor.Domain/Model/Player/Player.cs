@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Splendor.Domain
+{
+    public class Player
+    {
+        public const int MaxGems = 10;
+
+        private Action updatePlayer;
+        public void Subscribe(Action action) => updatePlayer += action;
+
+        public int Id { get; }
+	    public Profile Profile { get; }
+        public List<Move> Moves { get; }
+
+        public List<Gem> Gems { get; }
+        public void AddGems(params Gem[] gems) => Gems.AddRange(gems);
+
+        public int TotalGems() => Gems.Count();
+        public int TotalGems(Gem gem) => Gems.Count(x => x == gem);
+        public void TakeGems(params Gem[] gems)
+        {
+            foreach (var gem in gems)
+            {
+                var taken = Gems.Remove(gem);
+                if (!taken)
+                    throw new NotFoundException(nameof(Gem));
+            }
+            updatePlayer?.Invoke();
+        }
+
+        public List<Noble> VisitedNobles { get; }
+        public void AddNoble(Noble noble)
+        {
+            VisitedNobles.Add(noble);
+            updatePlayer?.Invoke();
+        }
+
+        public List<Development> Developments { get; }
+        public void BuyCard(Development development)
+        {
+            Developments.Add(development);
+            updatePlayer?.Invoke();
+        }
+
+        public List<Development> ReservedDevelopments { get; }
+        public void ReserveCard(Development development)
+        {
+            ReservedDevelopments.Add(development);
+            updatePlayer?.Invoke();
+        }
+
+        public int Prestige => VisitedNobles.Sum(x => x.Prestige) + Developments.Sum(x => x.Prestige);
+
+        public Player(int id, Profile profile)
+	    {
+		    Id = id;
+            Profile = profile;
+            Gems = new List<Gem>();
+            VisitedNobles = new List<Noble>();
+            Developments = new List<Development>();
+            ReservedDevelopments = new List<Development>();
+
+            Moves = new List<Move>();
+        }
+
+        public Player Reset() => new Player(Id, Profile);
+
+        public int Bonus(Gem gem) => Developments.Count(x => x.Bonus == gem);
+        public int PurchasingPower(Gem gema) => TotalGems(gema) + Bonus(gema);
+
+        public override string ToString() => Profile.ToString();
+
+      
+
+    }
+}

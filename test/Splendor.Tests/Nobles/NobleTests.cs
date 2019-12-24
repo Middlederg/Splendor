@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace Splendor.Tests
 {
+    [Collection(nameof(DefaultCollection))]
     public class NobleTests
     {
         [Fact]
