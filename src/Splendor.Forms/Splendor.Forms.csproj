@@ -40,6 +40,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
@@ -62,6 +63,31 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\UcMiniDesarrollo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\UcMiniDesarrollo.Designer.cs">
+      <DependentUpon>UcMiniDesarrollo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\UcMiniGema.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\UcMiniGema.Designer.cs">
+      <DependentUpon>UcMiniGema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\UcRecurso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\UcRecurso.Designer.cs">
+      <DependentUpon>UcRecurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nobles\NobleTile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nobles\NobleTile.Designer.cs">
+      <DependentUpon>NobleTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationValues.cs" />
     <Compile Include="GameActionInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,11 +156,18 @@
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Nobles\ReceiveVisit.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="UserControls\TakenDevelopmentsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\TakenDevelopmentsPanel.Designer.cs">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nobles\NoblesBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nobles\NoblesBoard.Designer.cs">
+      <DependentUpon>NoblesBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
@@ -151,6 +184,18 @@
     <Compile Include="WaitTimes.cs" />
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\UcMiniDesarrollo.resx">
+      <DependentUpon>UcMiniDesarrollo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\UcMiniGema.resx">
+      <DependentUpon>UcMiniGema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\UcRecurso.resx">
+      <DependentUpon>UcRecurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nobles\NobleTile.resx">
+      <DependentUpon>NobleTile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameActionInfo.resx">
       <DependentUpon>GameActionInfo.cs</DependentUpon>
@@ -195,22 +240,29 @@
     <EmbeddedResource Include="UserControls\TakenDevelopmentsPanel.resx">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nobles\NoblesBoard.resx">
+      <DependentUpon>NoblesBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TestView.resx">
       <DependentUpon>TestView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>

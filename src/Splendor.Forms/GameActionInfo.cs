@@ -12,8 +12,6 @@ namespace Splendor.Forms
 {
     public partial class GameActionInfo : BaseForm
     {
-        private readonly int waitTime;
-
         public string Message
         {
             get => label1.Text;
@@ -23,12 +21,11 @@ namespace Splendor.Forms
         public GameActionInfo()
         {
             InitializeComponent();
-            waitTime = Configuration.GetWaitTime;
         }
 
         private async void OnShown(object sender, EventArgs e)
         {
-            await Task.Delay(waitTime);
+            await Task.Delay((int)Configuration.DefaultWaitTime);
             Close();
         }
     }

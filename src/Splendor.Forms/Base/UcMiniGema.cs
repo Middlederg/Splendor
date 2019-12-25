@@ -11,22 +11,21 @@ namespace Splendor.Forms.UserControls
 {
     public partial class UcMiniGema : UcBase
     {
-
-        [Description("Número de gemas")]
         public int Numero
         {
-            get => Int32.Parse(Lbl.Text);
+            get => int.Parse(Lbl.Text);
             set
             {
                 pContenedor.Visible = value > 0;
                 Lbl.Text = value.ToString();
                 if (value > 0)
-                    ToolTipAyuda.SetToolTip(Lbl, $"{gem?.Plural(value) ?? ""}");
+                {
+                    ToolTipAyuda.SetToolTip(Lbl, $"{gem?.ToString(value) ?? ""}");
+                }
             }
         }
 
         private Gem gem;
-        [Description("Gema asociada")]
         public Gem Gem
         {
             get => gem;
@@ -38,7 +37,6 @@ namespace Splendor.Forms.UserControls
             }
         }
 
-        [Description("Fuente del número")]
         public Font Fuente
         {
             get => Lbl.Font;

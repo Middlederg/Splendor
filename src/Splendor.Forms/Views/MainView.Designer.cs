@@ -37,6 +37,8 @@
             this.pJugador1 = new System.Windows.Forms.Panel();
             this.DeckBoard = new Splendor.Forms.DeckBoard();
             this.MarketBoard = new Splendor.Forms.MarketBoard();
+            this.NoblesBoard = new Splendor.Forms.NoblesBoard();
+            this.ucRecurso1 = new Splendor.Forms.UserControls.UcRecurso();
             this.pGeneral.SuspendLayout();
             this.TlpGeneral.SuspendLayout();
             this.SuspendLayout();
@@ -57,8 +59,8 @@
             this.TlpGeneral.ColumnCount = 6;
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
-            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 710F));
+            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpGeneral.Controls.Add(this.FlpAccionesJugadores, 1, 0);
@@ -67,6 +69,8 @@
             this.TlpGeneral.Controls.Add(this.pJugador1, 0, 2);
             this.TlpGeneral.Controls.Add(this.DeckBoard, 2, 1);
             this.TlpGeneral.Controls.Add(this.MarketBoard, 3, 1);
+            this.TlpGeneral.Controls.Add(this.NoblesBoard, 4, 1);
+            this.TlpGeneral.Controls.Add(this.ucRecurso1, 2, 0);
             this.TlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpGeneral.Location = new System.Drawing.Point(0, 0);
             this.TlpGeneral.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -97,7 +101,7 @@
             this.pOpciones.Location = new System.Drawing.Point(255, 628);
             this.pOpciones.Margin = new System.Windows.Forms.Padding(0);
             this.pOpciones.Name = "pOpciones";
-            this.pOpciones.Size = new System.Drawing.Size(800, 100);
+            this.pOpciones.Size = new System.Drawing.Size(710, 100);
             this.pOpciones.TabIndex = 0;
             // 
             // FlpJugadores
@@ -136,12 +140,39 @@
             // MarketBoard
             // 
             this.MarketBoard.BackColor = System.Drawing.Color.White;
-            this.MarketBoard.Location = new System.Drawing.Point(1055, 80);
+            this.MarketBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MarketBoard.Location = new System.Drawing.Point(965, 80);
             this.MarketBoard.Margin = new System.Windows.Forms.Padding(0);
             this.MarketBoard.Market = null;
             this.MarketBoard.Name = "MarketBoard";
-            this.MarketBoard.Size = new System.Drawing.Size(109, 548);
+            this.TlpGeneral.SetRowSpan(this.MarketBoard, 2);
+            this.MarketBoard.Size = new System.Drawing.Size(120, 648);
             this.MarketBoard.TabIndex = 5;
+            // 
+            // NoblesBoard
+            // 
+            this.NoblesBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoblesBoard.Location = new System.Drawing.Point(1085, 80);
+            this.NoblesBoard.Margin = new System.Windows.Forms.Padding(0);
+            this.NoblesBoard.Name = "NoblesBoard";
+            this.NoblesBoard.NobilityBox = null;
+            this.TlpGeneral.SetRowSpan(this.NoblesBoard, 2);
+            this.NoblesBoard.Size = new System.Drawing.Size(145, 648);
+            this.NoblesBoard.TabIndex = 6;
+            // 
+            // ucRecurso1
+            // 
+            this.ucRecurso1.BackColor = System.Drawing.Color.White;
+            this.ucRecurso1.FuenteDesarrollo = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
+            this.ucRecurso1.FuenteGemas = new System.Drawing.Font("Verdana", 14F);
+            this.ucRecurso1.Location = new System.Drawing.Point(255, 0);
+            this.ucRecurso1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucRecurso1.Name = "ucRecurso1";
+            this.ucRecurso1.NumeroDesarrollos = 1;
+            this.ucRecurso1.NumeroGemas = 1;
+            this.ucRecurso1.Padding = new System.Windows.Forms.Padding(2);
+            this.ucRecurso1.Size = new System.Drawing.Size(76, 51);
+            this.ucRecurso1.TabIndex = 7;
             // 
             // MainView
             // 
@@ -170,5 +201,7 @@
         private System.Windows.Forms.FlowLayoutPanel FlpAccionesJugadores;
         private DeckBoard DeckBoard;
         private MarketBoard MarketBoard;
+        private NoblesBoard NoblesBoard;
+        private UserControls.UcRecurso ucRecurso1;
     }
 }

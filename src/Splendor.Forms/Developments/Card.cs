@@ -53,7 +53,7 @@ namespace Splendor.Forms
             {
                 if (Activable)
                 {
-                    BackColor = value ? Configuration.Secondary : Color.Transparent;
+                    BackColor = value ? Configuration.SecondaryColor : Color.Transparent;
                     //BorderStyle = value ? BorderStyle.FixedSingle : BorderStyle.None;
                     selected = value;
                 }

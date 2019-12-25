@@ -1,5 +1,4 @@
 ﻿using Splendor.Domain;
-using Splendor.Forms.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +7,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Splendor.Forms.UserControls
+namespace Splendor.Forms
 {
-    public partial class UcNoble : UcBase
+    public partial class NobleTile : UcBase
     {
         private Noble noble;
-        [Description("Noble asociado")]
         public Noble Noble
         {
             get => noble; 
@@ -25,28 +23,24 @@ namespace Splendor.Forms.UserControls
             }
         }
 
-        [Description("Si la gema es seleccionable")]
-        [DefaultValue(false)]
         public bool Activable { get; set; } = false;
 
-        private bool seleccionada;
-        [Description("Si la gema está seleccionada")]
+        private bool selected;
         [DefaultValue(false)]
-        public bool Seleccionada
+        public bool Selected
         {
-            get => seleccionada;
+            get => selected;
             set
             {
                 if (Activable)
                 {
-                    //BackColor = value ? Aspecto.Secondary : Color.Transparent;
                     BorderStyle = value ? BorderStyle.FixedSingle : BorderStyle.None;
-                    seleccionada = value;
+                    selected = value;
                 }
             }
         }
 
-        public UcNoble()
+        public NobleTile()
         {
             InitializeComponent();
         }

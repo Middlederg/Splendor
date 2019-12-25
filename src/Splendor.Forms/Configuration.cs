@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -7,21 +9,17 @@ using System.Text;
 
 namespace Splendor.Forms
 {
-    public static class Configuration
+    public sealed class Configuration : Singleton
     {
-        public static Color Primary = Color.SlateBlue;
-        public static Color Secondary = Color.DeepSkyBlue;
-        public static Color Terciary = Color.BurlyWood;
+        public const int CardWidth = 119;
+        public const int CardHeight = 166;
 
-        public static int DefaultProfile = 1;
-        public static WaitTimes DefaultWaitTime = WaitTimes.Standard;
 
-        public static int GetWaitTime = waitTimes[(int)DefaultWaitTime];
-        private static int[] waitTimes = new int[] { 500, 1000, 2000, 3000, 5000 };
-
-        public static int CardWidth = 119;
-        public static int CardHeight = 166;
-
-        public static Color SelectionColor = Color.SlateBlue; //burlywood
+        public static Color PrimaryColor = Properties.Settings.Default.PrimaryColor;
+        public static Color SecondaryColor = Properties.Settings.Default.SecondaryColor;
+        public static Color TerciaryColor = Properties.Settings.Default.TerciaryColor;
+        public static int DefaultProfile = Properties.Settings.Default.DefaultProfile;
+        private static readonly int DefaultWaitTimeIndex = Properties.Settings.Default.DefaultWaitTime;
+        public static WaitTimes DefaultWaitTime = Enum.GetValues(typeof(WaitTimes)).Cast<WaitTimes>().ElementAt(DefaultWaitTimeIndex);
     }
 }

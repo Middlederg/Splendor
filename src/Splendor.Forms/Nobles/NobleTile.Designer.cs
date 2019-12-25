@@ -1,6 +1,6 @@
-﻿namespace Splendor.Forms.UserControls
+﻿namespace Splendor.Forms
 {
-    partial class UcNoble
+    partial class NobleTile
     {
         /// <summary>
         /// Variable del diseñador necesaria.

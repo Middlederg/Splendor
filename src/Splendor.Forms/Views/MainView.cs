@@ -27,6 +27,11 @@ namespace Splendor.Forms.Views
 
             AddDeckPanel();
             AddGemsPanels();
+            AddNobles();
+
+            ucRecurso1.TipoGema = Gems.Emerald;
+            ucRecurso1.NumeroDesarrollos = 2;
+            ucRecurso1.NumeroGemas = 3;
         }
 
         private void AddDeckPanel()
@@ -114,12 +119,11 @@ namespace Splendor.Forms.Views
             OnPlay();
         }
 
-        //public void AgregarNobles()
-        //{
-        //    UcNobles u = new UcNobles(j) { Anchor = AnchorStyles.None };
-        //    TlpGeneral.Controls.Add(u, 4, 0);
-        //    TlpGeneral.SetRowSpan(u, 3);
-        //}
+        public void AddNobles()
+        {
+            NoblesBoard.NobilityBox = game.NobilityBox;
+            NoblesBoard.Draw();
+        }
 
         //private void AgregarJugadorPrincipal()
         //{

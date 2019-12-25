@@ -11,18 +11,16 @@ namespace Splendor.Forms.UserControls
 {
     public partial class UcMiniDesarrollo : UcBase
     {
-        [Description("Número de desarrollos")]
         public int Numero
         {
-            get => Int32.Parse(Lbl.Text);
+            get => int.Parse(Lbl.Text);
             set
             {
                 Lbl.Text = value.ToString();
-                ToolTipAyuda.SetToolTip(Lbl, value.ToString());
+                ToolTipAyuda.SetToolTip(Lbl, $"{value.ToString()} development{(value != 1 ? "s" : "")}");
             }
         }
 
-        [Description("Fuente del número")]
         public Font Fuente
         {
             get => Lbl.Font;

@@ -37,7 +37,7 @@ namespace Splendor.Domain
 
             if (currentPlayer.TotalGems() <= 5)
             {
-                var gems = ThreeRandomGems().ToArray();
+                var gems = ThreeRandomGems()?.ToArray() ?? new Gem[0];
                 if (market.CanBeTaken(gems))
                 {
                     new TakeGemsService(currentPlayer, market, gems).Take();
@@ -48,7 +48,7 @@ namespace Splendor.Domain
 
             if (currentPlayer.TotalGems() <= 8)
             {
-                var gems = TwoSameRandomGems().ToArray();
+                var gems = TwoSameRandomGems()?.ToArray() ?? new Gem[0];
                 if (market.CanBeTaken(gems))
                 {
                     new TakeGemsService(currentPlayer, market, gems).Take();
@@ -64,7 +64,7 @@ namespace Splendor.Domain
                 bool takeGold = reserveService.WouldTakeGoldToken();
                 reserveService.Reserve(deck);
                 var noble = ChooseRandomNobleIfPossible();
-                return log.ReserveDevelopment(currentTurn, currentPlayer, noble, development, takeGold);
+                return log.ReserveDevelopment(currentTurn, currentPlayer, noble, developmentToReserve, takeGold);
             }
 
             return null;
