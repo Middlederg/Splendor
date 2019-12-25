@@ -1,6 +1,6 @@
 ﻿namespace Splendor.Forms.UserControls
 {
-    partial class UcCogerGemas
+    partial class TakenGemsPanel
     {
         /// <summary>
         /// Variable del diseñador necesaria.

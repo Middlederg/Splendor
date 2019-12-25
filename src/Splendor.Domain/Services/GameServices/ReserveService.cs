@@ -43,7 +43,7 @@ namespace Splendor.Domain
 
             if (WouldTakeGoldToken())
             {
-                market.TakeGems(Gems.Gold);
+                market.TakeGold();
                 player.AddGems(Gems.Gold);
             }
         }

@@ -12,13 +12,13 @@ namespace Splendor.Forms.Views
 {
     public partial class TestView : Form
     {
+        private readonly Game game;
+
         public TestView()
         {
             InitializeComponent();
 
-        
-            Game game = new Game((Prestige)15, Profiles.Amanda, Profiles.Danilo);
-
+            game = new Game((Prestige)15, Profiles.Amanda, Profiles.Danilo);
 
             ucTablero1.Deck = game.Deck;
             ucTablero1.CurrentPlayer = game.CurrentPlayer;
@@ -26,10 +26,37 @@ namespace Splendor.Forms.Views
 
             marketBoard1.Market = game.Market;
             marketBoard1.Draw();
-            //u.Dock = DockStyle.Fill;
-            //Controls.Add(u);
-            //Tlp.Controls.Add(u, 1, 1);
+            marketBoard1.OnGemSelected += GemSelectedInMarket;
+
+            ucCogerGemas1.CurrentPlayer = game.CurrentPlayer;
+            ucCogerGemas1.Market = game.Market;
+            ucCogerGemas1.OnGemHasBeenRemoved += GemRemoved;
+            ucCogerGemas1.OnTransactionCompleted += TakeGems;
         }
 
+        private void GemSelectedInMarket(object sender, GemEventArgs e)
+        {
+            //var service = new TakeGemsService(game.CurrentPlayer, game.Market, ucCogerGemas1.GetSelectedGems().ToArray());
+            ucCogerGemas1.AddGem(e.Gem);
+        }
+
+        private void GemRemoved(object sender, GemEventArgs e)
+        {
+            marketBoard1.AddGem(e.Gem);
+        }
+
+        private void TakeGems(object sender, EventArgs e)
+        {
+            var gems = ucCogerGemas1.GetSelectedGems().ToArray();
+            var service = new TakeGemsService(game.CurrentPlayer, game.Market, gems);
+            service.Take();
+            ucCogerGemas1.Reset();
+            Visible = false;
+        }
+
+        private void Tlp_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace Splendor.Domain
                 gems.Add(Gems.Gold);
             }
         }
-
+        
         public bool CanBeTakenTwoOfType(Gem gem)
         {
             if (gem == Gems.Gold)

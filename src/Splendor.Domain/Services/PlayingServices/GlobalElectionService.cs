@@ -22,22 +22,22 @@ namespace Splendor.Domain
             Development result;
             var myElectionService = new ElectionService(currentPlayer, deck, objetive);
             result = myElectionService.Victory();
-            if (result != null) 
+            if (!(result is null))
                 return result;
 
             foreach (var otherPlayer in otherPlayers)
             {
                 result = new ElectionService(otherPlayer, deck, objetive).Victory();
-                if (result != null)
+                if (!(result is null))
                     return result;
             }
 
             result = myElectionService.Free();
-            if (result != null)
+            if (!(result is null))
                 return result;
 
             result = myElectionService.Cheapest();
-            if (result != null)
+            if (!(result is null))
                 return result;
 
             return null;

@@ -32,18 +32,25 @@ namespace Splendor.Forms
         {
             InitializeComponent();
             Diamond.Gem = Gems.Diamond;
-            ucGema2.Gem = Gems.Ruby;
-            ucGema3.Gem = Gems.Onyx;
-            ucGema4.Gem = Gems.Sapphire;
-            ucGema5.Gem = Gems.Emerald;
-            ucGema6.Gem = Gems.Gold;
+            Ruby.Gem = Gems.Ruby;
+            Onyx.Gem = Gems.Onyx;
+            Sapphire.Gem = Gems.Sapphire;
+            Emerald.Gem = Gems.Emerald;
+            Gold.Gem = Gems.Gold;
+        }
+
+        public void AddGem(Gem gem)
+        {
+            Flp.Controls.OfType<GemToken>()
+                .FirstOrDefault(x => x.Gem == gem)?
+                .AddGem();
         }
 
         public void Draw()
         {
             foreach (var token in Flp.Controls.OfType<GemToken>())
             {
-                token.AddGems(token.Gem.Get(market.AvaliableOfType(token.Gem)).ToArray());
+                token.SetGems(token.Gem.Get(market.AvaliableOfType(token.Gem)).ToArray());
                 token.Draw();
             }
         }
@@ -52,7 +59,7 @@ namespace Splendor.Forms
         {
             if (sender is GemToken token && token.SubIndex > 0)
             {
-                token.AddGems(token.Gem);
+                token.RemoveGems(token.Gem);
                 OnGemSelected?.Invoke(sender, new GemEventArgs(token.Gem));
             }
         }

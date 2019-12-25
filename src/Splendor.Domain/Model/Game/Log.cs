@@ -12,19 +12,25 @@ namespace Splendor.Domain
             entries = new List<LogEntry>();
         }
 
-        public void TakeGems(int currentTurn, Player player, Noble noble, params Gem[] gems)
+        public GameAction TakeGems(int currentTurn, Player player, Noble noble, params Gem[] gems)
         {
-            entries.Add(new LogEntry(currentTurn, new TakeGems(gems, noble), player));
+            var move = new TakeGems(gems, noble);
+            entries.Add(new LogEntry(currentTurn, move, player));
+            return move;
         }
 
-        public void BuyDevelopment(int currentTurn, Player player, Noble noble, Development development)
+        public GameAction BuyDevelopment(int currentTurn, Player player, Noble noble, Development development)
         {
-            entries.Add(new LogEntry(currentTurn, new BuyDevelopment(development, noble), player));
+            var move = new BuyDevelopment(development, noble);
+            entries.Add(new LogEntry(currentTurn, move, player));
+            return move;
         }
 
-        public void ReserveDevelopment(int currentTurn, Player player, Noble noble, Development development, bool takeGold)
+        public GameAction ReserveDevelopment(int currentTurn, Player player, Noble noble, Development development, bool takeGold)
         {
-            entries.Add(new LogEntry(currentTurn, new ReserveDevelopment(development, takeGold, noble), player));
+            var move = new ReserveDevelopment(development, takeGold, noble);
+            entries.Add(new LogEntry(currentTurn, move, player));
+            return move;
         }
 
         public IEnumerable<string> GetLog() => entries.Select(x => x.ToString());     

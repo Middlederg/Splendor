@@ -15,9 +15,19 @@ namespace Splendor.Forms
         public Gem Gem { get; set; }
 
         public int SubIndex { get; private set; }
-        public void AddGems(params Gem[] gems)
+        public void SetGems(params Gem[] gems)
         {
-            SubIndex += gems.Count(x => x == Gem);
+            SubIndex = gems.Count(x => x == Gem);
+            Refresh();
+        }
+        public void AddGem()
+        {
+            SubIndex++;
+            Refresh();
+        }
+        public void RemoveGems(params Gem[] gems)
+        {
+            SubIndex -= gems.Count(x => x == Gem);
             Refresh();
         }
 
@@ -52,7 +62,6 @@ namespace Splendor.Forms
 
         private void Pbx_Click(object sender, EventArgs e) => OnClick(e);
         
-
         private void OnPaint(object sender, PaintEventArgs e)
         {
             if (SubIndex > 0)

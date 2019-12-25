@@ -14,6 +14,10 @@ namespace Splendor.Forms
         public static Color Terciary = Color.BurlyWood;
 
         public static int DefaultProfile = 1;
+        public static WaitTimes DefaultWaitTime = WaitTimes.Standard;
+
+        public static int GetWaitTime = waitTimes[(int)DefaultWaitTime];
+        private static int[] waitTimes = new int[] { 500, 1000, 2000, 3000, 5000 };
 
         public static int CardWidth = 119;
         public static int CardHeight = 166;

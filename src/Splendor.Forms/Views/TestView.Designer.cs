@@ -30,7 +30,7 @@
         {
             this.Tlp = new System.Windows.Forms.TableLayoutPanel();
             this.ucTablero1 = new Splendor.Forms.DeckBoard();
-            this.ucCogerGemas1 = new Splendor.Forms.UserControls.UcCogerGemas();
+            this.ucCogerGemas1 = new Splendor.Forms.UserControls.TakenGemsPanel();
             this.marketBoard1 = new Splendor.Forms.MarketBoard();
             this.Tlp.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,7 @@
             this.Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.Tlp.Size = new System.Drawing.Size(1079, 749);
             this.Tlp.TabIndex = 0;
+            this.Tlp.Paint += new System.Windows.Forms.PaintEventHandler(this.Tlp_Paint);
             // 
             // ucTablero1
             // 
@@ -102,7 +103,7 @@
 
         private System.Windows.Forms.TableLayoutPanel Tlp;
         private DeckBoard ucTablero1;
-        private UserControls.UcCogerGemas ucCogerGemas1;
+        private UserControls.TakenGemsPanel ucCogerGemas1;
         private MarketBoard marketBoard1;
     }
 }

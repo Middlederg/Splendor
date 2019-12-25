@@ -16,7 +16,7 @@ namespace Splendor.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestView());
+            Application.Run(new MainView());
             //Application.Run(new Views.TestView());
         }
     }

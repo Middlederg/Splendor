@@ -17,6 +17,8 @@ namespace Splendor.Domain
                 receivedVisit = $" Noble received: {noble.ToStringDetailed()}";
             }
             else receivedVisit = "";
-        }        
+        }
+
+        public override string ToString() => $"{Description}{receivedVisit}";
     }
 }

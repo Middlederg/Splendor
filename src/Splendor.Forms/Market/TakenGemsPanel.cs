@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Splendor.Forms.UserControls
 {
-    public partial class UcCogerGemas : UcBase
+    public partial class TakenGemsPanel : UcBase
     {
         public Player CurrentPlayer { get; set; }
         public Market Market { get; set; }
@@ -23,7 +23,7 @@ namespace Splendor.Forms.UserControls
             .Select(x => x.Gem)
             .ToList();
 
-        public UcCogerGemas()
+        public TakenGemsPanel()
         {
             InitializeComponent();
         }
@@ -32,6 +32,7 @@ namespace Splendor.Forms.UserControls
         {
             FlpContainer.Controls.Clear();
             BtnOk.Visible = false;
+            FlpContainer.Controls.Clear();
         }
 
         public void AddGem(Gem gem)
@@ -41,6 +42,7 @@ namespace Splendor.Forms.UserControls
                 Gem = gem,
                 Removable = true
             };
+            removableGem.Draw();
             removableGem.OnGemRemoveClicked += RemoveGem;
             FlpContainer.Controls.Add(removableGem);
             UpdateOkButton();
@@ -51,6 +53,7 @@ namespace Splendor.Forms.UserControls
             if (sender is RemovableGem removableGem)
             {
                 FlpContainer.Controls.Remove(removableGem);
+                UpdateOkButton();
                 OnGemHasBeenRemoved(this, new GemEventArgs(removableGem.Gem));
             }
         }

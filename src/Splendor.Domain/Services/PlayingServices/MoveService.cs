@@ -25,15 +25,14 @@ namespace Splendor.Domain
             globalElectionService = new GlobalElectionService(game);
         }
 
-        public void MakeMove()
+        public GameAction MakeMove()
         {
             var development = globalElectionService.Search();
-            if (development != null)
+            if (!(development is null))
             {
                 new PurchaseService(development, currentPlayer).Purchase(deck, market);
                 var noble = ChooseRandomNobleIfPossible();
-                log.BuyDevelopment(currentTurn, currentPlayer, noble, development);
-                return;
+                return log.BuyDevelopment(currentTurn, currentPlayer, noble, development);
             }
 
             if (currentPlayer.TotalGems() <= 5)
@@ -41,10 +40,9 @@ namespace Splendor.Domain
                 var gems = ThreeRandomGems().ToArray();
                 if (market.CanBeTaken(gems))
                 {
-                    new TakeGemsService(currentPlayer, market, gems);
+                    new TakeGemsService(currentPlayer, market, gems).Take();
                     var noble = ChooseRandomNobleIfPossible();
-                    log.TakeGems(currentTurn, currentPlayer, noble, gems);
-                    return;
+                    return log.TakeGems(currentTurn, currentPlayer, noble, gems);
                 }
             }
 
@@ -53,10 +51,9 @@ namespace Splendor.Domain
                 var gems = TwoSameRandomGems().ToArray();
                 if (market.CanBeTaken(gems))
                 {
-                    new TakeGemsService(currentPlayer, market, gems);
+                    new TakeGemsService(currentPlayer, market, gems).Take();
                     var noble = ChooseRandomNobleIfPossible();
-                    log.TakeGems(currentTurn, currentPlayer, noble, gems);
-                    return;
+                    return log.TakeGems(currentTurn, currentPlayer, noble, gems);
                 }
             }
 
@@ -67,9 +64,10 @@ namespace Splendor.Domain
                 bool takeGold = reserveService.WouldTakeGoldToken();
                 reserveService.Reserve(deck);
                 var noble = ChooseRandomNobleIfPossible();
-                log.ReserveDevelopment(currentTurn, currentPlayer, noble, development, takeGold);
-                return;
+                return log.ReserveDevelopment(currentTurn, currentPlayer, noble, development, takeGold);
             }
+
+            return null;
         }
 
         private Noble ChooseRandomNobleIfPossible()

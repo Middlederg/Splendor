@@ -30,22 +30,22 @@
         {
             this.Flp = new System.Windows.Forms.FlowLayoutPanel();
             this.Diamond = new Splendor.Forms.GemToken();
-            this.ucGema2 = new Splendor.Forms.GemToken();
-            this.ucGema3 = new Splendor.Forms.GemToken();
-            this.ucGema4 = new Splendor.Forms.GemToken();
-            this.ucGema5 = new Splendor.Forms.GemToken();
-            this.ucGema6 = new Splendor.Forms.GemToken();
+            this.Ruby = new Splendor.Forms.GemToken();
+            this.Onyx = new Splendor.Forms.GemToken();
+            this.Sapphire = new Splendor.Forms.GemToken();
+            this.Emerald = new Splendor.Forms.GemToken();
+            this.Gold = new Splendor.Forms.GemToken();
             this.Flp.SuspendLayout();
             this.SuspendLayout();
             // 
             // Flp
             // 
             this.Flp.Controls.Add(this.Diamond);
-            this.Flp.Controls.Add(this.ucGema2);
-            this.Flp.Controls.Add(this.ucGema3);
-            this.Flp.Controls.Add(this.ucGema4);
-            this.Flp.Controls.Add(this.ucGema5);
-            this.Flp.Controls.Add(this.ucGema6);
+            this.Flp.Controls.Add(this.Ruby);
+            this.Flp.Controls.Add(this.Onyx);
+            this.Flp.Controls.Add(this.Sapphire);
+            this.Flp.Controls.Add(this.Emerald);
+            this.Flp.Controls.Add(this.Gold);
             this.Flp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Flp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Flp.Location = new System.Drawing.Point(0, 0);
@@ -54,70 +54,77 @@
             this.Flp.Size = new System.Drawing.Size(109, 600);
             this.Flp.TabIndex = 0;
             // 
-            // ucGema1
+            // Diamond
             // 
             this.Diamond.Activable = false;
             this.Diamond.BackColor = System.Drawing.Color.White;
+            this.Diamond.Gem = null;
             this.Diamond.Location = new System.Drawing.Point(10, 10);
             this.Diamond.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.Diamond.Name = "ucGema1";
+            this.Diamond.Name = "Diamond";
             this.Diamond.Size = new System.Drawing.Size(89, 89);
             this.Diamond.TabIndex = 0;
+            this.Diamond.Click += new System.EventHandler(this.GemaClick);
             // 
-            // ucGema2
+            // Ruby
             // 
-            this.ucGema2.Activable = true;
-            this.ucGema2.BackColor = System.Drawing.Color.White;
-            this.ucGema2.Location = new System.Drawing.Point(10, 109);
-            this.ucGema2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema2.Name = "ucGema2";
-            this.ucGema2.Size = new System.Drawing.Size(89, 89);
-            this.ucGema2.TabIndex = 1;
-            this.ucGema2.Click += new System.EventHandler(this.GemaClick);
+            this.Ruby.Activable = true;
+            this.Ruby.BackColor = System.Drawing.Color.White;
+            this.Ruby.Gem = null;
+            this.Ruby.Location = new System.Drawing.Point(10, 109);
+            this.Ruby.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Ruby.Name = "Ruby";
+            this.Ruby.Size = new System.Drawing.Size(89, 89);
+            this.Ruby.TabIndex = 1;
+            this.Ruby.Click += new System.EventHandler(this.GemaClick);
             // 
-            // ucGema3
+            // Onyx
             // 
-            this.ucGema3.Activable = true;
-            this.ucGema3.BackColor = System.Drawing.Color.White;
-            this.ucGema3.Location = new System.Drawing.Point(10, 208);
-            this.ucGema3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema3.Name = "ucGema3";
-            this.ucGema3.Size = new System.Drawing.Size(89, 89);
-            this.ucGema3.TabIndex = 2;
-            this.ucGema3.Click += new System.EventHandler(this.GemaClick);
+            this.Onyx.Activable = true;
+            this.Onyx.BackColor = System.Drawing.Color.White;
+            this.Onyx.Gem = null;
+            this.Onyx.Location = new System.Drawing.Point(10, 208);
+            this.Onyx.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Onyx.Name = "Onyx";
+            this.Onyx.Size = new System.Drawing.Size(89, 89);
+            this.Onyx.TabIndex = 2;
+            this.Onyx.Click += new System.EventHandler(this.GemaClick);
             // 
-            // ucGema4
+            // Sapphire
             // 
-            this.ucGema4.Activable = true;
-            this.ucGema4.BackColor = System.Drawing.Color.White;
-            this.ucGema4.Location = new System.Drawing.Point(10, 307);
-            this.ucGema4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema4.Name = "ucGema4";
-            this.ucGema4.Size = new System.Drawing.Size(89, 89);
-            this.ucGema4.TabIndex = 3;
-            this.ucGema4.Click += new System.EventHandler(this.GemaClick);
+            this.Sapphire.Activable = true;
+            this.Sapphire.BackColor = System.Drawing.Color.White;
+            this.Sapphire.Gem = null;
+            this.Sapphire.Location = new System.Drawing.Point(10, 307);
+            this.Sapphire.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Sapphire.Name = "Sapphire";
+            this.Sapphire.Size = new System.Drawing.Size(89, 89);
+            this.Sapphire.TabIndex = 3;
+            this.Sapphire.Click += new System.EventHandler(this.GemaClick);
             // 
-            // ucGema5
+            // Emerald
             // 
-            this.ucGema5.Activable = true;
-            this.ucGema5.BackColor = System.Drawing.Color.White;
-            this.ucGema5.Location = new System.Drawing.Point(10, 406);
-            this.ucGema5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema5.Name = "ucGema5";
-            this.ucGema5.Size = new System.Drawing.Size(89, 89);
-            this.ucGema5.TabIndex = 4;
-            this.ucGema5.Click += new System.EventHandler(this.GemaClick);
+            this.Emerald.Activable = true;
+            this.Emerald.BackColor = System.Drawing.Color.White;
+            this.Emerald.Gem = null;
+            this.Emerald.Location = new System.Drawing.Point(10, 406);
+            this.Emerald.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Emerald.Name = "Emerald";
+            this.Emerald.Size = new System.Drawing.Size(89, 89);
+            this.Emerald.TabIndex = 4;
+            this.Emerald.Click += new System.EventHandler(this.GemaClick);
             // 
-            // ucGema6
+            // Gold
             // 
-            this.ucGema6.Activable = true;
-            this.ucGema6.BackColor = System.Drawing.Color.White;
-            this.ucGema6.Location = new System.Drawing.Point(10, 505);
-            this.ucGema6.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema6.Name = "ucGema6";
-            this.ucGema6.Size = new System.Drawing.Size(89, 89);
-            this.ucGema6.TabIndex = 5;
-            this.ucGema6.Click += new System.EventHandler(this.GemaClick);
+            this.Gold.Activable = true;
+            this.Gold.BackColor = System.Drawing.Color.White;
+            this.Gold.Gem = null;
+            this.Gold.Location = new System.Drawing.Point(10, 505);
+            this.Gold.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Gold.Name = "Gold";
+            this.Gold.Size = new System.Drawing.Size(89, 89);
+            this.Gold.TabIndex = 5;
+            this.Gold.Click += new System.EventHandler(this.GemaClick);
             // 
             // MarketBoard
             // 
@@ -136,10 +143,10 @@
 
         private System.Windows.Forms.FlowLayoutPanel Flp;
         private GemToken Diamond;
-        private GemToken ucGema2;
-        private GemToken ucGema3;
-        private GemToken ucGema4;
-        private GemToken ucGema5;
-        private GemToken ucGema6;
+        private GemToken Ruby;
+        private GemToken Onyx;
+        private GemToken Sapphire;
+        private GemToken Emerald;
+        private GemToken Gold;
     }
 }

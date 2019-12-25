@@ -56,6 +56,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameActionInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameActionInfo.Designer.cs">
+      <DependentUpon>GameActionInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gems\RemovableGem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,11 +96,11 @@
     <Compile Include="Developments\DevelopmentEventArgs.cs" />
     <Compile Include="Gems\GemExtensions.cs" />
     <Compile Include="Developments\CardStatus.cs" />
-    <Compile Include="Market\UcCogerGemas.cs">
+    <Compile Include="Market\TakenGemsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Market\UcCogerGemas.Designer.cs">
-      <DependentUpon>UcCogerGemas.cs</DependentUpon>
+    <Compile Include="Market\TakenGemsPanel.Designer.cs">
+      <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,12 +129,32 @@
     <Compile Include="Market\MarketBoard.Designer.cs">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nobles\ReceiveVisit.cs" />
+    <Compile Include="UserControls\TakenDevelopmentsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TakenDevelopmentsPanel.Designer.cs">
+      <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\TestView.Designer.cs">
       <DependentUpon>TestView.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitTimes.cs" />
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameActionInfo.resx">
+      <DependentUpon>GameActionInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gems\RemovableGem.resx">
       <DependentUpon>RemovableGem.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,8 +167,8 @@
     <EmbeddedResource Include="Buttons\CustomButton.resx">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Market\UcCogerGemas.resx">
-      <DependentUpon>UcCogerGemas.cs</DependentUpon>
+    <EmbeddedResource Include="Market\TakenGemsPanel.resx">
+      <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,6 +192,12 @@
     <EmbeddedResource Include="Market\MarketBoard.resx">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TakenDevelopmentsPanel.resx">
+      <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TestView.resx">
       <DependentUpon>TestView.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +219,7 @@
   <ItemGroup>
     <None Include="Resources\rectangulo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\cuadro.png" />
   </ItemGroup>

@@ -8,11 +8,13 @@ namespace Splendor.Domain
 
         public int Id { get; }
         public string Path => $"Silueta{Id}";
+        public bool IsPlayer { get; }
 
-        public Profile(int id, string name)
+        public Profile(int id, string name, bool isPlayer = false)
         {
             Id = id;
             this.name = name;
+            IsPlayer = isPlayer;
         }
 
         public override string ToString() => name;

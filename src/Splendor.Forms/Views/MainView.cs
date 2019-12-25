@@ -7,118 +7,165 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Splendor.Forms.Views
 {
     public partial class MainView : Form
     {
-        private UcTablero ucTablero;
-        private UcGemas ucGemas;
-        private UcComprarDesarrollos ucComprarDesarrollos;
-        private UcCogerGemas ucCogerGemas;
+        private readonly Game game;
 
-        private Juego j;
+        private TakenGemsPanel gemsPanel;
+        private TakenDevelopmentsPanel developmentsPanel;
 
         public MainView()
         {
             InitializeComponent();
-            j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra, SiluetaFactory.Denver }, 15) { Turno = 0 };
-            //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo, SiluetaFactory.Debra }, 15) { Turno = 0 };
-            //j = new Juego(new Silueta[] { SiluetaFactory.Amanda, SiluetaFactory.Danilo }, 15) { Turno = 0 };
-            j.Jugadores[0].Gemas.AddRange(new List<Gem> { Gems.Diamond, Gems.Diamond, Gems.Gold, Gems.Sapphire, Gems.Ruby });
-            j.Jugadores[0].Desarrollos.AddRange(DesarrollosFactory.GetDesarrollos());
-            j.Jugadores[1].Gemas.AddRange(new List<Gem> { Gems.Diamond, Gems.Diamond, Gems.Onyx });
-            AgregarTablero();
-            AgregarGemas();
-            AgregarNobles();
-            AgregarJugadorPrincipal();
-            AgregarPanelesAcciones();
-            AgregarCuadrosJugadores();
+
+            game = new Game((Prestige)15, new Profile(1, "Jors", isPlayer:true), Profiles.Danilo);
+
+            AddDeckPanel();
+            AddGemsPanels();
         }
 
-        private void AgregarTablero()
+        private void AddDeckPanel()
         {
-            ucTablero = new UcTablero(j){ Dock = DockStyle.Fill };
-            ucTablero.OnSelectedDesarrolloChanged += DesarrolloSeleccionado;
-            TlpGeneral.Controls.Add(ucTablero, 2, 1);
-        }
+            DeckBoard.Deck = game.Deck;
+            DeckBoard.CurrentPlayer = game.CurrentPlayer;
+            DeckBoard.OnSelectedDesarrolloChanged += DesarrolloSelected;
+            DeckBoard.Draw();
 
-        private void AgregarGemas()
-        {
-            ucGemas = new UcGemas(j) { Anchor = AnchorStyles.None };
-            ucGemas.OnSelectedGemaChanged += GemaSeleccionada;
-            TlpGeneral.Controls.Add(ucGemas, 3, 0);
-            TlpGeneral.SetRowSpan(ucGemas, 3);
-        }
-
-        public void AgregarNobles()
-        {
-            UcNobles u = new UcNobles(j) { Anchor = AnchorStyles.None };
-            TlpGeneral.Controls.Add(u, 4, 0);
-            TlpGeneral.SetRowSpan(u, 3);
-        }
-
-        private void AgregarJugadorPrincipal()
-        {
-            UcJugador u = new UcJugador(j) { Dock = DockStyle.Fill };
-            TlpGeneral.Controls.Add(u, 2, 3);
-        }
-
-        private void AgregarPanelesAcciones()
-        {
-            ucComprarDesarrollos = new UcComprarDesarrollos(j) { Dock = DockStyle.Fill };
-            ucCogerGemas = new UcCogerGemas(j) { Dock = DockStyle.Fill };
-            pOpciones.Controls.Add(ucComprarDesarrollos);
-            pOpciones.Controls.Add(ucCogerGemas);
-        }
-
-        private void AgregarCuadrosJugadores()
-        {
-            foreach (Jugador jugador in j.RestoJugadores(j.Jugadores[0]))
+            developmentsPanel = new TakenDevelopmentsPanel
             {
-                FlpJugadores.Controls.Add(new UcCuadroJugador(j, j.Jugadores.IndexOf(jugador)) { Margin = new Padding(0, 0, 0, 20)});
-            }
-            pJugador1.Controls.Add(new UcCuadroJugador(j, 0) { Margin = new Padding(0, 0, 0, 20) });
+                Market = game.Market,
+                CurrentPlayer = game.CurrentPlayer
+            };
+            developmentsPanel.OnDevelopmentReserved += ReserveDevelopment;
+            developmentsPanel.OnDevelopmentBought += BuyDevelopment;
+            pOpciones.Controls.Add(developmentsPanel);
         }
 
-        private void DesarrolloSeleccionado()
+        private void DesarrolloSelected(object sender, DevelopmentEventArgs e)
         {
-            ucComprarDesarrollos.Actualizar(ucTablero.CartaSeleccionada());
-            ucCogerGemas.OnReiniciar();
-            ucCogerGemas.Visible = false;
+            developmentsPanel.Visible = true;
+            gemsPanel.Visible = false;
+            developmentsPanel.Development = e.Development;
         }
 
-        private void GemaSeleccionada()
+        private void AddGemsPanels()
         {
-            var gema = ucGemas.GemaSelecionada();
-            if (gema != null)
+            MarketBoard.Market = game.Market;
+            MarketBoard.Draw();
+            MarketBoard.OnGemSelected += GemSelectedInMarket;
+
+            gemsPanel = new TakenGemsPanel
             {
-                ucCogerGemas.Actualizar(gema);
-                ucComprarDesarrollos.Visible = false;
-            }
+                CurrentPlayer = game.CurrentPlayer,
+                Market = game.Market
+            };
+            gemsPanel.OnGemHasBeenRemoved += GemRemoved;
+            gemsPanel.OnTransactionCompleted += TakeGems;
+            pOpciones.Controls.Add(gemsPanel);
+        }
+
+        private void GemSelectedInMarket(object sender, GemEventArgs e)
+        {
+            gemsPanel.Visible = true;
+            developmentsPanel.Visible = false;
+            gemsPanel.AddGem(e.Gem);
+        }
+
+        private void GemRemoved(object sender, GemEventArgs e)
+        {
+            MarketBoard.AddGem(e.Gem);
+        }
+
+        private void TakeGems(object sender, EventArgs e)
+        {
+            var gems = gemsPanel.GetSelectedGems().ToArray();
+            var service = new TakeGemsService(game.CurrentPlayer, game.Market, gems);
+            service.Take();
+            gemsPanel.Reset();
+            var noble = TryVisitNoble();
+            game.Log.TakeGems(game.GetCurrentTurnNumber, game.CurrentPlayer, noble, gems);
+            game.NextTurn();
+            OnPlay();
+        }
+
+        private void BuyDevelopment(object sender, DevelopmentEventArgs e)
+        {
+            var service = new PurchaseService(e.Development, game.CurrentPlayer);
+            service.Purchase(game.Deck, game.Market);
+            var noble = TryVisitNoble();
+            game.Log.BuyDevelopment(game.GetCurrentTurnNumber, game.CurrentPlayer, noble, e.Development);
+            game.NextTurn();
+            OnPlay();
+        }
+
+        private void ReserveDevelopment(object sender, DevelopmentEventArgs e)
+        {
+            var service = new ReserveService(e.Development, game.CurrentPlayer, game.Market);
+            bool takeGold = service.WouldTakeGoldToken();
+            service.Reserve(game.Deck);
+            var noble = TryVisitNoble();
+            game.Log.ReserveDevelopment(game.GetCurrentTurnNumber, game.CurrentPlayer, noble, e.Development, takeGold);
+            game.NextTurn();
+            OnPlay();
+        }
+
+        //public void AgregarNobles()
+        //{
+        //    UcNobles u = new UcNobles(j) { Anchor = AnchorStyles.None };
+        //    TlpGeneral.Controls.Add(u, 4, 0);
+        //    TlpGeneral.SetRowSpan(u, 3);
+        //}
+
+        //private void AgregarJugadorPrincipal()
+        //{
+        //    UcJugador u = new UcJugador(j) { Dock = DockStyle.Fill };
+        //    TlpGeneral.Controls.Add(u, 2, 3);
+        //}
+
+
+
+        //private void AgregarCuadrosJugadores()
+        //{
+        //    foreach (Jugador jugador in j.RestoJugadores(j.Jugadores[0]))
+        //    {
+        //        FlpJugadores.Controls.Add(new UcCuadroJugador(j, j.Jugadores.IndexOf(jugador)) { Margin = new Padding(0, 0, 0, 20)});
+        //    }
+        //    pJugador1.Controls.Add(new UcCuadroJugador(j, 0) { Margin = new Padding(0, 0, 0, 20) });
+        //}
+
+
+        private Noble TryVisitNoble()
+        {
+            return null;
         }
 
         private void OnPlay()
         {
-            FlpAccionesJugadores.Controls.Clear();
-            foreach (var jugador in j.RestoJugadores(j.Jugadores[0]))
+            developmentsPanel.Reset();
+            gemsPanel.Reset();
+            
+            while (!game.CurrentPlayer.Profile.IsPlayer)
             {
-                if (j.Turno == j.Jugadores.IndexOf(jugador))
+                var moveService = new MoveService(game);
+                var move = moveService.MakeMove();
+
+                using (var view = new GameActionInfo())
                 {
-                    IAccion accion = j.Mover();
-                    FlpAccionesJugadores.Controls.Add(new UcAccion(accion, BtnAceptarMovimientoClick));
+                    view.Message = move.ToString();
+                    view.SetText($"{game.CurrentPlayer.ToString()}");
+                    view.ShowDialog();
                 }
-                else
-                {
-                    FlpAccionesJugadores.Controls.Add(new UcAccion());
-                }
+                game.NextTurn();
             }
         }
 
-        private void BtnAceptarMovimientoClick(object sender, EventArgs e)
+        private void OnLoad(object sender, EventArgs e)
         {
-            j.AvanzaTurno();
             OnPlay();
         }
     }
