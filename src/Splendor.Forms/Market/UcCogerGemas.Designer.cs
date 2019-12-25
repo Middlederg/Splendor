@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
-            this.GemaPrimera = new Splendor.Forms.UserControls.UcGemaIndividual();
-            this.BtnOk = new Splendor.Forms.CustomControls.CustomButtonOk();
-            this.GemaSegunda = new Splendor.Forms.UserControls.UcGemaIndividual();
-            this.GemaTercera = new Splendor.Forms.UserControls.UcGemaIndividual();
+            this.GemaPrimera = new Splendor.Forms.RemovableGem();
+            this.BtnOk = new Splendor.Forms.CustomButtonOk();
+            this.GemaSegunda = new Splendor.Forms.RemovableGem();
+            this.GemaTercera = new Splendor.Forms.RemovableGem();
             this.TlpPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,11 +61,9 @@
             // GemaPrimera
             // 
             this.GemaPrimera.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GemaPrimera.Gema = null;
             this.GemaPrimera.Location = new System.Drawing.Point(177, 40);
             this.GemaPrimera.Margin = new System.Windows.Forms.Padding(0);
             this.GemaPrimera.Name = "GemaPrimera";
-            this.GemaPrimera.OnGemaDeleted = null;
             this.GemaPrimera.Size = new System.Drawing.Size(89, 89);
             this.GemaPrimera.TabIndex = 0;
             // 
@@ -95,22 +93,18 @@
             // GemaSegunda
             // 
             this.GemaSegunda.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GemaSegunda.Gema = null;
             this.GemaSegunda.Location = new System.Drawing.Point(277, 40);
             this.GemaSegunda.Margin = new System.Windows.Forms.Padding(0);
             this.GemaSegunda.Name = "GemaSegunda";
-            this.GemaSegunda.OnGemaDeleted = null;
             this.GemaSegunda.Size = new System.Drawing.Size(89, 89);
             this.GemaSegunda.TabIndex = 2;
             // 
             // GemaTercera
             // 
             this.GemaTercera.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GemaTercera.Gema = null;
             this.GemaTercera.Location = new System.Drawing.Point(377, 40);
             this.GemaTercera.Margin = new System.Windows.Forms.Padding(0);
             this.GemaTercera.Name = "GemaTercera";
-            this.GemaTercera.OnGemaDeleted = null;
             this.GemaTercera.Size = new System.Drawing.Size(89, 89);
             this.GemaTercera.TabIndex = 3;
             // 
@@ -128,9 +122,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
-        private UcGemaIndividual GemaPrimera;
-        private Splendor.Forms.CustomControls.CustomButtonOk BtnOk;
-        private UcGemaIndividual GemaSegunda;
-        private UcGemaIndividual GemaTercera;
+        private RemovableGem GemaPrimera;
+        private Splendor.Forms.CustomButtonOk BtnOk;
+        private RemovableGem GemaSegunda;
+        private RemovableGem GemaTercera;
     }
 }
