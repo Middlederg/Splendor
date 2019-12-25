@@ -23,6 +23,9 @@ namespace Splendor.Forms.Views
             ucTablero1.Deck = game.Deck;
             ucTablero1.CurrentPlayer = game.CurrentPlayer;
             ucTablero1.Draw();
+
+            marketBoard1.Market = game.Market;
+            marketBoard1.Draw();
             //u.Dock = DockStyle.Fill;
             //Controls.Add(u);
             //Tlp.Controls.Add(u, 1, 1);

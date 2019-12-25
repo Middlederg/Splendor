@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Flp = new System.Windows.Forms.FlowLayoutPanel();
-            this.ucGema1 = new Splendor.Forms.GemToken();
+            this.Diamond = new Splendor.Forms.GemToken();
             this.ucGema2 = new Splendor.Forms.GemToken();
             this.ucGema3 = new Splendor.Forms.GemToken();
             this.ucGema4 = new Splendor.Forms.GemToken();
@@ -40,7 +40,7 @@
             // 
             // Flp
             // 
-            this.Flp.Controls.Add(this.ucGema1);
+            this.Flp.Controls.Add(this.Diamond);
             this.Flp.Controls.Add(this.ucGema2);
             this.Flp.Controls.Add(this.ucGema3);
             this.Flp.Controls.Add(this.ucGema4);
@@ -56,13 +56,13 @@
             // 
             // ucGema1
             // 
-            this.ucGema1.Activable = false;
-            this.ucGema1.BackColor = System.Drawing.Color.White;
-            this.ucGema1.Location = new System.Drawing.Point(10, 10);
-            this.ucGema1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.ucGema1.Name = "ucGema1";
-            this.ucGema1.Size = new System.Drawing.Size(89, 89);
-            this.ucGema1.TabIndex = 0;
+            this.Diamond.Activable = false;
+            this.Diamond.BackColor = System.Drawing.Color.White;
+            this.Diamond.Location = new System.Drawing.Point(10, 10);
+            this.Diamond.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Diamond.Name = "ucGema1";
+            this.Diamond.Size = new System.Drawing.Size(89, 89);
+            this.Diamond.TabIndex = 0;
             // 
             // ucGema2
             // 
@@ -135,7 +135,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel Flp;
-        private GemToken ucGema1;
+        private GemToken Diamond;
         private GemToken ucGema2;
         private GemToken ucGema3;
         private GemToken ucGema4;

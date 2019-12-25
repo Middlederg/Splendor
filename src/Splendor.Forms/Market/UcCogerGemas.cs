@@ -12,34 +12,47 @@ namespace Splendor.Forms.UserControls
 {
     public partial class UcCogerGemas : UcBase
     {
-        private List<Gem> GemasSeleccionadas;
-        //private IEnumerable<UcGemaIndividual> GetUcGemas => TlpPrincipal.Controls.OfType<UcGemaIndividual>();
+        public Player CurrentPlayer { get; set; }
+        public Market Market { get; set; }
+
+        public event EventHandler<GemEventArgs> OnGemHasBeenRemoved;
+        public event EventHandler OnTransactionCompleted;
+
+        public IEnumerable<Gem> GetSelectedGems() => FlpContainer.Controls
+            .OfType<RemovableGem>()
+            .Select(x => x.Gem)
+            .ToList();
 
         public UcCogerGemas()
         {
             InitializeComponent();
-            //foreach (var uc in GetUcGemas)
-            //    uc.OnGemaDeleted += EliminarGema;
-        
-            OnReiniciar();
         }
 
-        public void OnReiniciar()
+        public void Reset()
         {
-            GemasSeleccionadas = new List<Gem>();
-            //foreach (var uc in GetUcGemas)
-            //    uc.Gema = null;            
+            FlpContainer.Controls.Clear();
             BtnOk.Visible = false;
         }
 
-        public void AddGem(Gem gema)
+        public void AddGem(Gem gem)
         {
-            //if (Anexable(gema))
-            //{
-            //    GemasSeleccionadas.Add(gema);
-            //    //GetUcGemas.First((Func<UcGemaIndividual, bool>)(x=> (bool)(x.Gema == null))).Gema = gema;
-            //}
-            BtnOk.Visible = PuedeCogerGemas();
+            var removableGem = new RemovableGem()
+            {
+                Gem = gem,
+                Removable = true
+            };
+            removableGem.OnGemRemoveClicked += RemoveGem;
+            FlpContainer.Controls.Add(removableGem);
+            UpdateOkButton();
+        }
+
+        private void RemoveGem(object sender, EventArgs e)
+        {
+            if (sender is RemovableGem removableGem)
+            {
+                FlpContainer.Controls.Remove(removableGem);
+                OnGemHasBeenRemoved(this, new GemEventArgs(removableGem.Gem));
+            }
         }
 
 
@@ -51,21 +64,16 @@ namespace Splendor.Forms.UserControls
         //    return true;
         //}
 
-        private bool PuedeCogerGemas()
-            => (GemasSeleccionadas.Count == 2 && (GemasSeleccionadas.Distinct().Count() == 1)
-                || GemasSeleccionadas.Count == 3 && (GemasSeleccionadas.Distinct().Count() == 3));
-
-        private void EliminarGema(Gem gema)
+        private void UpdateOkButton()
         {
-            GemasSeleccionadas.Remove(gema);
-            BtnOk.Visible = PuedeCogerGemas();
+            var gems = GetSelectedGems().ToList();
+            var service = new TakeGemsService(CurrentPlayer, Market, gems.ToArray());
+            BtnOk.Visible = service.CanBeTaken();
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            //j.CogerGemas(GemasSeleccionadas, j.Jugadores[0]);
-            OnReiniciar();
-            Visible = false;
+            OnTransactionCompleted?.Invoke(this, EventArgs.Empty);
         }
     }
 }

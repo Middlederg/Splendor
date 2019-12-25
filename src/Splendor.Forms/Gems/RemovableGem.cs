@@ -12,7 +12,7 @@ namespace Splendor.Forms
 {
     public partial class RemovableGem : UcBase
     {
-        public event EventHandler OnGemaRemoveClicked;
+        public event EventHandler<GemEventArgs> OnGemRemoveClicked;
 
         public Gem Gem { get; set; }
         public void Draw()
@@ -47,7 +47,7 @@ namespace Splendor.Forms
         {
             if (Removable)
             {
-                OnGemaRemoveClicked?.Invoke(this, new GemEventArgs(Gem));
+                OnGemRemoveClicked?.Invoke(this, new GemEventArgs(Gem));
             }
         }
     }

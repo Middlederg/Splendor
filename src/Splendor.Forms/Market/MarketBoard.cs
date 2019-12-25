@@ -31,6 +31,12 @@ namespace Splendor.Forms
         public MarketBoard()
         {
             InitializeComponent();
+            Diamond.Gem = Gems.Diamond;
+            ucGema2.Gem = Gems.Ruby;
+            ucGema3.Gem = Gems.Onyx;
+            ucGema4.Gem = Gems.Sapphire;
+            ucGema5.Gem = Gems.Emerald;
+            ucGema6.Gem = Gems.Gold;
         }
 
         public void Draw()
@@ -38,6 +44,7 @@ namespace Splendor.Forms
             foreach (var token in Flp.Controls.OfType<GemToken>())
             {
                 token.AddGems(token.Gem.Get(market.AvaliableOfType(token.Gem)).ToArray());
+                token.Draw();
             }
         }
 
