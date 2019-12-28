@@ -24,7 +24,14 @@ namespace Splendor.Domain
         public static implicit operator int(Level prestige) => prestige.value;
         public static explicit operator Level(int value) => new Level(value);
 
-        public override string ToString() => $"Level {value}";
+        public override string ToString()
+        {
+            switch (Constants.CurrentLanguage)
+            {
+                case Language.Spanish: return $"Nivel {value}";
+                default: return $"Level {value}";
+            }
+        }
 
         public static bool operator ==(Level obj1, Level obj2) => obj1.Equals(obj2);
         public static bool operator !=(Level obj1, Level obj2) => !obj1.Equals(obj2);

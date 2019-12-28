@@ -33,8 +33,19 @@ namespace Splendor.Domain
 
         }
 
-        public override string ToString() => $"{Level.ToString()}, Bonus: {Bonus.ToString()} ({Prestige.ToString()})";
-        public string ToStringDetailed() => $"{ToString()} ({price.ToString()})";
+        public override string ToString()
+        {
+            string prestigeText = Prestige > 0 ? $" ({Prestige.ToString()})" : "";
+            switch (Constants.CurrentLanguage)
+            {
+                case Language.Spanish: 
+                    return $"{Bonus.ToString()} {Level.ToString()} development{prestigeText}";
+                default: 
+                    return $"Desarrollo de {Bonus.ToString()} de {Level.ToString()}{prestigeText}";
+            }
+        }
+
+        public string ToStringWithPrice() => $"{ToString()} ({price.ToString()})";
 
         public static bool operator ==(Development obj1, Development obj2)
         {
@@ -58,5 +69,23 @@ namespace Splendor.Domain
         }
 
         public override int GetHashCode() => Id.GetHashCode();
+
+        public static string Singular()
+        {
+            switch (Constants.CurrentLanguage)
+            {
+                case Language.Spanish: return "desarrollo";
+                default: return "development";
+            }
+        }
+
+        public static string Plural()
+        {
+            switch (Constants.CurrentLanguage)
+            {
+                case Language.Spanish: return "desarrollos";
+                default: return "developments";
+            }
+        }
     }
 }

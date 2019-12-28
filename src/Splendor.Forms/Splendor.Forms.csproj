@@ -63,23 +63,29 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\UcMiniDesarrollo.cs">
+    <Compile Include="Developments\DevelopmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developments\DevelopmentList.Designer.cs">
+      <DependentUpon>DevelopmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Developments\DevelopmentCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\UcMiniDesarrollo.Designer.cs">
-      <DependentUpon>UcMiniDesarrollo.cs</DependentUpon>
+    <Compile Include="Developments\DevelopmentCounter.Designer.cs">
+      <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\UcMiniGema.cs">
+    <Compile Include="Gems\GemCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\UcMiniGema.Designer.cs">
-      <DependentUpon>UcMiniGema.cs</DependentUpon>
+    <Compile Include="Gems\GemCounter.Designer.cs">
+      <DependentUpon>GemCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\UcRecurso.cs">
+    <Compile Include="Player\ResourceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\UcRecurso.Designer.cs">
-      <DependentUpon>UcRecurso.cs</DependentUpon>
+    <Compile Include="Player\ResourceControl.Designer.cs">
+      <DependentUpon>ResourceControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Nobles\NobleTile.cs">
       <SubType>UserControl</SubType>
@@ -87,11 +93,10 @@
     <Compile Include="Nobles\NobleTile.Designer.cs">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigurationValues.cs" />
-    <Compile Include="GameActionInfo.cs">
+    <Compile Include="Game\GameActionInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameActionInfo.Designer.cs">
+    <Compile Include="Game\GameActionInfo.Designer.cs">
       <DependentUpon>GameActionInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Gems\RemovableGem.cs">
@@ -100,7 +105,7 @@
     <Compile Include="Gems\RemovableGem.Designer.cs">
       <DependentUpon>RemovableGem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Developments\GemEventArgs.cs" />
+    <Compile Include="Gems\GemEventArgs.cs" />
     <Compile Include="Gems\GemToken.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,13 +125,19 @@
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Developments\DevelopmentEventArgs.cs" />
-    <Compile Include="Gems\GemExtensions.cs" />
+    <Compile Include="Gems\GemColors.cs" />
     <Compile Include="Developments\CardStatus.cs" />
     <Compile Include="Market\TakenGemsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Market\TakenGemsPanel.Designer.cs">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player\UcCuadroJugador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Player\UcCuadroJugador.Designer.cs">
+      <DependentUpon>UcCuadroJugador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,10 +168,10 @@
     </Compile>
     <Compile Include="Nobles\ReceiveVisit.cs" />
     <Compile Include="Singleton.cs" />
-    <Compile Include="UserControls\TakenDevelopmentsPanel.cs">
+    <Compile Include="Player\TakenDevelopmentsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\TakenDevelopmentsPanel.Designer.cs">
+    <Compile Include="Player\TakenDevelopmentsPanel.Designer.cs">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Nobles\NoblesBoard.cs">
@@ -168,6 +179,18 @@
     </Compile>
     <Compile Include="Nobles\NoblesBoard.Designer.cs">
       <DependentUpon>NoblesBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player\PlayerValues.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Player\PlayerValues.Designer.cs">
+      <DependentUpon>PlayerValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buttons\TransparentButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Buttons\TransparentButton.Designer.cs">
+      <DependentUpon>TransparentButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
@@ -185,19 +208,22 @@
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\UcMiniDesarrollo.resx">
-      <DependentUpon>UcMiniDesarrollo.cs</DependentUpon>
+    <EmbeddedResource Include="Developments\DevelopmentList.resx">
+      <DependentUpon>DevelopmentList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\UcMiniGema.resx">
-      <DependentUpon>UcMiniGema.cs</DependentUpon>
+    <EmbeddedResource Include="Developments\DevelopmentCounter.resx">
+      <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\UcRecurso.resx">
-      <DependentUpon>UcRecurso.cs</DependentUpon>
+    <EmbeddedResource Include="Gems\GemCounter.resx">
+      <DependentUpon>GemCounter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\ResourceControl.resx">
+      <DependentUpon>ResourceControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nobles\NobleTile.resx">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameActionInfo.resx">
+    <EmbeddedResource Include="Game\GameActionInfo.resx">
       <DependentUpon>GameActionInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gems\RemovableGem.resx">
@@ -214,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Market\TakenGemsPanel.resx">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\UcCuadroJugador.resx">
+      <DependentUpon>UcCuadroJugador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -237,11 +266,17 @@
     <EmbeddedResource Include="Market\MarketBoard.resx">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\TakenDevelopmentsPanel.resx">
+    <EmbeddedResource Include="Player\TakenDevelopmentsPanel.resx">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nobles\NoblesBoard.resx">
       <DependentUpon>NoblesBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\PlayerValues.resx">
+      <DependentUpon>PlayerValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buttons\TransparentButton.resx">
+      <DependentUpon>TransparentButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -271,7 +306,9 @@
   <ItemGroup>
     <None Include="Resources\rectangulo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Silueta2.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cuadro.png" />
   </ItemGroup>

@@ -31,7 +31,8 @@ namespace Splendor.Forms
                     break;
                 case CardStatus.FaceUp:
                     Pbx.Image = Development.GetImage();
-                    TtAyuda.SetToolTip(Pbx, Development.ToStringDetailed());
+                    SetHelp(IconChar.None, "");
+                    TtAyuda.SetToolTip(Pbx, Development.ToStringWithPrice());
                     break;
                 case CardStatus.FaceDown:
                     Pbx.Image = NamedPath.DevelopmentBack(Development.Level).GetImage();

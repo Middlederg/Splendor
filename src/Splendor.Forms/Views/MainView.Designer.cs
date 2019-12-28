@@ -38,7 +38,6 @@
             this.DeckBoard = new Splendor.Forms.DeckBoard();
             this.MarketBoard = new Splendor.Forms.MarketBoard();
             this.NoblesBoard = new Splendor.Forms.NoblesBoard();
-            this.ucRecurso1 = new Splendor.Forms.UserControls.UcRecurso();
             this.pGeneral.SuspendLayout();
             this.TlpGeneral.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +69,6 @@
             this.TlpGeneral.Controls.Add(this.DeckBoard, 2, 1);
             this.TlpGeneral.Controls.Add(this.MarketBoard, 3, 1);
             this.TlpGeneral.Controls.Add(this.NoblesBoard, 4, 1);
-            this.TlpGeneral.Controls.Add(this.ucRecurso1, 2, 0);
             this.TlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpGeneral.Location = new System.Drawing.Point(0, 0);
             this.TlpGeneral.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -160,20 +158,6 @@
             this.NoblesBoard.Size = new System.Drawing.Size(145, 648);
             this.NoblesBoard.TabIndex = 6;
             // 
-            // ucRecurso1
-            // 
-            this.ucRecurso1.BackColor = System.Drawing.Color.White;
-            this.ucRecurso1.FuenteDesarrollo = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
-            this.ucRecurso1.FuenteGemas = new System.Drawing.Font("Verdana", 14F);
-            this.ucRecurso1.Location = new System.Drawing.Point(255, 0);
-            this.ucRecurso1.Margin = new System.Windows.Forms.Padding(0);
-            this.ucRecurso1.Name = "ucRecurso1";
-            this.ucRecurso1.NumeroDesarrollos = 1;
-            this.ucRecurso1.NumeroGemas = 1;
-            this.ucRecurso1.Padding = new System.Windows.Forms.Padding(2);
-            this.ucRecurso1.Size = new System.Drawing.Size(76, 51);
-            this.ucRecurso1.TabIndex = 7;
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +186,5 @@
         private DeckBoard DeckBoard;
         private MarketBoard MarketBoard;
         private NoblesBoard NoblesBoard;
-        private UserControls.UcRecurso ucRecurso1;
     }
 }

@@ -17,5 +17,8 @@
     <Setting Name="TerciaryColor" Type="System.Drawing.Color" Scope="Application">
       <Value Profile="(Default)">BurlyWood</Value>
     </Setting>
+    <Setting Name="DefaultLanguage" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

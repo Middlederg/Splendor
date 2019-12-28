@@ -29,9 +29,6 @@ namespace Splendor.Forms.Views
             AddGemsPanels();
             AddNobles();
 
-            ucRecurso1.TipoGema = Gems.Emerald;
-            ucRecurso1.NumeroDesarrollos = 2;
-            ucRecurso1.NumeroGemas = 3;
         }
 
         private void AddDeckPanel()

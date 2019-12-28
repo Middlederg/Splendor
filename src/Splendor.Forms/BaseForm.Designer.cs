@@ -130,6 +130,6 @@
         private System.Windows.Forms.TableLayoutPanel TopPanel;
         private FontAwesome.Sharp.IconPictureBox IconPicture;
         private System.Windows.Forms.Label Title;
-        private CustomButtonOk CloseButton;
+        protected CustomButtonOk CloseButton;
     }
 }

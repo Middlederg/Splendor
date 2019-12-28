@@ -18,6 +18,7 @@ namespace Splendor.Domain
         public List<GameAction> Moves { get; }
 
         public List<Gem> Gems { get; }
+        public List<Gem> GemsOfType(Gem gem) => Gems.Where(x => x == gem).ToList();
         public void AddGems(params Gem[] gems) => Gems.AddRange(gems);
 
         public int TotalGems() => Gems.Count();
@@ -41,6 +42,7 @@ namespace Splendor.Domain
         }
 
         public List<Development> Developments { get; }
+        public List<Development> GetDevelopmentsOfType(Gem gem) => Developments.Where(x => x.Bonus == gem).ToList();
         public int TotalDevelopments => Developments.Count();
         public void BuyCard(Development development)
         {
