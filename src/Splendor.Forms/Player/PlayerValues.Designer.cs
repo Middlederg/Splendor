@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.MainTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ReservesButton = new Splendor.Forms.TransparentButton();
+            this.CloseButton = new Splendor.Forms.TransparentButton();
             this.GoldCounter = new Splendor.Forms.GemCounter();
             this.resourceControl1 = new Splendor.Forms.ResourceControl();
             this.resourceControl2 = new Splendor.Forms.ResourceControl();
             this.resourceControl3 = new Splendor.Forms.ResourceControl();
             this.resourceControl4 = new Splendor.Forms.ResourceControl();
+            this.TotalGemsButton = new Splendor.Forms.TransparentButton();
             this.resourceControl5 = new Splendor.Forms.ResourceControl();
             this.NoblesButton = new Splendor.Forms.TransparentButton();
-            this.CloseButton = new Splendor.Forms.TransparentButton();
-            this.TotalGemsButton = new Splendor.Forms.TransparentButton();
-            this.ReservesButton = new Splendor.Forms.TransparentButton();
             this.MainTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,51 @@
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainTable.Size = new System.Drawing.Size(180, 200);
             this.MainTable.TabIndex = 0;
+            // 
+            // ReservesButton
+            // 
+            this.ReservesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ReservesButton.BackColor = System.Drawing.Color.Transparent;
+            this.ReservesButton.FlatAppearance.BorderSize = 0;
+            this.ReservesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReservesButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ReservesButton.Font = new System.Drawing.Font("Verdana", 10F);
+            this.ReservesButton.ForeColor = System.Drawing.Color.Black;
+            this.ReservesButton.IconChar = FontAwesome.Sharp.IconChar.Clock;
+            this.ReservesButton.IconColor = System.Drawing.Color.Black;
+            this.ReservesButton.IconSize = 25;
+            this.ReservesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ReservesButton.Location = new System.Drawing.Point(10, 85);
+            this.ReservesButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReservesButton.Name = "ReservesButton";
+            this.ReservesButton.Rotation = 0D;
+            this.ReservesButton.Size = new System.Drawing.Size(60, 30);
+            this.ReservesButton.TabIndex = 14;
+            this.ReservesButton.Text = "1";
+            this.ReservesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ReservesButton.UseVisualStyleBackColor = false;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CloseButton.Font = new System.Drawing.Font("Verdana", 10F);
+            this.CloseButton.ForeColor = System.Drawing.Color.Black;
+            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.CloseButton.IconColor = System.Drawing.Color.Black;
+            this.CloseButton.IconSize = 25;
+            this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.CloseButton.Location = new System.Drawing.Point(0, 0);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Rotation = 0D;
+            this.CloseButton.Size = new System.Drawing.Size(30, 30);
+            this.CloseButton.TabIndex = 11;
+            this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // GoldCounter
             // 
@@ -129,6 +174,29 @@
             this.resourceControl4.Size = new System.Drawing.Size(93, 35);
             this.resourceControl4.TabIndex = 9;
             // 
+            // TotalGemsButton
+            // 
+            this.TotalGemsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TotalGemsButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.TotalGemsButton.FlatAppearance.BorderSize = 0;
+            this.TotalGemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TotalGemsButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.TotalGemsButton.Font = new System.Drawing.Font("Verdana", 9F);
+            this.TotalGemsButton.ForeColor = System.Drawing.Color.Black;
+            this.TotalGemsButton.IconChar = FontAwesome.Sharp.IconChar.Gem;
+            this.TotalGemsButton.IconColor = System.Drawing.Color.Black;
+            this.TotalGemsButton.IconSize = 25;
+            this.TotalGemsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.TotalGemsButton.Location = new System.Drawing.Point(0, 165);
+            this.TotalGemsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.TotalGemsButton.Name = "TotalGemsButton";
+            this.TotalGemsButton.Rotation = 0D;
+            this.TotalGemsButton.Size = new System.Drawing.Size(80, 30);
+            this.TotalGemsButton.TabIndex = 12;
+            this.TotalGemsButton.Text = "1/10";
+            this.TotalGemsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.TotalGemsButton.UseVisualStyleBackColor = false;
+            // 
             // resourceControl5
             // 
             this.resourceControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -164,78 +232,13 @@
             this.NoblesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.NoblesButton.UseVisualStyleBackColor = false;
             // 
-            // CloseButton
-            // 
-            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.CloseButton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.CloseButton.ForeColor = System.Drawing.Color.Black;
-            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.CloseButton.IconColor = System.Drawing.Color.Black;
-            this.CloseButton.IconSize = 25;
-            this.CloseButton.Location = new System.Drawing.Point(0, 0);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Rotation = 0D;
-            this.CloseButton.Size = new System.Drawing.Size(30, 30);
-            this.CloseButton.TabIndex = 11;
-            this.CloseButton.UseVisualStyleBackColor = false;
-            // 
-            // TotalGemsButton
-            // 
-            this.TotalGemsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TotalGemsButton.BackColor = System.Drawing.Color.Gainsboro;
-            this.TotalGemsButton.FlatAppearance.BorderSize = 0;
-            this.TotalGemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TotalGemsButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.TotalGemsButton.Font = new System.Drawing.Font("Verdana", 9F);
-            this.TotalGemsButton.ForeColor = System.Drawing.Color.Black;
-            this.TotalGemsButton.IconChar = FontAwesome.Sharp.IconChar.Gem;
-            this.TotalGemsButton.IconColor = System.Drawing.Color.Black;
-            this.TotalGemsButton.IconSize = 25;
-            this.TotalGemsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.TotalGemsButton.Location = new System.Drawing.Point(0, 165);
-            this.TotalGemsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.TotalGemsButton.Name = "TotalGemsButton";
-            this.TotalGemsButton.Rotation = 0D;
-            this.TotalGemsButton.Size = new System.Drawing.Size(80, 30);
-            this.TotalGemsButton.TabIndex = 12;
-            this.TotalGemsButton.Text = "1/10";
-            this.TotalGemsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.TotalGemsButton.UseVisualStyleBackColor = false;
-            // 
-            // ReservesButton
-            // 
-            this.ReservesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ReservesButton.BackColor = System.Drawing.Color.Transparent;
-            this.ReservesButton.FlatAppearance.BorderSize = 0;
-            this.ReservesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReservesButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ReservesButton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.ReservesButton.ForeColor = System.Drawing.Color.Black;
-            this.ReservesButton.IconChar = FontAwesome.Sharp.IconChar.Clock;
-            this.ReservesButton.IconColor = System.Drawing.Color.Black;
-            this.ReservesButton.IconSize = 25;
-            this.ReservesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ReservesButton.Location = new System.Drawing.Point(10, 85);
-            this.ReservesButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ReservesButton.Name = "ReservesButton";
-            this.ReservesButton.Rotation = 0D;
-            this.ReservesButton.Size = new System.Drawing.Size(60, 30);
-            this.ReservesButton.TabIndex = 14;
-            this.ReservesButton.Text = "1";
-            this.ReservesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.ReservesButton.UseVisualStyleBackColor = false;
-            // 
-            // UcCuadroValores
+            // PlayerValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.MainTable);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "UcCuadroValores";
+            this.Name = "PlayerValues";
             this.Size = new System.Drawing.Size(180, 200);
             this.MainTable.ResumeLayout(false);
             this.ResumeLayout(false);

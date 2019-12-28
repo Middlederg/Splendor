@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Splendor.Forms.Views
 {
-    public partial class MainView : Form
+    public partial class MainView : BaseForm
     {
         private readonly Game game;
 
@@ -23,6 +23,7 @@ namespace Splendor.Forms.Views
         {
             InitializeComponent();
 
+            SetText("Splendor");
             game = new Game((Prestige)15, new Profile(1, "Jors", isPlayer:true), Profiles.Danilo);
 
             AddDeckPanel();

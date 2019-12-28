@@ -14,6 +14,8 @@ namespace Splendor.Forms
 {
     public partial class BaseForm : Form
     {
+        public const int IconDefaultWidth = 25;
+
         public void SetText(string value)
         {
             Title.Text = value;
@@ -30,6 +32,12 @@ namespace Splendor.Forms
         {
             get => CloseButton.Visible;
             set => CloseButton.Visible = value;
+        }
+
+        public bool IconVisible
+        {
+            get => TopPanel.ColumnStyles[0].Width == IconDefaultWidth;
+            set => TopPanel.ColumnStyles[0].Width = value ? IconDefaultWidth : 0;
         }
 
         public BaseForm()

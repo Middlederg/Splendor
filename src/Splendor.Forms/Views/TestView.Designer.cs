@@ -37,13 +37,14 @@
             // 
             // Tlp
             // 
-            this.Tlp.ColumnCount = 3;
+            this.Tlp.ColumnCount = 4;
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 600F));
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.Tlp.Controls.Add(this.ucTablero1, 1, 1);
             this.Tlp.Controls.Add(this.ucCogerGemas1, 1, 2);
-            this.Tlp.Controls.Add(this.marketBoard1, 2, 1);
+            this.Tlp.Controls.Add(this.marketBoard1, 3, 1);
             this.Tlp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Tlp.Location = new System.Drawing.Point(0, 0);
             this.Tlp.Name = "Tlp";
@@ -51,7 +52,7 @@
             this.Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.Tlp.Size = new System.Drawing.Size(1079, 749);
+            this.Tlp.Size = new System.Drawing.Size(1144, 749);
             this.Tlp.TabIndex = 0;
             this.Tlp.Paint += new System.Windows.Forms.PaintEventHandler(this.Tlp_Paint);
             // 
@@ -63,7 +64,7 @@
             this.ucTablero1.Location = new System.Drawing.Point(80, 80);
             this.ucTablero1.Margin = new System.Windows.Forms.Padding(0);
             this.ucTablero1.Name = "ucTablero1";
-            this.ucTablero1.Size = new System.Drawing.Size(710, 549);
+            this.ucTablero1.Size = new System.Drawing.Size(600, 549);
             this.ucTablero1.TabIndex = 0;
             // 
             // ucCogerGemas1
@@ -73,13 +74,13 @@
             this.ucCogerGemas1.Location = new System.Drawing.Point(83, 632);
             this.ucCogerGemas1.Market = null;
             this.ucCogerGemas1.Name = "ucCogerGemas1";
-            this.ucCogerGemas1.Size = new System.Drawing.Size(765, 114);
+            this.ucCogerGemas1.Size = new System.Drawing.Size(594, 114);
             this.ucCogerGemas1.TabIndex = 1;
             // 
             // marketBoard1
             // 
             this.marketBoard1.BackColor = System.Drawing.Color.White;
-            this.marketBoard1.Location = new System.Drawing.Point(879, 80);
+            this.marketBoard1.Location = new System.Drawing.Point(944, 80);
             this.marketBoard1.Margin = new System.Windows.Forms.Padding(0);
             this.marketBoard1.Market = null;
             this.marketBoard1.Name = "marketBoard1";
@@ -90,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 749);
+            this.ClientSize = new System.Drawing.Size(1144, 749);
             this.Controls.Add(this.Tlp);
             this.Name = "TestView";
             this.Text = "TestView";

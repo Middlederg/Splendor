@@ -12,6 +12,8 @@ namespace Splendor.Forms
 {
     public partial class PlayerValues : UcBase
     {
+        public event EventHandler OnCloseClicked;
+
         private IEnumerable<ResourceControl> ResourceControls() => MainTable.Controls.OfType<ResourceControl>();
 
         public PlayerValues() 
@@ -34,6 +36,11 @@ namespace Splendor.Forms
             ReservesButton.Text = player.ReservedDevelopments.Count().ToString();
             GoldCounter.Gems = player.GemsOfType(Gems.Gold);
             TotalGemsButton.Text = $"{player.TotalGems().ToString()}/10";
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            OnCloseClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

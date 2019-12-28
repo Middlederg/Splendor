@@ -133,11 +133,11 @@
     <Compile Include="Market\TakenGemsPanel.Designer.cs">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\UcCuadroJugador.cs">
+    <Compile Include="Player\PlayerBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\UcCuadroJugador.Designer.cs">
-      <DependentUpon>UcCuadroJugador.cs</DependentUpon>
+    <Compile Include="Player\PlayerBoard.Designer.cs">
+      <DependentUpon>PlayerBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,10 +168,10 @@
     </Compile>
     <Compile Include="Nobles\ReceiveVisit.cs" />
     <Compile Include="Singleton.cs" />
-    <Compile Include="Player\TakenDevelopmentsPanel.cs">
+    <Compile Include="Developments\TakenDevelopmentsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\TakenDevelopmentsPanel.Designer.cs">
+    <Compile Include="Developments\TakenDevelopmentsPanel.Designer.cs">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Nobles\NoblesBoard.cs">
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="Market\TakenGemsPanel.resx">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\UcCuadroJugador.resx">
-      <DependentUpon>UcCuadroJugador.cs</DependentUpon>
+    <EmbeddedResource Include="Player\PlayerBoard.resx">
+      <DependentUpon>PlayerBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -266,7 +266,7 @@
     <EmbeddedResource Include="Market\MarketBoard.resx">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\TakenDevelopmentsPanel.resx">
+    <EmbeddedResource Include="Developments\TakenDevelopmentsPanel.resx">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nobles\NoblesBoard.resx">
