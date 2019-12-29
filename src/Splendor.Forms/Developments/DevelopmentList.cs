@@ -19,10 +19,10 @@ namespace Splendor.Forms
             get => developments;
             set
             {
-                Text = developments.JoinList();
                 developments = value;
                 if (value != null)
                 {
+                    Text = developments.JoinList();
                     foreach (var development in value)
                     {
                         var card = new Card()

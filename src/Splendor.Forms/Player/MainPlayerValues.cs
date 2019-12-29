@@ -8,20 +8,33 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Splendor.Forms
+namespace Splendor.Forms.UserControls
 {
-    public partial class PlayerValues : UcBase
+    public partial class MainPlayerValues : UcBase
     {
-        public event EventHandler OnCloseClicked;
-
         private IEnumerable<ResourceControl> ResourceControls() => MainTable.Controls.OfType<ResourceControl>();
 
-        public PlayerValues() 
-        { 
+        private Player player;
+        public Player Player
+        {
+            get => player;
+            set
+            {
+                player = value;
+
+                if (!(player is null))
+                {
+                    player.Subscribe(Draw);
+                }
+            }
+        }
+
+        public MainPlayerValues()
+        {
             InitializeComponent();
         }
 
-        public void SetInfo(Player player)
+        public void Draw()
         {
             int i = 0;
             foreach (var gem in Gems.GetAllGems())
@@ -31,16 +44,11 @@ namespace Splendor.Forms
                 //ResourceControls().ElementAt(i).BackColor = gem.SoftBackColor();
                 i++;
             }
-            
+
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
             ReservesButton.Text = player.ReservedDevelopments.Count().ToString();
             GoldCounter.Gems = player.GemsOfType(Gems.Gold);
             TotalGemsButton.Text = $"{player.TotalGems().ToString()}/10";
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            OnCloseClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

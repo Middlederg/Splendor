@@ -20,8 +20,10 @@ namespace Splendor.Forms.Views
 
             game = new Game((Prestige)15, Profiles.Amanda, Profiles.Danilo);
 
+            playerBoard1.Player = game.Players[0];
+            playerBoard1.Draw();
             ucTablero1.Deck = game.Deck;
-            ucTablero1.CurrentPlayer = game.CurrentPlayer;
+            ucTablero1.SetHumanPlayer(game.Players[0]);
             ucTablero1.Draw();
 
             marketBoard1.Market = game.Market;

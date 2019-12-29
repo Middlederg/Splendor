@@ -20,15 +20,14 @@ namespace Splendor.Forms
                 gems = value;
                 if (value != null)
                 {
-                    if (!value.AllSame())
-                        throw new DomainException("Gems must be of the same kind");
-
                     var count = value.Count();
                     Lbl.Text = count.ToString();
                     if (count > 0)
                     {
+                        if (!value.AllSame())
+                            throw new DomainException("Gems must be of the same kind");
                         Lbl.Visible = Pbx.Visible = true;
-                        Pbx.BackgroundImage = value.First().GetImage();
+                        Pbx.BackgroundImage = value.First().SmallPath.GetImage();
                         ToolTipAyuda.SetToolTip(Lbl, value.JoinList());
                     }
                     else

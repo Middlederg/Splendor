@@ -7,6 +7,7 @@ namespace Splendor.Domain
         public abstract int Id { get; }
         public bool IsGold => Equals(Gems.Gold);
         public abstract string Path { get; }
+        public IPath SmallPath => new NamedPath($"{Path.Substring(0, 1).ToString().ToUpper()}{Path.Substring(1)}Small");
 
         public static bool operator ==(Gem gem1, Gem gem2) => gem1.Equals(gem2);
         public static bool operator !=(Gem gem1, Gem gem2) => !gem1.Equals(gem2);

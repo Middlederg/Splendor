@@ -32,6 +32,7 @@
             this.ucTablero1 = new Splendor.Forms.DeckBoard();
             this.ucCogerGemas1 = new Splendor.Forms.UserControls.TakenGemsPanel();
             this.marketBoard1 = new Splendor.Forms.MarketBoard();
+            this.playerBoard1 = new Splendor.Forms.UserControls.PlayerBoard();
             this.Tlp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,11 +41,12 @@
             this.Tlp.ColumnCount = 4;
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 600F));
-            this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
             this.Tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.Tlp.Controls.Add(this.ucTablero1, 1, 1);
             this.Tlp.Controls.Add(this.ucCogerGemas1, 1, 2);
             this.Tlp.Controls.Add(this.marketBoard1, 3, 1);
+            this.Tlp.Controls.Add(this.playerBoard1, 2, 1);
             this.Tlp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Tlp.Location = new System.Drawing.Point(0, 0);
             this.Tlp.Name = "Tlp";
@@ -59,7 +61,6 @@
             // ucTablero1
             // 
             this.ucTablero1.BackColor = System.Drawing.Color.White;
-            this.ucTablero1.CurrentPlayer = null;
             this.ucTablero1.Deck = null;
             this.ucTablero1.Location = new System.Drawing.Point(80, 80);
             this.ucTablero1.Margin = new System.Windows.Forms.Padding(0);
@@ -80,12 +81,23 @@
             // marketBoard1
             // 
             this.marketBoard1.BackColor = System.Drawing.Color.White;
-            this.marketBoard1.Location = new System.Drawing.Point(944, 80);
+            this.marketBoard1.Location = new System.Drawing.Point(1010, 80);
             this.marketBoard1.Margin = new System.Windows.Forms.Padding(0);
             this.marketBoard1.Market = null;
             this.marketBoard1.Name = "marketBoard1";
             this.marketBoard1.Size = new System.Drawing.Size(109, 549);
             this.marketBoard1.TabIndex = 2;
+            // 
+            // playerBoard1
+            // 
+            this.playerBoard1.BackColor = System.Drawing.Color.White;
+            this.playerBoard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.playerBoard1.Location = new System.Drawing.Point(680, 80);
+            this.playerBoard1.Margin = new System.Windows.Forms.Padding(0);
+            this.playerBoard1.Name = "playerBoard1";
+            this.playerBoard1.Player = null;
+            this.playerBoard1.Size = new System.Drawing.Size(330, 200);
+            this.playerBoard1.TabIndex = 3;
             // 
             // TestView
             // 
@@ -106,5 +118,6 @@
         private DeckBoard ucTablero1;
         private UserControls.TakenGemsPanel ucCogerGemas1;
         private MarketBoard marketBoard1;
+        private UserControls.PlayerBoard playerBoard1;
     }
 }

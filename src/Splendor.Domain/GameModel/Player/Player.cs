@@ -19,7 +19,11 @@ namespace Splendor.Domain
 
         public List<Gem> Gems { get; }
         public List<Gem> GemsOfType(Gem gem) => Gems.Where(x => x == gem).ToList();
-        public void AddGems(params Gem[] gems) => Gems.AddRange(gems);
+        public void AddGems(params Gem[] gems)
+        {
+            Gems.AddRange(gems);
+            updatePlayer?.Invoke();
+        }
 
         public int TotalGems() => Gems.Count();
         public int TotalGems(Gem gem) => Gems.Count(x => x == gem);

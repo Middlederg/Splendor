@@ -129,7 +129,6 @@
             // resourceControl1
             // 
             this.resourceControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resourceControl1.BackColor = System.Drawing.Color.PowderBlue;
             this.resourceControl1.Developments = null;
             this.resourceControl1.Gems = null;
             this.resourceControl1.Location = new System.Drawing.Point(84, 2);
@@ -141,7 +140,6 @@
             // resourceControl2
             // 
             this.resourceControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resourceControl2.BackColor = System.Drawing.Color.White;
             this.resourceControl2.Developments = null;
             this.resourceControl2.Gems = null;
             this.resourceControl2.Location = new System.Drawing.Point(84, 42);
@@ -153,7 +151,6 @@
             // resourceControl3
             // 
             this.resourceControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resourceControl3.BackColor = System.Drawing.Color.White;
             this.resourceControl3.Developments = null;
             this.resourceControl3.Gems = null;
             this.resourceControl3.Location = new System.Drawing.Point(84, 82);
@@ -165,7 +162,6 @@
             // resourceControl4
             // 
             this.resourceControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resourceControl4.BackColor = System.Drawing.Color.White;
             this.resourceControl4.Developments = null;
             this.resourceControl4.Gems = null;
             this.resourceControl4.Location = new System.Drawing.Point(84, 122);
@@ -200,7 +196,6 @@
             // resourceControl5
             // 
             this.resourceControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resourceControl5.BackColor = System.Drawing.Color.White;
             this.resourceControl5.Developments = null;
             this.resourceControl5.Gems = null;
             this.resourceControl5.Location = new System.Drawing.Point(84, 162);

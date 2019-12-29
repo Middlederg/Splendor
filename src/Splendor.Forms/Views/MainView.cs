@@ -29,20 +29,21 @@ namespace Splendor.Forms.Views
             AddDeckPanel();
             AddGemsPanels();
             AddNobles();
-
+            AddPlayers();
         }
 
         private void AddDeckPanel()
         {
             DeckBoard.Deck = game.Deck;
-            DeckBoard.CurrentPlayer = game.CurrentPlayer;
+            DeckBoard.SetHumanPlayer(game.Players[0]);
             DeckBoard.OnSelectedDesarrolloChanged += DesarrolloSelected;
             DeckBoard.Draw();
 
             developmentsPanel = new TakenDevelopmentsPanel
             {
                 Market = game.Market,
-                CurrentPlayer = game.CurrentPlayer
+                CurrentPlayer = game.CurrentPlayer,
+                Visible = false
             };
             developmentsPanel.OnDevelopmentReserved += ReserveDevelopment;
             developmentsPanel.OnDevelopmentBought += BuyDevelopment;
@@ -65,7 +66,8 @@ namespace Splendor.Forms.Views
             gemsPanel = new TakenGemsPanel
             {
                 CurrentPlayer = game.CurrentPlayer,
-                Market = game.Market
+                Market = game.Market,
+                Visible = false
             };
             gemsPanel.OnGemHasBeenRemoved += GemRemoved;
             gemsPanel.OnTransactionCompleted += TakeGems;
@@ -121,6 +123,23 @@ namespace Splendor.Forms.Views
         {
             NoblesBoard.NobilityBox = game.NobilityBox;
             NoblesBoard.Draw();
+        }
+
+        private void AddPlayers()
+        {
+            MainPlayerValues.Player = game.Players[0];
+            MainPlayerValues.Draw();
+
+            foreach (Player player in game.Players.Skip(1))
+            {
+                var playerboard = new PlayerBoard()
+                {
+                    Player = player,
+                    Margin = new Padding(0)
+                };
+                playerboard.Draw();
+                FlpJugadores.Controls.Add(playerboard);
+            }
         }
 
         //private void AgregarJugadorPrincipal()

@@ -59,7 +59,7 @@ namespace Splendor.Domain
 
         public void Purchase(Deck deck, Market market)
         {
-            if (!CanAfford())
+            if (!CanAffordPayingGold())
                 throw new DomainException($"{player.ToString()} can not afford {development.ToString()}");
 
             var goldSpended = Enumerable.Range(0, RequiredGold()).Select(x => Gems.Gold).ToArray();

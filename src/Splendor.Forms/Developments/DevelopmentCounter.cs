@@ -29,6 +29,8 @@ namespace Splendor.Forms
                     ToolTipAyuda.SetToolTip(Lbl, developments.JoinList());
 
                     Lbl.BackColor = (value.Any() && value.Distinct().Count() == 1) ? value.First().Bonus.StrongBackColor() : Color.White;
+                    Lbl.ForeColor = Lbl.BackColor == Color.White ? Color.Black : Color.White;
+                    Lbl.BorderStyle = Lbl.BackColor == Color.White ? BorderStyle.FixedSingle : BorderStyle.None;
                 }
             }
         }
@@ -44,7 +46,7 @@ namespace Splendor.Forms
             {
                 using (var developmentsView = new DevelopmentList())
                 {
-                    developmentsView.Developments = developments;
+                    developmentsView.Developments = developments.ToList();
                     developmentsView.ShowDialog();
                 }
             }

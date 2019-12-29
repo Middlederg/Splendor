@@ -11,6 +11,18 @@ namespace Splendor.Forms.UserControls
 {
     public partial class PlayerBoard : UcBase
     {
+        public Color StrongColor
+        {
+            get => PlayerFace.StrongColor;
+            set => PlayerFace.StrongColor = value;
+        }
+
+        public Color SoftColor
+        {
+            get => PlayerFace.SoftColor;
+            set => PlayerFace.SoftColor = value;
+        }
+
         private Player player;
         public Player Player
         {
@@ -18,11 +30,11 @@ namespace Splendor.Forms.UserControls
             set
             {
                 player = value;
+                
                 if (!(player is null))
                 {
+                    PlayerFace.SetProfile(player.Profile);
                     player.Subscribe(Draw);
-                    ProfilePanel.BackgroundImage = player.Profile.GetImage();
-                    NameLabel.Text = player.ToString();
                 }
             }
         }
@@ -31,26 +43,27 @@ namespace Splendor.Forms.UserControls
         { 
             InitializeComponent();
 
-            PrestigeLabel.Text = "0";
+            PlayerFace.OnDetailsClicked += PlayerFaceDetailsClicked;
             PlayerValues.OnCloseClicked += PlayerValuesClosed;
+            PlayerValues.Visible = false;
+        }
+
+        private void PlayerFaceDetailsClicked(object sender, EventArgs e)
+        {
+            PlayerValues.Visible = true;
+            PlayerValues.BackColor = SoftColor;
         }
 
         private void PlayerValuesClosed(object sender, EventArgs e)
         {
             PlayerValues.Visible = false;
-            OpenButton.Visible = true;
+            PlayerFace.MakeOpenButtonVisible();
         }
 
         public void Draw()
         {
+            PlayerFace.SetPrestige(player.Prestige);
             PlayerValues.SetInfo(player);
-            PrestigeLabel.Text = ((int)player.Prestige).ToString();
-        }
-
-        private void OpenButton_Click(object sender, EventArgs e)
-        {
-            PlayerValues.Visible = true;
-            OpenButton.Visible = false;
         }
     }
 }

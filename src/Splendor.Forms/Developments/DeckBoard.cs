@@ -24,7 +24,8 @@ namespace Splendor.Forms
             }
         }
 
-        public Player CurrentPlayer { get; set; }
+        private Player humanPlayer;
+        public void SetHumanPlayer(Player humanPlayer) => this.humanPlayer = humanPlayer;
 
         public IEnumerable<Card> GetAllCards()
         {
@@ -68,7 +69,8 @@ namespace Splendor.Forms
                     controls.ElementAt(i).Activable = true;
                     controls.ElementAt(i).Development = development;
                     controls.ElementAt(i).Status = CardStatus.FaceUp;
-                    //controls.ElementAt(i).SetHelp = ;
+                    (IconChar icon, string helpText) = IconoDesarrollo(development);
+                    controls.ElementAt(i).SetHelp(icon, helpText);
                     controls.ElementAt(i).Draw();
                     i++;
                 }
@@ -108,7 +110,7 @@ namespace Splendor.Forms
 
         public (IconChar icon, string helpText) IconoDesarrollo(Development development)
         {
-            var service = new PurchaseService(development, CurrentPlayer);
+            var service = new PurchaseService(development, humanPlayer);
             return (GetIconChar(service), service.ToString());
         }
 

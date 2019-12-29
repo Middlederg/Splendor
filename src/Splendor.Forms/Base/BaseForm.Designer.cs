@@ -52,7 +52,7 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.RowCount = 1;
             this.TopPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopPanel.Size = new System.Drawing.Size(552, 25);
+            this.TopPanel.Size = new System.Drawing.Size(414, 25);
             this.TopPanel.TabIndex = 0;
             // 
             // CloseButton
@@ -66,7 +66,7 @@
             this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.CloseButton.IconColor = System.Drawing.Color.White;
             this.CloseButton.IconSize = 25;
-            this.CloseButton.Location = new System.Drawing.Point(527, 0);
+            this.CloseButton.Location = new System.Drawing.Point(389, 0);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Rotation = 0D;
@@ -96,25 +96,26 @@
             // 
             this.Title.AutoSize = true;
             this.Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Title.Font = new System.Drawing.Font("Verdana", 10F);
             this.Title.ForeColor = System.Drawing.Color.White;
-            this.Title.Location = new System.Drawing.Point(30, 3);
-            this.Title.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.Title.Location = new System.Drawing.Point(29, 0);
+            this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(497, 22);
+            this.Title.Size = new System.Drawing.Size(360, 25);
             this.Title.TabIndex = 1;
             this.Title.Text = "label1";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoveFormMouseDown);
             // 
             // BaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(552, 322);
+            this.ClientSize = new System.Drawing.Size(414, 262);
             this.Controls.Add(this.TopPanel);
-            this.Font = new System.Drawing.Font("Verdana", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BaseForm";

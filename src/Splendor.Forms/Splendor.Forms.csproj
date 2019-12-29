@@ -57,10 +57,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
+    <Compile Include="Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForm.Designer.cs">
+    <Compile Include="Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Developments\DevelopmentList.cs">
@@ -80,6 +80,13 @@
     </Compile>
     <Compile Include="Gems\GemCounter.Designer.cs">
       <DependentUpon>GemCounter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player\PlayerEventArgs.cs" />
+    <Compile Include="Player\PlayerFace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Player\PlayerFace.Designer.cs">
+      <DependentUpon>PlayerFace.cs</DependentUpon>
     </Compile>
     <Compile Include="Player\ResourceControl.cs">
       <SubType>UserControl</SubType>
@@ -138,6 +145,12 @@
     </Compile>
     <Compile Include="Player\PlayerBoard.Designer.cs">
       <DependentUpon>PlayerBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player\MainPlayerValues.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Player\MainPlayerValues.Designer.cs">
+      <DependentUpon>MainPlayerValues.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,7 +218,7 @@
       <DependentUpon>TestView.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitTimes.cs" />
-    <EmbeddedResource Include="BaseForm.resx">
+    <EmbeddedResource Include="Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Developments\DevelopmentList.resx">
@@ -216,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gems\GemCounter.resx">
       <DependentUpon>GemCounter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\PlayerFace.resx">
+      <DependentUpon>PlayerFace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player\ResourceControl.resx">
       <DependentUpon>ResourceControl.cs</DependentUpon>
@@ -243,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Player\PlayerBoard.resx">
       <DependentUpon>PlayerBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\MainPlayerValues.resx">
+      <DependentUpon>MainPlayerValues.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
