@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.pGeneral = new System.Windows.Forms.Panel();
             this.TlpGeneral = new System.Windows.Forms.TableLayoutPanel();
+            this.pOpciones = new System.Windows.Forms.Panel();
             this.FlpJugadores = new System.Windows.Forms.FlowLayoutPanel();
-            this.pJugador1 = new System.Windows.Forms.Panel();
             this.DeckBoard = new Splendor.Forms.DeckBoard();
             this.MarketBoard = new Splendor.Forms.MarketBoard();
             this.NoblesBoard = new Splendor.Forms.NoblesBoard();
             this.ButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.LogButton = new Splendor.Forms.CustomButtonOk();
-            this.pOpciones = new System.Windows.Forms.Panel();
             this.MainPlayerValues = new Splendor.Forms.UserControls.MainPlayerValues();
+            this.MainPlayerFace = new Splendor.Forms.PlayerFace();
             this.pGeneral.SuspendLayout();
             this.TlpGeneral.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
@@ -52,22 +52,22 @@
             this.pGeneral.Location = new System.Drawing.Point(0, 25);
             this.pGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.pGeneral.Name = "pGeneral";
-            this.pGeneral.Size = new System.Drawing.Size(1367, 800);
+            this.pGeneral.Size = new System.Drawing.Size(1367, 763);
             this.pGeneral.TabIndex = 1;
             // 
             // TlpGeneral
             // 
             this.TlpGeneral.BackColor = System.Drawing.Color.White;
             this.TlpGeneral.ColumnCount = 6;
-            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
+            this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 710F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.TlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpGeneral.Controls.Add(this.MainPlayerFace, 0, 1);
             this.TlpGeneral.Controls.Add(this.pOpciones, 2, 1);
             this.TlpGeneral.Controls.Add(this.FlpJugadores, 0, 0);
-            this.TlpGeneral.Controls.Add(this.pJugador1, 0, 1);
             this.TlpGeneral.Controls.Add(this.DeckBoard, 2, 0);
             this.TlpGeneral.Controls.Add(this.MarketBoard, 3, 0);
             this.TlpGeneral.Controls.Add(this.NoblesBoard, 4, 0);
@@ -81,61 +81,60 @@
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.TlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.TlpGeneral.Size = new System.Drawing.Size(1367, 800);
+            this.TlpGeneral.Size = new System.Drawing.Size(1367, 763);
             this.TlpGeneral.TabIndex = 1;
+            // 
+            // pOpciones
+            // 
+            this.pOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pOpciones.Location = new System.Drawing.Point(260, 563);
+            this.pOpciones.Margin = new System.Windows.Forms.Padding(0);
+            this.pOpciones.Name = "pOpciones";
+            this.pOpciones.Size = new System.Drawing.Size(710, 100);
+            this.pOpciones.TabIndex = 0;
             // 
             // FlpJugadores
             // 
             this.FlpJugadores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlpJugadores.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.FlpJugadores.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FlpJugadores.Location = new System.Drawing.Point(0, 0);
             this.FlpJugadores.Margin = new System.Windows.Forms.Padding(0);
             this.FlpJugadores.Name = "FlpJugadores";
-            this.FlpJugadores.Size = new System.Drawing.Size(330, 600);
+            this.FlpJugadores.Size = new System.Drawing.Size(200, 563);
             this.FlpJugadores.TabIndex = 1;
-            // 
-            // pJugador1
-            // 
-            this.pJugador1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pJugador1.Location = new System.Drawing.Point(10, 610);
-            this.pJugador1.Margin = new System.Windows.Forms.Padding(10);
-            this.pJugador1.Name = "pJugador1";
-            this.TlpGeneral.SetRowSpan(this.pJugador1, 2);
-            this.pJugador1.Size = new System.Drawing.Size(310, 180);
-            this.pJugador1.TabIndex = 2;
             // 
             // DeckBoard
             // 
             this.DeckBoard.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DeckBoard.BackColor = System.Drawing.Color.White;
             this.DeckBoard.Deck = null;
-            this.DeckBoard.Location = new System.Drawing.Point(390, 20);
+            this.DeckBoard.Location = new System.Drawing.Point(260, 20);
             this.DeckBoard.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.DeckBoard.Name = "DeckBoard";
-            this.DeckBoard.Size = new System.Drawing.Size(710, 580);
+            this.DeckBoard.Size = new System.Drawing.Size(710, 543);
             this.DeckBoard.TabIndex = 4;
             // 
             // MarketBoard
             // 
             this.MarketBoard.BackColor = System.Drawing.Color.White;
             this.MarketBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MarketBoard.Location = new System.Drawing.Point(1100, 20);
+            this.MarketBoard.Location = new System.Drawing.Point(970, 20);
             this.MarketBoard.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.MarketBoard.Market = null;
             this.MarketBoard.Name = "MarketBoard";
             this.TlpGeneral.SetRowSpan(this.MarketBoard, 2);
-            this.MarketBoard.Size = new System.Drawing.Size(120, 680);
+            this.MarketBoard.Size = new System.Drawing.Size(120, 643);
             this.MarketBoard.TabIndex = 5;
             // 
             // NoblesBoard
             // 
             this.NoblesBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NoblesBoard.Location = new System.Drawing.Point(1220, 20);
+            this.NoblesBoard.Location = new System.Drawing.Point(1090, 20);
             this.NoblesBoard.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.NoblesBoard.Name = "NoblesBoard";
             this.NoblesBoard.NobilityBox = null;
             this.TlpGeneral.SetRowSpan(this.NoblesBoard, 2);
-            this.NoblesBoard.Size = new System.Drawing.Size(145, 680);
+            this.NoblesBoard.Size = new System.Drawing.Size(145, 643);
             this.NoblesBoard.TabIndex = 6;
             // 
             // ButtonsPanel
@@ -143,7 +142,7 @@
             this.TlpGeneral.SetColumnSpan(this.ButtonsPanel, 2);
             this.ButtonsPanel.Controls.Add(this.LogButton);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonsPanel.Location = new System.Drawing.Point(1100, 700);
+            this.ButtonsPanel.Location = new System.Drawing.Point(970, 663);
             this.ButtonsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.Size = new System.Drawing.Size(265, 100);
@@ -169,32 +168,37 @@
             this.LogButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.LogButton.UseVisualStyleBackColor = false;
-            // 
-            // pOpciones
-            // 
-            this.pOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pOpciones.Location = new System.Drawing.Point(390, 600);
-            this.pOpciones.Margin = new System.Windows.Forms.Padding(0);
-            this.pOpciones.Name = "pOpciones";
-            this.pOpciones.Size = new System.Drawing.Size(710, 100);
-            this.pOpciones.TabIndex = 0;
+            this.LogButton.Click += new System.EventHandler(this.LogButton_Click);
             // 
             // MainPlayerValues
             // 
             this.MainPlayerValues.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MainPlayerValues.BackColor = System.Drawing.Color.White;
-            this.MainPlayerValues.Location = new System.Drawing.Point(495, 700);
+            this.MainPlayerValues.Location = new System.Drawing.Point(365, 663);
             this.MainPlayerValues.Margin = new System.Windows.Forms.Padding(0);
             this.MainPlayerValues.Name = "MainPlayerValues";
             this.MainPlayerValues.Player = null;
             this.MainPlayerValues.Size = new System.Drawing.Size(500, 90);
             this.MainPlayerValues.TabIndex = 8;
             // 
+            // MainPlayerFace
+            // 
+            this.MainPlayerFace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPlayerFace.BackColor = System.Drawing.Color.White;
+            this.MainPlayerFace.Location = new System.Drawing.Point(50, 563);
+            this.MainPlayerFace.Margin = new System.Windows.Forms.Padding(0);
+            this.MainPlayerFace.Name = "MainPlayerFace";
+            this.TlpGeneral.SetRowSpan(this.MainPlayerFace, 2);
+            this.MainPlayerFace.Size = new System.Drawing.Size(150, 144);
+            this.MainPlayerFace.SoftColor = System.Drawing.Color.DeepSkyBlue;
+            this.MainPlayerFace.StrongColor = System.Drawing.Color.SlateBlue;
+            this.MainPlayerFace.TabIndex = 0;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 825);
+            this.ClientSize = new System.Drawing.Size(1367, 788);
             this.CloseEnabled = true;
             this.Controls.Add(this.pGeneral);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,7 +221,6 @@
         private System.Windows.Forms.Panel pGeneral;
         private System.Windows.Forms.TableLayoutPanel TlpGeneral;
         private System.Windows.Forms.FlowLayoutPanel FlpJugadores;
-        private System.Windows.Forms.Panel pJugador1;
         private DeckBoard DeckBoard;
         private MarketBoard MarketBoard;
         private NoblesBoard NoblesBoard;
@@ -225,5 +228,6 @@
         private CustomButtonOk LogButton;
         private System.Windows.Forms.Panel pOpciones;
         private UserControls.MainPlayerValues MainPlayerValues;
+        private PlayerFace MainPlayerFace;
     }
 }

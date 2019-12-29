@@ -303,6 +303,56 @@ namespace Splendor.Domain.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
+        internal static byte[] diamond1 {
+            get {
+                object obj = ResourceManager.GetObject("diamond1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] diamond2 {
+            get {
+                object obj = ResourceManager.GetObject("diamond2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] diamond3 {
+            get {
+                object obj = ResourceManager.GetObject("diamond3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] diamond4 {
+            get {
+                object obj = ResourceManager.GetObject("diamond4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] diamond5 {
+            get {
+                object obj = ResourceManager.GetObject("diamond5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
         internal static byte[] e1 {
             get {
                 object obj = ResourceManager.GetObject("e1", resourceCulture);
@@ -483,6 +533,56 @@ namespace Splendor.Domain.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
+        internal static byte[] emerald1 {
+            get {
+                object obj = ResourceManager.GetObject("emerald1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] emerald2 {
+            get {
+                object obj = ResourceManager.GetObject("emerald2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] emerald3 {
+            get {
+                object obj = ResourceManager.GetObject("emerald3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] emerald4 {
+            get {
+                object obj = ResourceManager.GetObject("emerald4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] emerald5 {
+            get {
+                object obj = ResourceManager.GetObject("emerald5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
         internal static byte[] esmeralda {
             get {
                 object obj = ResourceManager.GetObject("esmeralda", resourceCulture);
@@ -516,6 +616,56 @@ namespace Splendor.Domain.Properties {
         internal static byte[] franciscofrancia {
             get {
                 object obj = ResourceManager.GetObject("franciscofrancia", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] gold1 {
+            get {
+                object obj = ResourceManager.GetObject("gold1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] gold2 {
+            get {
+                object obj = ResourceManager.GetObject("gold2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] gold3 {
+            get {
+                object obj = ResourceManager.GetObject("gold3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] gold4 {
+            get {
+                object obj = ResourceManager.GetObject("gold4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] gold5 {
+            get {
+                object obj = ResourceManager.GetObject("gold5", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -796,6 +946,56 @@ namespace Splendor.Domain.Properties {
         internal static byte[] OnixSmall {
             get {
                 object obj = ResourceManager.GetObject("OnixSmall", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] onyx1 {
+            get {
+                object obj = ResourceManager.GetObject("onyx1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] onyx2 {
+            get {
+                object obj = ResourceManager.GetObject("onyx2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] onyx3 {
+            get {
+                object obj = ResourceManager.GetObject("onyx3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] onyx4 {
+            get {
+                object obj = ResourceManager.GetObject("onyx4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] onyx5 {
+            get {
+                object obj = ResourceManager.GetObject("onyx5", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1113,6 +1313,106 @@ namespace Splendor.Domain.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
+        internal static byte[] ruby1 {
+            get {
+                object obj = ResourceManager.GetObject("ruby1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] ruby2 {
+            get {
+                object obj = ResourceManager.GetObject("ruby2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] ruby3 {
+            get {
+                object obj = ResourceManager.GetObject("ruby3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] ruby4 {
+            get {
+                object obj = ResourceManager.GetObject("ruby4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] ruby5 {
+            get {
+                object obj = ResourceManager.GetObject("ruby5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] sapphire1 {
+            get {
+                object obj = ResourceManager.GetObject("sapphire1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] sapphire2 {
+            get {
+                object obj = ResourceManager.GetObject("sapphire2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] sapphire3 {
+            get {
+                object obj = ResourceManager.GetObject("sapphire3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] sapphire4 {
+            get {
+                object obj = ResourceManager.GetObject("sapphire4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] sapphire5 {
+            get {
+                object obj = ResourceManager.GetObject("sapphire5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
         internal static byte[] shield {
             get {
                 object obj = ResourceManager.GetObject("shield", resourceCulture);
@@ -1286,6 +1586,16 @@ namespace Splendor.Domain.Properties {
         internal static byte[] solimanelmagnifico {
             get {
                 object obj = ResourceManager.GetObject("solimanelmagnifico", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] splendor {
+            get {
+                object obj = ResourceManager.GetObject("splendor", resourceCulture);
                 return ((byte[])(obj));
             }
         }

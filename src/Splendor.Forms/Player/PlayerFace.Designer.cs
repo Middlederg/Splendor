@@ -73,14 +73,14 @@
             this.OpenButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.OpenButton.Font = new System.Drawing.Font("Verdana", 10F);
             this.OpenButton.ForeColor = System.Drawing.Color.Black;
-            this.OpenButton.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.OpenButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.OpenButton.IconColor = System.Drawing.Color.Black;
             this.OpenButton.IconSize = 25;
             this.OpenButton.Location = new System.Drawing.Point(0, 0);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.Name = "OpenButton";
             this.OpenButton.Rotation = 0D;
-            this.OpenButton.Size = new System.Drawing.Size(25, 25);
+            this.OpenButton.Size = new System.Drawing.Size(30, 25);
             this.OpenButton.TabIndex = 12;
             this.OpenButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.OpenButton.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@
             // PrestigeLabel
             // 
             this.PrestigeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PrestigeLabel.Font = new System.Drawing.Font("Noto Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.PrestigeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.PrestigeLabel.ForeColor = System.Drawing.Color.White;
             this.PrestigeLabel.Location = new System.Drawing.Point(1, 0);
             this.PrestigeLabel.Margin = new System.Windows.Forms.Padding(0);

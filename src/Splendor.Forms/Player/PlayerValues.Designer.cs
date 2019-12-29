@@ -45,18 +45,19 @@
             // MainTable
             // 
             this.MainTable.ColumnCount = 2;
-            this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.MainTable.Controls.Add(this.ReservesButton, 0, 2);
-            this.MainTable.Controls.Add(this.CloseButton, 0, 0);
-            this.MainTable.Controls.Add(this.GoldCounter, 0, 3);
-            this.MainTable.Controls.Add(this.resourceControl1, 1, 0);
-            this.MainTable.Controls.Add(this.resourceControl2, 1, 1);
-            this.MainTable.Controls.Add(this.resourceControl3, 1, 2);
-            this.MainTable.Controls.Add(this.resourceControl4, 1, 3);
-            this.MainTable.Controls.Add(this.TotalGemsButton, 0, 4);
-            this.MainTable.Controls.Add(this.resourceControl5, 1, 4);
-            this.MainTable.Controls.Add(this.NoblesButton, 0, 1);
+            this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MainTable.Controls.Add(this.ReservesButton, 1, 2);
+            this.MainTable.Controls.Add(this.CloseButton, 1, 0);
+            this.MainTable.Controls.Add(this.GoldCounter, 1, 3);
+            this.MainTable.Controls.Add(this.resourceControl1, 0, 0);
+            this.MainTable.Controls.Add(this.resourceControl2, 0, 1);
+            this.MainTable.Controls.Add(this.resourceControl3, 0, 2);
+            this.MainTable.Controls.Add(this.resourceControl4, 0, 3);
+            this.MainTable.Controls.Add(this.TotalGemsButton, 1, 4);
+            this.MainTable.Controls.Add(this.resourceControl5, 0, 4);
+            this.MainTable.Controls.Add(this.NoblesButton, 1, 1);
             this.MainTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTable.Location = new System.Drawing.Point(0, 0);
             this.MainTable.Margin = new System.Windows.Forms.Padding(0);
@@ -67,7 +68,7 @@
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.MainTable.Size = new System.Drawing.Size(180, 200);
+            this.MainTable.Size = new System.Drawing.Size(180, 180);
             this.MainTable.TabIndex = 0;
             // 
             // ReservesButton
@@ -83,7 +84,7 @@
             this.ReservesButton.IconColor = System.Drawing.Color.Black;
             this.ReservesButton.IconSize = 25;
             this.ReservesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ReservesButton.Location = new System.Drawing.Point(10, 85);
+            this.ReservesButton.Location = new System.Drawing.Point(109, 75);
             this.ReservesButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReservesButton.Name = "ReservesButton";
             this.ReservesButton.Rotation = 0D;
@@ -95,6 +96,7 @@
             // 
             // CloseButton
             // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.BackColor = System.Drawing.Color.Transparent;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -105,7 +107,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconSize = 25;
             this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.CloseButton.Location = new System.Drawing.Point(0, 0);
+            this.CloseButton.Location = new System.Drawing.Point(150, 0);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Rotation = 0D;
@@ -120,7 +122,7 @@
             this.GoldCounter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GoldCounter.BackColor = System.Drawing.Color.White;
             this.GoldCounter.Gems = null;
-            this.GoldCounter.Location = new System.Drawing.Point(11, 122);
+            this.GoldCounter.Location = new System.Drawing.Point(110, 108);
             this.GoldCounter.Margin = new System.Windows.Forms.Padding(0);
             this.GoldCounter.Name = "GoldCounter";
             this.GoldCounter.Size = new System.Drawing.Size(58, 35);
@@ -129,45 +131,49 @@
             // resourceControl1
             // 
             this.resourceControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resourceControl1.BackColor = System.Drawing.Color.Transparent;
             this.resourceControl1.Developments = null;
             this.resourceControl1.Gems = null;
-            this.resourceControl1.Location = new System.Drawing.Point(84, 2);
+            this.resourceControl1.Location = new System.Drawing.Point(3, 3);
             this.resourceControl1.Margin = new System.Windows.Forms.Padding(0);
             this.resourceControl1.Name = "resourceControl1";
-            this.resourceControl1.Size = new System.Drawing.Size(93, 35);
+            this.resourceControl1.Size = new System.Drawing.Size(93, 30);
             this.resourceControl1.TabIndex = 6;
             // 
             // resourceControl2
             // 
             this.resourceControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resourceControl2.BackColor = System.Drawing.Color.Transparent;
             this.resourceControl2.Developments = null;
             this.resourceControl2.Gems = null;
-            this.resourceControl2.Location = new System.Drawing.Point(84, 42);
+            this.resourceControl2.Location = new System.Drawing.Point(3, 39);
             this.resourceControl2.Margin = new System.Windows.Forms.Padding(0);
             this.resourceControl2.Name = "resourceControl2";
-            this.resourceControl2.Size = new System.Drawing.Size(93, 35);
+            this.resourceControl2.Size = new System.Drawing.Size(93, 30);
             this.resourceControl2.TabIndex = 7;
             // 
             // resourceControl3
             // 
             this.resourceControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resourceControl3.BackColor = System.Drawing.Color.Transparent;
             this.resourceControl3.Developments = null;
             this.resourceControl3.Gems = null;
-            this.resourceControl3.Location = new System.Drawing.Point(84, 82);
+            this.resourceControl3.Location = new System.Drawing.Point(3, 75);
             this.resourceControl3.Margin = new System.Windows.Forms.Padding(0);
             this.resourceControl3.Name = "resourceControl3";
-            this.resourceControl3.Size = new System.Drawing.Size(93, 35);
+            this.resourceControl3.Size = new System.Drawing.Size(93, 30);
             this.resourceControl3.TabIndex = 8;
             // 
             // resourceControl4
             // 
             this.resourceControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resourceControl4.BackColor = System.Drawing.Color.Transparent;
             this.resourceControl4.Developments = null;
             this.resourceControl4.Gems = null;
-            this.resourceControl4.Location = new System.Drawing.Point(84, 122);
+            this.resourceControl4.Location = new System.Drawing.Point(3, 111);
             this.resourceControl4.Margin = new System.Windows.Forms.Padding(0);
             this.resourceControl4.Name = "resourceControl4";
-            this.resourceControl4.Size = new System.Drawing.Size(93, 35);
+            this.resourceControl4.Size = new System.Drawing.Size(93, 30);
             this.resourceControl4.TabIndex = 9;
             // 
             // TotalGemsButton
@@ -183,7 +189,7 @@
             this.TotalGemsButton.IconColor = System.Drawing.Color.Black;
             this.TotalGemsButton.IconSize = 25;
             this.TotalGemsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.TotalGemsButton.Location = new System.Drawing.Point(0, 165);
+            this.TotalGemsButton.Location = new System.Drawing.Point(99, 147);
             this.TotalGemsButton.Margin = new System.Windows.Forms.Padding(0);
             this.TotalGemsButton.Name = "TotalGemsButton";
             this.TotalGemsButton.Rotation = 0D;
@@ -196,12 +202,13 @@
             // resourceControl5
             // 
             this.resourceControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resourceControl5.BackColor = System.Drawing.Color.Transparent;
             this.resourceControl5.Developments = null;
             this.resourceControl5.Gems = null;
-            this.resourceControl5.Location = new System.Drawing.Point(84, 162);
+            this.resourceControl5.Location = new System.Drawing.Point(3, 147);
             this.resourceControl5.Margin = new System.Windows.Forms.Padding(0);
             this.resourceControl5.Name = "resourceControl5";
-            this.resourceControl5.Size = new System.Drawing.Size(93, 35);
+            this.resourceControl5.Size = new System.Drawing.Size(93, 30);
             this.resourceControl5.TabIndex = 10;
             // 
             // NoblesButton
@@ -217,7 +224,7 @@
             this.NoblesButton.IconColor = System.Drawing.Color.Black;
             this.NoblesButton.IconSize = 25;
             this.NoblesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.NoblesButton.Location = new System.Drawing.Point(10, 45);
+            this.NoblesButton.Location = new System.Drawing.Point(109, 39);
             this.NoblesButton.Margin = new System.Windows.Forms.Padding(0);
             this.NoblesButton.Name = "NoblesButton";
             this.NoblesButton.Rotation = 0D;
@@ -234,7 +241,7 @@
             this.Controls.Add(this.MainTable);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PlayerValues";
-            this.Size = new System.Drawing.Size(180, 200);
+            this.Size = new System.Drawing.Size(180, 180);
             this.MainTable.ResumeLayout(false);
             this.ResumeLayout(false);
 

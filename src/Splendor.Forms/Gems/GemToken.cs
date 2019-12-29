@@ -23,11 +23,13 @@ namespace Splendor.Forms
         public void AddGem()
         {
             SubIndex++;
+            Draw();
             Refresh();
         }
         public void RemoveGems(params Gem[] gems)
         {
             SubIndex -= gems.Count(x => x == Gem);
+            Draw();
             Refresh();
         }
 
@@ -49,7 +51,7 @@ namespace Splendor.Forms
         {
             if (SubIndex > 0)
             {
-                Pbx.Image = Gem.GetImage();
+                Pbx.Image = Path.GetImage();
                 ToolTipAyuda.SetToolTip(Pbx, Gem.ToString(SubIndex));
                 Refresh();
             }
@@ -59,6 +61,7 @@ namespace Splendor.Forms
                 ToolTipAyuda.SetToolTip(Pbx, "");
             }
         }
+        protected virtual IPath Path => Gem;
 
         private void Pbx_Click(object sender, EventArgs e) => OnClick(e);
         

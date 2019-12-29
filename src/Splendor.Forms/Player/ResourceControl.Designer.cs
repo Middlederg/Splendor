@@ -43,7 +43,7 @@
             this.pGeneral.Location = new System.Drawing.Point(0, 0);
             this.pGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.pGeneral.Name = "pGeneral";
-            this.pGeneral.Size = new System.Drawing.Size(93, 35);
+            this.pGeneral.Size = new System.Drawing.Size(93, 30);
             this.pGeneral.TabIndex = 2;
             // 
             // DevelopmentCounter
@@ -55,7 +55,7 @@
             this.DevelopmentCounter.Margin = new System.Windows.Forms.Padding(0);
             this.DevelopmentCounter.Name = "DevelopmentCounter";
             this.DevelopmentCounter.Padding = new System.Windows.Forms.Padding(3);
-            this.DevelopmentCounter.Size = new System.Drawing.Size(28, 35);
+            this.DevelopmentCounter.Size = new System.Drawing.Size(28, 30);
             this.DevelopmentCounter.TabIndex = 1;
             // 
             // GemCounter
@@ -66,7 +66,7 @@
             this.GemCounter.Location = new System.Drawing.Point(0, 0);
             this.GemCounter.Margin = new System.Windows.Forms.Padding(0);
             this.GemCounter.Name = "GemCounter";
-            this.GemCounter.Size = new System.Drawing.Size(60, 35);
+            this.GemCounter.Size = new System.Drawing.Size(60, 30);
             this.GemCounter.TabIndex = 0;
             // 
             // ResourceControl
@@ -76,7 +76,7 @@
             this.Controls.Add(this.pGeneral);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ResourceControl";
-            this.Size = new System.Drawing.Size(93, 35);
+            this.Size = new System.Drawing.Size(93, 30);
             this.pGeneral.ResumeLayout(false);
             this.ResumeLayout(false);
 

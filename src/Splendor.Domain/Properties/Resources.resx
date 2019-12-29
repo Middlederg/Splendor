@@ -190,6 +190,21 @@
   <data name="DiamanteSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiamanteSmall.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="diamond1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="diamond2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="diamond3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="diamond4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="diamond5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="e1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\e1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -244,6 +259,21 @@
   <data name="e9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\e9.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="emerald1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emerald1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="emerald2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emerald2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="emerald3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emerald3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="emerald4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emerald4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="emerald5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emerald5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="esmeralda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\esmeralda.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -255,6 +285,21 @@
   </data>
   <data name="franciscofrancia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\franciscofrancia.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="henry8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\henry8.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -339,6 +384,21 @@
   </data>
   <data name="OnixSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OnixSmall.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="onyx1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onyx1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="onyx2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onyx2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="onyx3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onyx3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="onyx4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onyx4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="onyx5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onyx5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="oro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oro.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -433,6 +493,36 @@
   <data name="RubiSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RubiSmall.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ruby1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ruby1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ruby2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ruby2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ruby3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ruby3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ruby4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ruby4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ruby5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ruby5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sapphire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sapphire1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sapphire2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sapphire2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sapphire3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sapphire3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sapphire4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sapphire4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sapphire5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sapphire5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shield.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -486,6 +576,9 @@
   </data>
   <data name="solimanelmagnifico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\solimanelmagnifico.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splendor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splendor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="titulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\titulo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

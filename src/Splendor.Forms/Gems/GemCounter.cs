@@ -29,11 +29,13 @@ namespace Splendor.Forms
                         Lbl.Visible = Pbx.Visible = true;
                         Pbx.BackgroundImage = value.First().SmallPath.GetImage();
                         ToolTipAyuda.SetToolTip(Lbl, value.JoinList());
+                        ToolTipAyuda.SetToolTip(Pbx, value.JoinList());
                     }
                     else
                     {
                         Lbl.Visible = Pbx.Visible = false;
                         ToolTipAyuda.SetToolTip(Lbl, "");
+                        ToolTipAyuda.SetToolTip(Pbx, "");
                     }
                 }
             }

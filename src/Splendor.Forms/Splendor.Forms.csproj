@@ -75,11 +75,23 @@
     <Compile Include="Developments\DevelopmentCounter.Designer.cs">
       <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </Compile>
+    <Compile Include="GemPile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GemPile.Designer.cs">
+      <DependentUpon>GemPile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gems\GemCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Gems\GemCounter.Designer.cs">
       <DependentUpon>GemCounter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerValuesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerValuesForm.Designer.cs">
+      <DependentUpon>PlayerValuesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Player\PlayerEventArgs.cs" />
     <Compile Include="Player\PlayerFace.cs">
@@ -229,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gems\GemCounter.resx">
       <DependentUpon>GemCounter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerValuesForm.resx">
+      <DependentUpon>PlayerValuesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player\PlayerFace.resx">
       <DependentUpon>PlayerFace.cs</DependentUpon>

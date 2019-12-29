@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.Flp = new System.Windows.Forms.FlowLayoutPanel();
-            this.Diamond = new Splendor.Forms.GemToken();
-            this.Ruby = new Splendor.Forms.GemToken();
-            this.Onyx = new Splendor.Forms.GemToken();
-            this.Sapphire = new Splendor.Forms.GemToken();
-            this.Emerald = new Splendor.Forms.GemToken();
-            this.Gold = new Splendor.Forms.GemToken();
+            this.Diamond = new Splendor.Forms.GemPile();
+            this.Ruby = new Splendor.Forms.GemPile();
+            this.Onyx = new Splendor.Forms.GemPile();
+            this.Sapphire = new Splendor.Forms.GemPile();
+            this.Emerald = new Splendor.Forms.GemPile();
+            this.Gold = new Splendor.Forms.GemPile();
             this.Flp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,11 +142,11 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel Flp;
-        private GemToken Diamond;
-        private GemToken Ruby;
-        private GemToken Onyx;
-        private GemToken Sapphire;
-        private GemToken Emerald;
-        private GemToken Gold;
+        private GemPile Diamond;
+        private GemPile Ruby;
+        private GemPile Onyx;
+        private GemPile Sapphire;
+        private GemPile Emerald;
+        private GemPile Gold;
     }
 }

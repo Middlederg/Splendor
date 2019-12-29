@@ -36,8 +36,6 @@ namespace Splendor.Forms
             }
         }
 
-        public void MakeOpenButtonVisible() => OpenButton.Visible = true;
-
         public PlayerFace()
         {
             InitializeComponent();
@@ -49,7 +47,6 @@ namespace Splendor.Forms
         private void OpenButton_Click(object sender, EventArgs e)
         {
             OnDetailsClicked?.Invoke(this, EventArgs.Empty);
-            OpenButton.Visible = false;
         }
     }
 }

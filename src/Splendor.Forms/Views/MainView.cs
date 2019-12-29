@@ -127,6 +127,7 @@ namespace Splendor.Forms.Views
 
         private void AddPlayers()
         {
+            MainPlayerFace.SetProfile(game.Players[0].Profile);
             MainPlayerValues.Player = game.Players[0];
             MainPlayerValues.Draw();
 
@@ -135,7 +136,7 @@ namespace Splendor.Forms.Views
                 var playerboard = new PlayerBoard()
                 {
                     Player = player,
-                    Margin = new Padding(0)
+                    Margin = new Padding(0, 10, 0, 0)
                 };
                 playerboard.Draw();
                 FlpJugadores.Controls.Add(playerboard);
@@ -188,6 +189,18 @@ namespace Splendor.Forms.Views
         private void OnLoad(object sender, EventArgs e)
         {
             OnPlay();
+        }
+
+        private void LogButton_Click(object sender, EventArgs e)
+        {
+            var window = new GameActionInfo()
+            {
+                Message = "mens"
+            };
+            {
+                window.Show();
+               // window.Controls.Add();
+            };
         }
     }
 }

@@ -45,19 +45,19 @@ namespace Splendor.Forms.UserControls
 
             PlayerFace.OnDetailsClicked += PlayerFaceDetailsClicked;
             PlayerValues.OnCloseClicked += PlayerValuesClosed;
-            PlayerValues.Visible = false;
         }
 
         private void PlayerFaceDetailsClicked(object sender, EventArgs e)
         {
-            PlayerValues.Visible = true;
+            MainTable.ColumnStyles[1].Width = 0;
+            MainTable.ColumnStyles[0].Width = 100;
             PlayerValues.BackColor = SoftColor;
         }
 
         private void PlayerValuesClosed(object sender, EventArgs e)
         {
-            PlayerValues.Visible = false;
-            PlayerFace.MakeOpenButtonVisible();
+            MainTable.ColumnStyles[1].Width = 100;
+            MainTable.ColumnStyles[0].Width = 0;
         }
 
         public void Draw()
