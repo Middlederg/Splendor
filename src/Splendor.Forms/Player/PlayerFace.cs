@@ -13,6 +13,12 @@ namespace Splendor.Forms
 {
     public partial class PlayerFace : UcBase
     {
+        public bool DetailsVisible
+        {
+            get => OpenButton.Visible;
+            set => OpenButton.Visible = value;
+        }
+
         public Color StrongColor
         {
             get => NameLabel.BackColor;

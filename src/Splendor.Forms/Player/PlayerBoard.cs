@@ -45,12 +45,15 @@ namespace Splendor.Forms.UserControls
 
             PlayerFace.OnDetailsClicked += PlayerFaceDetailsClicked;
             PlayerValues.OnCloseClicked += PlayerValuesClosed;
+            PlayerValues.Visible = false;
         }
 
         private void PlayerFaceDetailsClicked(object sender, EventArgs e)
         {
             MainTable.ColumnStyles[1].Width = 0;
             MainTable.ColumnStyles[0].Width = 100;
+            PlayerValues.Size = new Size(200, 200);
+            PlayerValues.Visible = true;
             PlayerValues.BackColor = SoftColor;
         }
 
@@ -58,6 +61,8 @@ namespace Splendor.Forms.UserControls
         {
             MainTable.ColumnStyles[1].Width = 100;
             MainTable.ColumnStyles[0].Width = 0;
+            PlayerFace.Size = new Size(150, 144);
+            PlayerValues.Visible = false;
         }
 
         public void Draw()

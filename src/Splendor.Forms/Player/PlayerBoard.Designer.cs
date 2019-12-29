@@ -48,7 +48,7 @@
             // 
             this.PlayerFace.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PlayerFace.BackColor = System.Drawing.Color.White;
-            this.PlayerFace.Location = new System.Drawing.Point(90, 28);
+            this.PlayerFace.Location = new System.Drawing.Point(25, 28);
             this.PlayerFace.Margin = new System.Windows.Forms.Padding(0);
             this.PlayerFace.Name = "PlayerFace";
             this.PlayerFace.Size = new System.Drawing.Size(150, 144);
@@ -68,7 +68,7 @@
             this.MainTable.Name = "MainTable";
             this.MainTable.RowCount = 1;
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTable.Size = new System.Drawing.Size(330, 200);
+            this.MainTable.Size = new System.Drawing.Size(200, 200);
             this.MainTable.TabIndex = 2;
             // 
             // PlayerBoard
@@ -79,7 +79,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PlayerBoard";
-            this.Size = new System.Drawing.Size(330, 200);
+            this.Size = new System.Drawing.Size(200, 200);
             this.MainTable.ResumeLayout(false);
             this.ResumeLayout(false);
 

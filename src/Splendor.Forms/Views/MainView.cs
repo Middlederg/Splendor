@@ -24,7 +24,7 @@ namespace Splendor.Forms.Views
             InitializeComponent();
 
             SetText("Splendor");
-            game = new Game((Prestige)15, new Profile(1, "Jors", isPlayer:true), Profiles.Danilo);
+            game = new Game((Prestige)15, new Profile(1, "Jors", isPlayer:true), Profiles.Danilo, Profiles.Debra, Profiles.Donnie);
 
             AddDeckPanel();
             AddGemsPanels();
@@ -36,7 +36,7 @@ namespace Splendor.Forms.Views
         {
             DeckBoard.Deck = game.Deck;
             DeckBoard.SetHumanPlayer(game.Players[0]);
-            DeckBoard.OnSelectedDesarrolloChanged += DesarrolloSelected;
+            DeckBoard.OnSelectedDesarrolloChanged += DevelopmentSelectedInDeck;
             DeckBoard.Draw();
 
             developmentsPanel = new TakenDevelopmentsPanel
@@ -48,13 +48,6 @@ namespace Splendor.Forms.Views
             developmentsPanel.OnDevelopmentReserved += ReserveDevelopment;
             developmentsPanel.OnDevelopmentBought += BuyDevelopment;
             pOpciones.Controls.Add(developmentsPanel);
-        }
-
-        private void DesarrolloSelected(object sender, DevelopmentEventArgs e)
-        {
-            developmentsPanel.Visible = true;
-            gemsPanel.Visible = false;
-            developmentsPanel.Development = e.Development;
         }
 
         private void AddGemsPanels()
@@ -72,6 +65,37 @@ namespace Splendor.Forms.Views
             gemsPanel.OnGemHasBeenRemoved += GemRemoved;
             gemsPanel.OnTransactionCompleted += TakeGems;
             pOpciones.Controls.Add(gemsPanel);
+        }
+
+        public void AddNobles()
+        {
+            NoblesBoard.NobilityBox = game.NobilityBox;
+            NoblesBoard.Draw();
+        }
+
+        private void AddPlayers()
+        {
+            MainPlayerFace.SetProfile(game.Players[0].Profile);
+            MainPlayerValues.Player = game.Players[0];
+            MainPlayerValues.Draw();
+
+            foreach (Player player in game.Players.Skip(1))
+            {
+                var playerboard = new PlayerBoard()
+                {
+                    Player = player,
+                    Margin = new Padding(0, 10, 0, 0),
+                };
+                playerboard.Draw();
+                FlpJugadores.Controls.Add(playerboard);
+            }
+        }
+
+        private void DevelopmentSelectedInDeck(object sender, DevelopmentEventArgs e)
+        {
+            developmentsPanel.Visible = true;
+            gemsPanel.Visible = false;
+            developmentsPanel.Development = e.Development;
         }
 
         private void GemSelectedInMarket(object sender, GemEventArgs e)
@@ -119,48 +143,6 @@ namespace Splendor.Forms.Views
             OnPlay();
         }
 
-        public void AddNobles()
-        {
-            NoblesBoard.NobilityBox = game.NobilityBox;
-            NoblesBoard.Draw();
-        }
-
-        private void AddPlayers()
-        {
-            MainPlayerFace.SetProfile(game.Players[0].Profile);
-            MainPlayerValues.Player = game.Players[0];
-            MainPlayerValues.Draw();
-
-            foreach (Player player in game.Players.Skip(1))
-            {
-                var playerboard = new PlayerBoard()
-                {
-                    Player = player,
-                    Margin = new Padding(0, 10, 0, 0)
-                };
-                playerboard.Draw();
-                FlpJugadores.Controls.Add(playerboard);
-            }
-        }
-
-        //private void AgregarJugadorPrincipal()
-        //{
-        //    UcJugador u = new UcJugador(j) { Dock = DockStyle.Fill };
-        //    TlpGeneral.Controls.Add(u, 2, 3);
-        //}
-
-
-
-        //private void AgregarCuadrosJugadores()
-        //{
-        //    foreach (Jugador jugador in j.RestoJugadores(j.Jugadores[0]))
-        //    {
-        //        FlpJugadores.Controls.Add(new UcCuadroJugador(j, j.Jugadores.IndexOf(jugador)) { Margin = new Padding(0, 0, 0, 20)});
-        //    }
-        //    pJugador1.Controls.Add(new UcCuadroJugador(j, 0) { Margin = new Padding(0, 0, 0, 20) });
-        //}
-
-
         private Noble TryVisitNoble()
         {
             return null;
@@ -168,6 +150,7 @@ namespace Splendor.Forms.Views
 
         private void OnPlay()
         {
+            DeckBoard.DeselectAllCards();
             developmentsPanel.Reset();
             gemsPanel.Reset();
             
@@ -176,7 +159,14 @@ namespace Splendor.Forms.Views
                 var moveService = new MoveService(game);
                 var move = moveService.MakeMove();
 
-                using (var view = new GameActionInfo())
+                var playerBoard = FlpJugadores.Controls.OfType<PlayerBoard>().First(x => x.Player == game.CurrentPlayer);
+                var playerLocation = playerBoard.PointToScreen(Point.Empty);
+                var playerSize = playerBoard.Size;
+                using (var view = new GameActionInfo()
+                {
+                    Location = new Point(playerLocation.X + playerSize.Width, playerLocation.Y + 40),
+                    StartPosition = FormStartPosition.Manual
+                })
                 {
                     view.Message = move.ToString();
                     view.SetText($"{game.CurrentPlayer.ToString()}");
@@ -186,10 +176,7 @@ namespace Splendor.Forms.Views
             }
         }
 
-        private void OnLoad(object sender, EventArgs e)
-        {
-            OnPlay();
-        }
+
 
         private void LogButton_Click(object sender, EventArgs e)
         {
@@ -201,6 +188,12 @@ namespace Splendor.Forms.Views
                 window.Show();
                // window.Controls.Add();
             };
+        }
+
+        private async void OnShown(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{game.CurrentPlayer.ToString()} begins playing");
+            OnPlay();
         }
     }
 }

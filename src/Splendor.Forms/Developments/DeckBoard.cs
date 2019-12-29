@@ -98,14 +98,19 @@ namespace Splendor.Forms
 
         private void CartaClick(object sender, EventArgs e)
         {
-            foreach (var card in GetAllCards())
-                card.Selected = false;
+            DeselectAllCards();
 
             if (sender is Card selectedCard)
             {
                 selectedCard.Selected = true;
                 OnSelectedDesarrolloChanged?.Invoke(sender, new DevelopmentEventArgs(selectedCard.Development));
             }
+        }
+
+        public void DeselectAllCards()
+        {
+            foreach (var card in GetAllCards())
+                card.Selected = false;
         }
 
         public (IconChar icon, string helpText) IconoDesarrollo(Development development)
