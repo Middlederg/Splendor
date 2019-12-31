@@ -9,12 +9,14 @@ namespace Splendor.Domain
         protected abstract string Description { get; }
 
         public abstract MoveType Type { get; }
+        public Noble Noble { get; }
 
         public GameAction(Noble noble)
         {
-            if (receivedVisit != null)
+            Noble = noble;
+            if (!(noble is null))
             {
-                receivedVisit = $" Noble received: {noble.ToStringDetailed()}";
+                receivedVisit = $" and receives the visit of {noble.ToString()}";
             }
             else receivedVisit = "";
         }

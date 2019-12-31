@@ -2,14 +2,14 @@
 {
     public class BuyDevelopment : GameAction
     {
-        private readonly Development development;
+        public Development Development { get; }
         public override MoveType Type => MoveType.BuyDevelopment;
 
         public BuyDevelopment(Development development, Noble noble) : base(noble)
         {
-            this.development = development;
+            Development = development;
         }
 
-        protected override string Description => $"Buys development ({development.ToString()})";
+        protected override string Description => $"Buys development ({Development.ToString()})";
     }
 }

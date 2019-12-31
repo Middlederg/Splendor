@@ -5,34 +5,35 @@ namespace Splendor.Domain
 {
     public class Log
     {
-        private readonly List<LogEntry> entries;
+        public List<LogEntry> Entries { get; private set; }
 
         public Log()
         {
-            entries = new List<LogEntry>();
+            Entries = new List<LogEntry>();
         }
 
         public GameAction TakeGems(int currentTurn, Player player, Noble noble, params Gem[] gems)
         {
             var move = new TakeGems(gems, noble);
-            entries.Add(new LogEntry(currentTurn, move, player));
+            Entries.Add(new LogEntry(currentTurn, move, player));
             return move;
         }
 
         public GameAction BuyDevelopment(int currentTurn, Player player, Noble noble, Development development)
         {
             var move = new BuyDevelopment(development, noble);
-            entries.Add(new LogEntry(currentTurn, move, player));
+            Entries.Add(new LogEntry(currentTurn, move, player));
             return move;
         }
 
         public GameAction ReserveDevelopment(int currentTurn, Player player, Noble noble, Development development, bool takeGold)
         {
             var move = new ReserveDevelopment(development, takeGold, noble);
-            entries.Add(new LogEntry(currentTurn, move, player));
+            Entries.Add(new LogEntry(currentTurn, move, player));
             return move;
         }
 
-        public IEnumerable<string> GetLog() => entries.Select(x => x.ToString());     
+        
+        public IEnumerable<string> GetLog() => Entries.Select(x => x.ToString());     
     }
 }

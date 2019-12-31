@@ -145,7 +145,7 @@ namespace Splendor.Forms.Views
 
         private Noble TryVisitNoble()
         {
-            return null;
+            return new ReceiveVisit(game.NobilityBox, game.CurrentPlayer).Receive();
         }
 
         private void OnPlay()
@@ -159,38 +159,30 @@ namespace Splendor.Forms.Views
                 var moveService = new MoveService(game);
                 var move = moveService.MakeMove();
 
-                var playerBoard = FlpJugadores.Controls.OfType<PlayerBoard>().First(x => x.Player == game.CurrentPlayer);
-                var playerLocation = playerBoard.PointToScreen(Point.Empty);
-                var playerSize = playerBoard.Size;
-                using (var view = new GameActionInfo()
+                var currentPlayerBoard = FlpJugadores.Controls.OfType<PlayerBoard>().First(x => x.Player == game.CurrentPlayer);
+                var playerBoardLocation = currentPlayerBoard.PointToScreen(Point.Empty);
+                var playerBoardSize = currentPlayerBoard.Size;
+
+                var view = GameActionViewFactory.Create(move, game.CurrentPlayer.ToString());
+                view.StartPosition = FormStartPosition.Manual;
+                view.Location = new Point(playerBoardLocation.X + playerBoardSize.Width, playerBoardLocation.Y + 40);
+                using (view)
                 {
-                    Location = new Point(playerLocation.X + playerSize.Width, playerLocation.Y + 40),
-                    StartPosition = FormStartPosition.Manual
-                })
-                {
-                    view.Message = move.ToString();
-                    view.SetText($"{game.CurrentPlayer.ToString()}");
                     view.ShowDialog();
                 }
                 game.NextTurn();
             }
         }
 
-
-
         private void LogButton_Click(object sender, EventArgs e)
         {
-            var window = new GameActionInfo()
+            using (var logView = new LogView(game.Log))
             {
-                Message = "mens"
-            };
-            {
-                window.Show();
-               // window.Controls.Add();
-            };
+                logView.ShowDialog();
+            }
         }
 
-        private async void OnShown(object sender, EventArgs e)
+        private void OnShown(object sender, EventArgs e)
         {
             MessageBox.Show($"{game.CurrentPlayer.ToString()} begins playing");
             OnPlay();

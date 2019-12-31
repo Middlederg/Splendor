@@ -73,7 +73,7 @@ namespace Splendor.Domain
         private Noble ChooseRandomNobleIfPossible()
         {
             var nobilityService = new NobilityService(nobilityBox, currentPlayer);
-            var nobles = nobilityService.CanVisit();
+            var nobles = nobilityService.CanReceiveVisitFrom();
             return nobles.GetRandomItem();
         }
 

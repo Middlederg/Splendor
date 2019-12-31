@@ -63,6 +63,7 @@
     <Compile Include="Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game\GameActionViewFactory.cs" />
     <Compile Include="Developments\DevelopmentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,10 +76,23 @@
     <Compile Include="Developments\DevelopmentCounter.Designer.cs">
       <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="GemPile.cs">
+    <Compile Include="Game\TakenGemsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\TakenGemsView.Designer.cs">
+      <DependentUpon>TakenGemsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\PurchasedDevelopmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\PurchasedDevelopmentView.Designer.cs">
+      <DependentUpon>PurchasedDevelopmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\IGameActionView.cs" />
+    <Compile Include="Gems\GemPile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GemPile.Designer.cs">
+    <Compile Include="Gems\GemPile.Designer.cs">
       <DependentUpon>GemPile.cs</DependentUpon>
     </Compile>
     <Compile Include="Gems\GemCounter.cs">
@@ -87,11 +101,11 @@
     <Compile Include="Gems\GemCounter.Designer.cs">
       <DependentUpon>GemCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayerValuesForm.cs">
+    <Compile Include="LogView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlayerValuesForm.Designer.cs">
-      <DependentUpon>PlayerValuesForm.cs</DependentUpon>
+    <Compile Include="LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
     </Compile>
     <Compile Include="Player\PlayerEventArgs.cs" />
     <Compile Include="Player\PlayerFace.cs">
@@ -112,11 +126,11 @@
     <Compile Include="Nobles\NobleTile.Designer.cs">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game\GameActionInfo.cs">
+    <Compile Include="Game\ReservedDevelopmentView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game\GameActionInfo.Designer.cs">
-      <DependentUpon>GameActionInfo.cs</DependentUpon>
+    <Compile Include="Game\ReservedDevelopmentView.Designer.cs">
+      <DependentUpon>ReservedDevelopmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="Gems\RemovableGem.cs">
       <SubType>UserControl</SubType>
@@ -217,6 +231,12 @@
     <Compile Include="Buttons\TransparentButton.Designer.cs">
       <DependentUpon>TransparentButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nobles\NoblesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nobles\NoblesView.Designer.cs">
+      <DependentUpon>NoblesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,11 +259,17 @@
     <EmbeddedResource Include="Developments\DevelopmentCounter.resx">
       <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Game\TakenGemsView.resx">
+      <DependentUpon>TakenGemsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\PurchasedDevelopmentView.resx">
+      <DependentUpon>PurchasedDevelopmentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gems\GemCounter.resx">
       <DependentUpon>GemCounter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlayerValuesForm.resx">
-      <DependentUpon>PlayerValuesForm.cs</DependentUpon>
+    <EmbeddedResource Include="LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player\PlayerFace.resx">
       <DependentUpon>PlayerFace.cs</DependentUpon>
@@ -254,8 +280,8 @@
     <EmbeddedResource Include="Nobles\NobleTile.resx">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game\GameActionInfo.resx">
-      <DependentUpon>GameActionInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Game\ReservedDevelopmentView.resx">
+      <DependentUpon>ReservedDevelopmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gems\RemovableGem.resx">
       <DependentUpon>RemovableGem.cs</DependentUpon>
@@ -312,6 +338,9 @@
     <EmbeddedResource Include="Buttons\TransparentButton.resx">
       <DependentUpon>TransparentButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nobles\NoblesView.resx">
+      <DependentUpon>NoblesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +386,12 @@
       <Project>{78699946-d78d-43ef-8487-ca6089a757ef}</Project>
       <Name>Splendor.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OroSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

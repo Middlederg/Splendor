@@ -44,6 +44,7 @@
             // 
             // MainTable
             // 
+            this.MainTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MainTable.ColumnCount = 2;
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));

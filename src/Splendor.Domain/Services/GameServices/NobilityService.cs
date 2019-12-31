@@ -14,7 +14,7 @@ namespace Splendor.Domain
             this.player = player;
         }
 
-        public IEnumerable<Noble> CanVisit()
+        public IEnumerable<Noble> CanReceiveVisitFrom()
         {
             foreach (var noble in box.NobleList)
             {
@@ -26,7 +26,7 @@ namespace Splendor.Domain
             }
         }
 
-        public void Visit(Noble noble)
+        public void ReceiveVisit(Noble noble)
         {
             box.Remove(noble);
             player.AddNoble(noble);

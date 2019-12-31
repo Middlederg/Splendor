@@ -47,10 +47,10 @@
             this.TlpPrincipal.Name = "TlpPrincipal";
             this.TlpPrincipal.RowCount = 1;
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpPrincipal.Size = new System.Drawing.Size(668, 143);
+            this.TlpPrincipal.Size = new System.Drawing.Size(668, 100);
             this.TlpPrincipal.TabIndex = 0;
             // 
-            // BtnReservar
+            // ReserveButton
             // 
             this.ReserveButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ReserveButton.BackColor = System.Drawing.Color.SlateBlue;
@@ -62,9 +62,9 @@
             this.ReserveButton.IconChar = FontAwesome.Sharp.IconChar.Clock;
             this.ReserveButton.IconColor = System.Drawing.Color.White;
             this.ReserveButton.IconSize = 30;
-            this.ReserveButton.Location = new System.Drawing.Point(354, 46);
+            this.ReserveButton.Location = new System.Drawing.Point(354, 25);
             this.ReserveButton.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.ReserveButton.Name = "BtnReservar";
+            this.ReserveButton.Name = "ReserveButton";
             this.ReserveButton.Rotation = 0D;
             this.ReserveButton.Size = new System.Drawing.Size(274, 50);
             this.ReserveButton.TabIndex = 2;
@@ -74,7 +74,7 @@
             this.ReserveButton.UseVisualStyleBackColor = false;
             this.ReserveButton.Click += new System.EventHandler(this.ReserveButtonClick);
             // 
-            // BtnComprar
+            // BuyButton
             // 
             this.BuyButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BuyButton.BackColor = System.Drawing.Color.SlateBlue;
@@ -86,9 +86,9 @@
             this.BuyButton.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.BuyButton.IconColor = System.Drawing.Color.White;
             this.BuyButton.IconSize = 30;
-            this.BuyButton.Location = new System.Drawing.Point(40, 46);
+            this.BuyButton.Location = new System.Drawing.Point(40, 25);
             this.BuyButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.BuyButton.Name = "BtnComprar";
+            this.BuyButton.Name = "BuyButton";
             this.BuyButton.Rotation = 0D;
             this.BuyButton.Size = new System.Drawing.Size(274, 50);
             this.BuyButton.TabIndex = 1;
@@ -98,12 +98,12 @@
             this.BuyButton.UseVisualStyleBackColor = false;
             this.BuyButton.Click += new System.EventHandler(this.BuyButtonClick);
             // 
-            // UcComprarDesarrollos
+            // TakenDevelopmentsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.TlpPrincipal);
-            this.Name = "UcComprarDesarrollos";
-            this.Size = new System.Drawing.Size(668, 143);
+            this.Name = "TakenDevelopmentsPanel";
+            this.Size = new System.Drawing.Size(668, 100);
             this.TlpPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
 

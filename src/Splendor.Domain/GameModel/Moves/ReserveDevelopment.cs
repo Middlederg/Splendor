@@ -2,18 +2,18 @@
 {
     public class ReserveDevelopment : GameAction
     {
-        private readonly Development development;
-        private readonly bool takeGold;
+        public Development Development { get; }
+        public bool TakeGold { get; }
 
         public override MoveType Type => MoveType.ReserveDevelopment;
 
         public ReserveDevelopment(Development development, bool takeGold, Noble noble) : base(noble)
         {
-            this.development = development;
-            this.takeGold = takeGold;
+            Development = development;
+            TakeGold = takeGold;
         }
 
-        protected override string Description => $"Reserves development ({development.ToString()}){TakesGoldText})";
-        private string TakesGoldText => takeGold ? ", and takes a gold joker token" : "without taking gold";
+        protected override string Description => $"Reserves development ({Development.ToString()}){TakesGoldText})";
+        private string TakesGoldText => TakeGold ? ", and takes a gold joker token" : "without taking gold";
     }
 }

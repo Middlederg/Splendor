@@ -5,14 +5,14 @@ namespace Splendor.Domain
 {
     public class TakeGems : GameAction
     {
-        private readonly IEnumerable<Gem> gems;
+        public IEnumerable<Gem> Gems { get; }
         public override MoveType Type => MoveType.TakeGems;
 
         public TakeGems(IEnumerable<Gem> gems, Noble noble) : base(noble)
         {
-            this.gems = gems;
+            Gems = gems;
         }
 
-        protected override string Description => $"Takes { gems.JoinList()}";
+        protected override string Description => $"Takes { Gems.JoinList()}";
     }
 }

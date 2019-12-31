@@ -1,4 +1,5 @@
-﻿using Splendor.Forms.Views;
+﻿using Splendor.Domain;
+using Splendor.Forms.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ namespace Splendor.Forms
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainView());
             //Application.Run(new Views.TestView());
+            //Application.Run(new NoblesView(Nobles.GetNobles(5), true, "Hola"));
+            //Application.Run(new PurchasedDevelopmentView(new BuyDevelopment(DevelopmentsFactory.GetDeck().First(), null), "player"));
+            //Application.Run(new TakenGemsView(new TakeGems(new List<Gem>() { Gems.Emerald, Gems.Emerald }, null), "player"));
+            //Application.Run(new TakenGemsView(new TakeGems(new List<Gem>() { Gems.Emerald, Gems.Sapphire, Gems.Ruby }, null), "player"));
+            //Application.Run(new TakenGemsView(new TakeGems(new List<Gem>() { Gems.Emerald, Gems.Sapphire, Gems.Ruby }, Nobles.FrancisOfFrance), "player"));
         }
     }
 }
