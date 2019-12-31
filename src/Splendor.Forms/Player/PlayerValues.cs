@@ -23,6 +23,8 @@ namespace Splendor.Forms
 
         public void SetInfo(Player player)
         {
+            NameLabel.Text = player.ToString();
+            NameLabel.BackColor = CloseButton.BackColor = player.Profile.Color.StrongColor;
             int i = 0;
             foreach (var gem in Gems.GetAllGems())
             {

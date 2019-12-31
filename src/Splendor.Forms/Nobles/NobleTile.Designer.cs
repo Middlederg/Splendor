@@ -38,7 +38,7 @@
             this.Pbx.Location = new System.Drawing.Point(5, 5);
             this.Pbx.Margin = new System.Windows.Forms.Padding(0);
             this.Pbx.Name = "Pbx";
-            this.Pbx.Size = new System.Drawing.Size(115, 115);
+            this.Pbx.Size = new System.Drawing.Size(110, 110);
             this.Pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Pbx.TabIndex = 0;
             this.Pbx.TabStop = false;
@@ -51,7 +51,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NobleTile";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(125, 125);
+            this.Size = new System.Drawing.Size(120, 120);
             ((System.ComponentModel.ISupportInitialize)(this.Pbx)).EndInit();
             this.ResumeLayout(false);
 

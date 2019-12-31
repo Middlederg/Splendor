@@ -40,7 +40,8 @@ namespace Splendor.Forms.UserControls
             var removableGem = new RemovableGem()
             {
                 Gem = gem,
-                Removable = true
+                Removable = true,
+                Size = new Size(70, 70)
             };
             removableGem.Draw();
             removableGem.OnGemRemoveClicked += RemoveGem;

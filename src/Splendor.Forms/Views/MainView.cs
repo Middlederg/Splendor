@@ -24,7 +24,21 @@ namespace Splendor.Forms.Views
             InitializeComponent();
 
             SetText("Splendor");
-            game = new Game((Prestige)15, new Profile(1, "Jors", isPlayer:true), Profiles.Danilo, Profiles.Debra, Profiles.Donnie);
+
+            var player2 = Profiles.Danilo;
+            player2.Color = PlayerColorFactory.Gray;
+
+            var player3 = Profiles.Debra;
+            player3.Color = PlayerColorFactory.Orange;
+
+            var player4 = Profiles.Debra;
+            player4.Color = PlayerColorFactory.Green;
+
+            game = new Game((Prestige)15, 
+                new Profile(1, "Jors", isPlayer:true), 
+                player2,
+                player3, 
+                player4);
 
             AddDeckPanel();
             AddGemsPanels();

@@ -51,7 +51,6 @@
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainTable.Controls.Add(this.Diamantes, 0, 0);
             this.MainTable.Controls.Add(this.Rubies, 1, 0);
             this.MainTable.Controls.Add(this.Onix, 2, 0);
@@ -66,7 +65,7 @@
             this.MainTable.Margin = new System.Windows.Forms.Padding(0);
             this.MainTable.Name = "MainTable";
             this.MainTable.RowCount = 2;
-            this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTable.Size = new System.Drawing.Size(500, 90);
             this.MainTable.TabIndex = 0;
@@ -77,7 +76,7 @@
             this.Diamantes.BackColor = System.Drawing.Color.White;
             this.Diamantes.Developments = null;
             this.Diamantes.Gems = null;
-            this.Diamantes.Location = new System.Drawing.Point(3, 8);
+            this.Diamantes.Location = new System.Drawing.Point(3, 0);
             this.Diamantes.Margin = new System.Windows.Forms.Padding(0);
             this.Diamantes.Name = "Diamantes";
             this.Diamantes.Size = new System.Drawing.Size(93, 35);
@@ -89,7 +88,7 @@
             this.Rubies.BackColor = System.Drawing.Color.White;
             this.Rubies.Developments = null;
             this.Rubies.Gems = null;
-            this.Rubies.Location = new System.Drawing.Point(103, 8);
+            this.Rubies.Location = new System.Drawing.Point(103, 0);
             this.Rubies.Margin = new System.Windows.Forms.Padding(0);
             this.Rubies.Name = "Rubies";
             this.Rubies.Size = new System.Drawing.Size(93, 35);
@@ -101,7 +100,7 @@
             this.Onix.BackColor = System.Drawing.Color.White;
             this.Onix.Developments = null;
             this.Onix.Gems = null;
-            this.Onix.Location = new System.Drawing.Point(203, 8);
+            this.Onix.Location = new System.Drawing.Point(203, 0);
             this.Onix.Margin = new System.Windows.Forms.Padding(0);
             this.Onix.Name = "Onix";
             this.Onix.Size = new System.Drawing.Size(93, 35);
@@ -113,7 +112,7 @@
             this.Zafiros.BackColor = System.Drawing.Color.White;
             this.Zafiros.Developments = null;
             this.Zafiros.Gems = null;
-            this.Zafiros.Location = new System.Drawing.Point(303, 8);
+            this.Zafiros.Location = new System.Drawing.Point(303, 0);
             this.Zafiros.Margin = new System.Windows.Forms.Padding(0);
             this.Zafiros.Name = "Zafiros";
             this.Zafiros.Size = new System.Drawing.Size(93, 35);
@@ -125,7 +124,7 @@
             this.Esmeraldas.BackColor = System.Drawing.Color.White;
             this.Esmeraldas.Developments = null;
             this.Esmeraldas.Gems = null;
-            this.Esmeraldas.Location = new System.Drawing.Point(403, 8);
+            this.Esmeraldas.Location = new System.Drawing.Point(403, 0);
             this.Esmeraldas.Margin = new System.Windows.Forms.Padding(0);
             this.Esmeraldas.Name = "Esmeraldas";
             this.Esmeraldas.Size = new System.Drawing.Size(93, 35);
@@ -144,7 +143,7 @@
             this.ReservesButton.IconColor = System.Drawing.Color.Black;
             this.ReservesButton.IconSize = 25;
             this.ReservesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ReservesButton.Location = new System.Drawing.Point(120, 51);
+            this.ReservesButton.Location = new System.Drawing.Point(120, 35);
             this.ReservesButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReservesButton.Name = "ReservesButton";
             this.ReservesButton.Rotation = 0D;
@@ -167,7 +166,7 @@
             this.NoblesButton.IconColor = System.Drawing.Color.Black;
             this.NoblesButton.IconSize = 25;
             this.NoblesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.NoblesButton.Location = new System.Drawing.Point(20, 51);
+            this.NoblesButton.Location = new System.Drawing.Point(20, 35);
             this.NoblesButton.Margin = new System.Windows.Forms.Padding(0);
             this.NoblesButton.Name = "NoblesButton";
             this.NoblesButton.Rotation = 0D;
@@ -190,7 +189,7 @@
             this.TotalGemsButton.IconColor = System.Drawing.Color.Black;
             this.TotalGemsButton.IconSize = 25;
             this.TotalGemsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.TotalGemsButton.Location = new System.Drawing.Point(310, 51);
+            this.TotalGemsButton.Location = new System.Drawing.Point(310, 35);
             this.TotalGemsButton.Margin = new System.Windows.Forms.Padding(0);
             this.TotalGemsButton.Name = "TotalGemsButton";
             this.TotalGemsButton.Rotation = 0D;
@@ -205,18 +204,18 @@
             this.GoldCounter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.GoldCounter.BackColor = System.Drawing.Color.Transparent;
             this.GoldCounter.Gems = null;
-            this.GoldCounter.Location = new System.Drawing.Point(220, 51);
+            this.GoldCounter.Location = new System.Drawing.Point(220, 35);
             this.GoldCounter.Margin = new System.Windows.Forms.Padding(0);
             this.GoldCounter.Name = "GoldCounter";
             this.GoldCounter.Size = new System.Drawing.Size(60, 35);
             this.GoldCounter.TabIndex = 8;
             // 
-            // UcJugador
+            // MainPlayerValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.MainTable);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "UcJugador";
+            this.Name = "MainPlayerValues";
             this.Size = new System.Drawing.Size(500, 90);
             this.MainTable.ResumeLayout(false);
             this.ResumeLayout(false);

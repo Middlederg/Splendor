@@ -38,10 +38,10 @@ namespace Splendor.Domain
             string prestigeText = Prestige > 0 ? $" ({Prestige.ToString()})" : "";
             switch (Constants.CurrentLanguage)
             {
-                case Language.Spanish: 
-                    return $"{Bonus.ToString()} {Level.ToString()} development{prestigeText}";
-                default: 
+                case Language.Spanish:
                     return $"Desarrollo de {Bonus.ToString()} de {Level.ToString()}{prestigeText}";
+                default:
+                    return $"{Bonus.ToString()} {Level.ToString()} development{prestigeText}";
             }
         }
 

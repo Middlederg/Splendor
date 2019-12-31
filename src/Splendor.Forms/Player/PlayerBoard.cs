@@ -11,17 +11,6 @@ namespace Splendor.Forms.UserControls
 {
     public partial class PlayerBoard : UcBase
     {
-        public Color StrongColor
-        {
-            get => PlayerFace.StrongColor;
-            set => PlayerFace.StrongColor = value;
-        }
-
-        public Color SoftColor
-        {
-            get => PlayerFace.SoftColor;
-            set => PlayerFace.SoftColor = value;
-        }
 
         private Player player;
         public Player Player
@@ -34,6 +23,8 @@ namespace Splendor.Forms.UserControls
                 if (!(player is null))
                 {
                     PlayerFace.SetProfile(player.Profile);
+                    PlayerFace.StrongColor = player.Profile.Color.StrongColor;
+                    PlayerFace.SoftColor = player.Profile.Color.SoftColor;
                     player.Subscribe(Draw);
                 }
             }
@@ -52,9 +43,9 @@ namespace Splendor.Forms.UserControls
         {
             MainTable.ColumnStyles[1].Width = 0;
             MainTable.ColumnStyles[0].Width = 100;
-            PlayerValues.Size = new Size(200, 200);
+            PlayerValues.Size = new Size(170, 170);
             PlayerValues.Visible = true;
-            PlayerValues.BackColor = SoftColor;
+            PlayerValues.BackColor = player.Profile.Color.SoftColor;
         }
 
         private void PlayerValuesClosed(object sender, EventArgs e)
