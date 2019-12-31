@@ -76,6 +76,7 @@
             this.OpenButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.OpenButton.IconColor = System.Drawing.Color.Black;
             this.OpenButton.IconSize = 25;
+            this.OpenButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.OpenButton.Location = new System.Drawing.Point(0, 0);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.Name = "OpenButton";

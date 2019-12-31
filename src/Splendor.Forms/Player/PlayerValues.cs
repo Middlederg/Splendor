@@ -31,8 +31,9 @@ namespace Splendor.Forms
                 //ResourceControls().ElementAt(i).BackColor = gem.SoftBackColor();
                 i++;
             }
-            
+            PrestigeLabel.Text = ((int)player.Prestige).ToString();
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
+            //NoblesButton.Visible = 
             ReservesButton.Text = player.ReservedDevelopments.Count().ToString();
             GoldCounter.Gems = player.GemsOfType(Gems.Gold);
             TotalGemsButton.Text = $"{player.TotalGems().ToString()}/10";
@@ -41,6 +42,21 @@ namespace Splendor.Forms
         private void CloseButton_Click(object sender, EventArgs e)
         {
             OnCloseClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NoblesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReservesButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
