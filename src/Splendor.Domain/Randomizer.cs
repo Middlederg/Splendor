@@ -33,5 +33,5 @@ namespace Splendor.Domain
         }
     }
 
-    
+
 }

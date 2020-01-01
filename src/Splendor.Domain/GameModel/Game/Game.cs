@@ -15,8 +15,13 @@ namespace Splendor.Domain
         public NobilityBox NobilityBox { get; }
         public Market Market { get; }
         public Log Log { get; }
+
         public List<Player> Players { get; }
         public int PlayerCount => Players.Count();
+        public Player HumanPlayerWithTurn => CurrentPlayer.Profile.IsHuman ? CurrentPlayer : null;
+        public Player CurrentPlayer => Players[turn.CurrentPlayer];
+        public IEnumerable<Player> OtherPlayers(Player player) => Players.Where(x => x != player);
+
         public Prestige Objetive { get; }
 
         public Game(Prestige objetive, params Profile[] profiles)
@@ -36,8 +41,7 @@ namespace Splendor.Domain
 
         public Game ResetGame() => new Game(Objetive, Players.Select(x => x.Profile).ToArray());
 
-        public Player CurrentPlayer => Players[turn.CurrentPlayer];
-        public IEnumerable<Player> OtherPlayers(Player player) => Players.Where(x => x != player);
+        
 
         public bool IsGameEnd() => Players
             .Any(x => x.Prestige >= Objetive

@@ -44,6 +44,7 @@
             // 
             // MainTable
             // 
+            this.MainTable.BackColor = System.Drawing.Color.Transparent;
             this.MainTable.ColumnCount = 1;
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTable.Controls.Add(this.Flp, 0, 0);
@@ -60,6 +61,7 @@
             // 
             // Flp
             // 
+            this.Flp.BackColor = System.Drawing.Color.Transparent;
             this.Flp.Controls.Add(this.PbxGem1);
             this.Flp.Controls.Add(this.PbxGem2);
             this.Flp.Controls.Add(this.PbxGem3);
@@ -71,9 +73,11 @@
             this.Flp.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.Flp.Size = new System.Drawing.Size(110, 77);
             this.Flp.TabIndex = 4;
+            this.Flp.Click += new System.EventHandler(this.OnPanelClicked);
             // 
             // PbxGem1
             // 
+            this.PbxGem1.BackColor = System.Drawing.Color.Transparent;
             this.PbxGem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PbxGem1.Location = new System.Drawing.Point(8, 3);
             this.PbxGem1.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -84,6 +88,7 @@
             // 
             // PbxGem2
             // 
+            this.PbxGem2.BackColor = System.Drawing.Color.Transparent;
             this.PbxGem2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PbxGem2.Location = new System.Drawing.Point(41, 3);
             this.PbxGem2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -94,6 +99,7 @@
             // 
             // PbxGem3
             // 
+            this.PbxGem3.BackColor = System.Drawing.Color.Transparent;
             this.PbxGem3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PbxGem3.Location = new System.Drawing.Point(74, 3);
             this.PbxGem3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -105,7 +111,7 @@
             // NobleTile
             // 
             this.NobleTile.Activable = false;
-            this.NobleTile.BackColor = System.Drawing.Color.White;
+            this.NobleTile.BackColor = System.Drawing.Color.Transparent;
             this.NobleTile.Location = new System.Drawing.Point(35, 38);
             this.NobleTile.Margin = new System.Windows.Forms.Padding(35, 5, 0, 0);
             this.NobleTile.Name = "NobleTile";
@@ -117,6 +123,7 @@
             // MainLabel
             // 
             this.MainLabel.AutoSize = true;
+            this.MainLabel.BackColor = System.Drawing.Color.Transparent;
             this.MainLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLabel.Font = new System.Drawing.Font("Verdana", 7F);
             this.MainLabel.Location = new System.Drawing.Point(0, 87);
@@ -126,6 +133,7 @@
             this.MainLabel.TabIndex = 0;
             this.MainLabel.Text = "MainLabel";
             this.MainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MainLabel.Click += new System.EventHandler(this.MainLabel_Click);
             // 
             // TakenGemsView
             // 

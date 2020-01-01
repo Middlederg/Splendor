@@ -1,7 +1,7 @@
 ﻿using Splendor.Domain;
 using System.Drawing;
 
-namespace Splendor.Forms
+namespace Splendor.Domain
 {
     public static class GemColors
     {

@@ -40,6 +40,18 @@ namespace Splendor.Forms
             set => TopPanel.ColumnStyles[0].Width = value ? IconDefaultWidth : 0;
         }
 
+        public Color TitleBackColor
+        {
+            get => Title.BackColor;
+            set
+            {
+                Title.BackColor = value;
+                IconPicture.BackColor = value;
+                CloseButton.BackColor = value;
+                TopPanel.BackColor = value;
+            }
+        }
+
         public BaseForm()
         {
             InitializeComponent();

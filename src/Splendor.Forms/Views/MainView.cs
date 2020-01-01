@@ -17,7 +17,7 @@ namespace Splendor.Forms.Views
         private readonly Game game;
 
         private TakenGemsPanel gemsPanel;
-        private TakenDevelopmentsPanel developmentsPanel;
+        private TakenDevelopmentsPanel takeDevelopmentPanel;
 
         public MainView()
         {
@@ -35,7 +35,7 @@ namespace Splendor.Forms.Views
             player4.Color = PlayerColorFactory.Green;
 
             game = new Game((Prestige)15, 
-                new Profile(1, "Jors", isPlayer:true), 
+                new Profile(1, "Jors", isHuman:true), 
                 player2,
                 player3, 
                 player4);
@@ -49,19 +49,18 @@ namespace Splendor.Forms.Views
         private void AddDeckPanel()
         {
             DeckBoard.Deck = game.Deck;
-            DeckBoard.SetHumanPlayer(game.Players[0]);
-            DeckBoard.OnSelectedDesarrolloChanged += DevelopmentSelectedInDeck;
+            DeckBoard.OnSelectedDevelopmentChanged += DevelopmentSelectedInDeck;
             DeckBoard.Draw();
 
-            developmentsPanel = new TakenDevelopmentsPanel
+            takeDevelopmentPanel = new TakenDevelopmentsPanel
             {
                 Market = game.Market,
                 CurrentPlayer = game.CurrentPlayer,
                 Visible = false
             };
-            developmentsPanel.OnDevelopmentReserved += ReserveDevelopment;
-            developmentsPanel.OnDevelopmentBought += BuyDevelopment;
-            pOpciones.Controls.Add(developmentsPanel);
+            takeDevelopmentPanel.OnDevelopmentReserved += ReserveDevelopment;
+            takeDevelopmentPanel.OnDevelopmentBought += BuyDevelopment;
+            pOpciones.Controls.Add(takeDevelopmentPanel);
         }
 
         private void AddGemsPanels()
@@ -107,15 +106,16 @@ namespace Splendor.Forms.Views
 
         private void DevelopmentSelectedInDeck(object sender, DevelopmentEventArgs e)
         {
-            developmentsPanel.Visible = true;
+            takeDevelopmentPanel.Visible = true;
             gemsPanel.Visible = false;
-            developmentsPanel.Development = e.Development;
+            takeDevelopmentPanel.CurrentPlayer = game.CurrentPlayer;
+            takeDevelopmentPanel.Development = e.Development;
         }
 
         private void GemSelectedInMarket(object sender, GemEventArgs e)
         {
             gemsPanel.Visible = true;
-            developmentsPanel.Visible = false;
+            takeDevelopmentPanel.Visible = false;
             gemsPanel.AddGem(e.Gem);
         }
 
@@ -164,11 +164,13 @@ namespace Splendor.Forms.Views
 
         private void OnPlay()
         {
+            MainPlayerFace.SetProfile(game.Players[0].Profile);
+
             DeckBoard.DeselectAllCards();
-            developmentsPanel.Reset();
+            takeDevelopmentPanel.Reset();
             gemsPanel.Reset();
             
-            while (!game.CurrentPlayer.Profile.IsPlayer)
+            while (!game.CurrentPlayer.Profile.IsHuman)
             {
                 var moveService = new MoveService(game);
                 var move = moveService.MakeMove();
@@ -179,13 +181,16 @@ namespace Splendor.Forms.Views
 
                 var view = GameActionViewFactory.Create(move, game.CurrentPlayer.ToString());
                 view.StartPosition = FormStartPosition.Manual;
-                view.Location = new Point(playerBoardLocation.X + playerBoardSize.Width, playerBoardLocation.Y + 40);
+                view.Location = new Point(playerBoardLocation.X + playerBoardSize.Width - 10, playerBoardLocation.Y + 10);
+                view.TitleBackColor = game.CurrentPlayer.Profile.Color.StrongColor;
+                view.BackColor = game.CurrentPlayer.Profile.Color.SoftColor;
                 using (view)
                 {
                     view.ShowDialog();
                 }
                 game.NextTurn();
             }
+            DeckBoard.UpdateIcons(game.HumanPlayerWithTurn);
         }
 
         private void LogButton_Click(object sender, EventArgs e)

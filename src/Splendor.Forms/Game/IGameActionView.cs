@@ -8,6 +8,8 @@ namespace Splendor.Forms
     {
         Point Location { get; set; }
         FormStartPosition StartPosition { get; set; }
+        Color TitleBackColor { get; set; }
+        Color BackColor { get; set; }
 
         DialogResult ShowDialog();
     }

@@ -23,7 +23,6 @@ namespace Splendor.Forms.Views
             playerBoard1.Player = game.Players[0];
             playerBoard1.Draw();
             ucTablero1.Deck = game.Deck;
-            ucTablero1.SetHumanPlayer(game.Players[0]);
             ucTablero1.Draw();
 
             marketBoard1.Market = game.Market;

@@ -158,7 +158,6 @@
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Developments\DevelopmentEventArgs.cs" />
-    <Compile Include="Gems\GemColors.cs" />
     <Compile Include="Developments\CardStatus.cs" />
     <Compile Include="Market\TakenGemsPanel.cs">
       <SubType>UserControl</SubType>

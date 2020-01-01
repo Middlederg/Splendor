@@ -43,6 +43,10 @@ namespace Splendor.Forms
 
         private void OnTableClick(object sender, EventArgs e) => WindowClicked();
         private void Pbx_Click(object sender, EventArgs e) => WindowClicked();
+        private void MainLabel_Click(object sender, EventArgs e) => WindowClicked();
+        private void OnPanelClicked(object sender, EventArgs e) => WindowClicked();
         private void WindowClicked() => Close();
+
+        
     }
 }

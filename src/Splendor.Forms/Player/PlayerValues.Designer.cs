@@ -119,7 +119,7 @@
             // GoldCounter
             // 
             this.GoldCounter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GoldCounter.BackColor = System.Drawing.Color.White;
+            this.GoldCounter.BackColor = System.Drawing.Color.Transparent;
             this.MainTable.SetColumnSpan(this.GoldCounter, 2);
             this.GoldCounter.Gems = null;
             this.GoldCounter.Location = new System.Drawing.Point(101, 110);
@@ -266,7 +266,6 @@
             this.ReservesButton.Text = "1";
             this.ReservesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.ReservesButton.UseVisualStyleBackColor = false;
-            this.ReservesButton.Click += new System.EventHandler(this.ReservesButton_Click);
             // 
             // Shield
             // 

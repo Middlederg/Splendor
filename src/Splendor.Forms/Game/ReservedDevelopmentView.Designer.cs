@@ -41,6 +41,7 @@
             // 
             // MainTable
             // 
+            this.MainTable.BackColor = System.Drawing.Color.Transparent;
             this.MainTable.ColumnCount = 1;
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTable.Controls.Add(this.Flp, 0, 0);
@@ -59,6 +60,7 @@
             // 
             // Flp
             // 
+            this.Flp.BackColor = System.Drawing.Color.Transparent;
             this.Flp.Controls.Add(this.PbxGold);
             this.Flp.Controls.Add(this.Card);
             this.Flp.Controls.Add(this.NobleTile);
@@ -72,6 +74,7 @@
             // 
             // PbxGold
             // 
+            this.PbxGold.BackColor = System.Drawing.Color.Transparent;
             this.PbxGold.BackgroundImage = global::Splendor.Forms.Properties.Resources.OroSmall;
             this.PbxGold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PbxGold.Location = new System.Drawing.Point(0, 20);
@@ -89,6 +92,7 @@
             this.Card.Location = new System.Drawing.Point(30, 10);
             this.Card.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.Card.Name = "Card";
+            this.Card.Padding = new System.Windows.Forms.Padding(5);
             this.Card.Selected = false;
             this.Card.Size = new System.Drawing.Size(30, 40);
             this.Card.TabIndex = 0;
@@ -96,11 +100,12 @@
             // NobleTile
             // 
             this.NobleTile.Activable = false;
-            this.NobleTile.BackColor = System.Drawing.Color.White;
+            this.NobleTile.BackColor = System.Drawing.Color.Transparent;
             this.NobleTile.Location = new System.Drawing.Point(65, 15);
             this.NobleTile.Margin = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.NobleTile.Name = "NobleTile";
             this.NobleTile.Noble = null;
+            this.NobleTile.Padding = new System.Windows.Forms.Padding(5);
             this.NobleTile.Size = new System.Drawing.Size(30, 30);
             this.NobleTile.TabIndex = 1;
             // 
@@ -119,6 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(120, 160);
             this.CloseEnabled = true;

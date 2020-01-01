@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Splendor.Forms.Views
+namespace Splendor.Forms
 {
     public partial class NoblesView : BaseForm
     {

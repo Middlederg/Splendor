@@ -30,14 +30,22 @@ namespace Splendor.Forms
             {
                 ResourceControls().ElementAt(i).Developments = player.GetDevelopmentsOfType(gem);
                 ResourceControls().ElementAt(i).Gems = player.GemsOfType(gem);
-                //ResourceControls().ElementAt(i).BackColor = gem.SoftBackColor();
                 i++;
             }
+
             PrestigeLabel.Text = ((int)player.Prestige).ToString();
+
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
-            //NoblesButton.Visible = 
+            NoblesButton.FlatAppearance.MouseOverBackColor = player.Profile.Color.SoftColor.Darken(10);
+            NoblesButton.Visible = player.VisitedNobles.Any();
+            NoblesButton.Tag = player.VisitedNobles;
+
             ReservesButton.Text = player.ReservedDevelopments.Count().ToString();
+            ReservesButton.Visible = player.ReservedDevelopments.Any();
+
             GoldCounter.Gems = player.GemsOfType(Gems.Gold);
+            GoldCounter.Visible = player.GemsOfType(Gems.Gold).Any();
+
             TotalGemsButton.Text = $"{player.TotalGems().ToString()}/10";
         }
 
@@ -46,19 +54,12 @@ namespace Splendor.Forms
             OnCloseClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void NoblesButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ReservesButton_Click(object sender, EventArgs e)
-        {
-
+            using(var noblesView = new NoblesView(NoblesButton.Tag as IEnumerable<Noble>, selectionAvaliable: false, "Nobles"))
+            {
+                noblesView.ShowDialog();
+            }
         }
     }
 }

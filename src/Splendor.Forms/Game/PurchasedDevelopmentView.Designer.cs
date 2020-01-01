@@ -39,6 +39,7 @@
             // 
             // MainTable
             // 
+            this.MainTable.BackColor = System.Drawing.Color.Transparent;
             this.MainTable.ColumnCount = 1;
             this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTable.Controls.Add(this.Flp, 0, 0);
@@ -57,6 +58,7 @@
             // 
             // Flp
             // 
+            this.Flp.BackColor = System.Drawing.Color.Transparent;
             this.Flp.Controls.Add(this.Card);
             this.Flp.Controls.Add(this.NobleTile);
             this.Flp.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,6 +77,7 @@
             this.Card.Location = new System.Drawing.Point(20, 10);
             this.Card.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Card.Name = "Card";
+            this.Card.Padding = new System.Windows.Forms.Padding(5);
             this.Card.Selected = false;
             this.Card.Size = new System.Drawing.Size(30, 40);
             this.Card.TabIndex = 0;
@@ -82,7 +85,7 @@
             // NobleTile
             // 
             this.NobleTile.Activable = false;
-            this.NobleTile.BackColor = System.Drawing.Color.White;
+            this.NobleTile.BackColor = System.Drawing.Color.Transparent;
             this.NobleTile.Location = new System.Drawing.Point(60, 15);
             this.NobleTile.Margin = new System.Windows.Forms.Padding(10, 5, 0, 0);
             this.NobleTile.Name = "NobleTile";
@@ -94,6 +97,7 @@
             // MainLabel
             // 
             this.MainLabel.AutoSize = true;
+            this.MainLabel.BackColor = System.Drawing.Color.Transparent;
             this.MainLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLabel.Font = new System.Drawing.Font("Verdana", 7F);
             this.MainLabel.Location = new System.Drawing.Point(8, 73);

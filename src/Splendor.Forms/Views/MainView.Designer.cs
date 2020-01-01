@@ -213,10 +213,10 @@
             // 
             // MainPlayerFace
             // 
-            this.MainPlayerFace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MainPlayerFace.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MainPlayerFace.BackColor = System.Drawing.Color.White;
             this.MainPlayerFace.DetailsVisible = false;
-            this.MainPlayerFace.Location = new System.Drawing.Point(35, 591);
+            this.MainPlayerFace.Location = new System.Drawing.Point(35, 563);
             this.MainPlayerFace.Margin = new System.Windows.Forms.Padding(0);
             this.MainPlayerFace.Name = "MainPlayerFace";
             this.TlpGeneral.SetRowSpan(this.MainPlayerFace, 2);

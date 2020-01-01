@@ -22,7 +22,7 @@ namespace Splendor.Forms
                 developments = value;
                 if (value != null)
                 {
-                    Text = developments.JoinList();
+                    SetText(developments.JoinList());
                     foreach (var development in value)
                     {
                         var card = new Card()

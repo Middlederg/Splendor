@@ -24,9 +24,6 @@ namespace Splendor.Forms
             }
         }
 
-        private Player humanPlayer;
-        public void SetHumanPlayer(Player humanPlayer) => this.humanPlayer = humanPlayer;
-
         public IEnumerable<Card> GetAllCards()
         {
             foreach (var panel in new FlowLayoutPanel[] { Flp1, Flp2, Flp3 })
@@ -43,7 +40,7 @@ namespace Splendor.Forms
         }
         public Development SelectedDevelopment() => GetAllCards().FirstOrDefault(x => x.Selected)?.Development;
 
-        public event EventHandler<DevelopmentEventArgs> OnSelectedDesarrolloChanged;
+        public event EventHandler<DevelopmentEventArgs> OnSelectedDevelopmentChanged;
 
         private FlowLayoutPanel GetPanel(Level level)
         {
@@ -69,8 +66,7 @@ namespace Splendor.Forms
                     controls.ElementAt(i).Activable = true;
                     controls.ElementAt(i).Development = development;
                     controls.ElementAt(i).Status = CardStatus.FaceUp;
-                    (IconChar icon, string helpText) = IconoDesarrollo(development);
-                    controls.ElementAt(i).SetHelp(icon, helpText);
+                    controls.ElementAt(i).SetHelp(IconChar.None, "");
                     controls.ElementAt(i).Draw();
                     i++;
                 }
@@ -103,7 +99,7 @@ namespace Splendor.Forms
             if (sender is Card selectedCard)
             {
                 selectedCard.Selected = true;
-                OnSelectedDesarrolloChanged?.Invoke(sender, new DevelopmentEventArgs(selectedCard.Development));
+                OnSelectedDevelopmentChanged?.Invoke(sender, new DevelopmentEventArgs(selectedCard.Development));
             }
         }
 
@@ -113,18 +109,22 @@ namespace Splendor.Forms
                 card.Selected = false;
         }
 
-        public (IconChar icon, string helpText) IconoDesarrollo(Development development)
-        {
-            var service = new PurchaseService(development, humanPlayer);
-            return (GetIconChar(service), service.ToString());
-        }
-
         private IconChar GetIconChar(PurchaseService service)
         {
             if (service.IsFree()) return IconChar.Heart;
             if (service.CanAfford()) return IconChar.Check;
             if (service.CanAffordPayingGold()) return IconChar.Exclamation;
             return IconChar.None;
+        }
+
+        public void UpdateIcons(Player humanPlayer)
+        {
+            foreach (var card in GetAllCards().Where(x => x.Status == CardStatus.FaceUp))
+            {
+                var service = new PurchaseService(card.Development, humanPlayer);
+                var icon = GetIconChar(service);
+                card.SetHelp(icon, service.ToString());
+            }
         }
     }
 }

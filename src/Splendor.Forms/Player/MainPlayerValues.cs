@@ -46,8 +46,16 @@ namespace Splendor.Forms.UserControls
             }
 
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
+            NoblesButton.FlatAppearance.MouseOverBackColor = player.Profile.Color.SoftColor.Darken(10);
+            NoblesButton.Visible = player.VisitedNobles.Any();
+            NoblesButton.Tag = player.VisitedNobles;
+
             ReservesButton.Text = player.ReservedDevelopments.Count().ToString();
+            ReservesButton.Visible = player.ReservedDevelopments.Any();
+
             GoldCounter.Gems = player.GemsOfType(Gems.Gold);
+            GoldCounter.Visible = player.GemsOfType(Gems.Gold).Any();
+
             TotalGemsButton.Text = $"{player.TotalGems().ToString()}/10";
         }
     }
