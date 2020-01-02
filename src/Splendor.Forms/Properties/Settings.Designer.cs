@@ -49,28 +49,10 @@ namespace Splendor.Forms.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SlateBlue")]
-        public global::System.Drawing.Color PrimaryColor {
-            get {
-                return ((global::System.Drawing.Color)(this["PrimaryColor"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DeepSkyBlue")]
-        public global::System.Drawing.Color SecondaryColor {
+        public global::System.Drawing.Color SelectionColor {
             get {
-                return ((global::System.Drawing.Color)(this["SecondaryColor"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("BurlyWood")]
-        public global::System.Drawing.Color TerciaryColor {
-            get {
-                return ((global::System.Drawing.Color)(this["TerciaryColor"]));
+                return ((global::System.Drawing.Color)(this["SelectionColor"]));
             }
         }
         
@@ -83,6 +65,18 @@ namespace Splendor.Forms.Properties {
             }
             set {
                 this["DefaultLanguage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DefaultColor {
+            get {
+                return ((int)(this["DefaultColor"]));
+            }
+            set {
+                this["DefaultColor"] = value;
             }
         }
     }

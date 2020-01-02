@@ -63,17 +63,23 @@
     <Compile Include="Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game\GameActionViewFactory.cs" />
-    <Compile Include="Developments\DevelopmentList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Developments\DevelopmentList.Designer.cs">
-      <DependentUpon>DevelopmentList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Developments\DevelopmentCounter.cs">
+    <Compile Include="Menu\ChooseTournament.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Developments\DevelopmentCounter.Designer.cs">
+    <Compile Include="Menu\ChooseTournament.Designer.cs">
+      <DependentUpon>ChooseTournament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\GameActionViewFactory.cs" />
+    <Compile Include="Game\Developments\DevelopmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\Developments\DevelopmentList.Designer.cs">
+      <DependentUpon>DevelopmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\Developments\DevelopmentCounter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Game\Developments\DevelopmentCounter.Designer.cs">
       <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\TakenGemsView.cs">
@@ -89,41 +95,66 @@
       <DependentUpon>PurchasedDevelopmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\IGameActionView.cs" />
-    <Compile Include="Gems\GemPile.cs">
+    <Compile Include="Game\Gems\GemPile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gems\GemPile.Designer.cs">
+    <Compile Include="Game\Gems\GemPile.Designer.cs">
       <DependentUpon>GemPile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gems\GemCounter.cs">
+    <Compile Include="Game\Gems\GemCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gems\GemCounter.Designer.cs">
+    <Compile Include="Game\Gems\GemCounter.Designer.cs">
       <DependentUpon>GemCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogView.cs">
+    <Compile Include="Game\LogView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogView.Designer.cs">
+    <Compile Include="Game\LogView.Designer.cs">
       <DependentUpon>LogView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\PlayerEventArgs.cs" />
-    <Compile Include="Player\PlayerFace.cs">
+    <Compile Include="Base\NumericSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\PlayerFace.Designer.cs">
+    <Compile Include="Base\NumericSelector.Designer.cs">
+      <DependentUpon>NumericSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainContainer.Designer.cs">
+      <DependentUpon>MainContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Configuration\ConfigurationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Configuration\ConfigurationView.Designer.cs">
+      <DependentUpon>ConfigurationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuOption.cs" />
+    <Compile Include="Game\Player\PlayerEventArgs.cs" />
+    <Compile Include="Game\Player\PlayerFace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Game\Player\PlayerFace.Designer.cs">
       <DependentUpon>PlayerFace.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\ResourceControl.cs">
+    <Compile Include="Game\Player\ResourceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\ResourceControl.Designer.cs">
+    <Compile Include="Game\Player\ResourceControl.Designer.cs">
       <DependentUpon>ResourceControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nobles\NobleTile.cs">
+    <Compile Include="Game\Nobles\NobleTile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Nobles\NobleTile.Designer.cs">
+    <Compile Include="Game\Nobles\NobleTile.Designer.cs">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\ReservedDevelopmentView.cs">
@@ -132,17 +163,17 @@
     <Compile Include="Game\ReservedDevelopmentView.Designer.cs">
       <DependentUpon>ReservedDevelopmentView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gems\RemovableGem.cs">
+    <Compile Include="Game\Gems\RemovableGem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gems\RemovableGem.Designer.cs">
+    <Compile Include="Game\Gems\RemovableGem.Designer.cs">
       <DependentUpon>RemovableGem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gems\GemEventArgs.cs" />
-    <Compile Include="Gems\GemToken.cs">
+    <Compile Include="Game\Gems\GemEventArgs.cs" />
+    <Compile Include="Game\Gems\GemToken.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gems\GemToken.Designer.cs">
+    <Compile Include="Game\Gems\GemToken.Designer.cs">
       <DependentUpon>GemToken.cs</DependentUpon>
     </Compile>
     <Compile Include="Buttons\CustomButtonOk.cs">
@@ -157,71 +188,77 @@
     <Compile Include="Buttons\CustomButton.designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Developments\DevelopmentEventArgs.cs" />
-    <Compile Include="Developments\CardStatus.cs" />
-    <Compile Include="Market\TakenGemsPanel.cs">
+    <Compile Include="Game\Developments\DevelopmentEventArgs.cs" />
+    <Compile Include="Game\Developments\CardStatus.cs" />
+    <Compile Include="Game\Market\TakenGemsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Market\TakenGemsPanel.Designer.cs">
+    <Compile Include="Game\Market\TakenGemsPanel.Designer.cs">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\PlayerBoard.cs">
+    <Compile Include="Game\Player\PlayerBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\PlayerBoard.Designer.cs">
+    <Compile Include="Game\Player\PlayerBoard.Designer.cs">
       <DependentUpon>PlayerBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\MainPlayerValues.cs">
+    <Compile Include="Game\Player\MainPlayerValues.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\MainPlayerValues.Designer.cs">
+    <Compile Include="Game\Player\MainPlayerValues.Designer.cs">
       <DependentUpon>MainPlayerValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\PrepareGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\PrepareGame.Designer.cs">
+      <DependentUpon>PrepareGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Configuration.cs" />
-    <Compile Include="Base\UcBase.cs">
+    <Compile Include="Menu\Configuration\Configuration.cs" />
+    <Compile Include="Base\BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\UcBase.Designer.cs">
-      <DependentUpon>UcBase.cs</DependentUpon>
+    <Compile Include="Base\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Developments\Card.cs">
+    <Compile Include="Game\Developments\Card.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Developments\Card.Designer.cs">
+    <Compile Include="Game\Developments\Card.Designer.cs">
       <DependentUpon>Card.cs</DependentUpon>
     </Compile>
-    <Compile Include="Developments\DeckBoard.cs">
+    <Compile Include="Game\Developments\DeckBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Developments\DeckBoard.Designer.cs">
+    <Compile Include="Game\Developments\DeckBoard.Designer.cs">
       <DependentUpon>DeckBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Market\MarketBoard.cs">
+    <Compile Include="Game\Market\MarketBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Market\MarketBoard.Designer.cs">
+    <Compile Include="Game\Market\MarketBoard.Designer.cs">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nobles\ReceiveVisit.cs" />
-    <Compile Include="Singleton.cs" />
-    <Compile Include="Developments\TakenDevelopmentsPanel.cs">
+    <Compile Include="Game\Nobles\ReceiveVisit.cs" />
+    <Compile Include="Menu\Configuration\Singleton.cs" />
+    <Compile Include="Game\Developments\TakenDevelopmentsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Developments\TakenDevelopmentsPanel.Designer.cs">
+    <Compile Include="Game\Developments\TakenDevelopmentsPanel.Designer.cs">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nobles\NoblesBoard.cs">
+    <Compile Include="Game\Nobles\NoblesBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Nobles\NoblesBoard.Designer.cs">
+    <Compile Include="Game\Nobles\NoblesBoard.Designer.cs">
       <DependentUpon>NoblesBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\PlayerValues.cs">
+    <Compile Include="Game\Player\PlayerValues.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Player\PlayerValues.Designer.cs">
+    <Compile Include="Game\Player\PlayerValues.Designer.cs">
       <DependentUpon>PlayerValues.cs</DependentUpon>
     </Compile>
     <Compile Include="Buttons\TransparentButton.cs">
@@ -230,32 +267,33 @@
     <Compile Include="Buttons\TransparentButton.Designer.cs">
       <DependentUpon>TransparentButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nobles\NoblesView.cs">
+    <Compile Include="Game\Nobles\NoblesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nobles\NoblesView.Designer.cs">
+    <Compile Include="Game\Nobles\NoblesView.Designer.cs">
       <DependentUpon>NoblesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainView.cs">
+    <Compile Include="Game\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainView.Designer.cs">
+    <Compile Include="Game\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestView.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Base\ValueEventArgs.cs" />
+    <Compile Include="Menu\Configuration\WaitTimes.cs" />
+    <Compile Include="TitleControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\TestView.Designer.cs">
-      <DependentUpon>TestView.cs</DependentUpon>
+    <Compile Include="TitleControl.Designer.cs">
+      <DependentUpon>TitleControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaitTimes.cs" />
     <EmbeddedResource Include="Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Developments\DevelopmentList.resx">
+    <EmbeddedResource Include="Game\Developments\DevelopmentList.resx">
       <DependentUpon>DevelopmentList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Developments\DevelopmentCounter.resx">
+    <EmbeddedResource Include="Game\Developments\DevelopmentCounter.resx">
       <DependentUpon>DevelopmentCounter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Game\TakenGemsView.resx">
@@ -264,28 +302,40 @@
     <EmbeddedResource Include="Game\PurchasedDevelopmentView.resx">
       <DependentUpon>PurchasedDevelopmentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gems\GemCounter.resx">
+    <EmbeddedResource Include="Game\Gems\GemCounter.resx">
       <DependentUpon>GemCounter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogView.resx">
+    <EmbeddedResource Include="Game\LogView.resx">
       <DependentUpon>LogView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\PlayerFace.resx">
+    <EmbeddedResource Include="Base\NumericSelector.resx">
+      <DependentUpon>NumericSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainContainer.resx">
+      <DependentUpon>MainContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Configuration\ConfigurationView.resx">
+      <DependentUpon>ConfigurationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Player\PlayerFace.resx">
       <DependentUpon>PlayerFace.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\ResourceControl.resx">
+    <EmbeddedResource Include="Game\Player\ResourceControl.resx">
       <DependentUpon>ResourceControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nobles\NobleTile.resx">
+    <EmbeddedResource Include="Game\Nobles\NobleTile.resx">
       <DependentUpon>NobleTile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Game\ReservedDevelopmentView.resx">
       <DependentUpon>ReservedDevelopmentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gems\RemovableGem.resx">
+    <EmbeddedResource Include="Game\Gems\RemovableGem.resx">
       <DependentUpon>RemovableGem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gems\GemToken.resx">
+    <EmbeddedResource Include="Game\Gems\GemToken.resx">
       <DependentUpon>GemToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buttons\CustomButtonOk.resx">
@@ -294,14 +344,17 @@
     <EmbeddedResource Include="Buttons\CustomButton.resx">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Market\TakenGemsPanel.resx">
+    <EmbeddedResource Include="Game\Market\TakenGemsPanel.resx">
       <DependentUpon>TakenGemsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\PlayerBoard.resx">
+    <EmbeddedResource Include="Game\Player\PlayerBoard.resx">
       <DependentUpon>PlayerBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\MainPlayerValues.resx">
+    <EmbeddedResource Include="Game\Player\MainPlayerValues.resx">
       <DependentUpon>MainPlayerValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\PrepareGame.resx">
+      <DependentUpon>PrepareGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -313,38 +366,38 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Base\UcBase.resx">
-      <DependentUpon>UcBase.cs</DependentUpon>
+    <EmbeddedResource Include="Base\BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Developments\Card.resx">
+    <EmbeddedResource Include="Game\Developments\Card.resx">
       <DependentUpon>Card.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Developments\DeckBoard.resx">
+    <EmbeddedResource Include="Game\Developments\DeckBoard.resx">
       <DependentUpon>DeckBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Market\MarketBoard.resx">
+    <EmbeddedResource Include="Game\Market\MarketBoard.resx">
       <DependentUpon>MarketBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Developments\TakenDevelopmentsPanel.resx">
+    <EmbeddedResource Include="Game\Developments\TakenDevelopmentsPanel.resx">
       <DependentUpon>TakenDevelopmentsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nobles\NoblesBoard.resx">
+    <EmbeddedResource Include="Game\Nobles\NoblesBoard.resx">
       <DependentUpon>NoblesBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\PlayerValues.resx">
+    <EmbeddedResource Include="Game\Player\PlayerValues.resx">
       <DependentUpon>PlayerValues.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buttons\TransparentButton.resx">
       <DependentUpon>TransparentButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nobles\NoblesView.resx">
+    <EmbeddedResource Include="Game\Nobles\NoblesView.resx">
       <DependentUpon>NoblesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainView.resx">
+    <EmbeddedResource Include="Game\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TestView.resx">
-      <DependentUpon>TestView.cs</DependentUpon>
+    <EmbeddedResource Include="TitleControl.resx">
+      <DependentUpon>TitleControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -391,6 +444,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OroSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

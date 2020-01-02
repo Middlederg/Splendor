@@ -9,14 +9,14 @@ namespace Splendor.Domain
         public int Id { get; }
         public string Path => $"Silueta{Id}";
         public bool IsHuman { get; }
-        public PlayerColor Color { get; set; }
+        public ColorGroup Color { get; set; }
 
-        public Profile(int id, string name, PlayerColor color = null, bool isHuman = false)
+        public Profile(int id, string name, ColorGroup color = null, bool isHuman = false)
         {
             Id = id;
             this.name = name;
             IsHuman = isHuman;
-            Color = color ?? PlayerColorFactory.Default;
+            Color = color ?? ColorFactory.DefaultBlue;
         }
 
         public override string ToString() => name;

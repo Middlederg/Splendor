@@ -117,6 +117,8 @@
             this.Controls.Add(this.MainTable);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PurchasedDevelopmentView";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Action info";
             this.WindowIcon = FontAwesome.Sharp.IconChar.User;

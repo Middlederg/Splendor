@@ -17,7 +17,8 @@ namespace Splendor.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+            Application.Run(new MainContainer());
+            //Application.Run(new MainView());
             //Application.Run(new Views.TestView());
             //Application.Run(new NoblesView(Nobles.GetNobles(5), true, "Hola"));
             //Application.Run(new PurchasedDevelopmentView(new BuyDevelopment(DevelopmentsFactory.GetDeck().First(), null), "player"));
