@@ -10,9 +10,9 @@ namespace Splendor.Domain
     {
         private readonly string currentVersion;
 
-        public UpdateChecker()
+        public UpdateChecker(string currentVersion)
         {
-            currentVersion = Constants.CurrentVersion();
+            this.currentVersion = currentVersion;
         }
 
         public async Task<string> LastRelease()

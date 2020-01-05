@@ -35,5 +35,11 @@ namespace Splendor.Forms
         public static void SetDefaultLanguage(int language) => Properties.Settings.Default.DefaultLanguage = language;
         public static void SetDefaultColor(int color) => Properties.Settings.Default.DefaultColor = color;
         public static void SetDefaultWaitTime(int waitTime) => Properties.Settings.Default.DefaultWaitTime = waitTime;
+
+        public static string CurrentVersion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            return $"v{assembly.GetName().Version.ToString(3)}";
+        }
     }
 }

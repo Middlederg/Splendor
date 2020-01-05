@@ -12,7 +12,7 @@ namespace Splendor.Forms
 
         public UpdateMessage()
         {
-            updateChecker = new UpdateChecker();
+            updateChecker = new UpdateChecker(Configuration.CurrentVersion());
         }
 
         public async Task<Control> Create()

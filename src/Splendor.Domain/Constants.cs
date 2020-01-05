@@ -12,11 +12,5 @@ namespace Splendor.Domain
         public static string RepoLink = $"https://github.com/{RepoOwner}/{RepoName}";
         public static string LatestRelease = $"https://github.com/{RepoOwner}/{RepoName}/releases/latest";
         public static string LatestReleaseApiEndpoint = $"https://api.github.com/repos/{RepoOwner}/{RepoName}/releases/latest";
-
-        public static string CurrentVersion()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            return $"v{assembly.GetName().Version.ToString(3)}";
-        }
     }
 }
