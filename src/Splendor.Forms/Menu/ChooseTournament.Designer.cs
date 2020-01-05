@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ChooseTournament
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "ChooseTournament";
+            this.Size = new System.Drawing.Size(600, 400);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

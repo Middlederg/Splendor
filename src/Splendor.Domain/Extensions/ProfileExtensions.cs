@@ -5,12 +5,12 @@ namespace Splendor.Domain
 {
     public static class ProfileExtensions
     {
-        public static IEnumerable<Player> CreatePlayers(this IEnumerable<Profile> profiles)
+        public static IEnumerable<Player> CreatePlayers(this IEnumerable<(Avatar avatar, ColorGroup color)> items)
         {
             int i = 0;
-            return profiles.Select(profile => {
+            return items.Select(item => {
                 i++;
-                return new Player(i, profile);
+                return new Player(i, item.avatar, item.color, i == 1);
             }).ToList();
         }    
     }

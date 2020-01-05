@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Splendor.Domain
 {
@@ -15,5 +16,12 @@ namespace Splendor.Domain
         public static ColorGroup Brown => new ColorGroup(PlayingColor.Brown, Color.Sienna, Color.SandyBrown);
 
         public static List<ColorGroup> Colors => new List<ColorGroup>() { DefaultBlue, Red, Green, Gray, Orange, Brown };
+
+        public static ColorGroup GetRandomColor(params ColorGroup[] except)
+        {
+            var list = Colors.ToList();
+            list.RemoveAll(x => except.Contains(x));
+            return list.GetRandomItem();
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace Splendor.Forms.UserControls
                 
                 if (!(player is null))
                 {
-                    PlayerFace.SetProfile(player.Profile);
-                    PlayerFace.StrongColor = player.Profile.Color.StrongColor;
-                    PlayerFace.SoftColor = player.Profile.Color.SoftColor;
+                    PlayerFace.SetAvatar(player.Profile);
+                    PlayerFace.StrongColor = player.Color.StrongColor;
+                    PlayerFace.SoftColor = player.Color.SoftColor;
                     player.Subscribe(Draw);
                 }
             }
@@ -45,7 +45,7 @@ namespace Splendor.Forms.UserControls
             MainTable.ColumnStyles[0].Width = 100;
             PlayerValues.Size = new Size(170, 170);
             PlayerValues.Visible = true;
-            PlayerValues.BackColor = player.Profile.Color.SoftColor;
+            PlayerValues.BackColor = player.Color.SoftColor;
         }
 
         private void PlayerValuesClosed(object sender, EventArgs e)

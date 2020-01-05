@@ -11,10 +11,10 @@ namespace Splendor.Tests
         [Fact]
         public void Should_create_two_players()
         {
-            var profiles = new List<Profile>()
+            var profiles = new List<(Avatar avatar, ColorGroup color)>()
             {
-                new Profile(1, "first"),
-                new Profile(2, "second")
+                (new Avatar(1, "first"), ColorFactory.DefaultBlue),
+                (new Avatar(2, "second"), ColorFactory.Orange)
             };
 
             var players = profiles.CreatePlayers();

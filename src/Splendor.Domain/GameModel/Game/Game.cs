@@ -18,13 +18,13 @@ namespace Splendor.Domain
 
         public List<Player> Players { get; }
         public int PlayerCount => Players.Count();
-        public Player HumanPlayerWithTurn => CurrentPlayer.Profile.IsHuman ? CurrentPlayer : null;
+        public Player HumanPlayerWithTurn => CurrentPlayer.IsHuman ? CurrentPlayer : null;
         public Player CurrentPlayer => Players[turn.CurrentPlayer];
         public IEnumerable<Player> OtherPlayers(Player player) => Players.Where(x => x != player);
 
         public Prestige Objetive { get; }
 
-        public Game(Prestige objetive, params Profile[] profiles)
+        public Game(Prestige objetive, params (Avatar avatar, ColorGroup color)[] profiles)
         {
             Players = profiles.CreatePlayers().ToList();
             Objetive = objetive;
@@ -39,7 +39,7 @@ namespace Splendor.Domain
             Log = new Log();
         }
 
-        public Game ResetGame() => new Game(Objetive, Players.Select(x => x.Profile).ToArray());
+        public Game ResetGame() => new Game(Objetive, Players.Select(x => (x.Profile, x.Color)).ToArray());
 
         
 

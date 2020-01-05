@@ -33,12 +33,12 @@ namespace Splendor.Forms
 
         public event EventHandler OnDetailsClicked;
 
-        public void SetProfile(Profile profile)
+        public void SetAvatar(Avatar avatar)
         {
-            if (profile != null)
+            if (avatar != null)
             {
-                ProfilePanel.BackgroundImage = profile.GetImage();
-                NameLabel.Text = profile.ToString();
+                ProfilePanel.BackgroundImage = avatar.GetImage();
+                NameLabel.Text = avatar.ToString();
             }
         }
 

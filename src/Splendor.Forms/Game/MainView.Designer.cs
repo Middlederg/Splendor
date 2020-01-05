@@ -1,4 +1,4 @@
-﻿namespace Splendor.Forms.Views
+﻿namespace Splendor.Forms
 {
     partial class MainView
     {

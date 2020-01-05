@@ -46,7 +46,7 @@ namespace Splendor.Forms.UserControls
             }
 
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
-            NoblesButton.FlatAppearance.MouseOverBackColor = player.Profile.Color.SoftColor.Darken(10);
+            NoblesButton.FlatAppearance.MouseOverBackColor = player.Color.SoftColor.Darken(10);
             NoblesButton.Visible = player.VisitedNobles.Any();
             NoblesButton.Tag = player.VisitedNobles;
 

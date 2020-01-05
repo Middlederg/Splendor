@@ -17,7 +17,11 @@ namespace Splendor.Forms
 
         public static int DefaultLanguage = Properties.Settings.Default.DefaultLanguage;
         public static Color SelectionColor = Properties.Settings.Default.SelectionColor;
-        public static int DefaultProfile = Properties.Settings.Default.DefaultProfile;
+        public static int DefaultIdAvatar = Properties.Settings.Default.DefaultAvatar;
+        public static Avatar DefaultAvatar = Avatars.GetById(DefaultIdAvatar);
+        public static int DefaultColor = Properties.Settings.Default.DefaultColor;
+        public static ColorGroup DefaultColorGroup = ColorFactory.GetColor((PlayingColor)DefaultColor);
+
         private static readonly int DefaultWaitTimeIndex = Properties.Settings.Default.DefaultWaitTime;
         public static WaitTimes DefaultWaitTime = Enum.GetValues(typeof(WaitTimes)).Cast<WaitTimes>().ElementAt(DefaultWaitTimeIndex);
 
@@ -25,5 +29,10 @@ namespace Splendor.Forms
         {
             Constants.CurrentLanguage = (Language)DefaultLanguage;
         }
+
+        public static void SetDefaultAvatar(int idAvatar) => Properties.Settings.Default.DefaultAvatar = idAvatar;
+        public static void SetDefaultLanguage(int language) => Properties.Settings.Default.DefaultLanguage = language;
+        public static void SetDefaultColor(int color) => Properties.Settings.Default.DefaultColor = color;
+        public static void SetDefaultWaitTime(int waitTime) => Properties.Settings.Default.DefaultWaitTime = waitTime;
     }
 }

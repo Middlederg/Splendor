@@ -26,12 +26,12 @@ namespace Splendor.Forms.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int DefaultProfile {
+        public int DefaultAvatar {
             get {
-                return ((int)(this["DefaultProfile"]));
+                return ((int)(this["DefaultAvatar"]));
             }
             set {
-                this["DefaultProfile"] = value;
+                this["DefaultAvatar"] = value;
             }
         }
         

@@ -24,7 +24,7 @@ namespace Splendor.Forms
         public void SetInfo(Player player)
         {
             NameLabel.Text = player.ToString();
-            NameLabel.BackColor = CloseButton.BackColor = player.Profile.Color.StrongColor;
+            NameLabel.BackColor = CloseButton.BackColor = player.Color.StrongColor;
             int i = 0;
             foreach (var gem in Gems.GetAllGems())
             {
@@ -36,7 +36,7 @@ namespace Splendor.Forms
             PrestigeLabel.Text = ((int)player.Prestige).ToString();
 
             NoblesButton.Text = player.VisitedNobles.Count().ToString();
-            NoblesButton.FlatAppearance.MouseOverBackColor = player.Profile.Color.SoftColor.Darken(10);
+            NoblesButton.FlatAppearance.MouseOverBackColor = player.Color.SoftColor.Darken(10);
             NoblesButton.Visible = player.VisitedNobles.Any();
             NoblesButton.Tag = player.VisitedNobles;
 

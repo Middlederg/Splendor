@@ -14,7 +14,7 @@ namespace Splendor.Domain
         public void Subscribe(Action action) => updatePlayer += action;
 
         public int Id { get; }
-	    public Profile Profile { get; }
+	    public Avatar Profile { get; }
         public List<GameAction> Moves { get; }
 
         public List<Gem> Gems { get; }
@@ -65,10 +65,15 @@ namespace Splendor.Domain
         private int PrestigeForNobles => VisitedNobles.Sum(x => x.Prestige);
         private int PrestigeForDevelopments => Developments.Sum(x => x.Prestige);
 
-        public Player(int id, Profile profile)
+        public ColorGroup Color { get; }
+        public bool IsHuman { get; }
+
+        public Player(int id, Avatar profile, ColorGroup color, bool isHuman)
 	    {
 		    Id = id;
             Profile = profile;
+            Color = color;
+            IsHuman = isHuman;
             Gems = new List<Gem>();
             VisitedNobles = new List<Noble>();
             Developments = new List<Development>();
@@ -77,7 +82,7 @@ namespace Splendor.Domain
             Moves = new List<GameAction>();
         }
 
-        public Player Reset() => new Player(Id, Profile);
+        public Player Reset() => new Player(Id, Profile, Color, IsHuman);
 
         public int Bonus(Gem gem) => Developments.Count(x => x.Bonus == gem);
         public int PurchasingPower(Gem gema) => TotalGems(gema) + Bonus(gema);

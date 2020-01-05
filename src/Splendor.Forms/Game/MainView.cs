@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Splendor.Forms.Views
+namespace Splendor.Forms
 {
     public partial class MainView : BaseForm
     {
@@ -19,26 +19,13 @@ namespace Splendor.Forms.Views
         private TakenGemsPanel gemsPanel;
         private TakenDevelopmentsPanel takeDevelopmentPanel;
 
-        public MainView()
+        public MainView(Prestige objetive, params (Avatar avatar, ColorGroup color)[] profiles)
         {
             InitializeComponent();
 
             SetText("Splendor");
 
-            var player2 = Profiles.Danilo;
-            player2.Color = ColorFactory.Gray;
-
-            var player3 = Profiles.Debra;
-            player3.Color = ColorFactory.Orange;
-
-            var player4 = Profiles.Nilsen;
-            player4.Color = ColorFactory.Green;
-
-            game = new Game((Prestige)15, 
-                new Profile(1, "Jors", isHuman:true), 
-                player2,
-                player3, 
-                player4);
+            game = new Game(objetive, profiles);
 
             AddDeckPanel();
             AddGemsPanels();
@@ -88,7 +75,7 @@ namespace Splendor.Forms.Views
 
         private void AddPlayers()
         {
-            MainPlayerFace.SetProfile(game.Players[0].Profile);
+            MainPlayerFace.SetAvatar(game.Players[0].Profile);
             MainPlayerValues.Player = game.Players[0];
             MainPlayerValues.Draw();
 
@@ -164,13 +151,13 @@ namespace Splendor.Forms.Views
 
         private void OnPlay()
         {
-            MainPlayerFace.SetProfile(game.Players[0].Profile);
+            MainPlayerFace.SetAvatar(game.Players[0].Profile);
 
             DeckBoard.DeselectAllCards();
             takeDevelopmentPanel.Reset();
             gemsPanel.Reset();
             
-            while (!game.CurrentPlayer.Profile.IsHuman)
+            while (!game.CurrentPlayer.IsHuman)
             {
                 var moveService = new MoveService(game);
                 var move = moveService.MakeMove();
@@ -182,8 +169,8 @@ namespace Splendor.Forms.Views
                 var view = GameActionViewFactory.Create(move, game.CurrentPlayer.ToString());
                 view.StartPosition = FormStartPosition.Manual;
                 view.Location = new Point(playerBoardLocation.X + playerBoardSize.Width - 10, playerBoardLocation.Y + 10);
-                view.TitleBackColor = game.CurrentPlayer.Profile.Color.StrongColor;
-                view.BackColor = game.CurrentPlayer.Profile.Color.SoftColor;
+                view.TitleBackColor = game.CurrentPlayer.Color.StrongColor;
+                view.BackColor = game.CurrentPlayer.Color.SoftColor;
                 using (view)
                 {
                     view.ShowDialog();

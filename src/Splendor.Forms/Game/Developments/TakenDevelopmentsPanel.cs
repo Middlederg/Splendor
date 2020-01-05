@@ -1,5 +1,4 @@
 ﻿using Splendor.Domain;
-using Splendor.Forms.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
