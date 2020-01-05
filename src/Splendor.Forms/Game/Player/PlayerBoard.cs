@@ -11,7 +11,6 @@ namespace Splendor.Forms.UserControls
 {
     public partial class PlayerBoard : BaseUserControl
     {
-
         private Player player;
         public Player Player
         {

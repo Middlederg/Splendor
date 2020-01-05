@@ -9,18 +9,18 @@ namespace Splendor.Domain
         public static ColorGroup GetColor(PlayingColor color) => Colors[(int)color];
 
         public static ColorGroup DefaultBlue => new ColorGroup(PlayingColor.DefaultBlue, Color.SlateBlue, Color.DeepSkyBlue);
-        public static ColorGroup Red => new ColorGroup(PlayingColor.Red, Color.IndianRed, Color.LightCoral);
-        public static ColorGroup Green => new ColorGroup(PlayingColor.Green, Color.DarkOliveGreen, Color.LawnGreen);
+        public static ColorGroup Red => new Red();
+        public static ColorGroup Green => new Green();
         public static ColorGroup Gray => new ColorGroup(PlayingColor.Gray, Color.DarkGray, Color.LightGray);
         public static ColorGroup Orange => new ColorGroup(PlayingColor.Orange, Color.DarkOrange, Color.OldLace);
-        public static ColorGroup Brown => new ColorGroup(PlayingColor.Brown, Color.Sienna, Color.SandyBrown);
+        public static ColorGroup Purple => new Purple();
+        public static ColorGroup Yellow => new Yellow();
 
-        public static List<ColorGroup> Colors => new List<ColorGroup>() { DefaultBlue, Red, Green, Gray, Orange, Brown };
+        public static List<ColorGroup> Colors => new List<ColorGroup>() { DefaultBlue, Red, Green, Gray, Orange, Purple, Yellow };
 
         public static ColorGroup GetRandomColor(params ColorGroup[] except)
         {
-            var list = Colors.ToList();
-            list.RemoveAll(x => except.Contains(x));
+            var list = Colors.Where(x => !except.Contains(x)).ToList();
             return list.GetRandomItem();
         }
     }

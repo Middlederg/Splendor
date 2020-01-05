@@ -14,5 +14,16 @@ namespace Splendor.Domain
             StrongColor = strongColor;
             SoftColor = softColor;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            var group = (ColorGroup)obj;
+            return group.PlayingColor == PlayingColor;
+        }
+
+        public override int GetHashCode() => PlayingColor.GetHashCode();
     }
 }

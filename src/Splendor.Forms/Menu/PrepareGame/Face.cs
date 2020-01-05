@@ -13,6 +13,14 @@ namespace Splendor.Forms
 {
     public partial class Face : BaseUserControl
     {
+        public event EventHandler OnFaceRemoved;
+
+        public bool Removable 
+        {
+            get => RemoveButton.Visible;
+            set => RemoveButton.Visible = value;
+        }
+
         private Avatar avatar;
         public Avatar Avatar
         {
@@ -78,7 +86,10 @@ namespace Splendor.Forms
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-
+            if (Removable)
+            {
+                OnFaceRemoved?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

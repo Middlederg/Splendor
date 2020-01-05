@@ -7,6 +7,7 @@
         Green,
         Gray,
         Orange,
-        Brown
+        Purple,
+        Yellow
     }
 }

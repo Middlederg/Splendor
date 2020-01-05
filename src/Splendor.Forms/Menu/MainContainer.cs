@@ -68,7 +68,7 @@ namespace Splendor.Forms
             {
                 mainView.ShowDialog();
             }
-            Visible = false;
+            Visible = true;
             ShowMainMenu();
         }
 

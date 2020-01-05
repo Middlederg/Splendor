@@ -32,7 +32,9 @@
             this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.BtnOk = new Splendor.Forms.CustomButtonOk();
             this.NobleName = new System.Windows.Forms.Label();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.TlpPrincipal.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Flp
@@ -42,7 +44,7 @@
             this.Flp.Location = new System.Drawing.Point(10, 10);
             this.Flp.Margin = new System.Windows.Forms.Padding(0);
             this.Flp.Name = "Flp";
-            this.Flp.Size = new System.Drawing.Size(718, 130);
+            this.Flp.Size = new System.Drawing.Size(716, 128);
             this.Flp.TabIndex = 1;
             // 
             // TlpPrincipal
@@ -55,14 +57,14 @@
             this.TlpPrincipal.Controls.Add(this.BtnOk, 0, 1);
             this.TlpPrincipal.Controls.Add(this.NobleName, 1, 1);
             this.TlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TlpPrincipal.Location = new System.Drawing.Point(0, 25);
+            this.TlpPrincipal.Location = new System.Drawing.Point(0, 0);
             this.TlpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.TlpPrincipal.Name = "TlpPrincipal";
             this.TlpPrincipal.Padding = new System.Windows.Forms.Padding(10);
             this.TlpPrincipal.RowCount = 2;
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.TlpPrincipal.Size = new System.Drawing.Size(738, 190);
+            this.TlpPrincipal.Size = new System.Drawing.Size(736, 188);
             this.TlpPrincipal.TabIndex = 3;
             // 
             // BtnOk
@@ -76,7 +78,7 @@
             this.BtnOk.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.BtnOk.IconColor = System.Drawing.Color.White;
             this.BtnOk.IconSize = 32;
-            this.BtnOk.Location = new System.Drawing.Point(10, 150);
+            this.BtnOk.Location = new System.Drawing.Point(10, 148);
             this.BtnOk.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Rotation = 0D;
@@ -92,11 +94,21 @@
             this.NobleName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NobleName.AutoSize = true;
             this.NobleName.Font = new System.Drawing.Font("Verdana", 10F);
-            this.NobleName.Location = new System.Drawing.Point(228, 151);
+            this.NobleName.Location = new System.Drawing.Point(227, 149);
             this.NobleName.Name = "NobleName";
             this.NobleName.Size = new System.Drawing.Size(48, 17);
             this.NobleName.TabIndex = 3;
             this.NobleName.Text = "label1";
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainPanel.Controls.Add(this.TlpPrincipal);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 25);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(738, 190);
+            this.MainPanel.TabIndex = 4;
             // 
             // NoblesView
             // 
@@ -105,7 +117,7 @@
             this.ClientSize = new System.Drawing.Size(738, 215);
             this.CloseEnabled = true;
             this.ControlBox = false;
-            this.Controls.Add(this.TlpPrincipal);
+            this.Controls.Add(this.MainPanel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoblesView";
@@ -113,9 +125,10 @@
             this.ShowInTaskbar = false;
             this.Text = "Seleccionar noble";
             this.WindowIcon = FontAwesome.Sharp.IconChar.Crown;
-            this.Controls.SetChildIndex(this.TlpPrincipal, 0);
+            this.Controls.SetChildIndex(this.MainPanel, 0);
             this.TlpPrincipal.ResumeLayout(false);
             this.TlpPrincipal.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -126,5 +139,6 @@
         private Splendor.Forms.CustomButtonOk BtnOk;
         private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
         private System.Windows.Forms.Label NobleName;
+        private System.Windows.Forms.Panel MainPanel;
     }
 }

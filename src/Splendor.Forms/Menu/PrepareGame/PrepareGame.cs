@@ -26,7 +26,12 @@ namespace Splendor.Forms
 
             Face2.Avatar = Avatars.GetRandomAvatar();
             Face2.Color = ColorFactory.GetRandomColor(Face1.Color);
-            Face2.SetPlayerName(Face2.Avatar.ToString());
+
+            FaceSelector3.Avatar = Avatars.GetRandomAvatar();
+            FaceSelector3.Color = ColorFactory.GetRandomColor(Face1.Color, Face2.Color);
+
+            FaceSelector4.Avatar = Avatars.GetRandomAvatar();
+            FaceSelector4.Color = ColorFactory.GetRandomColor(Face1.Color, Face2.Color, FaceSelector3.Color);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -36,7 +41,7 @@ namespace Splendor.Forms
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            var eventArgs = new PlayGameEventArgs(GetPrestige(), GetPlayers());
+            var eventArgs = new PlayGameEventArgs(GetPrestige(), GetPlayers().ToList());
             OnPlayButtonClicked?.Invoke(this, eventArgs);
         }
 
@@ -47,6 +52,11 @@ namespace Splendor.Forms
             yield return (Face1.Avatar, Face1.Color);
             yield return (Face2.Avatar, Face2.Color);
 
+            if (FaceSelector3.PlayerSelected)
+                yield return (FaceSelector3.Avatar, FaceSelector3.Color);
+
+            if (FaceSelector4.PlayerSelected)
+                yield return (FaceSelector4.Avatar, FaceSelector4.Color);
         }
     }
 }

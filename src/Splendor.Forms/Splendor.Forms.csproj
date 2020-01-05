@@ -75,6 +75,12 @@
     <Compile Include="CustomControls\Selectors\ColorSelector.Designer.cs">
       <DependentUpon>ColorSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\PrepareGame\FaceSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\PrepareGame\FaceSelector.Designer.cs">
+      <DependentUpon>FaceSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\PrepareGame\Face.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\Selectors\ColorSelector.resx">
       <DependentUpon>ColorSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\PrepareGame\FaceSelector.resx">
+      <DependentUpon>FaceSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\PrepareGame\Face.resx">
       <DependentUpon>Face.cs</DependentUpon>

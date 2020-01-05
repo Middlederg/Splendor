@@ -33,7 +33,9 @@
             this.AvatarSelector = new Splendor.Forms.AvatarSelector();
             this.ColorSelector = new Splendor.Forms.ColorSelector();
             this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.MainTable.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTable
@@ -48,7 +50,7 @@
             this.MainTable.Controls.Add(this.ColorSelector, 0, 1);
             this.MainTable.Controls.Add(this.TextBoxName, 0, 2);
             this.MainTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainTable.Location = new System.Drawing.Point(0, 25);
+            this.MainTable.Location = new System.Drawing.Point(0, 0);
             this.MainTable.Margin = new System.Windows.Forms.Padding(0);
             this.MainTable.Name = "MainTable";
             this.MainTable.Padding = new System.Windows.Forms.Padding(15);
@@ -57,7 +59,7 @@
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.MainTable.Size = new System.Drawing.Size(200, 275);
+            this.MainTable.Size = new System.Drawing.Size(198, 273);
             this.MainTable.TabIndex = 1;
             // 
             // AcceptButton
@@ -72,7 +74,7 @@
             this.AcceptButton.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.AcceptButton.IconColor = System.Drawing.Color.White;
             this.AcceptButton.IconSize = 30;
-            this.AcceptButton.Location = new System.Drawing.Point(143, 225);
+            this.AcceptButton.Location = new System.Drawing.Point(141, 222);
             this.AcceptButton.Margin = new System.Windows.Forms.Padding(0);
             this.AcceptButton.Name = "AcceptButton";
             this.AcceptButton.Rotation = 0D;
@@ -89,7 +91,7 @@
             this.AvatarSelector.BackColor = System.Drawing.Color.White;
             this.MainTable.SetColumnSpan(this.AvatarSelector, 3);
             this.AvatarSelector.CurrentIndex = 2;
-            this.AvatarSelector.Location = new System.Drawing.Point(50, 20);
+            this.AvatarSelector.Location = new System.Drawing.Point(49, 19);
             this.AvatarSelector.Margin = new System.Windows.Forms.Padding(0);
             this.AvatarSelector.Name = "AvatarSelector";
             this.AvatarSelector.Size = new System.Drawing.Size(100, 60);
@@ -101,7 +103,7 @@
             this.ColorSelector.BackColor = System.Drawing.Color.White;
             this.MainTable.SetColumnSpan(this.ColorSelector, 3);
             this.ColorSelector.CurrentColor = Splendor.Domain.PlayingColor.DefaultBlue;
-            this.ColorSelector.Location = new System.Drawing.Point(40, 100);
+            this.ColorSelector.Location = new System.Drawing.Point(39, 98);
             this.ColorSelector.Margin = new System.Windows.Forms.Padding(0);
             this.ColorSelector.Name = "ColorSelector";
             this.ColorSelector.Size = new System.Drawing.Size(120, 40);
@@ -112,28 +114,39 @@
             this.TextBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainTable.SetColumnSpan(this.TextBoxName, 3);
             this.TextBoxName.Font = new System.Drawing.Font("Verdana", 14F);
-            this.TextBoxName.Location = new System.Drawing.Point(15, 175);
+            this.TextBoxName.Location = new System.Drawing.Point(15, 172);
             this.TextBoxName.Margin = new System.Windows.Forms.Padding(0);
             this.TextBoxName.MaxLength = 50;
             this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(170, 30);
+            this.TextBoxName.Size = new System.Drawing.Size(168, 30);
             this.TextBoxName.TabIndex = 4;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainPanel.Controls.Add(this.MainTable);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 25);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(200, 275);
+            this.MainPanel.TabIndex = 2;
             // 
             // PlayerDetailsView
             // 
-            this.AcceptButton = this.AcceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(200, 300);
             this.CloseEnabled = true;
-            this.Controls.Add(this.MainTable);
+            this.Controls.Add(this.MainPanel);
             this.Name = "PlayerDetailsView";
             this.Text = "PlayerDetailsView";
             this.WindowIcon = FontAwesome.Sharp.IconChar.User;
-            this.Controls.SetChildIndex(this.MainTable, 0);
+            this.Controls.SetChildIndex(this.MainPanel, 0);
             this.MainTable.ResumeLayout(false);
             this.MainTable.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -145,5 +158,6 @@
         private AvatarSelector AvatarSelector;
         private ColorSelector ColorSelector;
         private System.Windows.Forms.TextBox TextBoxName;
+        private System.Windows.Forms.Panel MainPanel;
     }
 }
