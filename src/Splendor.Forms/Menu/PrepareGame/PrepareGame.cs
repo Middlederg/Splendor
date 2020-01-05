@@ -20,6 +20,20 @@ namespace Splendor.Forms
         {
             InitializeComponent();
 
+            FaceSelector3.OnPlayerActivated += OnPlayer3Activated;
+            FaceSelector3.OnPlayerDeactivated += OnPlayer3Deactivated;
+            FaceSelector4.OnPlayerActivated += OnPlayer4Activated;
+            FaceSelector4.OnPlayerDeactivated += OnPlayer4Deactivated;
+            InitializePlayers();
+        }
+
+        private void OnPlayer3Activated(object sender, EventArgs e) => IA3.Visible = true;
+        private void OnPlayer3Deactivated(object sender, EventArgs e) => IA3.Visible = false;
+        private void OnPlayer4Activated(object sender, EventArgs e) => IA4.Visible = true;
+        private void OnPlayer4Deactivated(object sender, EventArgs e) => IA4.Visible = false;
+
+        private void InitializePlayers()
+        {
             Face1.Avatar = Configuration.DefaultAvatar;
             Face1.Color = Configuration.DefaultColorGroup;
             Face1.SetPlayerName("Jorge");
@@ -36,6 +50,7 @@ namespace Splendor.Forms
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            InitializePlayers();
             OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 

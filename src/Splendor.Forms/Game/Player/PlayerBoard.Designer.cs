@@ -53,8 +53,6 @@
             this.PlayerFace.Margin = new System.Windows.Forms.Padding(0);
             this.PlayerFace.Name = "PlayerFace";
             this.PlayerFace.Size = new System.Drawing.Size(150, 144);
-            this.PlayerFace.SoftColor = System.Drawing.Color.DeepSkyBlue;
-            this.PlayerFace.StrongColor = System.Drawing.Color.SlateBlue;
             this.PlayerFace.TabIndex = 2;
             // 
             // MainTable

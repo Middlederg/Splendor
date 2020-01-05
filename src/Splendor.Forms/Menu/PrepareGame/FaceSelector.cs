@@ -13,6 +13,9 @@ namespace Splendor.Forms
 {
     public partial class FaceSelector : BaseUserControl
     {
+        public event EventHandler OnPlayerActivated;
+        public event EventHandler OnPlayerDeactivated;
+
         public bool PlayerSelected => Face.Visible;
 
         public Avatar Avatar 
@@ -42,6 +45,7 @@ namespace Splendor.Forms
             AddButton.Size = new Size(110, 110);
             Face.Visible = false;
             AddButton.Visible = true;
+            OnPlayerDeactivated?.Invoke(this, EventArgs.Empty);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -51,6 +55,7 @@ namespace Splendor.Forms
             Face.Size = new Size(130, 130);
             Face.Visible = true;
             AddButton.Visible = false;
+            OnPlayerActivated?.Invoke(this, EventArgs.Empty);
         }
     }
 }

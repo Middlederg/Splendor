@@ -19,6 +19,12 @@ namespace Splendor.Forms
             InitializeComponent();
         }
 
+        private async void OnLoad(object sender, EventArgs e)
+        {
+            var control = await new UpdateMessage().Create();
+            MainTable.Controls.Add(control, 1, 5);
+        }
+
         private void PlayButton_Click(object sender, EventArgs e)
         {
             OnButtonClicked?.Invoke(this, new ValueEventArgs<MenuOption>(MenuOption.Play));
@@ -43,5 +49,7 @@ namespace Splendor.Forms
         {
             OnButtonClicked?.Invoke(this, new ValueEventArgs<MenuOption>(MenuOption.Exit));
         }
+
+       
     }
 }

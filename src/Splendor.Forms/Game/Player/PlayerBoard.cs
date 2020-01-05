@@ -21,9 +21,8 @@ namespace Splendor.Forms.UserControls
                 
                 if (!(player is null))
                 {
-                    PlayerFace.SetAvatar(player.Profile);
-                    PlayerFace.StrongColor = player.Color.StrongColor;
-                    PlayerFace.SoftColor = player.Color.SoftColor;
+                    PlayerFace.SetAvatar(player.Avatar);
+                    PlayerFace.Color = player.Color;
                     player.Subscribe(Draw);
                 }
             }

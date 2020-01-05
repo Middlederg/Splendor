@@ -39,7 +39,7 @@ namespace Splendor.Domain
             Log = new Log();
         }
 
-        public Game ResetGame() => new Game(Objetive, Players.Select(x => (x.Profile, x.Color)).ToArray());
+        public Game ResetGame() => new Game(Objetive, Players.Select(x => (x.Avatar, x.Color)).ToArray());
 
         
 

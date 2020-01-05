@@ -75,7 +75,8 @@ namespace Splendor.Forms
 
         private void AddPlayers()
         {
-            MainPlayerFace.SetAvatar(game.Players[0].Profile);
+            MainPlayerFace.SetAvatar(game.Players[0].Avatar);
+            MainPlayerFace.Color = game.Players[0].Color;
             MainPlayerValues.Player = game.Players[0];
             MainPlayerValues.Draw();
 
@@ -151,7 +152,7 @@ namespace Splendor.Forms
 
         private void OnPlay()
         {
-            MainPlayerFace.SetAvatar(game.Players[0].Profile);
+            MainPlayerFace.SetAvatar(game.Players[0].Avatar);
 
             DeckBoard.DeselectAllCards();
             takeDevelopmentPanel.Reset();

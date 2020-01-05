@@ -19,16 +19,16 @@ namespace Splendor.Forms
             set => OpenButton.Visible = value;
         }
 
-        public Color StrongColor
+        private ColorGroup color;
+        public ColorGroup Color
         {
-            get => NameLabel.BackColor;
-            set => NameLabel.BackColor = value;
-        }
-
-        public Color SoftColor
-        {
-            get => pGeneral.BackColor;
-            set => pGeneral.BackColor = value;
+            get => color;
+            set
+            {
+                color = value;
+                NameLabel.BackColor = value?.StrongColor ?? Configuration.DefaultColorGroup.StrongColor;
+                pGeneral.BackColor = value?.SoftColor ?? Configuration.DefaultColorGroup.SoftColor;
+            }
         }
 
         public event EventHandler OnDetailsClicked;

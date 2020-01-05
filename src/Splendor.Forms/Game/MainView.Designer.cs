@@ -221,8 +221,6 @@
             this.MainPlayerFace.Name = "MainPlayerFace";
             this.TlpGeneral.SetRowSpan(this.MainPlayerFace, 2);
             this.MainPlayerFace.Size = new System.Drawing.Size(150, 144);
-            this.MainPlayerFace.SoftColor = System.Drawing.Color.DeepSkyBlue;
-            this.MainPlayerFace.StrongColor = System.Drawing.Color.SlateBlue;
             this.MainPlayerFace.TabIndex = 0;
             // 
             // CenterTable

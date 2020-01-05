@@ -14,7 +14,7 @@ namespace Splendor.Domain
         public void Subscribe(Action action) => updatePlayer += action;
 
         public int Id { get; }
-	    public Avatar Profile { get; }
+	    public Avatar Avatar { get; }
         public List<GameAction> Moves { get; }
 
         public List<Gem> Gems { get; }
@@ -68,10 +68,10 @@ namespace Splendor.Domain
         public ColorGroup Color { get; }
         public bool IsHuman { get; }
 
-        public Player(int id, Avatar profile, ColorGroup color, bool isHuman)
+        public Player(int id, Avatar avatar, ColorGroup color, bool isHuman)
 	    {
 		    Id = id;
-            Profile = profile;
+            Avatar = avatar;
             Color = color;
             IsHuman = isHuman;
             Gems = new List<Gem>();
@@ -82,14 +82,11 @@ namespace Splendor.Domain
             Moves = new List<GameAction>();
         }
 
-        public Player Reset() => new Player(Id, Profile, Color, IsHuman);
+        public Player Reset() => new Player(Id, Avatar, Color, IsHuman);
 
         public int Bonus(Gem gem) => Developments.Count(x => x.Bonus == gem);
         public int PurchasingPower(Gem gema) => TotalGems(gema) + Bonus(gema);
 
-        public override string ToString() => Profile.ToString();
-
-      
-
+        public override string ToString() => Avatar.ToString();
     }
 }
