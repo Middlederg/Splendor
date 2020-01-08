@@ -499,6 +499,8 @@
     <None Include="Resources\OroSmall.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Season\" />
+    <Folder Include="Tournament\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
