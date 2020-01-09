@@ -4,38 +4,10 @@ using System.Linq;
 
 namespace Splendor.Domain
 {
-    public enum PlayersPerTable
-    {
-        Two = 2,
-        Three = 3,
-        Four = 4
-    }
-
-    public enum Division
-    {
-        Internacional = 1,
-        Nacional = 2,
-        Semiprofesional = 3,
-        Aficionados = 4
-    }
-
-    public class GameParticipant : Person
-    {
-        public int Points { get; private set; }
-        public int DevelopmentCount { get; private set; }
-
-        public GameParticipant(string name, bool isHuman = false) : base(name, isHuman)
-        {
-            Points = 0;
-            DevelopmentCount = 0;
-        }
-    }
-
     public class TournamentParticipant : Person
     {
         public int Victories { get; private set; }
         public int Points { get; private set; }
-       
 
         public TournamentParticipant(string name, bool isHuman = false) : base(name, isHuman)
         {
@@ -47,143 +19,21 @@ namespace Splendor.Domain
     public class TournamentGame
     {
         public List<TournamentParticipant> Participants { get; private set; }
-
-
     }
+}
 
-    public class Tournament
-    {
-        private readonly int id;
-        private readonly string name;
-        private readonly int maxPlayers;
+public 
 
-        public string Description { get; }
-        public string Place { get; }
-        public Division Division { get; }
-        public DateTime Date { get; }
-        public int Edition => Date.Year;
-        public int Rounds { get; set; }
-        public PlayersPerTable PlayersPerTable { get; }
-        public List<TournamentParticipant> Participants { get; private set; }
-        public void AddParticipant(TournamentParticipant participant)
-        {
-            if (Participants.Count > maxPlayers)
-                throw new ArgumentOutOfRangeException($"Can not add more participants");
-
-            Participants.Add(participant);
-        }
-        public List<Prize> Prizes { get; }
-
-        public Tournament(int id, string name, string description, string place, Division division, DateTime date, int rounds,
-            PlayersPerTable playersPerTable, int maxPlayers, params Prize[] prizes)
-        {
-            this.id = id;
-            this.name = name;
-            this.maxPlayers = maxPlayers;
-
-            Description = description;
-            Place = place;
-            Division = division;
-            Date = date;
-            Rounds = rounds;
-            PlayersPerTable = playersPerTable;
-
-            Participants = new List<TournamentParticipant>();
-            Sponsors = sponsors;
-            Prizes = prizes.ToList();
-        }
-
-        public List<TournamentParticipant> Ranking() => Participants
-            .OrderByDescending(participant => participant.Victories)
-            .ThenByDescending(participant => participant.Points)
-            .ToList();
-        
-
-        //devuelve lista de jugadores que jugaran partida del player 1
-        public List<Participantes> celebrarJornada()
-        {
-            int count = 1;
-            List<TournamentParticipant> resultado = new List<TournamentParticipant>();
-            List<TournamentParticipant> partida = new List<TournamentParticipant>();
-            foreach (TournamentParticipant par in Ranking())
-            {
-                partida.Add(par);
-                if (count % PlayersPerTable == 0)
-                {
-                    //Si le toca jugar al jugador 1
-                    if (partida.Where(vP => vP.DatosPersona.Id == 1).Count != 0)
-                    {
-                        resultado = partida;
-                    }
-                    else
-                    {
-                        simularPartida(partida);
-                    }
-                    partida = new List<TournamentParticipant>();
-                }
-                count++;
-            }
-            Ronda
-    
-
-    return resultado;
-        }
-
-
-        public void simularPartida(List<TournamentParticipant> parts)
-        {
-            int i = 0;
-            int[] nombres = new int[parts.Count];
-            int[] ids = new int[parts.Count];
-            foreach (TournamentParticipant p in parts)
-            {
-                nombres[i] = p.DatosPersona.sobrenombre();
-                ids[i] = p.DatosPersona.Id;
-            }
-            Juego j = new Juego(nombres, ids);
-
-
-            while (j.finalPartida == null)
-            {
-                foreach (Jugador jug in j.Jugadores)
-                {
-                    mover();
-                }
-            }
-
-            //Actualizar victorias y puntos
-            parts.Where(vP => vP.Id == j.finalPartida().IdParticipante).FirstOrdefault().Victorias++;
-            i = 0;
-            foreach (Jugador jug in j.Jugadores)
-            {
-                parts[i].Puntos += jug.Prestigio;
-                i++;
-                Datos.ElRanking.Add(parts[i].DatosPersona.Id, jug.Prestigio, (jug.Id == j.finalPartida().Id), Id, Division, Edition)
-    
-
-    }
-
-        public override string ToString() => name;
-    }
-
-
-    public override string ToString()
-    {
-        return Nombre + ", en " + Localidad.ToString();
-    }
-
-    public override bool Equals(Tournament t)
-    {
-        return (obtenerId() == t.obtenerid());
-    }
-
+public class DiscountVale
+{
 
 }
 
-
-
 public class Sponsor
 {
+    private readonly int id;
+    private readonly string name;
+
     public int Id { get; set; }
     public string Nombre { get; set; }
     public string Descripcion { get; set; }
@@ -192,7 +42,7 @@ public class Sponsor
     public int PrecioVictoria { get; set; }
     public int PrecioTorneo { get; set; }
     public int PrecioMedalla { get; set; }
-    public int Descuento { get; set; }
+    public int ValeDescuento { get; set; }
 
     public Sponsor(int id, string nom, string desc, int nivel, int[] reg,
     int precioVictoria, int precioTorneo, int precioMedalla, int disc)
@@ -205,8 +55,10 @@ public class Sponsor
         PrecioTorneo = precioTorneo;
         PrecioMedalla = precioMedalla;
         Regalos = reg;
-        Descuento = disc;
+        ValeDescuento = disc;
     }
+
+    public override string ToString() => name;
 }
 
 public class Gift
@@ -510,112 +362,4 @@ public class Tienda
 
 
 
-
-primera columna, oro
-debajo, menu, solo activado cuando es turno
--Gemas
--Desarrollos - (comprar o reservar)
--Reserva
-Cinco columnas mas, con gemas y debajo cartas
-
-Siempre activo:
-Ver Rivales
-
-    Tres columnas, una por cada rival
-	-Superior
-    Datos persona
-    Datos torneo
-    Datos temporada
-	-Inferior
-    Prestigio
-	1 Gemas propias
-	2 Bonificaciones
-	3 Comodines
-	1+2 poder total
-
-    Detalle de desarrollos
-
-Log Dialog
-
-
-
-
-
-
-Pantalla Torneo
--Arriba
-    Datos de torneo
--Dcha
-    Clasificación
-
-    puesto - nombre - victorias - puntos
--Centro
-    Detalles de la persona, media torneo, media total
-
-
--Izquierda Menu
-
-    Calendario con proxima jornada
-
-    Detalles de premios torneo(ganancias, regalos)
-
-    Histórico(Resultados de otros años)
-
-Pantalla temporada
-
-panel superior
--Año de la temporada, fecha (Season 2016, 21 de noviembre)
--Division en la que te encuentras(División aficionados)
--Datos del jugador 
-- Equipo actual
-- Tus sponsors oficiales
-
-Izquierda
--Calendario con torneos
-Tabla:
-Fecha-Nombre Torneo-Division-Inscrito
-
-Centro
-- Detalle de torneo
-    Nombre con División
-
-    Localidad y Fechas
-    Patrocinador
-
-    Descripción
-    Datos tecnicos: Rondas y jugadores por partida
-    Premios
-
-    nivel del torneo(indice calculado)
-
-- Detalles Equipo
-
-    Puedes estar en un equipo, o independiente.El equipo te pagara sueldo,
-    te añadirá patrocinador obligado(solo 1), y te dará bonus de popularidad.
-
-- Patrocinadores y sponsor
-    Puedes recibir ofertas de patrocinadores, como llevar camisetas etc
-
-    Pueden ofrecerte dinero anual por victorias y/o descuentos. Dependiento de la
-    fecha ofrecerán mas dinero.Demasiados sponsors merman la popularidad.
-	- Ofertas sponsors
-	- Ver tus Sponsors (Ves tu ropa con publicidad y las condiciones del sponsor)
-- Medallero
-    Se desarrolla a lo largo de las temporadas un medallero.
-    Cada vez que quedas 1/2/3 un torneo, se añade una medalla de oro/plata/bronce
-    se van acumulando en diferentes niveles.
-- Palmarés(por año)
-
-    Resumen de todas las victorias conseguidas
-
-    Resumen de ranking.posicion, media anual
-- Acceder al ranking.Lista de puntos Sp(Escala calculada). Global de todas las divisions
-   dentro del ranking, Datos del jugador.Detalle de victorias, media anual por partida, dinero, objetos ganados, popularidad...
-	
-- Propiedades.Puedes ver tus juegos. 
-- Tienda.Comprar nuevos objetos.
-
-Botones
--Salir
--Continuar.Label al lado con el siguiente torneo que se abriría
 }

@@ -17,6 +17,7 @@ namespace Splendor.Domain
         }
 
         public static Money From(decimal amount, string code) => new Money(amount, Currency.FromCode(code));
+        public static implicit operator decimal(Money money) => money.amount;
 
         public override string ToString() => $"{amount} {currency.ToString()}";
     }
