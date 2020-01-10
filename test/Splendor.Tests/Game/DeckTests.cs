@@ -6,6 +6,7 @@ using System;
 
 namespace Splendor.Tests
 {
+
     public class DeckTests
     {
         private readonly Deck deck;

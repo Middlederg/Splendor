@@ -28,7 +28,7 @@ namespace Splendor.Forms
                     Lbl.Visible = count > 0;
                     ToolTipAyuda.SetToolTip(Lbl, developments.JoinList());
 
-                    Lbl.BackColor = (value.Any() && value.Distinct().Count() == 1) ? value.First().Bonus.StrongBackColor() : Color.White;
+                    Lbl.BackColor = value.BackColor();
                     Lbl.ForeColor = Lbl.BackColor == Color.White ? Color.Black : Color.White;
                     Lbl.BorderStyle = Lbl.BackColor == Color.White ? BorderStyle.FixedSingle : BorderStyle.None;
                 }

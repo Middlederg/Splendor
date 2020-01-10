@@ -6,7 +6,7 @@ namespace Splendor.Domain
     public static class Constants
     {
         public static Language CurrentLanguage = Language.English;
-        public static string CurrentCurrency = "$";
+        public static Currency CurrentCurrency = Currency.FromCode("EUR");
 
         public const string RepoOwner = "Middlederg";
         public const string RepoName = "Splendor";
