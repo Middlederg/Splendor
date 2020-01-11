@@ -22,6 +22,9 @@ namespace Splendor.Domain
 
         public void BuyCard(Development development)
         {
+            if (!deck.Contains(development))
+                throw new NotFoundException($"Can not take {development.ToString()} because it is not in the deck");
+
             if (!IsVisible(development))
                 throw new DomainException($"Can not take {development.ToString()} because it is not visible");
 
@@ -54,6 +57,14 @@ namespace Splendor.Domain
                     yield return development;
         }
 
-        public IEnumerable<Development> VisibleDevelopments(Level level) => deck.Where(x => x.Level == level).Take(VisibleDevelopmentsPerRow);
+        public IEnumerable<Development> VisibleDevelopments(Level level)
+        {
+            var developments = deck.Where(x => x.Level == level).ToList();
+            if (!developments.Any())
+                return new List<Development>();
+
+            int numberToTake = Math.Min(VisibleDevelopmentsPerRow, developments.Count);
+            return developments.Take(numberToTake);
+        }
     }
 }

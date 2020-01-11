@@ -5,6 +5,7 @@ using FluentAssertions;
 
 namespace Splendor.Tests
 {
+    [Collection(nameof(DefaultCollection))]
     public class PrestigeTests
     {
         private readonly Prestige four = Prestige.FromScalar(4);

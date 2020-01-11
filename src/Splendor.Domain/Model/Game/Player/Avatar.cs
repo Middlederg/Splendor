@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Splendor.Domain
 {
@@ -15,7 +16,7 @@ namespace Splendor.Domain
             Id = id;
             this.name = name;
         }
-
+        
         public override string ToString() => name;
 
         public static bool operator ==(Avatar obj1, Avatar obj2) => obj1.Equals(obj2);

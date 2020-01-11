@@ -35,9 +35,10 @@ namespace Splendor.Domain
             if (obj == null || GetType() != obj.GetType())
                 return false;
 
-            return obj.ToString().Equals(ToString());
+            var noble = (Noble)obj;
+            return noble.name.Equals(name);
         }
 
-        public override int GetHashCode() => base.GetHashCode();
+        public override int GetHashCode() => name.GetHashCode();
     }
 }

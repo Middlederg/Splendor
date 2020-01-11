@@ -6,6 +6,7 @@ using System;
 
 namespace Splendor.Tests
 {
+    [Collection(nameof(DefaultCollection))]
     public class MarketTests
     {
         private readonly Market simpleMarket;

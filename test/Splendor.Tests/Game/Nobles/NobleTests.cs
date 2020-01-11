@@ -46,5 +46,44 @@ namespace Splendor.Tests
 
             list.Select(x => x.count).Distinct().Count().Should().Be(1);
         }
+
+        [Fact]
+        public void Same_noble_should_be_compared_correctly()
+        {
+            var machiavelli = Nobles.Macchiavelli;
+            var machiavelli2 = Nobles.Macchiavelli;
+
+            machiavelli.Should().Be(machiavelli);
+            machiavelli.Should().Be(machiavelli2);
+            machiavelli.Equals(machiavelli2).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Same_nobles_of_list_should_be_compared_correctly()
+        {
+            var nobles = Nobles.GetNobles();
+            var isabel1 = nobles.ElementAt(0);
+            var isabel2 = nobles.ElementAt(0);
+
+            isabel1.Should().Be(isabel2);
+
+            isabel1.Equals(isabel2).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Should_distinguish_nobles_in_a_list()
+        {
+            var nobles = Nobles.GetNobles();
+            var isabel1 = nobles.ElementAt(0);
+            var isabel2 = nobles.ElementAt(0);
+
+            var list = new List<Noble>()
+            {
+                isabel1,
+                isabel2
+            };
+
+            list.Distinct().Count().Should().Be(1);
+        }
     }
 }

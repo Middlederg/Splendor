@@ -4,6 +4,7 @@ using FluentAssertions;
 
 namespace Splendor.Tests
 {
+    [Collection(nameof(DefaultCollection))]
     public class GemExtensionsTests
     {
         [Fact]

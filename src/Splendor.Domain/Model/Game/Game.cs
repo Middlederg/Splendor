@@ -41,8 +41,6 @@ namespace Splendor.Domain
 
         public Game ResetGame() => new Game(Objetive, Players.Select(x => (x.Avatar, x.Color)).ToArray());
 
-        
-
         public bool IsGameEnd() => Players
             .Any(x => x.Prestige >= Objetive
             && turn.SameTurnsForAllPlayers);

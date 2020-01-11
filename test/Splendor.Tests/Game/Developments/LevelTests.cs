@@ -5,6 +5,7 @@ using FluentAssertions;
 
 namespace Splendor.Tests
 {
+    [Collection(nameof(DefaultCollection))]
     public class LevelTests
     {
         private readonly Level one;

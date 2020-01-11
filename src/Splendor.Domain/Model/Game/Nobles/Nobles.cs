@@ -34,6 +34,15 @@ namespace Splendor.Domain
             yield return ElisabethOfAustria;
         }
 
-        public static IEnumerable<Noble> GetNobles(int numero) => GetNobles().GetRandomItems(numero);
+        public static IEnumerable<Noble> GetNobles(int count)
+        {
+            var allNobles = GetNobles().ToList();
+            foreach(var i in Enumerable.Range(0, count))
+            {
+                var noble = allNobles.GetRandomItem();
+                allNobles.Remove(noble);
+                yield return noble;
+            }
+        }
     }
 }
