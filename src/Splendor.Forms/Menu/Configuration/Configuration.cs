@@ -16,6 +16,9 @@ namespace Splendor.Forms
         public const int CardWidth = 119;
         public const int CardHeight = 166;
 
+        public static Color SuccessColor = Color.Green;
+        public static Color ErrorColor = Color.Red;
+
         public static int DefaultLanguage = Properties.Settings.Default.DefaultLanguage;
         public static Color SelectionColor = Properties.Settings.Default.SelectionColor;
         public static int DefaultIdAvatar = Properties.Settings.Default.DefaultAvatar;

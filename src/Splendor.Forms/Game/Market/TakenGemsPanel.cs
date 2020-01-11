@@ -46,7 +46,7 @@ namespace Splendor.Forms.UserControls
             removableGem.Draw();
             removableGem.OnGemRemoveClicked += RemoveGem;
             FlpContainer.Controls.Add(removableGem);
-            UpdateOkButton();
+            UpdateElements();
         }
 
         private void RemoveGem(object sender, EventArgs e)
@@ -54,25 +54,18 @@ namespace Splendor.Forms.UserControls
             if (sender is RemovableGem removableGem)
             {
                 FlpContainer.Controls.Remove(removableGem);
-                UpdateOkButton();
+                UpdateElements();
                 OnGemHasBeenRemoved(this, new GemEventArgs(removableGem.Gem));
             }
         }
 
-
-        //public bool Anexable(Gem gema)
-        //{
-        //    if (GemasSeleccionadas.Count == 3) return false;
-        //    if (GemasSeleccionadas.Count == 2 && GemasSeleccionadas.Contains(gema)) return false;
-        //    if (GemasSeleccionadas.Contains(gema) && !j.PuedeCogerDosGemas(gema)) return false;
-        //    return true;
-        //}
-
-        private void UpdateOkButton()
+        private void UpdateElements()
         {
             var gems = GetSelectedGems().ToList();
             var service = new TakeGemsService(CurrentPlayer, Market, gems.ToArray());
             BtnOk.Visible = service.CanBeTaken();
+            LabelInfo.Text = service.ToString();
+            LabelInfo.ForeColor = service.CanBeTaken() ? Configuration.SuccessColor : Configuration.ErrorColor;
         }
 
         private void BtnOk_Click(object sender, EventArgs e)

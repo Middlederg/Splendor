@@ -27,14 +27,18 @@ namespace Splendor.Forms
                 Visible = true;
                 development = value;
                 var purchaseService = new PurchaseService(development, CurrentPlayer);
-                BuyButton.Enabled = purchaseService.CanAfford();
-                ToolTipAyuda.SetToolTip(BuyButton, purchaseService.ToString());
+                BuyButton.Enabled = purchaseService.CanAffordPayingGold();
+                LabelInfo.Text = purchaseService.ToString();
+                LabelInfo.ForeColor = purchaseService.CanAffordPayingGold() ? Configuration.SuccessColor : Configuration.ErrorColor;
+
+                ToolTipAyuda.SetToolTip(BuyButton, $"Buy {development.ToString()}");
 
                 var reserveService = new ReserveService(development, CurrentPlayer, Market);
                 ReserveButton.Enabled = reserveService.CanReserve();
                 ToolTipAyuda.SetToolTip(ReserveButton, reserveService.ToString());
             }
         }
+
         public TakenDevelopmentsPanel()
         {
             InitializeComponent();
