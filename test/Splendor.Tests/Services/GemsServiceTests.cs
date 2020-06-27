@@ -27,7 +27,7 @@ namespace Splendor.Tests
 
         private void Take(Gem[] gems)
         {
-            var service = new TakeGemsService(game, game.Market, gems);
+            var service = new TakeGemsService(game.CurrentPlayer, game.Market, gems);
             service.Take();
         }
 
