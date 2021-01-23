@@ -9,7 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Splendor.Tests", "test\Sple
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splendor.Forms", "src\Splendor.Forms\Splendor.Forms.csproj", "{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Splendor.Installer", "src\Splendor.Installer\Splendor.Installer.vdproj", "{3415911F-DEF7-4FF5-B66B-23DC6DF72150}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5805707D-B69A-4FE0-9112-38B761536E44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E295165E-581F-4FB1-A442-554F4CBE3E4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0397E28-9DCB-4666-8502-EC43654D28CE}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+		build\dependencies.props = build\dependencies.props
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,11 +40,14 @@ Global
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3415911F-DEF7-4FF5-B66B-23DC6DF72150}.Debug|Any CPU.ActiveCfg = Debug
-		{3415911F-DEF7-4FF5-B66B-23DC6DF72150}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78699946-D78D-43EF-8487-CA6089A757EF} = {5805707D-B69A-4FE0-9112-38B761536E44}
+		{D992A279-2753-45A1-940E-1ABACCE89A74} = {E295165E-581F-4FB1-A442-554F4CBE3E4C}
+		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA} = {5805707D-B69A-4FE0-9112-38B761536E44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F17CCEF-E9CF-44E4-BD0E-AA6D7D10770B}

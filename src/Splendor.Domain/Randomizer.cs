@@ -17,19 +17,19 @@ namespace Splendor.Domain
         }
 
         public static IEnumerable<T> GetRandomItems<T>(this IEnumerable<T> lista, int count) => Enumerable.Range(0, count).Select(x => lista.GetRandomItem());
-        public static IEnumerable<T> RandomizeList<T>(this List<T> lista)
+        public static IEnumerable<T> RandomizeList<T>(this List<T> list)
         {
-            List<T> mazoAuxiliar = new List<T>();
+            List<T> auxiliar = new List<T>();
 
-            int pasadas = lista.Count();
-            for (int i = 0; i < pasadas; i++)
+            int count = list.Count();
+            for (int i = 0; i < count; i++)
             {
-                int pos = random.Next(0, lista.Count);
-                T o = lista[pos];
-                mazoAuxiliar.Add(o);
-                lista.Remove(o);
+                int pos = random.Next(0, list.Count);
+                T o = list[pos];
+                auxiliar.Add(o);
+                list.Remove(o);
             }
-            return mazoAuxiliar;
+            return auxiliar;
         }
     }
 

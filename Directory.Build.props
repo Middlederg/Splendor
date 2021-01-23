@@ -1,0 +1,9 @@
+<Project>
+    <Import Project="build/dependencies.props"/>
+    <PropertyGroup Label="Default Metadata">
+        <Authors>Aadvantage Lab</Authors>
+        <Company>Aadvantage Lab</Company>
+        <PublishUrl></PublishUrl>
+        <RepositoryUrl>https://github.com/Middlederg/Splendor.git</RepositoryUrl>
+    </PropertyGroup>
+</Project>

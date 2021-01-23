@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup Label="Default project values">
+    <NetCoreAppVersion>netcoreapp3.1</NetCoreAppVersion>
+    <NetStandardVersion>netstandard2.0</NetStandardVersion>
+    <LangVersion>8.0</LangVersion>
+    <LangVersionNetStandard>7.3</LangVersionNetStandard>
+  </PropertyGroup>
+</Project>
