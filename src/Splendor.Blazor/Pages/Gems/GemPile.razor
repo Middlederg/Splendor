@@ -1,0 +1,12 @@
+﻿<div class="">
+    <img class="" src="img/gems/piled-gems/@($"{Gem.PilePath(Number).Path}.png")" />
+</div>
+
+@code {
+    [Parameter]
+    public Gem Gem { get; set; }
+
+    [Parameter]
+    public int Number { get; set; }
+}
+

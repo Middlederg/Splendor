@@ -1,0 +1,33 @@
+﻿@page "/main"
+
+<div class="flex justify-center">
+
+    <div class="flex flex-col m-4 shadow-md">
+
+        @foreach (var player in game.OtherPlayers(game.Players[0]))
+        {
+            <PlayerCard Player="player" />
+        }
+    </div>
+
+    <Board Deck="game.Deck" />
+    <MarketBoard Market="game.Market" />
+    <NobilityBoard NobilityBox="game.NobilityBox" />
+</div>
+
+
+<button class="btn btn-primary">Click me</button>
+
+@code {
+    private Game game;
+
+    protected override void OnInitialized()
+    {
+        game = new Game(Prestige.FromScalar(15), 
+            (Avatars.Danilo, ColorFactory.Red), 
+            (Avatars.Debra, ColorFactory.Purple),
+            (Avatars.Donnie, ColorFactory.Orange),
+            (Avatars.Frankie, ColorFactory.Yellow));
+    }
+
+}

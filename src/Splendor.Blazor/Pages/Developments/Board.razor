@@ -1,0 +1,32 @@
+﻿
+<div class="flex flex-col justify-center m-4 shadow-md">
+    <div class="flex justify-items-center">
+
+        @foreach (var development in Deck.VisibleDevelopments(Level.Level3))
+        {
+            <Card development="development" />
+        }
+    </div>
+
+    <div class="flex justify-items-center">
+
+        @foreach (var development in Deck.VisibleDevelopments(Level.Level2))
+        {
+            <Card development="development" />
+        }
+    </div>
+
+    <div class="flex justify-items-center">
+
+        @foreach (var development in Deck.VisibleDevelopments(Level.Level1))
+        {
+            <Card development="development" />
+        }
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public Deck Deck { get; set; }
+}

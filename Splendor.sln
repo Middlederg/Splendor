@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splendor.Blazor", "src\Splendor.Blazor\Splendor.Blazor.csproj", "{B8C04109-07EE-4D76-801A-2C412154C392}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C04109-07EE-4D76-801A-2C412154C392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C04109-07EE-4D76-801A-2C412154C392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C04109-07EE-4D76-801A-2C412154C392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C04109-07EE-4D76-801A-2C412154C392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{78699946-D78D-43EF-8487-CA6089A757EF} = {5805707D-B69A-4FE0-9112-38B761536E44}
 		{D992A279-2753-45A1-940E-1ABACCE89A74} = {E295165E-581F-4FB1-A442-554F4CBE3E4C}
 		{6A669BAB-8A0C-4A12-B723-96DD1B937BAA} = {5805707D-B69A-4FE0-9112-38B761536E44}
+		{B8C04109-07EE-4D76-801A-2C412154C392} = {5805707D-B69A-4FE0-9112-38B761536E44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F17CCEF-E9CF-44E4-BD0E-AA6D7D10770B}

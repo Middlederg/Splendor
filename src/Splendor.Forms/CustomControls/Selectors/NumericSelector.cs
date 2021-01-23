@@ -78,7 +78,7 @@ namespace Splendor.Forms
         {
             if (currentValue + 1 <= MaxValue)
             {
-                CurrentValue -= 1;
+                CurrentValue++;
                 OnValueChangedClicked?.Invoke(this, new ValueEventArgs<int>(currentValue));
             }
         }

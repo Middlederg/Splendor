@@ -1,0 +1,12 @@
+﻿<div class="flex flex-col m-4 shadow-md">
+
+    @foreach (var gem in Gems.GetAllGemsWithGold())
+    {
+        <GemPile Gem="gem" Number="Market.AvaliableOfType(gem)" />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Market Market { get; set; }
+}

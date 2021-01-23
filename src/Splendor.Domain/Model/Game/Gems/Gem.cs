@@ -15,13 +15,13 @@ namespace Splendor.Domain
             switch (number)
             {
                 case 0: return NamedPath.Empty;
-                case 1: return new NamedPath($"{GetType().Name.ToLower()}1");
-                case 2: return new NamedPath($"{GetType().Name.ToLower()}2");
-                case 3: return new NamedPath($"{GetType().Name.ToLower()}3");
-                case 4: return new NamedPath($"{GetType().Name.ToLower()}3");
-                case 5: return new NamedPath($"{GetType().Name.ToLower()}4");
-                case 6: return new NamedPath($"{GetType().Name.ToLower()}4");
-                default: return new NamedPath($"{GetType().Name.ToLower()}5");
+                case 1: return new NamedPath($"{Path}1");
+                case 2: return new NamedPath($"{Path}2");
+                case 3: return new NamedPath($"{Path}3");
+                case 4: return new NamedPath($"{Path}3");
+                case 5: return new NamedPath($"{Path}4");
+                case 6: return new NamedPath($"{Path}4");
+                default: return new NamedPath($"{Path}5");
             }
         }
 
