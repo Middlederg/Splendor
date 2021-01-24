@@ -13,6 +13,14 @@
 
         </p>
     </div>
+
+    <div class="flex justify-center mt-4">
+        @foreach (var gem in Gems.GetAllGems())
+        {
+            <DevelopmentCounter Developments="@Player.GetDevelopmentsOfType(gem)" />
+        }
+    </div>
+
     <div class="mt-6 pt-3 flex flex-wrap mx-6 border-t">
         <div class="text-xs mr-2 my-1 uppercase tracking-wider border px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-indigo-100 cursor-default">
             User experience

@@ -1,0 +1,18 @@
+﻿<span class="mx-1 px-2 py-1 bg-gray-400 rounded-md font-semibold border-2 font-mono"
+      style="color:@FontColor().ToHex(); border-color:black; background-color:@BackColor().ToHex()"
+      title="@Developments.JoinList()">
+    @Developments.Count()
+</span>
+
+@code
+{ 
+    [Parameter]
+    public IEnumerable<Development> Developments { get; set; }
+
+    private System.Drawing.Color BackColor() => Developments.BackColor();
+
+    private System.Drawing.Color FontColor() => BackColor() == System.Drawing.Color.White ? 
+        System.Drawing.Color.Black : 
+        System.Drawing.Color.White;
+
+}
