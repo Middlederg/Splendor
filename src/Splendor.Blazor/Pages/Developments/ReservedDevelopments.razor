@@ -1,0 +1,15 @@
+﻿
+@if (Total > 0)
+{
+    <span class="flex justify-content font-semibold">
+        <span class="mx-1 px-2 py-1 bg-gray-400 rounded-md font-semibold border-2 font-mono text-black bg-gray border-black"
+              title="Reserved developments">
+            @Total
+        </span>
+    </span>
+}
+
+@code {
+    [Parameter]
+    public int Total { get; set; }
+}

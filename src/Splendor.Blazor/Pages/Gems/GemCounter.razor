@@ -1,0 +1,25 @@
+﻿<div class="mx-1 px-2 py-1 font-semibold font-mono"
+     title="@Gems.JoinList()">
+    <span>@Gems.Count()</span>
+    @if (ContainsAnyGem())
+    {
+        <img class="" src="img/gems/small/@($"{Path()}.png")" />
+    }
+</div>
+
+@code
+{
+    [Parameter]
+    public IEnumerable<Gem> Gems { get; set; }
+
+    private bool ContainsAnyGem() => Gems.Any();
+
+    private string Path()
+    {
+        if (!ContainsAnyGem())
+        {
+            return "";
+        }
+        return Gems.First().SmallPath.Path;
+    }
+}

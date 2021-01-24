@@ -1,13 +1,23 @@
 ﻿<div class="bg-white justify-center items-center overflow-hidden md:max-w-sm rounded-lg shadow-sm mx-auto">
-    <div class="relative h-12" style="background-color:@(Player.Color.StrongColor.ToHex())">
+    <div class="relative h-12 flex justify-between" style="background-color:@(Player.Color.StrongColor.ToHex())">
+
+            <NoblesTotal Total="3" />
+
+            <GemsTotal Total="5" />
+
     </div>
     <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4" style="background-color:@(Player.Color.SoftColor.ToHex())">
         <img class="object-cover w-full h-full" src="img/characters/@($"{Player.Avatar.Path}.png")">
     </div>
-    <div class="mt-2">
+    <div class="my-1">
         <h1 class="mx-4 text-lg font-semibold">
             @Player.ToString()
-            <small class="float-right small">@Player.Prestige</small>
+
+            <span class="px-3 py-1 float-right small text-white font-mono"
+                  style="background-image: url(img/shield.svg);background-position: center;background-repeat: no-repeat;background-size: cover;">
+                @Player.Prestige.ToString()
+            </span>
+
         </h1>
         <p class="text-sm text-gray-600">
 
@@ -18,6 +28,14 @@
         @foreach (var gem in Gems.GetAllGems())
         {
             <DevelopmentCounter Developments="@Player.GetDevelopmentsOfType(gem)" />
+        } 
+        <ReservedDevelopments Total="1" />
+    </div>
+
+    <div class="flex justify-center mt-4">
+        @foreach (var gem in Gems.GetAllGemsWithGold())
+        {
+            <GemCounter Gems="@Player.GemsOfType(gem)" />
         }
     </div>
 
