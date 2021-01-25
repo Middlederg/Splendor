@@ -1,8 +1,8 @@
 ﻿@page "/main"
 
-<div class="flex justify-center">
+<div class="flex flex-col xl:justify-center lg:flex-row">
 
-    <div class="flex flex-col m-4 shadow-md">
+    <div class="flex lg:flex-col m-4 shadow-md">
 
         @foreach (var player in game.OtherPlayers(game.Players[0]))
         {
@@ -17,6 +17,10 @@
 
 
 <button class="btn btn-primary">Click me</button>
+
+<span data-tooltip="Tooltip text">
+    Hover on me to see tooltip
+</span>
 
 @code {
     private Game game;

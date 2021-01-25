@@ -19,7 +19,8 @@ namespace Splendor.Domain
         public static implicit operator int(Prestige prestige) => prestige.value;
         public static explicit operator Prestige(int value) => new Prestige(value);
 
-        public override string ToString() => $"{value} pt{(value.IsPlural() ? "s" : "")}";
+        public override string ToString() => value.ToString();
+        public string ToText() => $"{value} pt{(value.IsPlural() ? "s" : "")}";
 
         public static bool operator ==(Prestige obj1, Prestige obj2) => obj1.Equals(obj2);
         public static bool operator !=(Prestige obj1, Prestige obj2) => !obj1.Equals(obj2);
