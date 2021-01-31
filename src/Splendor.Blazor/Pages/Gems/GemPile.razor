@@ -1,5 +1,9 @@
-﻿<button class="outline-none focus:outline-none" @onclick="() => OnClicked.InvokeAsync(Gem)">
+﻿<button class="relative outline-none focus:outline-none @(IsClickable ? "" : "pointer-events-none")" @onclick="GemClicked">
     <img class="" src="img/gems/piled-gems/@($"{Gem.PilePath(Number).Path}.png")" />
+    <span class="absolute bottom-0 right-0 px-2 py-0 mx-0 rounded-sm
+       text-black bg-gray-800 bg-opacity-30 rounded-full font-mono font-bold">
+        @Number
+    </span>
 </button>
 
 @code {
@@ -12,6 +16,13 @@
     [Parameter]
     public EventCallback<Gem> OnClicked { get; set; }
 
-
+    private bool IsClickable => Number > 0;
+    private async Task GemClicked()
+    {
+        if (IsClickable)
+        {
+            await OnClicked.InvokeAsync(Gem);
+        }
+    }
 }
 

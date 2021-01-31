@@ -4,38 +4,43 @@
 
     <div class="flex lg:flex-col m-4 shadow-md">
 
-        @foreach (var player in game.OtherPlayers(game.Players[0]))
+        @if (game != null)
         {
-            <PlayerCard Player="player" />
+            @foreach (var player in game.OtherPlayers(game.Players[0]))
+            {
+                <PlayerCard Player="player" />
+            }
         }
     </div>
 
-    <Board Deck="game.Deck" />
+    <Board Deck="game.Deck" OnDevelopmentClicked="DevelopmentClicked" />
     <MarketBoard Market="game.Market" OnGemClicked="GemClicked" />
     <NobilityBoard NobilityBox="game.NobilityBox" />
 </div>
 
-<div class="flex items-center justify-center">
+<GemsPanel @ref="gemsPanel" Game="game" OnGemsTaken="MoveMade" />
+<DevelopmentsPanel @ref="developmentsPanel" Game="game" OnDevelopmentTaken="MoveMade" />
 
-    @if (selectedGems != null)
-    {
-
-        @foreach (var gem in selectedGems)
-        {
-            <RemovableToken Gem="gem" OnRemoved="GemRemoved" />
-        }
-    }
-</div>
-
-<button class="btn btn-primary">Click me</button>
-
-<span data-tooltip="Tooltip text">
-    Hover on me to see tooltip
-</span>
+@if (!string.IsNullOrWhiteSpace(infoText) || !string.IsNullOrWhiteSpace(infoTitle))
+{
+    <div class="flex justify-center">
+        <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 pr-8 rounded-sm relative" role="alert">
+            <strong class="mr-1">@infoTitle</strong> @infoText
+            <button type="button" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove();">
+                <span class="absolute top-0 bottom-0 right-0 text-2xl px-3 py-1 hover:text-red-900" aria-hidden="true">×</span>
+            </button>
+        </div>
+    </div>
+}
 
 @code {
+    string infoTitle;
+    string infoText;
+
     private Game game;
-    private List<Gem> selectedGems;
+
+    private GemsPanel gemsPanel;
+    private DevelopmentsPanel developmentsPanel;
 
     protected override void OnInitialized()
     {
@@ -45,17 +50,30 @@
             (Avatars.Donnie, ColorFactory.Orange),
             (Avatars.Frankie, ColorFactory.Yellow));
 
-        selectedGems = new List<Gem>();
     }
 
-
-    private void GemClicked(Gem gem)
+    public void GemClicked(Gem gem)
     {
-        selectedGems.Add(gem);
+        gemsPanel.AddGem(gem);
+        gemsPanel.Show = true;
+        developmentsPanel.Show = false;
     }
 
-    private void GemRemoved(Gem gem)
+    public void DevelopmentClicked(Development development)
     {
-        selectedGems.Remove(gem);
+        developmentsPanel.SetDevelopment(development);
+        gemsPanel.Show = false;
+        developmentsPanel.Show = true;
+    }
+
+    private void MoveMade(GameAction action)
+    {
+        infoTitle = game.CurrentPlayer.ToString();
+        infoText = action.ToString();
+
+        gemsPanel.Reset();
+
+        gemsPanel.Show = false;
+        developmentsPanel.Show = false;
     }
 }

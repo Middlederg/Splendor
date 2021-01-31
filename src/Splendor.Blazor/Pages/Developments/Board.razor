@@ -1,32 +1,37 @@
 ﻿
 <div class="flex flex-col lg:justify-center m-4 shadow-md">
-    <div class="flex justify-center">
-        <BackCard Level="@Level.Level1" />
-        @foreach (var development in Deck.VisibleDevelopments(Level.Level3))
-        {
-            <Card development="development" />
-        }
-    </div>
-
-    <div class="flex justify-center">
-        <BackCard Level="@Level.Level2" />
-        @foreach (var development in Deck.VisibleDevelopments(Level.Level2))
-        {
-            <Card development="development" />
-        }
-    </div>
-
-    <div class="flex justify-center">
-        <BackCard Level="@Level.Level3" />
-        @foreach (var development in Deck.VisibleDevelopments(Level.Level1))
-        {
-            <Card development="development" />
-        }
-    </div>
+    @foreach (var level in Level.AllLevelsReverse)
+    {
+        <div class="flex justify-center">
+            <BackCard @ref="ComponentRef" Development="Deck.HiddenDevelopment(level)" OnClicked="DevelopmentClicked" />
+            @foreach (var item in Deck.VisibleDevelopments(level))
+            {
+                <Card @ref="ComponentRef"  Development="item" OnClicked="DevelopmentClicked" />
+            }
+        </div>
+    }
 </div>
-
 
 @code {
     [Parameter]
     public Deck Deck { get; set; }
+
+    private List<ISelectableDevelopment> componentList = new List<ISelectableDevelopment>();
+    ISelectableDevelopment ComponentRef
+    {
+        set { componentList.Add(value); }
+    }
+
+    [Parameter]
+    public EventCallback<Development> OnDevelopmentClicked { get; set; }
+
+    private void DevelopmentClicked(Development development)
+    {
+        foreach (var component in componentList.Where(x => !x.Development.Equals(development)))
+        {
+            component.Selected = false;
+        }
+
+        OnDevelopmentClicked.InvokeAsync(development);
+    }
 }

@@ -1,0 +1,72 @@
+﻿@if (Show)
+{
+    <div class="flex items-center justify-center">
+
+        @if (selectedGems != null)
+        {
+
+            @foreach (var gem in selectedGems)
+            {
+                <RemovableToken Gem="gem" OnRemoved="GemRemoved" />
+            }
+        }
+
+        @if (canBeTaken)
+        {
+            <button type="submit" class="ml-8 hover:bg-indigo-700 font-semibold text-indigo-900
+           hover:text-white py-1 px-4 border border-indigo-700 rounded-sm outline-none focus:outline-none" @onclick="TakeGems">
+                Take
+            </button>
+        }
+    </div>
+}
+
+@code {
+    public bool Show { get; set; } = true;
+
+    private bool canBeTaken = false;
+    private List<Gem> selectedGems;
+
+    [Parameter]
+    public Game Game { get; set; }
+
+    [Parameter]
+    public EventCallback<GameAction> OnGemsTaken { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Reset();
+    }
+
+    public void AddGem(Gem gem)
+    {
+        selectedGems.Add(gem);
+        UpdateVisibility();
+    }
+    public void Reset() => selectedGems = new List<Gem>();
+
+    private void GemRemoved(Gem gem)
+    {
+        selectedGems.Remove(gem);
+        UpdateVisibility();
+    }
+
+    private void TakeGems()
+    {
+        var service = new TakeGemsService(Game.CurrentPlayer, Game.Market, selectedGems.ToArray());
+        if (service.CanBeTaken())
+        {
+            service.Take();
+            var action = new TakeGems(selectedGems, null);
+            OnGemsTaken.InvokeAsync(action);
+            selectedGems = new List<Gem>();
+            canBeTaken = false;
+        }
+    }
+
+    private void UpdateVisibility()
+    {
+        var service = new TakeGemsService(Game.CurrentPlayer, Game.Market, selectedGems.ToArray());
+        canBeTaken = service.CanBeTaken();
+    }
+}
