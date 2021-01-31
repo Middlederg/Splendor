@@ -1,6 +1,6 @@
-﻿<button class="outline-none focus:outline-none" @onclick="() => OnClicked.InvokeAsync(Gem)">
+﻿<span>
     <img class="" src="img/gems/piled-gems/@($"{Gem.PilePath(Number).Path}.png")" />
-</button>
+</span>
 
 @code {
     [Parameter]
@@ -9,9 +9,4 @@
     [Parameter]
     public int Number { get; set; }
 
-    [Parameter]
-    public EventCallback<Gem> OnClicked { get; set; }
-
-
 }
-

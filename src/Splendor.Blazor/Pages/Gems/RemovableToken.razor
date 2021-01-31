@@ -1,0 +1,18 @@
+﻿<div class="relative mx-2">
+
+    <img class="" src="img/gems/circle/@($"{Gem.Path}.png")" />
+
+    <button class="absolute top-0 right-0 outline-none focus:outline-none px-2 py-0 rounded-sm
+       text-white bg-indigo-500 hover:bg-indigo-600"
+            @onclick="() => OnRemoved.InvokeAsync(Gem)">
+        x
+    </button>
+
+</div>
+@code {
+    [Parameter]
+    public Gem Gem { get; set; }
+
+    [Parameter]
+    public EventCallback<Gem> OnRemoved { get; set; }
+}

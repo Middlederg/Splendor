@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Market\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Splendor.Domain\Splendor.Domain.csproj" />
   </ItemGroup>
 

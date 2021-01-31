@@ -11,10 +11,21 @@
     </div>
 
     <Board Deck="game.Deck" />
-    <MarketBoard Market="game.Market" />
+    <MarketBoard Market="game.Market" OnGemClicked="GemClicked" />
     <NobilityBoard NobilityBox="game.NobilityBox" />
 </div>
 
+<div class="flex items-center justify-center">
+
+    @if (selectedGems != null)
+    {
+
+        @foreach (var gem in selectedGems)
+        {
+            <RemovableToken Gem="gem" OnRemoved="GemRemoved" />
+        }
+    }
+</div>
 
 <button class="btn btn-primary">Click me</button>
 
@@ -24,14 +35,27 @@
 
 @code {
     private Game game;
+    private List<Gem> selectedGems;
 
     protected override void OnInitialized()
     {
-        game = new Game(Prestige.FromScalar(15), 
-            (Avatars.Danilo, ColorFactory.Red), 
+        game = new Game(Prestige.FromScalar(15),
+            (Avatars.Danilo, ColorFactory.Red),
             (Avatars.Debra, ColorFactory.Purple),
             (Avatars.Donnie, ColorFactory.Orange),
             (Avatars.Frankie, ColorFactory.Yellow));
+
+        selectedGems = new List<Gem>();
     }
 
+
+    private void GemClicked(Gem gem)
+    {
+        selectedGems.Add(gem);
+    }
+
+    private void GemRemoved(Gem gem)
+    {
+        selectedGems.Remove(gem);
+    }
 }

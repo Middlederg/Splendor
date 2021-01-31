@@ -1,12 +1,22 @@
 ﻿<div class="flex justify-center lg:flex-col m-4 shadow-md">
 
-    @foreach (var gem in Gems.GetAllGemsWithGold())
+    @foreach (var gem in Gems.GetAllGems())
     {
-        <GemPile Gem="gem" Number="Market.AvaliableOfType(gem)" />
+        <GemPile Gem="gem" Number="Market.AvaliableOfType(gem)" OnClicked="GemClicked" />
     }
+
+    <ReadonlyGemPile Gem="Gems.Gold" Number="Market.AvaliableOfType(Gems.Gold)" />
 </div>
 
 @code {
     [Parameter]
     public Market Market { get; set; }
+
+    [Parameter]
+    public EventCallback<Gem> OnGemClicked { get; set; }
+
+    private void GemClicked(Gem gem)
+    {
+        OnGemClicked.InvokeAsync(gem);
+    }
 }
