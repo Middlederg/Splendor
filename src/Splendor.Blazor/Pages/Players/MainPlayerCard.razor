@@ -1,0 +1,20 @@
+﻿<div class="flex items-center justify-center">
+
+    <div class="flex justify-center my-4">
+        @foreach (var gem in Gems.GetAllGems())
+        {
+            <GemCounter Gems="@Player.GemsOfType(gem)" />
+            <DevelopmentCounter Developments="@Player.GetDevelopmentsOfType(gem)" />
+        }
+        <GemCounter Gems="@Player.GemsOfType(Gems.Gold)" />
+
+        <ReservedDevelopments Total="1" />
+
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public Player Player { get; set; }
+}

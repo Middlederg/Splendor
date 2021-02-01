@@ -1,9 +1,9 @@
-﻿<div class="mx-1 px-2 py-1 font-semibold font-mono"
+﻿<div class="flex justify-content items-center mx-1 px-2 py-1 font-semibold font-mono"
      title="@Gems.JoinList()">
     <span>@Gems.Count()</span>
     @if (ContainsAnyGem())
     {
-        <img class="" src="img/gems/small/@($"{Path()}.png")" />
+        <img class="w-6" src="img/gems/small/@($"{Path()}.png")" />
     }
 </div>
 

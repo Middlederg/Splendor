@@ -1,10 +1,13 @@
-﻿<button class="relative outline-none focus:outline-none @(IsClickable ? "" : "pointer-events-none")" @onclick="GemClicked">
-    <img class="" src="img/gems/piled-gems/@($"{Gem.PilePath(Number).Path}.png")" />
-    <span class="absolute bottom-0 right-0 px-2 py-0 mx-0 rounded-sm
+﻿@if (Number > 0)
+{
+    <button class="relative outline-none focus:outline-none @(IsClickable ? "" : "pointer-events-none")" @onclick="GemClicked">
+        <img class="" src="img/gems/piled-gems/@($"{Gem.PilePath(Number).Path}.png")" />
+        <span class="absolute bottom-0 right-0 px-2 py-0 mx-0 rounded-sm
        text-black bg-gray-800 bg-opacity-30 rounded-full font-mono font-bold">
-        @Number
-    </span>
-</button>
+            @Number
+        </span>
+    </button>
+}
 
 @code {
     [Parameter]

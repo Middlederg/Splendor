@@ -1,41 +1,44 @@
 ﻿@page "/main"
 
-<div class="flex flex-col xl:justify-center lg:flex-row">
+<div class="flex flex-col h-screen justify-between">
 
-    <div class="flex lg:flex-col m-4 shadow-md">
 
-        @if (game != null)
-        {
-            @foreach (var player in game.OtherPlayers(game.Players[0]))
+    <div class="flex flex-col xl:justify-center lg:flex-row">
+
+        <div class="flex lg:flex-col m-4 shadow-md">
+
+            @if (game != null)
             {
-                <PlayerCard Player="player" />
+                @foreach (var player in game.OtherPlayers(game.Players[0]))
+                {
+                    <PlayerCard Player="player" />
+                }
             }
-        }
+        </div>
+
+        <Board Deck="game.Deck" OnDevelopmentClicked="DevelopmentClicked" />
+        <MarketBoard Market="game.Market" OnGemClicked="GemClicked" />
+        <NobilityBoard NobilityBox="game.NobilityBox" />
     </div>
 
-    <Board Deck="game.Deck" OnDevelopmentClicked="DevelopmentClicked" />
-    <MarketBoard Market="game.Market" OnGemClicked="GemClicked" />
-    <NobilityBoard NobilityBox="game.NobilityBox" />
+    <GemsPanel @ref="gemsPanel" Game="game" OnGemsTaken="MoveMade" />
+    <DevelopmentsPanel @ref="developmentsPanel" Game="game" OnDevelopmentTaken="MoveMade" />
+
+
+
+    <footer class="h-30">
+        <div class="">
+
+            <MainPlayerCard Player="game.Players[0]" />
+        </div>
+        <div class="h-10">
+            <MessagePanel Message="message" />
+        </div>
+    </footer>
 </div>
 
-<GemsPanel @ref="gemsPanel" Game="game" OnGemsTaken="MoveMade" />
-<DevelopmentsPanel @ref="developmentsPanel" Game="game" OnDevelopmentTaken="MoveMade" />
-
-@if (!string.IsNullOrWhiteSpace(infoText) || !string.IsNullOrWhiteSpace(infoTitle))
-{
-    <div class="flex justify-center">
-        <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 pr-8 rounded-sm relative" role="alert">
-            <strong class="mr-1">@infoTitle</strong> @infoText
-            <button type="button" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove();">
-                <span class="absolute top-0 bottom-0 right-0 text-2xl px-3 py-1 hover:text-red-900" aria-hidden="true">×</span>
-            </button>
-        </div>
-    </div>
-}
-
 @code {
-    string infoTitle;
-    string infoText;
+    private MessageModel message;
 
     private Game game;
 
@@ -50,6 +53,13 @@
             (Avatars.Donnie, ColorFactory.Orange),
             (Avatars.Frankie, ColorFactory.Yellow));
 
+        message = new MessageModel();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        message.Set($"begins playing", game.CurrentPlayer.ToString());
+        await OnPlay();
     }
 
     public void GemClicked(Gem gem)
@@ -66,14 +76,37 @@
         developmentsPanel.Show = true;
     }
 
-    private void MoveMade(GameAction action)
+    private async Task MoveMade(GameAction action)
     {
-        infoTitle = game.CurrentPlayer.ToString();
-        infoText = action.ToString();
+        message.Set(action.ToString(), game.CurrentPlayer.ToString());
 
         gemsPanel.Reset();
 
         gemsPanel.Show = false;
         developmentsPanel.Show = false;
+
+        game.NextTurn();
+
+        await OnPlay();
+    }
+
+    private async Task OnPlay()
+    {
+        while (!game.CurrentPlayer.IsHuman)
+        {
+            var moveService = new MoveService(game);
+            var move = moveService.MakeMove();
+            message.Set(move.ToString(), game.CurrentPlayer.ToString());
+            StateHasChanged();
+
+            await Task.Delay(2000);
+
+            //Update players board
+
+            //Show modal of player move
+
+            game.NextTurn();
+        }
+        message.Set("Your turn");
     }
 }
